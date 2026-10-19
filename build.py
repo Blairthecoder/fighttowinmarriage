@@ -7,6 +7,7 @@ OUT = os.path.join(os.path.dirname(__file__), "site")
 NAME = "Fight to Win Marriages"
 IG = "https://www.instagram.com/fighttowinmarriages/"
 YT = "https://www.youtube.com/watch?v=5Sk_Hm1As2k"
+EMAIL = "fighttowinmarriages@gmail.com"
 TT = ""  # [PLACEHOLDER: TikTok profile URL] - footer link and sameAs appear once set
 SAME_AS = [u for u in (IG, TT, YT) if u]
 
@@ -29,7 +30,8 @@ ORG = {
     "name": NAME,
     "url": SITE + "/",
     "logo": f"{SITE}/assets/logo.png",
-    "description": "Faith-based marriage ministry encouraging couples not to give up, with biblical marriage coaching, a weekly Tuesday prayer and fasting call, and marriage events and speaking.",
+    "description": "Faith-based marriage ministry founded on 2 Corinthians 10:4 and Ephesians 6:12 that equips husbands and wives with spiritual warfare, biblical principles, prayer and practical tools to build healed, healthy, God-centered marriages.",
+    "email": EMAIL,
     "founder": {"@id": f"{SITE}/#terrie"},
     "sameAs": SAME_AS,
 }
@@ -37,12 +39,14 @@ PERSON = {
     "@type": "Person",
     "@id": f"{SITE}/#terrie",
     "name": "Terrie Beeman",
-    "jobTitle": "Biblical Marriage Coach and Speaker",
+    "jobTitle": "Certified Christian Counselor and Marriage Coach",
+    "description": "Terrie Beeman is a Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator and Prayer Warrior, and the founder of Fight to Win Marriages.",
+    "email": EMAIL,
     "image": f"{SITE}/assets/terrie-beeman.jpg",
     "url": f"{SITE}/about/",
     "worksFor": {"@id": f"{SITE}/#org"},
     "sameAs": SAME_AS,
-    "knowsAbout": ["Christian marriage coaching", "Marriage restoration", "Prayer and fasting for marriage", "Biblical marriage"],
+    "knowsAbout": ["Christian marriage coaching", "Marriage restoration", "Prayer and fasting for marriage", "Biblical marriage", "Spiritual warfare prayer", "Christian counseling", "Premarital coaching"],
 }
 WEBSITE = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": SITE + "/", "name": NAME, "publisher": {"@id": f"{SITE}/#org"}}
 
@@ -125,9 +129,9 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <p>We don't give up on marriage. We fight in prayer, love &amp; faith. A God-filled space for healing, restoration, and standing on God's promises together.</p>
 <p class="social"><a href="{IG}" rel="noopener" target="_blank">Instagram</a> · {f'<a href="{TT}" rel="noopener" target="_blank">TikTok</a> · ' if TT else ''}<a href="{YT}" rel="noopener" target="_blank">YouTube</a></p></div>
 <div><h3>Ministry</h3><ul><li><a href="/marriage-coaching/">Christian Marriage Coaching</a></li><li><a href="/tuesday-prayer-call/">Tuesday Prayer &amp; Fasting Call</a></li><li><a href="/events/">Marriage Events &amp; Speaking</a></li><li><a href="/blog/">Marriage Blog</a></li></ul></div>
-<div><h3>Connect</h3><ul><li><a href="/about/">About Terrie Beeman</a></li><li><a href="/contact/">Book or Contact</a></li><li>Email: {ph("email address")}</li><li>Phone: {ph("phone, optional")}</li></ul></div>
+<div><h3>Connect</h3><ul><li><a href="/about/">About Terrie Beeman</a></li><li><a href="/contact/">Book or Contact</a></li><li>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></li><li>Phone: {ph("phone, optional")}</li></ul></div>
 </div>
-<div class="wrap legal"><p>&copy; 2026 Fight to Win Marriages. Coaching is faith-based guidance and is not a substitute for licensed counseling. If you are in danger, call 911 or the National Domestic Violence Hotline at 1-800-799-7233.</p><p><a href="/privacy/">Privacy Policy</a></p></div>
+<div class="wrap legal"><p>&copy; 2026 Fight to Win Marriages. Coaching and Christian counseling are faith-based and are not a substitute for licensed clinical or mental health care. If you are in danger, call 911 or the National Domestic Violence Hotline at 1-800-799-7233.</p><p><a href="/privacy/">Privacy Policy</a></p></div>
 </footer>
 <script>
 const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
@@ -183,6 +187,28 @@ home = f'''
 <section class="section alt">
 <div class="wrap split">
 <div>
+<p class="eyebrow">Our mission</p>
+<h2>Putting marriages back on the map</h2>
+<p>Marriage is one of God's greatest institutions, and we believe it is worth fighting for. Founded on 2 Corinthians 10:4 and Ephesians 6:12, Fight to Win Marriages partners with God to equip husbands and wives with spiritual warfare weapons, biblical principles, prayer, encouragement and practical tools to build strong, healthy, God-centered marriages.</p>
+<p><strong>Our vision</strong> is to see marriages healed, healthy and whole, and to decrease the divorce rate in the body of believers.</p>
+<h3>Who we serve</h3>
+<ul class="checks">
+<li>Married couples, newlyweds to decades in</li>
+<li>Engaged couples and individuals preparing for marriage</li>
+<li>Spouses seeking healing, restoration, wisdom and biblical guidance</li>
+</ul>
+<p>Whether your marriage needs healing, strengthening, encouragement or prayer, you are welcome here.</p>
+</div>
+<div>
+<blockquote class="verse">"The weapons we fight with are not the weapons of the world. On the contrary, they have divine power to demolish strongholds."<cite>2 Corinthians 10:4</cite></blockquote>
+<blockquote class="verse" style="margin-top:20px">"For our struggle is not against flesh and blood, but against the rulers, against the authorities, against the powers of this dark world and against the spiritual forces of evil in the heavenly realms."<cite>Ephesians 6:12</cite></blockquote>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap split">
+<div>
 <h2>Winning means winning as a team</h2>
 <p>In a marriage, your spouse is not the enemy. Most conflict is a battle against stress, exhaustion, old wounds and spiritual opposition. Fighting to win means you team up against the problem and stand together in prayer.</p>
 <ul class="checks">
@@ -226,12 +252,17 @@ page("/", "Christian Marriage Coaching & Prayer | Fight to Win Marriages",
 about = f'''
 <section class="page-hero"><div class="wrap split">
 <div><p class="eyebrow">About the founder</p><h1>Meet Terrie Beeman</h1>
-<p class="lead">Biblical marriage coach, intercessor and speaker, and founder of Fight to Win Marriages.</p></div>
+<p class="lead">Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator and Prayer Warrior, and founder of Fight to Win Marriages.</p></div>
 <div class="portrait sm">{PORTRAIT.format(extra='')}</div>
 </div></section>
 <section class="section"><div class="wrap narrow prose">
 <h2>Why Fight to Win Marriages exists</h2>
-<p>Terrie Beeman started Fight to Win Marriages with one message: don't give up. Too many couples walk away from a covenant God can still heal. Through coaching, prayer and teaching, Terrie helps husbands and wives stop fighting each other and start fighting for each other.</p>
+<p>Terrie Beeman started Fight to Win Marriages with one message: don't give up. Marriage is one of God's greatest institutions, and it is worth fighting for. Too many couples walk away from a covenant God can still heal. Through coaching, prayer and teaching, Terrie helps husbands and wives stop fighting each other and start fighting for each other.</p>
+<p>The ministry is founded on 2 Corinthians 10:4 and Ephesians 6:12. Our battle is not against our spouse but against spiritual forces, and God has given us weapons with divine power to pull down strongholds. Fight to Win Marriages partners with God to equip husbands and wives with those weapons, along with biblical principles, prayer, encouragement and practical tools to build strong, healthy, God-centered marriages.</p>
+<h2>Our vision</h2>
+<p>To see marriages healed, healthy and whole, and to decrease the divorce rate in the body of believers. Terrie is committed to inspiring faith, restoring hope and putting marriages back on the map.</p>
+<h2>Who we serve</h2>
+<p>Married and engaged couples, individuals preparing for marriage, and anyone seeking healing, restoration, wisdom and biblical guidance for their marriage.</p>
 <p>{ph("Terrie's story in her own words: how God led her into marriage ministry, her own marriage journey, years in ministry")}</p>
 <h2>What Terrie believes about marriage</h2>
 <ul class="checks">
@@ -241,20 +272,27 @@ about = f'''
 <li>No season is too late, whether you are newlyweds or married 40 years.</li>
 </ul>
 <h2>Credentials and ministry background</h2>
-<p>{ph("Certifications, training, church affiliation, ordination, books, media appearances")}</p>
+<ul class="checks">
+<li>Certified Christian Counselor</li>
+<li>Spiritual Life Coach</li>
+<li>Marriage Coach</li>
+<li>Motivator and speaker</li>
+<li>Prayer Warrior and intercessor</li>
+</ul>
+<p>{ph("Certifying organization, years in ministry, church affiliation, media appearances")}</p>
 <h2>A growing online community</h2>
 <p>Fight to Win Marriages has become a faith-based relationship community across <a href="{IG}" target="_blank" rel="noopener">Instagram</a>, TikTok and <a href="{YT}" target="_blank" rel="noopener">YouTube</a>, where couples find daily encouragement to keep standing.</p>
 </div></section>
 {cta_band(title="Work with Terrie", text="Coaching, prayer and speaking for couples and churches.", primary=("/marriage-coaching/", "See Coaching Options"), secondary=("/events/", "Invite Terrie to Speak"))}
 '''
-page("/about/", "About Terrie Beeman, Biblical Marriage Coach | Fight to Win Marriages",
-     "Meet Terrie Beeman, founder of Fight to Win Marriages, a biblical marriage coach and speaker who helps couples heal, restore and fight for their marriage.",
+page("/about/", "About Terrie Beeman, Christian Counselor & Marriage Coach | Fight to Win Marriages",
+     "Meet Terrie Beeman, Certified Christian Counselor, marriage coach and prayer warrior who founded Fight to Win Marriages to help couples heal and fight for their marriage.",
      about, schema=[PERSON, {"@type": "AboutPage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
      og_type="profile", crumb=[("/", "Home"), ("/about/", "About Terrie Beeman")])
 
 # ---------------------------------------------------------------- COACHING
 coach_faq = [
-    ("Is this Christian marriage counseling?", "This is faith-based marriage coaching, not licensed therapy. Coaching uses biblical principles, prayer and practical tools to help you move forward. If you need clinical or crisis care, Terrie will encourage you to seek a licensed professional alongside coaching."),
+    ("Is this Christian marriage counseling?", "Terrie is a Certified Christian Counselor and Marriage Coach. Sessions are faith-based coaching and Christian counseling, not licensed clinical therapy. Coaching uses biblical principles, prayer and practical tools to help you move forward. If you need clinical or crisis care, Terrie will encourage you to seek a licensed professional alongside coaching."),
     ("Can I do coaching if my spouse won't join?", "Yes. Many people begin coaching alone while standing for their marriage. Individual sessions focus on your heart, your prayer life and the changes you can make."),
     ("Are sessions online?", "Yes. Sessions are held online by video so couples anywhere can participate."),
     ("How much does marriage coaching cost?", "Pricing depends on the package. See the options on this page or request a free consultation to find the right fit."),
@@ -437,7 +475,7 @@ contact = f'''
 </form>
 <aside class="card">
 <h2>Other ways to connect</h2>
-<p><strong>Email:</strong> {ph("email address")}</p>
+<p><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 <p><strong>Scheduling:</strong> {ph("Calendly or booking link")}</p>
 <p><strong>Instagram:</strong> <a href="{IG}" target="_blank" rel="noopener">@fighttowinmarriages</a></p>
 <p><strong>YouTube:</strong> <a href="{YT}" target="_blank" rel="noopener">Fight to Win Marriages</a></p>
@@ -529,7 +567,7 @@ POSTS = [
 ]
 
 def author_box():
-    return f'''<aside class="author card"><div class="portrait xs">{PORTRAIT.format(extra='loading="lazy"')}</div><div><p class="eyebrow">Written by</p><h2><a href="/about/">Terrie Beeman</a></h2><p>Biblical marriage coach, speaker and founder of Fight to Win Marriages. Terrie hosts a weekly Tuesday prayer and fasting call for couples.</p></div></aside>'''
+    return f'''<aside class="author card"><div class="portrait xs">{PORTRAIT.format(extra='loading="lazy"')}</div><div><p class="eyebrow">Written by</p><h2><a href="/about/">Terrie Beeman</a></h2><p>Certified Christian Counselor, marriage coach, prayer warrior and founder of Fight to Win Marriages. Terrie hosts a weekly Tuesday prayer and fasting call for couples.</p></div></aside>'''
 
 cards = ""
 for p in POSTS:
@@ -570,7 +608,7 @@ page("/blog/", "Christian Marriage Blog | Fight to Win Marriages",
 page("/thank-you/", "Thank You | Fight to Win Marriages", "Thank you for reaching out to Fight to Win Marriages.",
      '<section class="page-hero"><div class="wrap narrow"><h1>Thank you. We received your message.</h1><p class="lead">Terrie or a member of her team will follow up soon. In the meantime, join the <a href="/tuesday-prayer-call/">Tuesday prayer call</a> or read the <a href="/blog/">marriage blog</a>.</p></div></section>')
 page("/privacy/", "Privacy Policy | Fight to Win Marriages", "Privacy policy for Fight to Win Marriages.",
-     f'<section class="section"><div class="wrap narrow prose"><h1>Privacy Policy</h1><p>Fight to Win Marriages collects the information you submit through forms on this site (such as your name, email and message) only to respond to you and provide the services you request. We do not sell your information.</p><p>{ph("Full privacy policy text, analytics disclosure and contact email")}</p></div></section>',
+     f'<section class="section"><div class="wrap narrow prose"><h1>Privacy Policy</h1><p>Fight to Win Marriages collects the information you submit through forms on this site (such as your name, email and message) only to respond to you and provide the services you request. We do not sell your information.</p><p>Questions about your information? Email <a href="mailto:{EMAIL}">{EMAIL}</a>. {ph("Full privacy policy text and analytics disclosure")}</p></div></section>',
      crumb=[("/", "Home"), ("/privacy/", "Privacy Policy")])
 
 # 404
