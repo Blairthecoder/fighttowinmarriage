@@ -7,8 +7,8 @@ OUT = os.path.join(os.path.dirname(__file__), "site")
 NAME = "Fight to Win Marriages"
 IG = "https://www.instagram.com/fighttowinmarriages/"
 YT = "https://www.youtube.com/watch?v=5Sk_Hm1As2k"
-TT = "#"  # [PLACEHOLDER: TikTok profile URL]
-SAME_AS = [IG, YT]
+TT = ""  # [PLACEHOLDER: TikTok profile URL] - footer link and sameAs appear once set
+SAME_AS = [u for u in (IG, TT, YT) if u]
 
 NAV = [
     ("/", "Home"),
@@ -123,7 +123,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <div class="wrap cols">
 <div><p class="brand foot"><span class="mark" aria-hidden="true">&#10084;</span> Fight to Win Marriages</p>
 <p>We don't give up on marriage. We fight in prayer, love &amp; faith. A God-filled space for healing, restoration, and standing on God's promises together.</p>
-<p class="social"><a href="{IG}" rel="noopener" target="_blank">Instagram</a> · <a href="{TT}" rel="noopener" target="_blank">TikTok</a> · <a href="{YT}" rel="noopener" target="_blank">YouTube</a></p></div>
+<p class="social"><a href="{IG}" rel="noopener" target="_blank">Instagram</a> · {f'<a href="{TT}" rel="noopener" target="_blank">TikTok</a> · ' if TT else ''}<a href="{YT}" rel="noopener" target="_blank">YouTube</a></p></div>
 <div><h3>Ministry</h3><ul><li><a href="/marriage-coaching/">Christian Marriage Coaching</a></li><li><a href="/tuesday-prayer-call/">Tuesday Prayer &amp; Fasting Call</a></li><li><a href="/events/">Marriage Events &amp; Speaking</a></li><li><a href="/blog/">Marriage Blog</a></li></ul></div>
 <div><h3>Connect</h3><ul><li><a href="/about/">About Terrie Beeman</a></li><li><a href="/contact/">Book or Contact</a></li><li>Email: {ph("email address")}</li><li>Phone: {ph("phone, optional")}</li></ul></div>
 </div>
