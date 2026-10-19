@@ -128,3 +128,6 @@ p{margin:0 0 1em}
 .declarations{padding-left:1.4em}
 .declarations li{margin-bottom:14px;padding-left:6px}
 .declarations li::marker{color:var(--gold);font-weight:700}
+.testimonial{max-width:760px;margin:28px auto 0;text-align:center;padding:40px}
+.testimonial blockquote{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem;line-height:1.4;color:var(--plum)}
+.testimonial figcaption{color:var(--muted)}
