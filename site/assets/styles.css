@@ -131,3 +131,39 @@ p{margin:0 0 1em}
 .testimonial{max-width:760px;margin:28px auto 0;text-align:center;padding:40px}
 .testimonial blockquote{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem;line-height:1.4;color:var(--plum)}
 .testimonial figcaption{color:var(--muted)}
+/* mobile */
+.mobile-cta{display:none}
+.author .portrait{flex-shrink:0}
+@media(max-width:1020px){#nav ul{width:100%}#nav ul a{display:block;padding:10px 0;font-size:1.05rem}#nav .btn{width:100%;text-align:center}}
+@media(max-width:700px){
+body{font-size:16.5px}
+.section{padding:44px 0}.page-hero{padding:32px 0 28px}.cta-band{padding:48px 0}.site-footer{padding:44px 0 100px}
+.wrap{padding:0 16px}
+.hero{padding:24px 0 40px}.hero .portrait img{max-width:150px;border-width:5px}.hero-grid{gap:20px}
+.btns{flex-direction:column;align-items:stretch;gap:10px}.btns .btn{text-align:center}
+.cta-band .btns{max-width:340px;margin-left:auto;margin-right:auto}
+.eyebrow{font-size:.8rem;letter-spacing:.09em}
+.when span{font-size:.78rem}
+.verse{padding:24px 22px;font-size:1.35rem}
+.testimonial{padding:26px 20px}.testimonial blockquote{font-size:1.3rem;margin:0 0 12px}
+.card{padding:22px}
+.cards{gap:16px}
+.link{display:inline-block;padding:10px 0}
+.faq summary{padding:4px 0;min-height:32px}
+.form .check input{width:22px;height:22px}
+.form button{justify-self:stretch}
+.event{grid-template-columns:auto 1fr;gap:14px;padding:16px}
+.event .date{padding:8px 12px;align-self:start}
+.event .date strong{font-size:1.2rem}
+.event .btn{grid-column:1/-1;text-align:center}
+.events+p{margin-top:16px}
+.tags{margin-bottom:18px}
+h3+.tags,.cards+h3{margin-top:24px}
+.author{flex-direction:column;align-items:flex-start;gap:12px;text-align:left}
+.author .portrait.xs img{max-width:72px}
+.video{margin-left:-16px!important;margin-right:-16px!important;border-radius:0}
+.site-footer li{margin-bottom:12px}
+.declarations{padding-left:1.2em}
+.mobile-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(251,246,239,.97);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(42,31,38,.08)}
+.mobile-cta .btn{padding:11px 8px;font-size:.92rem;text-align:center}
+}
