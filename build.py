@@ -8,6 +8,9 @@ NAME = "Fight to Win Marriages"
 IG = "https://www.instagram.com/fighttowinmarriages/"
 YT = "https://www.youtube.com/watch?v=5Sk_Hm1As2k"
 EMAIL = "fighttowinmarriages@gmail.com"
+ZOOM = "https://us02web.zoom.us/j/84083347510"
+ZOOM_ID = "840 8334 7510"
+TUE_TIME = "6:00 PM CT"
 TT = ""  # [PLACEHOLDER: TikTok profile URL] - footer link and sameAs appear once set
 SAME_AS = [u for u in (IG, TT, YT) if u]
 
@@ -178,7 +181,7 @@ home = f'''
 <h2 class="center">Three ways to get help for your marriage</h2>
 <div class="cards three">
 <article class="card"><h3>Christian Marriage Coaching</h3><p>One-on-one or couples sessions rooted in Scripture. Work through conflict, broken trust, communication and separation with a coach who believes your marriage can be restored.</p><a class="link" href="/marriage-coaching/">Explore coaching &rarr;</a></article>
-<article class="card featured"><h3>Tuesday Prayer &amp; Fasting Call</h3><p>Every Tuesday, Terrie prays, fasts and offers biblical guidance to couples on Zoom. Bring your marriage before God alongside others who are standing too.</p><a class="link" href="/tuesday-prayer-call/">Join the call &rarr;</a></article>
+<article class="card featured"><h3>Tuesday Prayer &amp; Fasting Call</h3><p>Every Tuesday at {TUE_TIME}, Terrie prays, fasts and offers biblical guidance to couples on Zoom. Bring your marriage before God alongside others who are standing too.</p><a class="link" href="/tuesday-prayer-call/">Join the call &rarr;</a></article>
 <article class="card"><h3>Events &amp; Speaking</h3><p>Invite Terrie to your church, couples retreat, women's conference or marriage ministry for a message of hope, healing and covenant love.</p><a class="link" href="/events/">Book Terrie to speak &rarr;</a></article>
 </div>
 </div>
@@ -349,7 +352,7 @@ page("/marriage-coaching/", "Christian Marriage Coaching Online | Fight to Win M
 
 # ---------------------------------------------------------------- TUESDAY CALL
 tue_faq = [
-    ("Is the Tuesday prayer call free?", "The call is open to couples and individuals who want prayer for their marriage. Register to receive the Zoom link."),
+    ("Is the Tuesday prayer call free?", f"The call is open to couples and individuals who want prayer for their marriage. Join on Zoom every Tuesday at {TUE_TIME} using the link on this page, meeting ID {ZOOM_ID}."),
     ("Do both spouses need to attend?", "No. Come together or come alone. Many people join while standing in prayer for a spouse who is not ready yet."),
     ("Do I have to fast to join?", "No. Terrie prays and fasts for the marriages on the call. You are welcome to fast with her as you feel led, but it is not required to attend."),
     ("Do I have to be on camera or speak?", "No. You can listen, pray along and type requests privately if you prefer."),
@@ -360,8 +363,8 @@ tuesday = f'''
 <p class="eyebrow">Every Tuesday &middot; Live on Zoom &middot; All couples welcome</p>
 <h1>Tuesday Marriage Prayer &amp; Fasting Call</h1>
 <p class="lead">Each Tuesday, Terrie Beeman prays and fasts for marriages and hosts a live online Zoom call offering biblical guidance to couples, young and old. Come pray, be encouraged and stand with others who are believing God for their marriage.</p>
-<div class="when"><div><span>Day</span><strong>Every Tuesday</strong></div><div><span>Time</span><strong>{ph("Time + time zone")}</strong></div><div><span>Where</span><strong>Zoom (online)</strong></div><div><span>Cost</span><strong>{ph("Free / love offering")}</strong></div></div>
-<div class="btns"><a class="btn gold" href="#register">Register for the Zoom Link</a><a class="btn ghost" href="#prayer-request">Send a Prayer Request</a></div>
+<div class="when"><div><span>Day</span><strong>Every Tuesday</strong></div><div><span>Time</span><strong>{TUE_TIME}</strong></div><div><span>Where</span><strong>Zoom &middot; ID {ZOOM_ID}</strong></div><div><span>Cost</span><strong>{ph("Free / love offering")}</strong></div></div>
+<div class="btns"><a class="btn gold" href="{ZOOM}" target="_blank" rel="noopener">Join on Zoom</a><a class="btn ghost" href="#register">Get Weekly Reminders</a><a class="btn ghost" href="#prayer-request">Send a Prayer Request</a></div>
 </div></section>
 
 <section class="section"><div class="wrap split">
@@ -380,15 +383,15 @@ tuesday = f'''
 </div></section>
 
 <section class="section alt" id="register"><div class="wrap narrow">
-<h2>Register for the Tuesday call</h2>
-<p>Register once and you'll receive the Zoom link and weekly reminders. {ph("Or replace this form with the Zoom registration link")}</p>
+<h2>Get weekly reminders</h2>
+<p>Join anytime with the <a href="{ZOOM}" target="_blank" rel="noopener">Zoom link</a> (meeting ID {ZOOM_ID}) every Tuesday at {TUE_TIME}. Add your name below and we'll send you a reminder each week.</p>
 <form name="tuesday-registration" method="POST" data-netlify="true" netlify-honeypot="company" action="/thank-you/" class="form">
 <input type="hidden" name="form-name" value="tuesday-registration">
 <p class="hp"><label>Leave blank <input name="company"></label></p>
 <div class="row"><label>First and last name<input name="name" required autocomplete="name"></label><label>Email<input type="email" name="email" required autocomplete="email"></label></div>
 <label>Joining as<select name="joining_as"><option>A couple</option><option>A wife</option><option>A husband</option><option>Engaged</option></select></label>
 <label class="check"><input type="checkbox" name="reminders" value="yes" checked> Send me weekly reminders</label>
-<button class="btn gold" type="submit">Get the Zoom Link</button>
+<button class="btn gold" type="submit">Send Me Reminders</button>
 </form>
 </div></section>
 
@@ -407,11 +410,21 @@ tuesday = f'''
 '''
 tue_service = {"@type": "Service", "name": "Tuesday Marriage Prayer and Fasting Call", "serviceType": "Online marriage prayer meeting",
                "provider": {"@id": f"{SITE}/#org"}, "availableChannel": {"@type": "ServiceChannel", "serviceUrl": SITE + "/tuesday-prayer-call/"},
-               "hoursAvailable": {"@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Tuesday"},
+               "hoursAvailable": {"@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Tuesday", "opens": "18:00"},
                "description": "Weekly online Zoom call where Terrie Beeman prays, fasts and offers biblical guidance to couples."}
+tue_event = {"@type": "Event", "name": "Fight to Win Marriages Tuesday Prayer & Fasting Call",
+             "description": "Weekly online marriage prayer and fasting call on Zoom with Terrie Beeman, offering prayer, Scripture and biblical guidance to couples young and old.",
+             "startDate": "2026-10-20T18:00:00-05:00",
+             "eventSchedule": {"@type": "Schedule", "repeatFrequency": "P1W", "byDay": "https://schema.org/Tuesday",
+                               "startTime": "18:00", "scheduleTimezone": "America/Chicago"},
+             "eventStatus": "https://schema.org/EventScheduled",
+             "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+             "location": {"@type": "VirtualLocation", "url": ZOOM},
+             "image": f"{SITE}/assets/og-image.jpg",
+             "organizer": {"@id": f"{SITE}/#org"}, "performer": {"@id": f"{SITE}/#terrie"}}
 page("/tuesday-prayer-call/", "Online Marriage Prayer Call Every Tuesday | Fight to Win Marriages",
-     "Join Terrie Beeman's weekly Tuesday marriage prayer and fasting call on Zoom. Prayer, Scripture and biblical guidance for couples young and old. Register free.",
-     tuesday, schema=[tue_service, faq_schema(tue_faq)], crumb=[("/", "Home"), ("/tuesday-prayer-call/", "Tuesday Prayer Call")])
+     "Join Terrie Beeman's marriage prayer and fasting call on Zoom every Tuesday at 6 PM CT. Prayer, Scripture and biblical guidance for couples young and old.",
+     tuesday, schema=[tue_service, tue_event, faq_schema(tue_faq)], crumb=[("/", "Home"), ("/tuesday-prayer-call/", "Tuesday Prayer Call")])
 
 # ---------------------------------------------------------------- EVENTS
 ev_faq = [
@@ -431,7 +444,7 @@ events = f'''
 <h2>Upcoming events</h2>
 <div class="events">
 <article class="event"><div class="date"><span>{ph("Mon")}</span><strong>{ph("DD")}</strong></div><div><h3>{ph("Event name, e.g. Fight to Win Couples Night")}</h3><p>{ph("City, venue or Online")} &middot; {ph("Time")}</p><p>{ph("One-sentence description")}</p></div><a class="btn small" href="/contact/">Register</a></article>
-<article class="event"><div class="date"><span>Every</span><strong>Tue</strong></div><div><h3>Tuesday Marriage Prayer &amp; Fasting Call</h3><p>Online via Zoom &middot; {ph("Time + time zone")}</p><p>Weekly prayer, Scripture and biblical guidance for couples.</p></div><a class="btn small" href="/tuesday-prayer-call/">Join</a></article>
+<article class="event"><div class="date"><span>Every</span><strong>Tue</strong></div><div><h3>Tuesday Marriage Prayer &amp; Fasting Call</h3><p>Online via Zoom &middot; {TUE_TIME}</p><p>Weekly prayer, Scripture and biblical guidance for couples.</p></div><a class="btn small" href="/tuesday-prayer-call/">Details</a></article>
 </div>
 <p class="micro">{ph("Add each confirmed event with date, location and registration link. Event schema will be added per event once dates are confirmed.")}</p>
 </div></section>
