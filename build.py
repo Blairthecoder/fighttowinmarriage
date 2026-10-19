@@ -263,11 +263,10 @@ home = f'''
 <section class="section">
 <div class="wrap">
 <h2 class="center">What couples are saying</h2>
-<div class="cards three">
-<figure class="card quote"><blockquote>{ph("Couple testimonial #1, with permission")}</blockquote><figcaption>{ph("First names, years married")}</figcaption></figure>
-<figure class="card quote"><blockquote>{ph("Couple testimonial #2, with permission")}</blockquote><figcaption>{ph("First names, years married")}</figcaption></figure>
-<figure class="card quote"><blockquote>{ph("Event host or pastor testimonial")}</blockquote><figcaption>{ph("Name, church or organization")}</figcaption></figure>
-</div>
+<figure class="card quote featured testimonial">
+<blockquote>"Terrie was an amazing leader who challenges you to trust God through the highs, lows, and in-between. She is so kind and inviting and really made us feel comfortable opening up. We really enjoyed meeting with her for Kingdom Kouples and her Zoom Prayer Calls."</blockquote>
+<figcaption><strong>The Hendersons</strong> &middot; Married 4 years</figcaption>
+</figure>
 </div>
 </section>
 
