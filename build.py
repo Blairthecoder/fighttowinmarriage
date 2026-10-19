@@ -45,7 +45,7 @@ PERSON = {
     "@id": f"{SITE}/#terrie",
     "name": "Terrie Beeman",
     "jobTitle": "Certified Christian Counselor and Marriage Coach",
-    "description": "Terrie Beeman is a Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator and Prayer Warrior, and the founder of Fight to Win Marriages.",
+    "description": "Terrie Beeman is a Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator and Prayer Warrior. After a 365-day spiritual battle restored her own marriage, now 34 years strong, she founded Fight to Win Marriages to teach couples how to build a kingdom marriage.",
     "email": EMAIL,
     "image": f"{SITE}/assets/terrie-beeman.jpg",
     "url": f"{SITE}/about/",
@@ -272,9 +272,10 @@ home = f'''
 
 <section class="section alt">
 <div class="wrap split">
-<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/5Sk_Hm1As2k" title="Fight to Win Marriages on YouTube" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-<div><h2>Encouragement for your marriage, every week</h2><p>Follow Fight to Win Marriages on Instagram, TikTok and YouTube for prayers, teaching and real-talk encouragement for husbands and wives who are still believing.</p>
-<div class="btns"><a class="btn" href="{IG}" target="_blank" rel="noopener">Follow on Instagram</a><a class="btn ghost" href="{YT}" target="_blank" rel="noopener">Watch on YouTube</a></div></div>
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/5Sk_Hm1As2k" title="Terrie Beeman shares how she fought to win her marriage" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div><p class="eyebrow">Watch Terrie's story</p><h2>Born from a fight to win her own marriage</h2><p>Several years ago, Terrie's husband told her he wanted out. What followed was a 365-day battle of spiritual warfare, a still, small voice asking, "What about Me?", and a marriage fully restored. Today they stand 34 years strong, and everything they learned became Fight to Win Marriages.</p>
+<p>Follow along on Instagram, TikTok and YouTube for prayers, tips, tools and weapons to help you fight to win your marriage.</p>
+<div class="btns"><a class="btn" href="/about/#story">Read Terrie's Story</a><a class="btn ghost" href="{YT}" target="_blank" rel="noopener">Watch on YouTube</a></div></div>
 </div>
 </section>
 {faq_html(home_faq)}
@@ -288,11 +289,25 @@ page("/", "Christian Marriage Coaching & Prayer | Fight to Win Marriages",
 about = f'''
 <section class="page-hero"><div class="wrap split">
 <div><p class="eyebrow">About the founder</p><h1>Meet Terrie Beeman</h1>
-<p class="lead">Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator and Prayer Warrior, and founder of Fight to Win Marriages.</p></div>
+<p class="lead">Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator and Prayer Warrior. Married 34 years, and living proof that a marriage can be restored.</p>
+<div class="btns"><a class="btn gold" href="#story">Read Terrie's Story</a><a class="btn ghost" href="/marriage-coaching/">Work with Terrie</a></div></div>
 <div class="portrait sm">{PORTRAIT.format(extra='')}</div>
 </div></section>
-<section class="section"><div class="wrap narrow prose">
-<h2>Why Fight to Win Marriages exists</h2>
+<section class="section" id="story"><div class="wrap narrow prose">
+<p class="eyebrow">Terrie's story</p>
+<h2 style="margin-top:0">How a 365-day fight gave birth to a ministry</h2>
+<p>"Several years ago, my husband came to me and said he no longer wanted to be married. He wanted out.</p>
+<p>Those words catapulted me into a 365-day battle of spiritual warfare. Through many dark days, endless tears, and what felt like an emotional roller coaster, I was angry, I was sad, and many, many times I was mad. I have to admit it: there were days I didn't want to fight for my marriage.</p>
+<p>Then one day the ride took a drastic, unexpected turn. I began to come to myself and count the cost. This wasn't just about me and my husband. What about our kids, our grandkids, and the generations to come? I realized he was a good man, and he was worth fighting for. Our marriage was worth fighting for.</p>
+<p>So I went searching for answers, running to anybody who would listen, even strangers. I looked back at all the prayers, the fasting, the energy and the sweat I had poured into our marriage. And one day I heard a still, small voice say to me:</p>
+<blockquote class="verse">"Terrie, what about Me? You haven't asked Me how to win your marriage back."</blockquote>
+<p>That's when the Holy Spirit revealed to me that what we were facing was a spiritual battle. This was warfare. I took heed to God's voice and His instructions. The first thing I had to do was silence the outside voices and tune in to the voice of the Holy Spirit. He taught me how to be a kingdom wife, a wife according to His blueprint, and step by step He walked with me and showed me how to win our marriage back.</p>
+<p>What we didn't know was that through the heartache, the storms and the chaos, we were giving birth to a marriage ministry.</p>
+<p>Today our marriage is fully restored, healthy, and made new. We stand 34 years strong. Everything we learned through the good, the bad and the ugly, we now teach to husbands and wives all over the map: how to have a happy, healthy marriage that pleases God. A kingdom marriage."</p>
+<p class="meta">Terrie Beeman, founder of Fight to Win Marriages &middot; <a href="{YT}" target="_blank" rel="noopener">Watch Terrie tell her story on YouTube</a></p>
+</div></section>
+<section class="section alt"><div class="wrap narrow prose">
+<h2 style="margin-top:0">Why Fight to Win Marriages exists</h2>
 <p>Terrie Beeman started Fight to Win Marriages with one message: don't give up. Marriage is one of God's greatest institutions, and it is worth fighting for. Too many couples walk away from a covenant God can still heal. Through coaching, prayer and teaching, Terrie helps husbands and wives stop fighting each other and start fighting for each other.</p>
 <p>The ministry is founded on 2 Corinthians 10:4 and Ephesians 6:12. Our battle is not against our spouse but against spiritual forces, and God has given us weapons with divine power to pull down strongholds. Fight to Win Marriages partners with God to equip husbands and wives with those weapons, along with biblical principles, prayer, encouragement and practical tools to build strong, healthy, God-centered marriages.</p>
 <h2>Our vision</h2>
@@ -325,7 +340,7 @@ about = f'''
 {cta_band(title="Work with Terrie", text="Coaching, prayer and speaking for couples and churches.", primary=("/marriage-coaching/", "See Coaching Options"), secondary=("/events/", "Invite Terrie to Speak"))}
 '''
 page("/about/", "About Terrie Beeman, Christian Counselor & Marriage Coach | Fight to Win Marriages",
-     "Meet Terrie Beeman, Certified Christian Counselor, marriage coach and prayer warrior who founded Fight to Win Marriages to help couples heal and fight for their marriage.",
+     "Terrie Beeman fought a 365-day spiritual battle to save her marriage, now 34 years strong. Read her story and how it gave birth to Fight to Win Marriages.",
      about, schema=[PERSON, {"@type": "AboutPage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
      og_type="profile", crumb=[("/", "Home"), ("/about/", "About Terrie Beeman")])
 
@@ -357,7 +372,7 @@ coaching = f'''
 </div></div></section>
 
 <section class="section alt"><div class="wrap">
-<div class="split" style="margin-bottom:36px"><div><h2>Real couples, real growth</h2><p>Terrie has walked alongside couples in Houston small groups and one-on-one for years. Coaching brings that same prayerful, practical approach to your marriage, wherever you live.</p></div>{photo("couples-small-group-discussion", "rounded")}</div>
+<div class="split" style="margin-bottom:36px"><div><h2>Real couples, real growth</h2><p>Terrie has been where you are. Her own marriage was restored after a 365-day spiritual battle, and she and her husband now stand 34 years strong. She has since walked alongside couples in Houston small groups and one-on-one, and coaching brings that same prayerful, practical approach to building a kingdom marriage, wherever you live. <a href="/about/#story">Read Terrie's story</a>.</p></div>{photo("couples-small-group-discussion", "rounded")}</div>
 <h2>How coaching works</h2>
 <ol class="steps">
 <li><strong>Request a consultation.</strong> Tell Terrie a little about your marriage through the booking form.</li>
@@ -414,7 +429,7 @@ tuesday = f'''
 <li><strong>Prayer requests</strong> lifted up by name, as you are comfortable.</li>
 </ul>
 <h2>Why prayer and fasting?</h2>
-<p>Some battles are only won on our knees. Fasting humbles the heart and sharpens our focus on God. Terrie fasts each Tuesday for the couples on the call, so you never have to stand alone.</p>
+<p>Some battles are only won on our knees. Terrie learned that firsthand during her own 365-day fight for her marriage, when prayer, fasting and the voice of the Holy Spirit carried her through. Fasting humbles the heart and sharpens our focus on God. Terrie fasts each Tuesday for the couples on the call, so you never have to stand alone.</p>
 </div>
 <div>{photo("terrie-beeman-leading-couples-group", "rounded")}
 <blockquote class="verse" style="margin-top:20px">"Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven."<cite>Matthew 18:19</cite></blockquote></div>
@@ -497,7 +512,7 @@ events = f'''
 <h2>Book Terrie to speak</h2>
 <p>Terrie brings warmth, honesty and a deep prayer life to every stage. Messages are rooted in Scripture and practical enough for couples to use the same night.</p>
 <div class="cards three">
-<div class="card"><h3>Fight to Win</h3><p>Your spouse is not the enemy. How couples team up against the real battle and win together.</p></div>
+<div class="card"><h3>My 365-Day Fight</h3><p>Terrie's testimony of a husband who wanted out, a year of spiritual warfare, and a marriage restored and now 34 years strong.</p></div>
 <div class="card"><h3>Restoration Is Possible</h3><p>Hope and next steps for marriages facing betrayal, separation or years of distance.</p></div>
 <div class="card"><h3>Praying for Your Marriage</h3><p>How prayer and fasting change hearts, homes and generations.</p></div>
 </div>
@@ -624,7 +639,7 @@ POSTS = [
 ]
 
 def author_box():
-    return f'''<aside class="author card"><div class="portrait xs">{PORTRAIT.format(extra='loading="lazy"')}</div><div><p class="eyebrow">Written by</p><h2><a href="/about/">Terrie Beeman</a></h2><p>Certified Christian Counselor, marriage coach, prayer warrior and founder of Fight to Win Marriages. Terrie hosts a weekly Tuesday prayer and fasting call for couples.</p></div></aside>'''
+    return f'''<aside class="author card"><div class="portrait xs">{PORTRAIT.format(extra='loading="lazy"')}</div><div><p class="eyebrow">Written by</p><h2><a href="/about/">Terrie Beeman</a></h2><p>Certified Christian Counselor, marriage coach, prayer warrior and founder of Fight to Win Marriages. Married 34 years, Terrie hosts a weekly Tuesday prayer and fasting call for couples.</p></div></aside>'''
 
 cards = ""
 for p in POSTS:
