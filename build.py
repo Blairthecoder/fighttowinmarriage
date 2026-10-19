@@ -112,7 +112,6 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/styles.css">
-<!-- [PLACEHOLDER: GA4 / GTM snippet goes here once property is created] -->
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>
@@ -134,7 +133,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <p>We don't give up on marriage. We fight in prayer, love &amp; faith. A God-filled space for healing, restoration, and standing on God's promises together.</p>
 <p class="social"><a href="{IG}" rel="noopener" target="_blank">Instagram</a> · {f'<a href="{TT}" rel="noopener" target="_blank">TikTok</a> · ' if TT else ''}<a href="{YT}" rel="noopener" target="_blank">YouTube</a></p></div>
 <div><h3>Ministry</h3><ul><li><a href="/marriage-coaching/">Christian Marriage Coaching</a></li><li><a href="/tuesday-prayer-call/">Tuesday Prayer &amp; Fasting Call</a></li><li><a href="/events/">Marriage Events &amp; Speaking</a></li><li><a href="/blog/">Marriage Blog</a></li></ul></div>
-<div><h3>Connect</h3><ul><li><a href="/about/">About Terrie Beeman</a></li><li><a href="/contact/">Book or Contact</a></li><li>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></li><li>Phone: {ph("phone, optional")}</li></ul></div>
+<div><h3>Connect</h3><ul><li><a href="/about/">About Terrie Beeman</a></li><li><a href="/contact/">Book or Contact</a></li><li>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></li></ul></div>
 </div>
 <div class="wrap legal"><p>&copy; 2026 Fight to Win Marriages. Coaching and Christian counseling are faith-based and are not a substitute for licensed clinical or mental health care. If you are in danger, call 911 or the National Domestic Violence Hotline at 1-800-799-7233.</p><p><a href="/privacy/">Privacy Policy</a></p></div>
 </footer>
@@ -183,7 +182,7 @@ def gallery(names):
 home_faq = [
     ("What is Fight to Win Marriages?", "Fight to Win Marriages is a faith-based marriage ministry led by Terrie Beeman. It encourages couples not to give up on their marriage and focuses on healing, restoration, and standing on God's promises through prayer, love and faith."),
     ("Who is marriage coaching for?", "Coaching is for married couples, engaged couples, and individual spouses standing for their marriage, whether you are newlyweds or have been married for decades."),
-    ("When is the Tuesday prayer call?", "Terrie hosts an online marriage prayer and fasting call on Zoom every Tuesday. Couples young and old are welcome to join for prayer, encouragement and biblical guidance."),
+    ("When is the Tuesday prayer call?", "Terrie hosts a free online marriage prayer and fasting call on Zoom every Tuesday at 6:00 PM CT. Couples young and old are welcome to join for prayer, encouragement and biblical guidance."),
     ("Can I book Terrie to speak at my church or event?", "Yes. Terrie speaks at church marriage ministries, couples retreats, women's conferences and marriage events. Use the booking form to share your date, location and audience."),
 ]
 home = f'''
@@ -205,7 +204,7 @@ home = f'''
 <h2 class="center">Three ways to get help for your marriage</h2>
 <div class="cards three">
 <article class="card"><h3>Christian Marriage Coaching</h3><p>One-on-one or couples sessions rooted in Scripture. Work through conflict, broken trust, communication and separation with a coach who believes your marriage can be restored.</p><a class="link" href="/marriage-coaching/">Explore coaching &rarr;</a></article>
-<article class="card featured"><h3>Tuesday Prayer &amp; Fasting Call</h3><p>Every Tuesday at {TUE_TIME}, Terrie prays, fasts and offers biblical guidance to couples on Zoom. Bring your marriage before God alongside others who are standing too.</p><a class="link" href="/tuesday-prayer-call/">Join the call &rarr;</a></article>
+<article class="card featured"><h3>Tuesday Prayer &amp; Fasting Call</h3><p>Every Tuesday at {TUE_TIME}, Terrie hosts a free Zoom call where she prays, fasts and offers biblical guidance to couples. Bring your marriage before God alongside others who are standing too.</p><a class="link" href="/tuesday-prayer-call/">Join the call &rarr;</a></article>
 <article class="card"><h3>Events &amp; Speaking</h3><p>Invite Terrie to your church, couples retreat, women's conference or marriage ministry for a message of hope, healing and covenant love.</p><a class="link" href="/events/">Book Terrie to speak &rarr;</a></article>
 </div>
 </div>
@@ -314,7 +313,6 @@ about = f'''
 <p>To see marriages healed, healthy and whole, and to decrease the divorce rate in the body of believers. Terrie is committed to inspiring faith, restoring hope and putting marriages back on the map.</p>
 <h2>Who we serve</h2>
 <p>Married and engaged couples, individuals preparing for marriage, and anyone seeking healing, restoration, wisdom and biblical guidance for their marriage.</p>
-<p>{ph("Terrie's story in her own words: how God led her into marriage ministry, her own marriage journey, years in ministry")}</p>
 <h2>What Terrie believes about marriage</h2>
 <ul class="checks">
 <li>Marriage is a covenant, and God is in the business of restoration.</li>
@@ -330,7 +328,6 @@ about = f'''
 <li>Motivator and speaker</li>
 <li>Prayer Warrior and intercessor</li>
 </ul>
-<p>{ph("Certifying organization, years in ministry, church affiliation, media appearances")}</p>
 <h2>Leading marriage small groups in Houston</h2>
 <p>Terrie leads marriage small groups with Kingdom Kouples Ministries in Houston, Texas. Couples gather in homes and around the dinner table to pray, study God's Word and build friendships with other couples who are fighting for their marriages.</p>
 <div class="photo-pair">{photo("terrie-beeman-teaching-marriage-small-group")}{photo("kingdom-kouples-small-group-houston")}</div>
@@ -349,7 +346,7 @@ coach_faq = [
     ("Is this Christian marriage counseling?", "Terrie is a Certified Christian Counselor and Marriage Coach. Sessions are faith-based coaching and Christian counseling, not licensed clinical therapy. Coaching uses biblical principles, prayer and practical tools to help you move forward. If you need clinical or crisis care, Terrie will encourage you to seek a licensed professional alongside coaching."),
     ("Can I do coaching if my spouse won't join?", "Yes. Many people begin coaching alone while standing for their marriage. Individual sessions focus on your heart, your prayer life and the changes you can make."),
     ("Are sessions online?", "Yes. Sessions are held online by video so couples anywhere can participate."),
-    ("How much does marriage coaching cost?", "Pricing depends on the package. See the options on this page or request a free consultation to find the right fit."),
+    ("How much does marriage coaching cost?", "Pricing depends on the package. Terrie shares pricing on your free consultation call so you can choose the right fit."),
     ("Is what I share confidential?", "Yes. What you share in coaching stays private, except where safety or the law requires otherwise."),
 ]
 coaching = f'''
@@ -376,7 +373,7 @@ coaching = f'''
 <h2>How coaching works</h2>
 <ol class="steps">
 <li><strong>Request a consultation.</strong> Tell Terrie a little about your marriage through the booking form.</li>
-<li><strong>Free discovery call.</strong> A short call to pray, listen and recommend a path. {ph("confirm length, e.g. 20 minutes")}</li>
+<li><strong>Free discovery call.</strong> A short call to pray, listen and recommend a path.</li>
 <li><strong>Coaching sessions.</strong> Scripture-based guidance, prayer and practical homework between sessions.</li>
 <li><strong>Ongoing support.</strong> Join the Tuesday prayer call for weekly encouragement as you grow.</li>
 </ol>
@@ -385,11 +382,11 @@ coaching = f'''
 <section class="section" id="packages"><div class="wrap">
 <h2 class="center">Coaching packages</h2>
 <div class="cards three pricing">
-<div class="card"><h3>Single Session</h3><p class="price">{ph("$ price")}</p><p>{ph("Session length")} online session for an individual or couple. Good for a specific issue or a first step.</p><a class="btn" href="/contact/?type=coaching">Book a Session</a></div>
-<div class="card featured"><h3>Restoration Package</h3><p class="price">{ph("$ price")}</p><p>{ph("Number of sessions")} sessions for couples committed to rebuilding, with prayer support between sessions.</p><a class="btn gold" href="/contact/?type=coaching">Start Restoration</a></div>
-<div class="card"><h3>Standing Spouse Package</h3><p class="price">{ph("$ price")}</p><p>{ph("Number of sessions")} individual sessions for the spouse standing for their marriage.</p><a class="btn" href="/contact/?type=coaching">Get Support</a></div>
+<div class="card"><h3>Single Session</h3><p>One online session for an individual or couple. Good for a specific issue or a first step.</p><a class="btn" href="/contact/?type=coaching">Book a Session</a></div>
+<div class="card featured"><h3>Restoration Package</h3><p>A series of sessions for couples committed to rebuilding, with prayer support between sessions.</p><a class="btn gold" href="/contact/?type=coaching">Start Restoration</a></div>
+<div class="card"><h3>Standing Spouse Package</h3><p>Individual sessions for the spouse standing for their marriage.</p><a class="btn" href="/contact/?type=coaching">Get Support</a></div>
 </div>
-<p class="center micro">{ph("Confirm package names, pricing, payment method and scheduling link (Calendly, Acuity, etc.)")}</p>
+<p class="center micro" style="margin-top:20px">Pricing and scheduling are shared on your free consultation call, so you can choose the package that fits your marriage.</p>
 </div></section>
 {faq_html(coach_faq, "Marriage Coaching FAQ")}
 {cta_band(title="Your marriage can be restored.", text="Take the first step today. A free consultation is the easiest place to start.", primary=("/contact/?type=coaching", "Request a Free Consultation"))}
@@ -404,7 +401,7 @@ page("/marriage-coaching/", "Christian Marriage Coaching Online | Fight to Win M
 
 # ---------------------------------------------------------------- TUESDAY CALL
 tue_faq = [
-    ("Is the Tuesday prayer call free?", f"The call is open to couples and individuals who want prayer for their marriage. Join on Zoom every Tuesday at {TUE_TIME} using the link on this page, meeting ID {ZOOM_ID}."),
+    ("Is the Tuesday prayer call free?", f"Yes. The call is free and open to couples and individuals who want prayer for their marriage. Join on Zoom every Tuesday at {TUE_TIME} using the link on this page, meeting ID {ZOOM_ID}."),
     ("Do both spouses need to attend?", "No. Come together or come alone. Many people join while standing in prayer for a spouse who is not ready yet."),
     ("Do I have to fast to join?", "No. Terrie prays and fasts for the marriages on the call. You are welcome to fast with her as you feel led, but it is not required to attend."),
     ("Do I have to be on camera or speak?", "No. You can listen, pray along and type requests privately if you prefer."),
@@ -412,10 +409,10 @@ tue_faq = [
 ]
 tuesday = f'''
 <section class="page-hero"><div class="wrap">
-<p class="eyebrow">Every Tuesday &middot; Live on Zoom &middot; All couples welcome</p>
+<p class="eyebrow">Every Tuesday &middot; Live on Zoom &middot; Free &middot; All couples welcome</p>
 <h1>Tuesday Marriage Prayer &amp; Fasting Call</h1>
-<p class="lead">Each Tuesday, Terrie Beeman prays and fasts for marriages and hosts a live online Zoom call offering biblical guidance to couples, young and old. Come pray, be encouraged and stand with others who are believing God for their marriage.</p>
-<div class="when"><div><span>Day</span><strong>Every Tuesday</strong></div><div><span>Time</span><strong>{TUE_TIME}</strong></div><div><span>Where</span><strong>Zoom &middot; ID {ZOOM_ID}</strong></div><div><span>Cost</span><strong>{ph("Free / love offering")}</strong></div></div>
+<p class="lead">Each Tuesday, Terrie Beeman prays and fasts for marriages and hosts a free, live online Zoom call offering biblical guidance to couples, young and old. Come pray, be encouraged and stand with others who are believing God for their marriage.</p>
+<div class="when"><div><span>Day</span><strong>Every Tuesday</strong></div><div><span>Time</span><strong>{TUE_TIME}</strong></div><div><span>Where</span><strong>Zoom &middot; ID {ZOOM_ID}</strong></div><div><span>Cost</span><strong>Free</strong></div></div>
 <div class="btns"><a class="btn gold" href="{ZOOM}" target="_blank" rel="noopener">Join on Zoom</a><a class="btn ghost" href="#register">Get Weekly Reminders</a><a class="btn ghost" href="#prayer-request">Send a Prayer Request</a></div>
 </div></section>
 
@@ -474,9 +471,11 @@ tue_event = {"@type": "Event", "name": "Fight to Win Marriages Tuesday Prayer & 
              "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
              "location": {"@type": "VirtualLocation", "url": ZOOM},
              "image": f"{SITE}/assets/og-image.jpg",
+             "isAccessibleForFree": True,
+             "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": SITE + "/tuesday-prayer-call/", "validFrom": "2026-10-01"},
              "organizer": {"@id": f"{SITE}/#org"}, "performer": {"@id": f"{SITE}/#terrie"}}
-page("/tuesday-prayer-call/", "Online Marriage Prayer Call Every Tuesday | Fight to Win Marriages",
-     "Join Terrie Beeman's marriage prayer and fasting call on Zoom every Tuesday at 6 PM CT. Prayer, Scripture and biblical guidance for couples young and old.",
+page("/tuesday-prayer-call/", "Free Online Marriage Prayer Call Every Tuesday | Fight to Win Marriages",
+     "Join Terrie Beeman's free marriage prayer and fasting call on Zoom every Tuesday at 6 PM CT. Prayer, Scripture and biblical guidance for couples young and old.",
      tuesday, schema=[tue_service, tue_event, faq_schema(tue_faq)], crumb=[("/", "Home"), ("/tuesday-prayer-call/", "Tuesday Prayer Call")])
 
 # ---------------------------------------------------------------- EVENTS
@@ -496,10 +495,9 @@ events = f'''
 <section class="section" id="upcoming"><div class="wrap">
 <h2>Upcoming events</h2>
 <div class="events">
-<article class="event"><div class="date"><span>{ph("Mon")}</span><strong>{ph("DD")}</strong></div><div><h3>{ph("Event name, e.g. Fight to Win Couples Night")}</h3><p>{ph("City, venue or Online")} &middot; {ph("Time")}</p><p>{ph("One-sentence description")}</p></div><a class="btn small" href="/contact/">Register</a></article>
-<article class="event"><div class="date"><span>Every</span><strong>Tue</strong></div><div><h3>Tuesday Marriage Prayer &amp; Fasting Call</h3><p>Online via Zoom &middot; {TUE_TIME}</p><p>Weekly prayer, Scripture and biblical guidance for couples.</p></div><a class="btn small" href="/tuesday-prayer-call/">Details</a></article>
+<article class="event"><div class="date"><span>Every</span><strong>Tue</strong></div><div><h3>Tuesday Marriage Prayer &amp; Fasting Call</h3><p>Online via Zoom &middot; {TUE_TIME}</p><p>Free weekly prayer, Scripture and biblical guidance for couples.</p></div><a class="btn small" href="/tuesday-prayer-call/">Details</a></article>
 </div>
-<p class="micro">{ph("Add each confirmed event with date, location and registration link. Event schema will be added per event once dates are confirmed.")}</p>
+<p>New events are announced on <a href="{IG}" target="_blank" rel="noopener">Instagram</a> and <a href="{YT}" target="_blank" rel="noopener">YouTube</a>. Want Terrie at your church or retreat? <a href="/contact/?type=speaking">Send a speaking request</a>.</p>
 </div></section>
 
 <section class="section"><div class="wrap">
@@ -518,7 +516,6 @@ events = f'''
 </div>
 <h3>Great fit for</h3>
 <ul class="tags"><li>Church marriage ministries</li><li>Couples retreats</li><li>Women's conferences</li><li>Valentine's &amp; anniversary events</li><li>Marriage enrichment weekends</li><li>Virtual events &amp; podcasts</li></ul>
-<p>{ph("Speaker one-sheet PDF, past venues, honorarium range")}</p>
 <a class="btn gold" href="/contact/?type=speaking">Request Terrie for Your Event</a>
 </div></section>
 {faq_html(ev_faq, "Speaking FAQ")}
@@ -532,7 +529,7 @@ page("/events/", "Christian Marriage Events & Speaker Booking | Fight to Win Mar
 contact = f'''
 <section class="page-hero"><div class="wrap">
 <h1>Book Terrie or Get in Touch</h1>
-<p class="lead">Request marriage coaching, invite Terrie to speak, or ask about the Tuesday prayer call. You'll hear back within {ph("response time, e.g. 2 business days")}.</p>
+<p class="lead">Request marriage coaching, invite Terrie to speak, or ask about the Tuesday prayer call. Terrie or her team will follow up by email.</p>
 </div></section>
 <section class="section"><div class="wrap split">
 <form name="booking" method="POST" data-netlify="true" netlify-honeypot="company" action="/thank-you/" class="form">
@@ -548,7 +545,6 @@ contact = f'''
 <aside class="card">
 <h2>Other ways to connect</h2>
 <p><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-<p><strong>Scheduling:</strong> {ph("Calendly or booking link")}</p>
 <p><strong>Instagram:</strong> <a href="{IG}" target="_blank" rel="noopener">@fighttowinmarriages</a></p>
 <p><strong>YouTube:</strong> <a href="{YT}" target="_blank" rel="noopener">Fight to Win Marriages</a></p>
 <p class="micro">If you or your children are in danger, call 911 or the National Domestic Violence Hotline at 1-800-799-7233.</p>
@@ -562,6 +558,62 @@ page("/contact/", "Book Marriage Coaching or Speaking | Fight to Win Marriages",
 
 # ---------------------------------------------------------------- BLOG
 POSTS = [
+    {
+        "slug": "break-generational-curses-marriage-prayer",
+        "title": "Break the Curse: 20 Declarations to Break Generational Curses Off Your Marriage",
+        "seo_title": "Prayer to Break Generational Curses in Marriage | Fight to Win Marriages",
+        "desc": "Pray along with Terrie Beeman: 20 declarations to break generational curses of divorce, infidelity, anger, addiction and more off your marriage, in Jesus' name.",
+        "date": "2026-10-19",
+        "excerpt": "Divorce, infidelity, anger and addiction can be passed down. Pray these 20 declarations with Terrie and declare a new legacy over your marriage.",
+        "video": "kBKfw4CKGF4",
+        "body": '\n<p>Some of the battles in your marriage didn\'t start with you. Patterns like divorce, infidelity, anger, addiction and silence can be passed down from one generation to the next until someone stands up and says, "It ends with us." In this prayer, Terrie Beeman leads husbands and wives in breaking generational curses off their marriage by the power of the almighty God and in the name of Jesus.</p>\n<div class="video" style="margin:28px 0"><iframe src="https://www.youtube-nocookie.com/embed/kBKfw4CKGF4" title="Break the Curse: generational curse declarations for your marriage with Terrie Beeman" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>\n<p class="meta"><a href="https://www.youtube.com/watch?v=kBKfw4CKGF4" target="_blank" rel="noopener">Watch "Break the Curse" on YouTube</a> and pray along with Terrie.</p>\n<h2>The message: Christ has already broken the curse</h2>\n<p>"Christ redeemed us from the curse of the law by becoming a curse for us" (Galatians 3:13). You are not bound to repeat what you saw growing up. In Christ, you and your spouse are a new creation (2 Corinthians 5:17), and your marriage can be transformed by the renewing of your mind (Romans 12:2). These declarations put that truth into words over your home.</p>\n<h2>How to pray these declarations</h2>\n<ul>\n<li><strong>Pray out loud,</strong> together if you can. If your spouse isn\'t ready, stand in the gap and declare them over your marriage yourself.</li>\n<li><strong>Pray them all, then linger on the ones that hit home.</strong> Repeat a declaration until your faith rises to meet it.</li>\n<li><strong>Pair them with action.</strong> Breaking a curse in prayer and building new habits go together. Forgive, set boundaries, get help for addiction, and learn to communicate.</li>\n</ul>\n<h2>20 declarations to break generational curses off your marriage</h2>\n<ol class="declarations">\n<li><strong>Divorce and broken marriages.</strong> By the power of the almighty God, i break the generational curse of divorce, broken marriages and unhealthy relationships in my family. In the mighty name of Jesus.</li>\n<li><strong>Infidelity.</strong> By the power of the almighty God, i break the generational curse of infidelity, adultery and unfaithfulness in my family bloodline. In the mighty name of Jesus.</li>\n<li><strong>Abandonment.</strong> By the power of the almighty God, i break the generational curse of abandonment. Fathers and mothers will not leave their spouses and children. In the mighty name of Jesus.</li>\n<li><strong>Abuse.</strong> By the power of the almighty God, i break the generational curse of domestic violence, whether physical, verbal, emotional or sexual abuse. These evil behaviors will not be normalized in our marriage or our family. In the mighty name of Jesus.</li>\n<li><strong>Addiction.</strong> By the power of the almighty God, i break the generational curse of addiction to alcohol, drugs, gambling, pornography or anything else damaging the marriages in my family. In the mighty name of Jesus.</li>\n<li><strong>Anger.</strong> By the power of the almighty God, i break the generational curse of chronic anger, explosive tempers, harsh words and unresolved conflict in our marriage. In the mighty name of Jesus.</li>\n<li><strong>Unforgiveness.</strong> By the power of the almighty God, i break the generational curse of unforgiveness. We will no longer hold grudges in our family. Instead, we will pursue reconciliation. In the mighty name of Jesus.</li>\n<li><strong>Control and manipulation.</strong> By the power of the almighty God, i break the generational curse of control and manipulation in our family. We will serve one another in love. In the mighty name of Jesus.</li>\n<li><strong>Pride.</strong> By the power of the almighty God, i break the generational curse of pride in our family. In the mighty name of Jesus.</li>\n<li><strong>Financial dysfunction.</strong> By the power of the almighty God, i break the generational curse of financial dysfunction in our family. No more debt and no more greed. In the mighty name of Jesus.</li>\n<li><strong>Sexual sin.</strong> By the power of the almighty God, i break the generational curse of sexual immorality, promiscuity, pornography or any other sexual sin affecting marital intimacy in our family. In the mighty name of Jesus.</li>\n<li><strong>Poor communication.</strong> By the power of the almighty God, i break the generational curse of poor communication in our family. In the mighty name of Jesus.</li>\n<li><strong>Emotional neglect.</strong> By the power of the almighty God, i break the generational curse of emotional neglect. We will no longer withhold love, affection, encouragement or support from one another. In the mighty name of Jesus.</li>\n<li><strong>Fear of commitment.</strong> By the power of the almighty God, i break the generational curse of fear of commitment in my family. In the mighty name of Jesus.</li>\n<li><strong>Distrust and jealousy.</strong> By the power of the almighty God, i break the generational curse of distrust, dishonesty and jealousy. In the mighty name of Jesus.</li>\n<li><strong>Codependency.</strong> By the power of the almighty God, i break the generational curse of codependency and unhealthy emotional dependence in our family. In the mighty name of Jesus.</li>\n<li><strong>Unhealthy family boundaries.</strong> By the power of the almighty God, i break the generational curse of unhealthy family boundaries. We will no longer allow our parents, siblings, relatives or even friends to interfere with our marriage relationship. In the mighty name of Jesus.</li>\n<li><strong>Spiritual apathy.</strong> By the power of the almighty God, i break the generational curse of spiritual apathy. We will no longer neglect prayer, worship or the Word of God in our marriage, leaving it spiritually vulnerable. In the mighty name of Jesus.</li>\n<li><strong>Idolatry.</strong> By the power of the almighty God, i break the generational curse of occult involvement and idolatry. In the mighty name of Jesus.</li>\n<li><strong>Victim mentality.</strong> By the power of the almighty God, i break the generational curse of a victim mentality. In the mighty name of Jesus.</li>\n</ol>\n<p class="micro">If you or your children are experiencing abuse, please get safe first. Call 911 or the National Domestic Violence Hotline at 1-800-799-7233. Prayer and safety go together.</p>\n<h2>Declare a new legacy</h2>\n<blockquote class="verse">I declare and I decree that my spouse and I are in Christ, and we are a new creation. We are transformed by the renewing of our minds. Lord Jesus, thank You that You redeemed us from every curse by becoming a curse for us, so we are no longer bound by generational curses or curses we have brought on ourselves. As for me and my house, we will serve the Lord. In Jesus\' mighty name, amen.<cite>Galatians 3:13 &middot; 2 Corinthians 5:17 &middot; Romans 12:2 &middot; Joshua 24:15</cite></blockquote>\n<h2>Keep standing for your marriage</h2>\n<p>Breaking generational curses is spiritual warfare, and it is exactly the battle Terrie fought for her own marriage. <a href="/about/#story">Read Terrie\'s story</a> of a 365-day fight and a marriage restored.</p>\n<ul>\n<li><a href="/tuesday-prayer-call/">Join the free Tuesday marriage prayer and fasting call</a> on Zoom every Tuesday at 6:00 PM CT and pray these declarations with other couples.</li>\n<li><a href="/blog/praying-and-fasting-for-your-marriage/">Learn how to pray and fast for your marriage</a>.</li>\n<li><a href="/marriage-coaching/">Book Christian marriage coaching</a> for help breaking old patterns and building new ones.</li>\n</ul>\n',
+    },
+    {
+        "slug": "good-bad-ugly-seasons-of-marriage",
+        "title": "The Good, the Bad and the Ugly Seasons of Marriage: God Is Still Writing Your Story",
+        "seo_title": "The Good, the Bad & the Ugly in Marriage (Romans 8:28) | Fight to Win Marriages",
+        "desc": "Every marriage has good, bad and ugly seasons. Terrie Beeman shares how Romans 8:28 means none of them is wasted, and why God is still writing your story.",
+        "date": "2026-10-19",
+        "excerpt": "Every marriage has good, bad and ugly seasons. None of them has to be wasted. Don't judge your marriage by the middle of the story. God is still writing.",
+        "video": "evRtY6DnDXg",
+        "body": """
+<p>Every marriage has its seasons: the good, the bad and the ugly. There are blissful days full of laughter and long walks. There are hard days of heartache and broken promises. And there are ugly days when trust is shattered and the dream you started with seems out of reach. In this message, Terrie Beeman reminds husbands and wives that none of those seasons has to be wasted, because God is able to work all of it together for good.</p>
+<div class="video" style="margin:28px 0"><iframe src="https://www.youtube-nocookie.com/embed/evRtY6DnDXg" title="The Good, the Bad and the Ugly parts of marriage with Terrie Beeman" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p class="meta"><a href="https://www.youtube.com/watch?v=evRtY6DnDXg" target="_blank" rel="noopener">Watch "The Good, the Bad &amp; the Ugly" on YouTube</a></p>
+<blockquote class="verse">"And we know that all things work together for good to those who love God, to those who are the called according to His purpose."<cite>Romans 8:28 (NKJV)</cite></blockquote>
+<h2>The message: God is still writing your story</h2>
+<p>Don't judge your marriage by what it looks like in the middle of the story. The enemy wants the bad and the ugly seasons to destroy your marriage, but God can use every one of them for His purpose. Don't rip out the pages, and don't toss the book aside because the story isn't turning out the way you thought it would. There is so much more to your story.</p>
+<h2>God is like a master chef</h2>
+<p>A master chef can take ingredients that seem like they don't belong together and turn them into something good. God does the same with your marriage. He takes the beautiful seasons, the laughter, the joy and the romance, and mixes them with the heartbreaks, the broken trust, the disappointments and the shattered dreams. Somehow, some way, only God can make it all work together for your good.</p>
+<h2>The good, the bad and the ugly</h2>
+<ul class="checks">
+<li><strong>The good seasons.</strong> Thank God for them. The joy, the friendship and the closeness are gifts worth celebrating and remembering.</li>
+<li><strong>The bad seasons.</strong> They don't have to be wasted. God can teach you a whole lot through the difficult times: patience, humility and how to depend on Him together.</li>
+<li><strong>The ugly seasons.</strong> Even the painful, ugly experiences in your marriage don't have to be wasted. God can bring healing, wisdom, maturity and a powerful testimony out of them.</li>
+</ul>
+<h2>Change the question you're asking God</h2>
+<p>When marriage gets rough, tough and challenging, it's natural to pray, "God, make this turn out the way I want it to." Terrie invites couples to make a powerful shift and ask a different question:</p>
+<blockquote class="verse" style="margin-bottom:20px">"Lord, how can You use this situation, this ugly situation, for Your purpose?"</blockquote>
+<p>That one change moves you from demanding an outcome to trusting the One who is working behind the scenes, even when you just don't see it yet.</p>
+<h2>What to do when you're in a bad or ugly season</h2>
+<ol>
+<li><strong>Don't give up and don't throw in the towel.</strong> The story isn't over, and starting over with someone else won't heal what God wants to heal in you.</li>
+<li><strong>Spend time with God.</strong> Ask Him, "What is the purpose of this season we're in?"</li>
+<li><strong>Sit still long enough to hear Him.</strong> He'll give you hope, and He may even give you a glimpse of what's on the other side of the trouble.</li>
+<li><strong>Listen for His voice.</strong> The same still, small voice that guided Terrie through her own marriage battle will speak to you.</li>
+</ol>
+<h2>Terrie knows the ugly seasons, too</h2>
+<p>Terrie's own marriage went through the good, the bad and the ugly, including the day her husband said he no longer wanted to be married. Through a 365-day battle of prayer and spiritual warfare, God restored their marriage, now 34 years strong. <a href="/about/#story">Read Terrie's story</a>.</p>
+<h2>You don't have to walk through this season alone</h2>
+<ul>
+<li><a href="/tuesday-prayer-call/">Join the free Tuesday marriage prayer and fasting call</a> on Zoom every Tuesday at 6:00 PM CT.</li>
+<li><a href="/blog/break-generational-curses-marriage-prayer/">Pray the Break the Curse declarations</a> over your marriage.</li>
+<li><a href="/blog/how-to-fight-for-your-marriage/">Learn how to fight for your marriage without fighting your spouse</a>.</li>
+<li><a href="/marriage-coaching/">Book Christian marriage coaching</a> with Terrie for help in a hard season.</li>
+</ul>
+<p>Be encouraged. God is able to do what only He can do through the good, the bad and the ugly seasons of your marriage.</p>
+""",
+    },
     {
         "slug": "how-to-fight-for-your-marriage",
         "title": "How to Fight for Your Marriage (Without Fighting Your Spouse)",
@@ -581,6 +633,7 @@ POSTS = [
 <p>It is hard to stay bitter toward someone you are praying blessing over. Pray for your spouse's heart, health, purpose and walk with God. Then pray for your own heart to soften.</p>
 <h2>5. Don't fight alone</h2>
 <p>Couples who make it through hard seasons rarely do it in isolation. Invite prayer partners, a coach or a trusted pastor into the battle. That is exactly why Terrie hosts the <a href="/tuesday-prayer-call/">Tuesday marriage prayer and fasting call</a>.</p>
+<p>Going through a hard season right now? Read <a href="/blog/good-bad-ugly-seasons-of-marriage/">The Good, the Bad and the Ugly Seasons of Marriage</a> and remember that God is still writing your story.</p>
 <h2>Ready for help?</h2>
 <p>If your marriage needs more than a few tips, <a href="/marriage-coaching/">Christian marriage coaching</a> gives you a plan and a coach in your corner.</p>
 """,
@@ -612,6 +665,8 @@ POSTS = [
 </ul>
 <h2>Scriptures to stand on</h2>
 <p>Mark 10:9. Ecclesiastes 4:12. Ephesians 4:31-32. 1 Corinthians 13:4-7. Matthew 18:19.</p>
+<h2>Pray with authority</h2>
+<p>Fasting is a powerful time to break old patterns in prayer. Use these <a href="/blog/break-generational-curses-marriage-prayer/">declarations to break generational curses off your marriage</a> as part of your fast.</p>
 <h2>You don't have to fast alone</h2>
 <p>Every Tuesday, Terrie Beeman prays and fasts for marriages and leads a live <a href="/tuesday-prayer-call/">marriage prayer call on Zoom</a>. Join her and stand with other couples who are believing God.</p>
 """,
@@ -680,7 +735,7 @@ page("/blog/", "Christian Marriage Blog | Fight to Win Marriages",
 page("/thank-you/", "Thank You | Fight to Win Marriages", "Thank you for reaching out to Fight to Win Marriages.",
      '<section class="page-hero"><div class="wrap narrow"><h1>Thank you. We received your message.</h1><p class="lead">Terrie or a member of her team will follow up soon. In the meantime, join the <a href="/tuesday-prayer-call/">Tuesday prayer call</a> or read the <a href="/blog/">marriage blog</a>.</p></div></section>')
 page("/privacy/", "Privacy Policy | Fight to Win Marriages", "Privacy policy for Fight to Win Marriages.",
-     f'<section class="section"><div class="wrap narrow prose"><h1>Privacy Policy</h1><p>Fight to Win Marriages collects the information you submit through forms on this site (such as your name, email and message) only to respond to you and provide the services you request. We do not sell your information.</p><p>Questions about your information? Email <a href="mailto:{EMAIL}">{EMAIL}</a>. {ph("Full privacy policy text and analytics disclosure")}</p></div></section>',
+     f'<section class="section"><div class="wrap narrow prose"><h1>Privacy Policy</h1><p>Fight to Win Marriages collects the information you submit through forms on this site (such as your name, email and message) only to respond to you and provide the services you request. We do not sell your information.</p><p>Questions about your information? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p></div></section>',
      crumb=[("/", "Home"), ("/privacy/", "Privacy Policy")])
 
 # 404
