@@ -36,6 +36,8 @@ ORG = {
     "description": "Faith-based marriage ministry founded on 2 Corinthians 10:4 and Ephesians 6:12 that equips husbands and wives with spiritual warfare, biblical principles, prayer and practical tools to build healed, healthy, God-centered marriages.",
     "email": EMAIL,
     "founder": {"@id": f"{SITE}/#terrie"},
+    "areaServed": [{"@type": "City", "name": "Houston, TX"}, {"@type": "Country", "name": "United States"}],
+    "image": [f"{SITE}/assets/photos/kingdom-kouples-small-group-houston.jpg", f"{SITE}/assets/photos/terrie-beeman-teaching-marriage-small-group.jpg"],
     "sameAs": SAME_AS,
 }
 PERSON = {
@@ -155,6 +157,28 @@ b.addEventListener('click',()=>{{const o=n.classList.toggle('open');b.setAttribu
 
 PORTRAIT = '<picture><source srcset="/assets/terrie-beeman.webp" type="image/webp"><img src="/assets/terrie-beeman.jpg" alt="Terrie Beeman, founder of Fight to Win Marriages, smiling outdoors" width="480" height="480" {extra}></picture>'
 
+PHOTOS = {
+    "kingdom-kouples-fellowship-dinner-houston": ((960, 719), "Kingdom Kouples Ministries couples gathered around a restaurant table in Houston, several in purple Kingdom Kouples shirts"),
+    "marriage-small-group-women-houston": ((900, 1200), "Women from a Kingdom Kouples marriage small group in Houston smiling together in name tags"),
+    "terrie-beeman-teaching-marriage-small-group": ((900, 1200), "Terrie Beeman teaching a Kingdom Kouples marriage small group in a Houston home"),
+    "terrie-beeman-leading-couples-group": ((900, 1200), "Terrie Beeman leading a couples small group discussion in a living room"),
+    "kingdom-kouples-small-group-houston": ((968, 1200), "Terrie Beeman with couples and families from a Kingdom Kouples small group in Houston"),
+    "couples-small-group-discussion": ((900, 1200), "Couples talking around a dining table during a marriage small group"),
+    "marriage-small-group-living-room": ((900, 1200), "Husbands and wives seated together during a Houston marriage small group meeting"),
+    "couples-fellowship-dinner": ((900, 1200), "Couples and families sharing a meal at a Kingdom Kouples fellowship dinner"),
+    "marriage-ministry-group-church": ((1024, 768), "Couples from the marriage ministry gathered together at a church event"),
+}
+
+def photo(name, cls="", sizes="(max-width: 820px) 100vw, 50vw"):
+    """Responsive, lazy-loaded photo from site/assets/photos (webp with jpg fallback)."""
+    (w, h), alt = PHOTOS[name]
+    b = f"/assets/photos/{name}"
+    return (f'<picture class="photo {cls}"><source type="image/webp" srcset="{b}-640.webp 640w, {b}.webp {w}w" sizes="{sizes}">'
+            f'<img src="{b}.jpg" alt="{html.escape(alt)}" width="{w}" height="{h}" loading="lazy" decoding="async"></picture>')
+
+def gallery(names):
+    return '<div class="gallery">' + "".join(photo(n, sizes="(max-width: 700px) 50vw, 25vw") for n in names) + "</div>"
+
 # ---------------------------------------------------------------- HOME
 home_faq = [
     ("What is Fight to Win Marriages?", "Fight to Win Marriages is a faith-based marriage ministry led by Terrie Beeman. It encourages couples not to give up on their marriage and focuses on healing, restoration, and standing on God's promises through prayer, love and faith."),
@@ -226,6 +250,16 @@ home = f'''
 </div>
 </section>
 
+<section class="section alt">
+<div class="wrap">
+<p class="eyebrow center">Ministry in action</p>
+<h2 class="center">Marriage small groups in Houston and online</h2>
+<p class="center narrow" style="margin:0 auto 8px">Terrie leads marriage small groups with Kingdom Kouples Ministries in Houston, where couples pray, learn and grow together around the table. The same heart for marriage carries into her online coaching and Tuesday prayer call.</p>
+{gallery(["terrie-beeman-teaching-marriage-small-group", "kingdom-kouples-small-group-houston", "couples-small-group-discussion", "kingdom-kouples-fellowship-dinner-houston"])}
+<p class="center"><a class="btn" href="/events/">See Events &amp; Gatherings</a></p>
+</div>
+</section>
+
 <section class="section">
 <div class="wrap">
 <h2 class="center">What couples are saying</h2>
@@ -283,6 +317,9 @@ about = f'''
 <li>Prayer Warrior and intercessor</li>
 </ul>
 <p>{ph("Certifying organization, years in ministry, church affiliation, media appearances")}</p>
+<h2>Leading marriage small groups in Houston</h2>
+<p>Terrie leads marriage small groups with Kingdom Kouples Ministries in Houston, Texas. Couples gather in homes and around the dinner table to pray, study God's Word and build friendships with other couples who are fighting for their marriages.</p>
+<div class="photo-pair">{photo("terrie-beeman-teaching-marriage-small-group")}{photo("kingdom-kouples-small-group-houston")}</div>
 <h2>A growing online community</h2>
 <p>Fight to Win Marriages has become a faith-based relationship community across <a href="{IG}" target="_blank" rel="noopener">Instagram</a>, TikTok and <a href="{YT}" target="_blank" rel="noopener">YouTube</a>, where couples find daily encouragement to keep standing.</p>
 </div></section>
@@ -321,6 +358,7 @@ coaching = f'''
 </div></div></section>
 
 <section class="section alt"><div class="wrap">
+<div class="split" style="margin-bottom:36px"><div><h2>Real couples, real growth</h2><p>Terrie has walked alongside couples in Houston small groups and one-on-one for years. Coaching brings that same prayerful, practical approach to your marriage, wherever you live.</p></div>{photo("couples-small-group-discussion", "rounded")}</div>
 <h2>How coaching works</h2>
 <ol class="steps">
 <li><strong>Request a consultation.</strong> Tell Terrie a little about your marriage through the booking form.</li>
@@ -379,7 +417,8 @@ tuesday = f'''
 <h2>Why prayer and fasting?</h2>
 <p>Some battles are only won on our knees. Fasting humbles the heart and sharpens our focus on God. Terrie fasts each Tuesday for the couples on the call, so you never have to stand alone.</p>
 </div>
-<blockquote class="verse">"Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven."<cite>Matthew 18:19</cite></blockquote>
+<div>{photo("terrie-beeman-leading-couples-group", "rounded")}
+<blockquote class="verse" style="margin-top:20px">"Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven."<cite>Matthew 18:19</cite></blockquote></div>
 </div></section>
 
 <section class="section alt" id="register"><div class="wrap narrow">
@@ -449,6 +488,12 @@ events = f'''
 <p class="micro">{ph("Add each confirmed event with date, location and registration link. Event schema will be added per event once dates are confirmed.")}</p>
 </div></section>
 
+<section class="section"><div class="wrap">
+<h2>Past gatherings</h2>
+<p>From Kingdom Kouples small groups and fellowship dinners in Houston to church marriage events, Terrie creates space for couples to connect, pray and grow.</p>
+{gallery(["kingdom-kouples-fellowship-dinner-houston", "marriage-ministry-group-church", "couples-fellowship-dinner", "marriage-small-group-women-houston", "marriage-small-group-living-room", "kingdom-kouples-small-group-houston", "terrie-beeman-teaching-marriage-small-group", "couples-small-group-discussion"])}
+</div></section>
+
 <section class="section alt"><div class="wrap">
 <h2>Book Terrie to speak</h2>
 <p>Terrie brings warmth, honesty and a deep prayer life to every stage. Messages are rooted in Scripture and practical enough for couples to use the same night.</p>
@@ -466,7 +511,7 @@ events = f'''
 {cta_band(title="Bring Fight to Win to your church.", text="Share your date and audience, and Terrie's team will follow up.", primary=("/contact/?type=speaking", "Book Terrie to Speak"))}
 '''
 page("/events/", "Christian Marriage Events & Speaker Booking | Fight to Win Marriages",
-     "See upcoming Fight to Win Marriages events and book Terrie Beeman to speak at your church, couples retreat, women's conference or marriage ministry event.",
+     "Fight to Win Marriages events, Houston marriage small groups and speaker booking. Invite Terrie Beeman to your church, couples retreat or marriage ministry event.",
      events, schema=[faq_schema(ev_faq)], crumb=[("/", "Home"), ("/events/", "Events & Speaking")])
 
 # ---------------------------------------------------------------- CONTACT
