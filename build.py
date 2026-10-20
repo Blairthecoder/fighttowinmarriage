@@ -25,6 +25,66 @@ NAV = [
     ("/blog/", "Blog"),
 ]
 
+RELATED = {
+    "/": [
+        ("/marriage-coaching/", "Christian marriage coaching", "Get faith-based support for conflict, trust, communication and restoration."),
+        ("/tuesday-prayer-call/", "Tuesday prayer call", "Join couples online each Tuesday for free prayer, Scripture and encouragement."),
+        ("/blog/", "Marriage encouragement", "Read practical, biblical guidance for fighting for your marriage."),
+    ],
+    "/about/": [
+        ("/marriage-coaching/", "Work with Terrie", "Explore online coaching for couples and individuals."),
+        ("/events/", "Invite Terrie to speak", "Bring a message of marriage restoration to your church or event."),
+        ("/blog/how-to-fight-for-your-marriage/", "How to fight for your marriage", "Start with Terrie's practical guide to fighting together rather than against each other."),
+    ],
+    "/marriage-coaching/": [
+        ("/about/#story", "Read Terrie's restoration story", "See how a 365-day spiritual battle became a marriage ministry."),
+        ("/tuesday-prayer-call/", "Join the free prayer call", "Find weekly encouragement while you work on your marriage."),
+        ("/contact/?type=coaching", "Request a consultation", "Tell Terrie what your marriage needs and take the next step."),
+    ],
+    "/tuesday-prayer-call/": [
+        ("/blog/praying-and-fasting-for-your-marriage/", "Learn to pray and fast", "Prepare for the call with a practical biblical guide."),
+        ("/marriage-coaching/", "Explore marriage coaching", "Get personal support beyond the weekly group call."),
+        ("/contact/", "Send a prayer request", "Share what you want Terrie and the ministry to pray over."),
+    ],
+    "/events/": [
+        ("/about/", "Meet Terrie Beeman", "Learn about her testimony, credentials and ministry."),
+        ("/contact/?type=speaking", "Request Terrie for an event", "Share your church, retreat or conference details."),
+        ("/marriage-coaching/", "Marriage coaching", "Discover another way Fight to Win serves couples."),
+    ],
+    "/contact/": [
+        ("/marriage-coaching/", "Review coaching options", "See who coaching helps and what to expect."),
+        ("/tuesday-prayer-call/", "Join Tuesday prayer", "Attend the free weekly Zoom call for couples and individuals."),
+        ("/events/", "Speaking and events", "Learn about Terrie's marriage ministry messages and gatherings."),
+    ],
+    "/blog/": [
+        ("/blog/how-to-fight-for-your-marriage/", "How to fight for your marriage", "Learn to face the problem as a team."),
+        ("/blog/praying-and-fasting-for-your-marriage/", "Praying and fasting for marriage", "Build a focused prayer practice for your home."),
+        ("/marriage-coaching/", "Get personal support", "Pair biblical encouragement with one-on-one marriage coaching."),
+    ],
+}
+
+def related_links(path):
+    """Contextual internal links for visitors and search engines."""
+    if path in ("/thank-you/", "/privacy/", "/404.html"):
+        return ""
+    links = RELATED.get(path)
+    if links is None and path.startswith("/blog/"):
+        links = [
+            ("/blog/", "More marriage resources", "Explore biblical articles about prayer, conflict, trust and restoration."),
+            ("/tuesday-prayer-call/", "Pray with us on Tuesday", "Join the free weekly marriage prayer and fasting call."),
+            ("/marriage-coaching/", "Explore marriage coaching", "Get faith-based guidance for your specific season."),
+        ]
+    if not links:
+        return ""
+    cards = "".join(
+        f'<article class="related-card"><h3><a href="{url}">{html.escape(label)}</a></h3><p>{html.escape(text)}</p></article>'
+        for url, label, text in links
+    )
+    return f'''<section class="section related" aria-labelledby="related-heading"><div class="wrap">
+<p class="eyebrow">Keep exploring</p><h2 id="related-heading">Marriage help and encouragement</h2>
+<div class="related-grid">{cards}</div>
+</div></section>'''
+
 def ph(text):
     """Visible placeholder for facts Terrie still needs to supply."""
     return f'<mark class="ph" title="Placeholder: replace before launch">[{html.escape(text)}]</mark>'
@@ -78,6 +138,19 @@ def cta_band(title="Your marriage is worth fighting for.", text="Book a coaching
 def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
     url = SITE + path
     graph = [ORG, WEBSITE]
+    share_image = f"{SITE}/assets/photos/happy-black-couple-hero-og.jpg" if path == "/" else f"{SITE}/assets/og-image.jpg"
+    share_alt = "A joyful Black married couple relaxing together at home" if path == "/" else "Fight to Win Marriages"
+    graph.append({
+        "@type": "CollectionPage" if path == "/blog/" else "WebPage",
+        "@id": f"{url}#webpage",
+        "url": url,
+        "name": title,
+        "description": desc,
+        "inLanguage": "en-US",
+        "isPartOf": {"@id": f"{SITE}/#website"},
+        "about": {"@id": f"{SITE}/#org"},
+        "primaryImageOfPage": {"@type": "ImageObject", "url": share_image},
+    })
     if crumb:
         graph.append(crumbs(crumb))
     if schema:
@@ -96,18 +169,30 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
+<meta name="author" content="Terrie Beeman">
+<meta name="application-name" content="{NAME}">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="{url}">
-<meta name="robots" content="{'noindex, follow' if path in ('/thank-you/', '/404.html') else 'index, follow, max-image-preview:large'}">
+<meta name="robots" content="{'noindex, follow' if path in ('/thank-you/', '/404.html') else 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">
 <meta property="og:type" content="{og_type}">
+<meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="{NAME}">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/assets/og-image.jpg">
+<meta property="og:image" content="{share_image}">
+<meta property="og:image:secure_url" content="{share_image}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="{html.escape(share_alt)}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html.escape(title)}">
+<meta name="twitter:description" content="{html.escape(desc)}">
+<meta name="twitter:image" content="{share_image}">
+<meta name="twitter:image:alt" content="{html.escape(share_alt)}">
 <meta name="theme-color" content="#4a1d3a">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -120,7 +205,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
 <div class="wrap bar">
-<a class="brand" href="/" aria-label="{NAME} home"><span class="mark" aria-hidden="true">&#10084;</span><span>Fight to Win <em>Marriages</em></span></a>
+<a class="brand" href="/" aria-label="{NAME} home"><span>Fight to Win <em>Marriages</em></span></a>
 {SOCIAL_ICONS}
 <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label"> Menu</span></button>
 <nav id="nav" aria-label="Main"><ul>{nav}</ul><a class="btn gold small" href="/contact/">Book Terrie</a></nav>
@@ -129,6 +214,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 {bc}
 <main id="main">
 {body}
+{related_links(path)}
 </main>
 <footer class="site-footer">
 <div class="wrap cols">
@@ -192,14 +278,14 @@ home_faq = [
 home = f'''
 <section class="hero">
 <div class="wrap hero-grid">
-<div>
+<div class="hero-copy">
 <p class="eyebrow">Christian marriage coaching &middot; Prayer &middot; Restoration</p>
 <h1>We don't give up on marriage. We fight in <em>prayer, love &amp; faith.</em></h1>
 <p class="lead">A God-filled space for healing, restoration, and standing on God's promises together. Terrie Beeman offers Christian marriage coaching, a weekly Tuesday prayer and fasting call, and marriage events for couples young and old.</p>
 <div class="btns"><a class="btn gold" href="/marriage-coaching/">Book Marriage Coaching</a><a class="btn ghost" href="/tuesday-prayer-call/">Join Tuesday Prayer Call</a></div>
 <p class="micro">Serving couples online nationwide. Newlyweds, empty nesters and every season between.</p>
 </div>
-<div class="portrait">{PORTRAIT.format(extra='fetchpriority="high"')}<p class="caption">Terrie Beeman, Founder</p></div>
+<picture class="hero-media"><source srcset="/assets/photos/happy-black-couple-hero.webp" type="image/webp"><img src="/assets/photos/happy-black-couple-hero.jpg" alt="A joyful Black married couple relaxing together at home" width="1983" height="793" fetchpriority="high" decoding="async"></picture>
 </div>
 </section>
 
@@ -211,6 +297,18 @@ home = f'''
 <article class="card featured"><h3>Tuesday Prayer &amp; Fasting Call</h3><p>Every Tuesday at {TUE_TIME}, Terrie hosts a free Zoom call where she prays, fasts and offers biblical guidance to couples. Bring your marriage before God alongside others who are standing too.</p><a class="link" href="/tuesday-prayer-call/">Join the call &rarr;</a></article>
 <article class="card"><h3>Events &amp; Speaking</h3><p>Invite Terrie to your church, couples retreat, women's conference or marriage ministry for a message of hope, healing and covenant love.</p><a class="link" href="/events/">Book Terrie to speak &rarr;</a></article>
 </div>
+</div>
+</section>
+
+<section class="section founder-intro">
+<div class="wrap split">
+<div>
+<p class="eyebrow">Meet the founder</p>
+<h2>Terrie Beeman knows restoration is possible</h2>
+<p>After a 365-day spiritual battle helped restore her own marriage, Terrie built Fight to Win Marriages to help couples pray, heal and fight for one another. She brings the compassion of someone who has lived the hard season and the practical guidance of a Certified Christian Counselor and Marriage Coach.</p>
+<div class="btns"><a class="btn" href="/about/">Meet Terrie</a><a class="btn ghost" href="/about/#story">Read Her Marriage Story</a></div>
+</div>
+<div class="portrait sm">{PORTRAIT.format(extra='loading="lazy" decoding="async"')}<p class="caption">Terrie Beeman, Founder</p></div>
 </div>
 </section>
 
@@ -285,7 +383,7 @@ home = f'''
 {cta_band()}
 '''
 page("/", "Christian Marriage Coaching & Prayer | Fight to Win Marriages",
-     "Faith-based marriage coaching with Terrie Beeman. Book a session, join the weekly Tuesday prayer and fasting call on Zoom, or invite Terrie to speak.",
+     "Faith-based Christian marriage coaching, prayer and restoration support with Terrie Beeman. Book coaching or join the free Tuesday prayer call online.",
      home, schema=[PERSON, faq_schema(home_faq)])
 
 # ---------------------------------------------------------------- ABOUT
