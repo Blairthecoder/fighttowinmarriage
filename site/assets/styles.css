@@ -160,6 +160,20 @@ p,li,h1,h2,h3,blockquote{overflow-wrap:break-word}
 .quote-cards blockquote{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.3rem;line-height:1.45;color:var(--plum);margin:0 0 18px}
 .quote-cards figcaption{margin-top:auto;color:var(--muted);font-weight:600}
 .bio-photo img{aspect-ratio:2/3;object-position:center top;box-shadow:0 18px 44px rgba(74,29,58,.18)}
+.team-bio{display:grid;grid-template-columns:92px 1fr;gap:28px;align-items:start;border-left:5px solid var(--gold)}
+.team-monogram{display:grid;place-items:center;width:78px;height:78px;border-radius:50%;background:var(--plum);color:#fff;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.9rem;font-weight:700;letter-spacing:.04em}
+.team-role{margin-top:-6px;color:var(--muted);font-weight:600}
+.team-declaration{margin:24px 0 0;padding:18px 20px;border-left:3px solid var(--gold);background:var(--cream);color:var(--plum);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.45rem;font-weight:700}
+.call-notes-promo{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:38px;background:var(--cream)}
+.call-notes-promo>div:first-child{max-width:650px}.call-notes-promo .btns{flex-shrink:0;margin:0}
+.archive-heading{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:28px}
+.archive-heading h2,.archive-heading p{margin-bottom:0}
+.resource-list{display:grid;gap:22px}
+.resource-card{display:grid;grid-template-columns:110px 1fr;gap:30px;align-items:start;padding:34px}
+.resource-date{display:flex;flex-direction:column;align-items:center;padding:18px 12px;border-radius:14px;background:var(--plum);color:#fff;text-transform:uppercase;letter-spacing:.08em}
+.resource-date span{font-size:.8rem}.resource-date strong{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.6rem;line-height:1}.resource-date small{color:#f1d9a4}
+.resource-copy h3{margin:4px 0 10px;font-size:1.8rem}.resource-copy .btns{margin-bottom:0}
+.resource-meta{margin:0;color:var(--muted);font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 /* mobile */
 .mobile-cta{display:none}
 .author .portrait{flex-shrink:0}
@@ -194,6 +208,10 @@ h3+.tags,.cards+h3{margin-top:24px}
 .author .portrait.xs img{max-width:72px}
 .video{margin-left:-16px!important;margin-right:-16px!important;border-radius:0}
 .founder-intro .portrait{margin-top:4px}
+.team-bio{grid-template-columns:1fr;gap:18px}.team-monogram{width:68px;height:68px}
+.call-notes-promo{display:block}.call-notes-promo .btns{margin-top:22px}
+.archive-heading{display:block}.archive-heading>p{margin-top:8px}
+.resource-card{grid-template-columns:1fr;gap:20px;padding:22px}.resource-date{width:96px}
 .site-footer li{margin-bottom:12px}
 .declarations{padding-left:1.2em}
 .mobile-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(251,246,239,.97);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(42,31,38,.08)}

@@ -10,6 +10,8 @@ YT = "https://www.youtube.com/@FIGHTTOWINMARRIAGES"
 YT_STORY = "https://www.youtube.com/watch?v=5Sk_Hm1As2k"
 VIDEO_TESTIMONY_ONE = "https://drive.google.com/file/d/14QjXP1ye4KxoWnmos3_v8D8_fVchgCz-/view"
 VIDEO_TESTIMONY_TWO = "https://drive.google.com/file/d/1FLaKGGMrJsxTYR0NFuTxW_iGpyC1CmQ5/view"
+CALENDLY = "https://calendly.com/fighttowinmarriages/30min"
+NOTES_PDF = "/assets/notes/fight-to-win-marriages-2026-10-20-spiritual-heart-check.pdf"
 EMAIL = "fighttowinmarriages@gmail.com"
 ZOOM = "https://us02web.zoom.us/j/84083347510"
 ZOOM_ID = "840 8334 7510"
@@ -23,6 +25,7 @@ NAV = [
     ("/about/", "About Terrie"),
     ("/marriage-coaching/", "Coaching"),
     ("/tuesday-prayer-call/", "Tuesday Prayer Call"),
+    ("/prayer-call-notes/", "Call Notes"),
     ("/events/", "Events & Speaking"),
     ("/testimonials/", "Testimonials"),
     ("/blog/", "Blog"),
@@ -45,8 +48,13 @@ RELATED = {
         ("/contact/?type=coaching", "Request a consultation", "Tell Terrie what your marriage needs and take the next step."),
     ],
     "/tuesday-prayer-call/": [
+        ("/prayer-call-notes/", "Download weekly call notes", "Review and download edited recaps from Tuesday prayer and teaching calls."),
         ("/blog/praying-and-fasting-for-your-marriage/", "Learn to pray and fast", "Prepare for the call with a practical biblical guide."),
         ("/marriage-coaching/", "Explore marriage coaching", "Get personal support beyond the weekly group call."),
+    ],
+    "/prayer-call-notes/": [
+        ("/tuesday-prayer-call/", "Join the Tuesday prayer call", "Join the free weekly Zoom gathering for prayer, Scripture and encouragement."),
+        ("/blog/", "Read marriage resources", "Explore more biblical encouragement and practical guidance for your marriage."),
         ("/contact/", "Send a prayer request", "Share what you want Terrie and the ministry to pray over."),
     ],
     "/events/": [
@@ -123,6 +131,15 @@ PERSON = {
     "sameAs": SAME_AS,
     "knowsAbout": ["Christian marriage coaching", "Marriage restoration", "Prayer and fasting for marriage", "Biblical marriage", "Spiritual warfare prayer", "Christian counseling", "Spiritual life coaching", "Women's empowerment", "Premarital coaching"],
 }
+TOMEKA = {
+    "@type": "Person",
+    "@id": f"{SITE}/about/#tomeka-jones",
+    "name": "Tomeka Jones",
+    "jobTitle": "Personal Assistant, Prayer Warrior and Intercessor",
+    "description": "Tomeka Jones serves Fight to Win Marriages as Terrie Beeman's personal assistant, a prayer warrior and an intercessor standing for wives, marriages and covenant restoration.",
+    "url": f"{SITE}/about/#tomeka-jones",
+    "worksFor": {"@id": f"{SITE}/#org"},
+}
 WEBSITE = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": SITE + "/", "name": NAME, "publisher": {"@id": f"{SITE}/#org"}}
 
 def crumbs(items):
@@ -138,9 +155,11 @@ def faq_html(faqs, heading="Frequently Asked Questions"):
     return f'<section class="section"><div class="wrap narrow"><h2>{heading}</h2><div class="faq">{items}</div></div></section>'
 
 def cta_band(title="Your marriage is worth fighting for.", text="Book a coaching session, join the Tuesday prayer call, or invite Terrie to speak.", primary=("/contact/", "Book Terrie"), secondary=("/tuesday-prayer-call/", "Join Tuesday Prayer")):
+    primary_attrs = ' target="_blank" rel="noopener"' if primary[0].startswith("http") else ""
+    secondary_attrs = ' target="_blank" rel="noopener"' if secondary[0].startswith("http") else ""
     return f'''<section class="cta-band"><div class="wrap">
 <h2>{title}</h2><p>{text}</p>
-<div class="btns"><a class="btn gold" href="{primary[0]}">{primary[1]}</a><a class="btn ghost-light" href="{secondary[0]}">{secondary[1]}</a></div>
+<div class="btns"><a class="btn gold" href="{primary[0]}"{primary_attrs}>{primary[1]}</a><a class="btn ghost-light" href="{secondary[0]}"{secondary_attrs}>{secondary[1]}</a></div>
 </div></section>'''
 
 def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
@@ -205,7 +224,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <link rel="apple-touch-icon" href="/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/styles.css">
 <script type="application/ld+json">{ld}</script>
 </head>
@@ -216,7 +235,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <a class="brand" href="/" aria-label="{NAME} home"><span>Fight to Win <em>Marriages</em></span></a>
 {SOCIAL_ICONS}
 <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label"> Menu</span></button>
-<nav id="nav" aria-label="Main"><ul>{nav}</ul><a class="btn gold small" href="/contact/">Book Terrie</a></nav>
+<nav id="nav" aria-label="Main"><ul>{nav}</ul><a class="btn gold small" href="{CALENDLY}" target="_blank" rel="noopener">Book a Meeting</a></nav>
 </div>
 </header>
 {bc}
@@ -229,12 +248,12 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <div><p class="brand foot"><span class="mark" aria-hidden="true">&#10084;</span> Fight to Win Marriages</p>
 <p>We don't give up on marriage. We fight in prayer, love &amp; faith. A God-filled space for healing, restoration, and standing on God's promises together.</p>
 <p class="social"><a href="{IG}" rel="noopener" target="_blank">Instagram</a> · {f'<a href="{TT}" rel="noopener" target="_blank">TikTok</a> · ' if TT else ''}<a href="{YT}" rel="noopener" target="_blank">YouTube</a></p></div>
-<div><h3>Ministry</h3><ul><li><a href="/marriage-coaching/">Christian Marriage Coaching</a></li><li><a href="/tuesday-prayer-call/">Tuesday Prayer &amp; Fasting Call</a></li><li><a href="/events/">Marriage Events &amp; Speaking</a></li><li><a href="/blog/">Marriage Blog</a></li></ul></div>
+<div><h3>Ministry</h3><ul><li><a href="/marriage-coaching/">Christian Marriage Coaching</a></li><li><a href="/tuesday-prayer-call/">Tuesday Prayer &amp; Fasting Call</a></li><li><a href="/prayer-call-notes/">Tuesday Call Notes</a></li><li><a href="/events/">Marriage Events &amp; Speaking</a></li><li><a href="/blog/">Marriage Blog</a></li></ul></div>
 <div><h3>Connect</h3><ul><li><a href="/about/">About Terrie Beeman</a></li><li><a href="/contact/">Book or Contact</a></li><li>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></li></ul></div>
 </div>
 <div class="wrap legal"><p>&copy; 2026 Fight to Win Marriages. Coaching and Christian counseling are faith-based and are not a substitute for licensed clinical or mental health care. If you are in danger, call 911 or the National Domestic Violence Hotline at 1-800-799-7233.</p><p><a href="/privacy/">Privacy Policy</a></p></div>
 </footer>
-<nav class="mobile-cta" aria-label="Quick actions"><a class="btn gold" href="/contact/">Book Terrie</a><a class="btn" href="/tuesday-prayer-call/">Join Tuesday Call</a></nav>
+<nav class="mobile-cta" aria-label="Quick actions"><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Book a Meeting</a><a class="btn" href="/tuesday-prayer-call/">Join Tuesday Call</a></nav>
 <script>
 const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
 b.addEventListener('click',()=>{{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}});
@@ -376,7 +395,7 @@ home = f'''
 <p class="eyebrow">Christian marriage coaching &middot; Prayer &middot; Restoration</p>
 <h1>We don't give up on marriage. We fight in <em>prayer, love &amp; faith.</em></h1>
 <p class="lead">A God-filled space for healing, restoration, and standing on God's promises together. Terrie Beeman offers Christian marriage coaching, a weekly Tuesday prayer and fasting call, and marriage events for couples young and old.</p>
-<div class="btns"><a class="btn gold" href="/marriage-coaching/">Book Marriage Coaching</a><a class="btn ghost" href="/tuesday-prayer-call/">Join Tuesday Prayer Call</a></div>
+<div class="btns"><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Book a 30-Minute Meeting</a><a class="btn ghost" href="/tuesday-prayer-call/">Join Tuesday Prayer Call</a></div>
 <p class="micro">Serving couples online nationwide. Newlyweds, empty nesters and every season between.</p>
 </div>
 <picture class="hero-media"><source srcset="/assets/photos/happy-black-couple-hero.webp" type="image/webp"><img src="/assets/photos/happy-black-couple-hero.jpg" alt="A joyful Black married couple relaxing together at home" width="1983" height="793" fetchpriority="high" decoding="async"></picture>
@@ -400,7 +419,7 @@ home = f'''
 <p class="eyebrow">Meet the founder</p>
 <h2>Terrie Beeman knows restoration is possible</h2>
 <p>After a 365-day spiritual battle helped restore her own marriage, Terrie built Fight to Win Marriages to help couples pray, heal and fight for one another. She brings the compassion of someone who has lived the hard season and the practical guidance of a Certified Christian Counselor and Marriage Coach.</p>
-<div class="btns"><a class="btn" href="/about/">Meet Terrie</a><a class="btn ghost" href="/about/#story">Read Her Marriage Story</a></div>
+<div class="btns"><a class="btn" href="/about/">Meet Terrie</a><a class="btn ghost" href="{CALENDLY}" target="_blank" rel="noopener">Schedule with Terrie</a></div>
 </div>
 <div class="portrait sm">{PORTRAIT.format(extra='loading="lazy" decoding="async"')}<p class="caption">Terrie Beeman, Founder</p></div>
 </div>
@@ -497,7 +516,7 @@ about = f'''
 <section class="page-hero"><div class="wrap split">
 <div><p class="eyebrow">About the founder</p><h1>Meet Terrie Beeman</h1>
 <p class="lead">Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator, Prayer Warrior and purpose-driven community leader.</p>
-<div class="btns"><a class="btn gold" href="#bio">Read Terrie's Bio</a><a class="btn ghost" href="#story">Read Her Marriage Story</a></div></div>
+<div class="btns"><a class="btn gold" href="#bio">Read Terrie's Bio</a><a class="btn ghost" href="{CALENDLY}" target="_blank" rel="noopener">Book a 30-Minute Meeting</a></div></div>
 <div class="portrait sm">{PORTRAIT.format(extra='')}</div>
 </div></section>
 <section class="section" id="bio"><div class="wrap split bio-profile">
@@ -511,6 +530,19 @@ about = f'''
 <p>Also in 2024, Terrie unveiled another facet of her purpose through <strong>Daughters Rise Up</strong>, a project created to empower women of all ages. Her vision is to illuminate their inherent worth, guide them from the shadows to the forefront, and ignite the spark within them to fulfill their divine destinies.</p>
 <p>Terrie is an atmospheric shifter who casts light and positivity wherever she goes. Her infectious energy transforms every room and leaves an indelible mark on those fortunate enough to encounter her. A designer's original and a true game-changer, Terrie stands in her God-given uniqueness&mdash;the one and only, incomparable Terrie Beeman.</p>
 </div>
+</div></section>
+<section class="section alt" id="tomeka-jones"><div class="wrap narrow">
+<article class="card team-bio">
+<div class="team-monogram" aria-hidden="true">TJ</div>
+<div class="prose">
+<p class="eyebrow">Meet the team</p>
+<h2 style="margin-top:0">Tomeka Jones</h2>
+<p class="team-role">Personal Assistant &middot; Prayer Warrior &middot; Intercessor</p>
+<p>Once a timid, people-pleasing little girl carrying rejection and father wounds, Tomeka is now a <strong>bold, set-apart woman of God</strong>&mdash;healed by His love, refined by His fire and transformed by His presence. Peculiar by design and unapologetic in her faith, she no longer seeks man's approval. She loves what God loves, hates what He hates and bows to no one but Him.</p>
+<p>As Terrie's personal assistant, Tomeka has led wives' groups back to Christ and served in marriage ministry as a prayer warrior and intercessor. She stands in the gap for wives, marriages and covenant restoration.</p>
+<blockquote class="team-declaration">I am chosen. Called. Consecrated. And His!</blockquote>
+</div>
+</article>
 </div></section>
 <section class="section" id="story"><div class="wrap narrow prose">
 <p class="eyebrow">Terrie's story</p>
@@ -560,9 +592,9 @@ about = f'''
 </div></section>
 {cta_band(title="Work with Terrie", text="Coaching, prayer and speaking for couples and churches.", primary=("/marriage-coaching/", "See Coaching Options"), secondary=("/events/", "Invite Terrie to Speak"))}
 '''
-page("/about/", "About Terrie Beeman, Christian Counselor & Marriage Coach | Fight to Win Marriages",
-     "Meet Terrie Beeman: Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, founder of TBee Ministries and Fight to Win Marriages.",
-     about, schema=[PERSON, {"@type": "AboutPage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
+page("/about/", "About Terrie Beeman & the Ministry Team | Fight to Win Marriages",
+     "Meet Terrie Beeman, founder of Fight to Win Marriages, and Tomeka Jones, her personal assistant, prayer warrior and intercessor.",
+     about, schema=[PERSON, TOMEKA, {"@type": "AboutPage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
      og_type="profile", crumb=[("/", "Home"), ("/about/", "About Terrie Beeman")])
 
 # ---------------------------------------------------------------- TESTIMONIALS
@@ -668,7 +700,7 @@ tuesday = f'''
 <div class="btns"><a class="btn gold" href="{ZOOM}" target="_blank" rel="noopener">Join on Zoom</a><a class="btn ghost" href="#register">Get Weekly Reminders</a><a class="btn ghost" href="#prayer-request">Send a Prayer Request</a></div>
 </div></section>
 
-<section class="section"><div class="wrap split">
+<section class="section"><div class="wrap"><div class="split">
 <div class="prose">
 <h2>What happens on the call</h2>
 <ul class="checks">
@@ -682,6 +714,11 @@ tuesday = f'''
 </div>
 <div>{photo("terrie-beeman-leading-couples-group", "rounded")}
 <blockquote class="verse" style="margin-top:20px">"Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven."<cite>Matthew 18:19</cite></blockquote></div>
+</div>
+<article class="card call-notes-promo">
+<div><p class="eyebrow">Keep the teaching close</p><h2>Weekly call notes</h2><p>Review the key Scriptures, teachings, reflection questions and next steps from Tuesday gatherings. Each recap is available to view or download.</p></div>
+<div class="btns"><a class="btn" href="/prayer-call-notes/">Browse the Notes Archive</a><a class="btn ghost" href="{NOTES_PDF}" download>Download the Latest Recap</a></div>
+</article>
 </div></section>
 
 <section class="section alt" id="register"><div class="wrap narrow">
@@ -729,6 +766,45 @@ tue_event = {"@type": "Event", "name": "Fight to Win Marriages Tuesday Prayer & 
 page("/tuesday-prayer-call/", "Free Online Marriage Prayer Call Every Tuesday | Fight to Win Marriages",
      "Join Terrie Beeman's free marriage prayer and fasting call on Zoom every Tuesday at 6 PM CT. Prayer, Scripture and biblical guidance for couples young and old.",
      tuesday, schema=[tue_service, tue_event, faq_schema(tue_faq)], crumb=[("/", "Home"), ("/tuesday-prayer-call/", "Tuesday Prayer Call")])
+
+# ---------------------------------------------------------------- CALL NOTES ARCHIVE
+notes = f'''
+<section class="page-hero"><div class="wrap narrow">
+<p class="eyebrow">Tuesday prayer call resource library</p>
+<h1>Weekly Call Notes</h1>
+<p class="lead">Return to the Scriptures, teachings, reflection questions and prayer focus from Fight to Win Marriages' weekly Tuesday calls. View each edited recap online or download it to keep and share.</p>
+<div class="btns"><a class="btn gold" href="{NOTES_PDF}" download>Download the Latest Notes</a><a class="btn ghost" href="/tuesday-prayer-call/">Join the Tuesday Call</a></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="archive-heading"><div><p class="eyebrow">Notes archive</p><h2>Tuesday call recaps</h2></div><p>New notes will be added here as they become available.</p></div>
+<div class="resource-list">
+<article class="card resource-card">
+<div class="resource-date"><span>Oct</span><strong>20</strong><small>2026</small></div>
+<div class="resource-copy">
+<p class="resource-meta"><time datetime="2026-10-20">October 20, 2026</time> &middot; 2 pages &middot; PDF</p>
+<h3>Spiritual Heart Check</h3>
+<p>This recap invites husbands and wives to keep God at the center, begin with their own hearts, identify inner obstacles, receive correction as an opportunity to grow, and practice forgiveness with healthy boundaries. It also includes a marriage examination, personal reflection questions, a prayer focus and next steps.</p>
+<p class="micro">Edited recap prepared from the weekly call summary and transcript; not a verbatim transcript.</p>
+<div class="btns"><a class="btn" href="{NOTES_PDF}" target="_blank" rel="noopener">View PDF</a><a class="btn ghost" href="{NOTES_PDF}" download>Download PDF</a></div>
+</div>
+</article>
+</div>
+</div></section>
+{cta_band(title="Join us for the next Tuesday call.", text="Come for prayer, Scripture and encouragement, then return here for downloadable notes.", primary=("/tuesday-prayer-call/", "Join Tuesday Prayer"), secondary=(CALENDLY, "Book a Meeting"))}
+'''
+notes_document = {
+    "@type": "DigitalDocument",
+    "name": "Tuesday Prayer Call Recap: Spiritual Heart Check",
+    "description": "Edited recap of the October 20, 2026 Fight to Win Marriages Tuesday prayer call.",
+    "datePublished": "2026-10-20",
+    "encodingFormat": "application/pdf",
+    "contentUrl": SITE + NOTES_PDF,
+    "publisher": {"@id": f"{SITE}/#org"},
+}
+page("/prayer-call-notes/", "Weekly Tuesday Prayer Call Notes | Fight to Win Marriages",
+     "View and download edited recaps, Scriptures, reflection questions and prayer notes from Fight to Win Marriages' weekly Tuesday calls.",
+     notes, schema=[notes_document], crumb=[("/", "Home"), ("/prayer-call-notes/", "Weekly Call Notes")])
 
 # ---------------------------------------------------------------- EVENTS
 ev_faq = [
@@ -796,6 +872,7 @@ contact = f'''
 </form>
 <aside class="card">
 <h2>Other ways to connect</h2>
+<p><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Book a 30-Minute Meeting with Terrie</a></p>
 <p><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 <p><strong>Instagram:</strong> <a href="{IG}" target="_blank" rel="noopener">@fighttowinmarriages</a></p>
 <p><strong>YouTube:</strong> <a href="{YT}" target="_blank" rel="noopener">@FIGHTTOWINMARRIAGES</a></p>
@@ -996,11 +1073,11 @@ page("/404.html", "Page Not Found | Fight to Win Marriages", "Page not found.",
      '<section class="page-hero"><div class="wrap narrow"><h1>Page not found</h1><p class="lead">Don\'t give up. Try the <a href="/">home page</a>, <a href="/marriage-coaching/">coaching</a> or the <a href="/blog/">blog</a>.</p></div></section>')
 
 # sitemap + robots
-urls = ["/", "/about/", "/marriage-coaching/", "/tuesday-prayer-call/", "/events/", "/testimonials/", "/blog/", "/contact/", "/privacy/"] + [f"/blog/{p['slug']}/" for p in POSTS]
+urls = ["/", "/about/", "/marriage-coaching/", "/tuesday-prayer-call/", "/prayer-call-notes/", "/events/", "/testimonials/", "/blog/", "/contact/", "/privacy/"] + [f"/blog/{p['slug']}/" for p in POSTS]
 with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for u in urls:
-        f.write(f"  <url><loc>{SITE}{u}</loc><lastmod>2026-10-19</lastmod></url>\n")
+        f.write(f"  <url><loc>{SITE}{u}</loc><lastmod>2026-10-23</lastmod></url>\n")
     f.write("</urlset>\n")
 with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
     f.write(f"User-agent: *\nDisallow: /thank-you/\n\nSitemap: {SITE}/sitemap.xml\n")
