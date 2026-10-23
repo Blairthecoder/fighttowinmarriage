@@ -24,6 +24,7 @@ NAV = [
     ("/marriage-coaching/", "Coaching"),
     ("/tuesday-prayer-call/", "Tuesday Prayer Call"),
     ("/events/", "Events & Speaking"),
+    ("/testimonials/", "Testimonials"),
     ("/blog/", "Blog"),
 ]
 
@@ -36,7 +37,7 @@ RELATED = {
     "/about/": [
         ("/marriage-coaching/", "Work with Terrie", "Explore online coaching for couples and individuals."),
         ("/events/", "Invite Terrie to speak", "Bring a message of marriage restoration to your church or event."),
-        ("/blog/how-to-fight-for-your-marriage/", "How to fight for your marriage", "Start with Terrie's practical guide to fighting together rather than against each other."),
+        ("/testimonials/", "Read marriage testimonies", "Hear from couples and individuals strengthened by prayer, teaching and community."),
     ],
     "/marriage-coaching/": [
         ("/about/#story", "Read Terrie's restoration story", "See how a 365-day spiritual battle became a marriage ministry."),
@@ -52,6 +53,11 @@ RELATED = {
         ("/about/", "Meet Terrie Beeman", "Learn about her testimony, credentials and ministry."),
         ("/contact/?type=speaking", "Request Terrie for an event", "Share your church, retreat or conference details."),
         ("/marriage-coaching/", "Marriage coaching", "Discover another way Fight to Win serves couples."),
+    ],
+    "/testimonials/": [
+        ("/about/", "Meet Terrie Beeman", "Learn about the testimony and calling behind Fight to Win Marriages."),
+        ("/tuesday-prayer-call/", "Join the Tuesday prayer call", "Pray and stand with other couples in a free weekly online gathering."),
+        ("/marriage-coaching/", "Explore marriage coaching", "Get faith-based support for your marriage and your next step."),
     ],
     "/contact/": [
         ("/marriage-coaching/", "Review coaching options", "See who coaching helps and what to expect."),
@@ -278,6 +284,91 @@ home_faq = [
     ("When is the Tuesday prayer call?", "Terrie hosts a free online marriage prayer and fasting call on Zoom every Tuesday at 6:00 PM CT. Couples young and old are welcome to join for prayer, encouragement and biblical guidance."),
     ("Can I book Terrie to speak at my church or event?", "Yes. Terrie speaks at church marriage ministries, couples retreats, women's conferences and marriage events. Use the booking form to share your date, location and audience."),
 ]
+
+TESTIMONIALS = [
+    {
+        "author": "The Kellys",
+        "meta": "Married 29 years",
+        "excerpt": "We learned that fighting for our marriage does not mean fighting against each other. It means recognizing that we are on the same team and taking our battles to God in prayer.",
+        "paragraphs": [
+            "One of the blessings God placed on our 29-year marriage journey is Fight to Win Marriages Ministry. The weekly Tuesday Zoom meetings and our commitment to fasting until 3:00 p.m. have demonstrated the dedication and spiritual discipline it takes to fight for a marriage.",
+            "We learned that fighting for our marriage does not mean fighting against each other—it means recognizing that we are on the same team and taking our battles to God in prayer. Ephesians 6:12 reminds us, ‘For our struggle is not against flesh and blood,’ and Ephesians 6:16 teaches us to take up the shield of faith so that we can extinguish the fiery darts of the enemy.",
+            "Hearing Terrie and Donald share their testimony about the deliverance and restoration of their marriage especially blessed us and gave us hope to continue fighting. Their testimony reminded us that situations may look impossible to us, but nothing is impossible with God. This ministry reminds us that some things are worth fighting for.",
+        ],
+    },
+    {
+        "author": "Donna A.",
+        "meta": "Standing for restoration",
+        "excerpt": "Thanks to Fight to Win Marriages, I am further along than I was when I filed for divorce. My faith has been restored in God coming through for me and my family.",
+        "paragraphs": [
+            "This ministry has blessed me tremendously. I filed for divorce two times, but through this ministry I have learned what it means to be a woman of God who fights for her marriage. My eyes have been opened to the truth of what my marriage means for the Kingdom of God, and that my pain has purpose. Despite the way I feel, I have learned there is more to this story than the pain it has caused me.",
+            "It is about God using me to break generational curses off my life, my husband's life and our children's lives. The ministry has taught me what to pray, what to seek God about, and has ignited a thirst for God as I believe for my marriage to be completely reconciled and my husband's heart turned to God.",
+            "I am not where I would love to be yet, but thanks to Fight to Win Marriages, I am further along than I was when I filed for divorce. My faith has been restored in God coming through for me and my family. I have always believed in what God can do for me in other situations, but I used to doubt Him with my marriage based on what I saw and felt. Thanks to this ministry, that is not the case anymore. God is doing it, He has been working on it, and I cannot wait to share my reconciliation testimony in the future. He who started a good work is faithful to complete it. I am forever grateful for God using Mrs. Terrie and her ministry.",
+        ],
+    },
+    {
+        "author": "Prayer-call participant",
+        "meta": "Tuesday marriage prayer call",
+        "excerpt": "The weekly marriage prayer calls have strengthened my faith, taught me to trust God more in my marriage, and helped me go deeper in prayer.",
+        "paragraphs": [
+            "Fight to Win Marriages Ministry and God have blessed me through the weekly marriage prayer calls by strengthening my faith and teaching me to trust God more in my marriage. It has helped me go deeper in my prayers and grow in patience and understanding as a wife. I appreciate Terrie and Donald's passion and dedication to help us fight for our marriages.",
+        ],
+    },
+    {
+        "author": "S.W.",
+        "meta": "Fight to Win Marriages community member",
+        "excerpt": "Strong, Christ-centered marriages do not happen by accident, and this ministry is helping couples fight for what God intended.",
+        "paragraphs": [
+            "My husband and I are so grateful for Fight to Win Marriages. It is such a blessing to be in a space with like-minded couples and believers who are intentional about strengthening their marriages and putting God at the center.",
+            "Satan has definitely been served several notices in our home, and we are believing our marriage will continue to reflect God's love to others. We are just getting started, and we are excited for all that God has in store.",
+            "We absolutely love this community and wholeheartedly support what Donald and Terrie Beeman are doing. Their assignment is needed. Strong, Christ-centered marriages do not happen by accident, and this ministry is helping couples fight for what God intended.",
+            "If you are married and want to see your marriage thrive, invite your spouse and join us. The more couples walking in God's purpose for their marriage, the stronger our families and communities will be. In Jesus' name.",
+        ],
+    },
+    {
+        "author": "The Cowans",
+        "meta": "Fight to Win Marriages community members",
+        "excerpt": "Your dedication, faithfulness and commitment to bringing God's people together in prayer do not go unnoticed.",
+        "paragraphs": [
+            "We want to thank you and Donald for the wonderful work you both continue to do in bringing God's people together in prayer. Your dedication, faithfulness and commitment to the work of the Lord do not go unnoticed, and we are truly grateful for you both. We love and appreciate you both, and we pray that God continues to strengthen, bless and use you mightily for His glory.",
+        ],
+    },
+    {
+        "author": "The Hendersons",
+        "meta": "Married 4 years",
+        "excerpt": "Terrie challenges you to trust God through the highs, lows and in-between. She is kind and inviting and made us feel comfortable opening up.",
+        "paragraphs": [
+            "Terrie was an amazing leader who challenges you to trust God through the highs, lows and in-between. She is so kind and inviting and really made us feel comfortable opening up. We really enjoyed meeting with her for Kingdom Kouples and her Zoom prayer calls.",
+        ],
+    },
+    {
+        "author": "The Randolphs",
+        "meta": "Kingdom Wives participant",
+        "excerpt": "Kingdom Wives really provided a lot of peace for me and my family. I am looking forward to Kingdom Couples.",
+        "paragraphs": [
+            "Good morning, Ms. Terri. I just wanted to thank you again for last semester's Kingdom Wives. It really provided a lot of peace for me and my family. I am looking forward to Kingdom Couples. Have a wonderful day.",
+        ],
+    },
+]
+
+def testimonial_card(item, compact=False):
+    paragraphs = [item["excerpt"]] if compact else item["paragraphs"]
+    rendered = []
+    for index, paragraph in enumerate(paragraphs):
+        text = html.escape(paragraph)
+        if index == 0:
+            text = "&ldquo;" + text
+        if index == len(paragraphs) - 1:
+            text += "&rdquo;"
+        rendered.append(f"<p>{text}</p>")
+    meta = f'<span class="testimonial-meta">{html.escape(item["meta"])}</span>' if item.get("meta") else ""
+    return (f'<figure class="card testimonial"><blockquote>{"".join(rendered)}</blockquote>'
+            f'<figcaption><strong>{html.escape(item["author"])}</strong>{meta}</figcaption></figure>')
+
+def testimonial_grid(items, compact=False, modifier="full"):
+    cards = "".join(testimonial_card(item, compact=compact) for item in items)
+    return f'<div class="testimonials-grid {modifier}">{cards}</div>'
+
 home = f'''
 <section class="hero">
 <div class="wrap hero-grid">
@@ -368,45 +459,9 @@ home = f'''
 <div class="wrap">
 <p class="eyebrow center">Real stories of faith and restoration</p>
 <h2 class="center">What couples are saying</h2>
-<p class="center narrow testimonials-intro">Couples and individuals share how prayer, biblical teaching and a community committed to marriage have strengthened their faith and helped them keep fighting.</p>
-<div class="testimonials-grid">
-<figure class="card quote testimonial featured">
-<blockquote><p>"One of the blessings God placed on our 29-year marriage journey is Fight to Win Marriages Ministry. The weekly Tuesday Zoom meetings and our commitment to fasting until 3:00 p.m. have demonstrated the dedication and spiritual discipline it takes to fight for a marriage.</p><p>We learned that fighting for our marriage does not mean fighting against each other&mdash;it means recognizing that we are on the same team and taking our battles to God in prayer. Ephesians 6:12 reminds us, 'For our struggle is not against flesh and blood,' and Ephesians 6:16 teaches us to take up the shield of faith so that we can extinguish the fiery darts of the enemy.</p><p>Hearing Terrie and Donald share their testimony about the deliverance and restoration of their marriage especially blessed us and gave us hope to continue fighting. Their testimony reminded us that situations may look impossible to us, but nothing is impossible with God. This ministry reminds us that some things are worth fighting for."</p></blockquote>
-<figcaption><strong>The Kellys</strong> &middot; Married 29 years</figcaption>
-</figure>
-<figure class="card quote testimonial testimonial-long">
-<blockquote><p>"This ministry has blessed me tremendously. I filed for divorce two times, but through this ministry I have learned what it means to be a woman of God who fights for her marriage. My eyes have been opened to the truth of what my marriage means for the Kingdom of God, and that my pain has purpose. Despite the way I feel, I have learned there is more to this story than the pain it has caused me.</p><p>It is about God using me to break generational curses off my life, my husband's life and our children's lives. The ministry has taught me what to pray, what to seek God about, and has ignited a thirst for God as I believe for my marriage to be completely reconciled and my husband's heart turned to God.</p><p>I am not where I would love to be yet, but thanks to Fight to Win Marriages, I am further along than I was when I filed for divorce. My faith has been restored in God coming through for me and my family. I have always believed in what God can do for me in other situations, but I used to doubt Him with my marriage based on what I saw and felt. Thanks to this ministry, that is not the case anymore. God is doing it, He has been working on it, and I cannot wait to share my reconciliation testimony in the future. He who started a good work is faithful to complete it. I am forever grateful for God using Mrs. Terrie and her ministry."</p></blockquote>
-<figcaption><strong>Donna A.</strong></figcaption>
-</figure>
-<figure class="card quote testimonial">
-<blockquote>"Fight to Win Marriages Ministry and God have blessed me through the weekly marriage prayer calls by strengthening my faith and teaching me to trust God more in my marriage. It has helped me go deeper in my prayers and grow in patience and understanding as a wife. I appreciate Terrie and Donald's passion and dedication to help us fight for our marriages."</blockquote>
-<figcaption><strong>Tuesday prayer-call participant</strong></figcaption>
-</figure>
-<figure class="card quote testimonial">
-<blockquote><p>"My husband and I are so grateful for Fight to Win Marriages. It is such a blessing to be in a space with like-minded couples and believers who are intentional about strengthening their marriages and putting God at the center.</p><p>Satan has definitely been served several notices in our home, and we are believing our marriage will continue to reflect God's love to others. We are just getting started, and we are excited for all that God has in store.</p><p>We absolutely love this community and wholeheartedly support what Donald and Terrie Beeman are doing. Their assignment is needed. Strong, Christ-centered marriages do not happen by accident, and this ministry is helping couples fight for what God intended.</p><p>If you are married and want to see your marriage thrive, invite your spouse and join us. The more couples walking in God's purpose for their marriage, the stronger our families and communities will be. In Jesus' name."</p></blockquote>
-<figcaption><strong>S.W.</strong></figcaption>
-</figure>
-<figure class="card quote testimonial">
-<blockquote>"We want to thank you and Donald for the wonderful work you both continue to do in bringing God's people together in prayer. Your dedication, faithfulness and commitment to the work of the Lord do not go unnoticed, and we are truly grateful for you both. We love and appreciate you both, and we pray that God continues to strengthen, bless and use you mightily for His glory."</blockquote>
-<figcaption><strong>The Cowans</strong></figcaption>
-</figure>
-<figure class="card quote testimonial">
-<blockquote>"Terrie was an amazing leader who challenges you to trust God through the highs, lows and in-between. She is so kind and inviting and really made us feel comfortable opening up. We really enjoyed meeting with her for Kingdom Kouples and her Zoom prayer calls."</blockquote>
-<figcaption><strong>The Hendersons</strong> &middot; Married 4 years</figcaption>
-</figure>
-</div>
-<div class="testimonial-media">
-<figure class="card image-testimonial">
-<picture><source type="image/webp" srcset="/assets/testimonials/randolphs-kingdom-wives-testimonial-640.webp 640w, /assets/testimonials/randolphs-kingdom-wives-testimonial.webp 1170w" sizes="(max-width: 820px) 100vw, 50vw"><img src="/assets/testimonials/randolphs-kingdom-wives-testimonial.jpg" alt="Text message thanking Terrie for the peace Kingdom Wives brought to a participant and her family and expressing excitement for Kingdom Couples" width="1170" height="1139" loading="lazy" decoding="async"></picture>
-<figcaption><strong>The Randolphs</strong> &middot; Kingdom Wives participant</figcaption>
-</figure>
-<article class="card video-testimonies">
-<p class="eyebrow">Hear their stories</p>
-<h3>Watch more video testimonies</h3>
-<p>Hear directly from members of the Fight to Win Marriages community about the difference prayer, encouragement and standing together have made in their lives.</p>
-<div class="btns"><a class="btn" href="{VIDEO_TESTIMONY_ONE}" target="_blank" rel="noopener">Watch Video Testimony</a><a class="btn ghost" href="{VIDEO_TESTIMONY_TWO}" target="_blank" rel="noopener">Watch Another Testimony</a></div>
-</article>
-</div>
+<p class="center narrow testimonials-intro">A few words from couples and individuals whose faith and marriages have been strengthened through prayer, biblical teaching and community.</p>
+{testimonial_grid([TESTIMONIALS[0], TESTIMONIALS[1], TESTIMONIALS[3]], compact=True, modifier="highlights")}
+<p class="center testimonials-link"><a class="btn" href="/testimonials/">Read All Testimonials</a></p>
 </div>
 </section>
 
@@ -509,6 +564,34 @@ page("/about/", "About Terrie Beeman, Christian Counselor & Marriage Coach | Fig
      "Meet Terrie Beeman: Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, founder of TBee Ministries and Fight to Win Marriages.",
      about, schema=[PERSON, {"@type": "AboutPage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
      og_type="profile", crumb=[("/", "Home"), ("/about/", "About Terrie Beeman")])
+
+# ---------------------------------------------------------------- TESTIMONIALS
+testimonials = f'''
+<section class="page-hero"><div class="wrap narrow">
+<p class="eyebrow">Stories from the community</p>
+<h1>Marriage &amp; Ministry Testimonials</h1>
+<p class="lead">Real words from couples and individuals who have found prayer, encouragement, peace and renewed faith through Fight to Win Marriages and Terrie Beeman's ministry.</p>
+<div class="btns"><a class="btn gold" href="/tuesday-prayer-call/">Join Tuesday Prayer</a><a class="btn ghost" href="/marriage-coaching/">Explore Marriage Coaching</a></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<p class="eyebrow center">Testimonies of faith and restoration</p>
+<h2 class="center">Why couples keep fighting</h2>
+<p class="center narrow testimonials-intro">Every testimony is presented in the same text format so each person's words remain the focus.</p>
+{testimonial_grid(TESTIMONIALS)}
+</div></section>
+
+<section class="section alt" id="video-testimonies"><div class="wrap narrow video-testimonies center">
+<p class="eyebrow">Hear their stories</p>
+<h2>Video testimonies</h2>
+<p>Hear directly from members of the Fight to Win Marriages community about the difference prayer, encouragement and standing together have made in their lives.</p>
+<div class="btns"><a class="btn" href="{VIDEO_TESTIMONY_ONE}" target="_blank" rel="noopener">Watch Video Testimony</a><a class="btn ghost" href="{VIDEO_TESTIMONY_TWO}" target="_blank" rel="noopener">Watch Another Testimony</a></div>
+</div></section>
+{cta_band(title="Your story is still being written.", text="Stand with a community that believes prayer, faith and practical support can strengthen a marriage.", primary=("/tuesday-prayer-call/", "Join Tuesday Prayer"), secondary=("/contact/", "Contact Terrie"))}
+'''
+page("/testimonials/", "Marriage & Ministry Testimonials | Fight to Win Marriages",
+     "Read testimonies from couples and individuals strengthened through Fight to Win Marriages, Terrie Beeman's teaching, prayer calls and community.",
+     testimonials, crumb=[("/", "Home"), ("/testimonials/", "Testimonials")])
 
 # ---------------------------------------------------------------- COACHING
 coach_faq = [
@@ -913,7 +996,7 @@ page("/404.html", "Page Not Found | Fight to Win Marriages", "Page not found.",
      '<section class="page-hero"><div class="wrap narrow"><h1>Page not found</h1><p class="lead">Don\'t give up. Try the <a href="/">home page</a>, <a href="/marriage-coaching/">coaching</a> or the <a href="/blog/">blog</a>.</p></div></section>')
 
 # sitemap + robots
-urls = ["/", "/about/", "/marriage-coaching/", "/tuesday-prayer-call/", "/events/", "/blog/", "/contact/", "/privacy/"] + [f"/blog/{p['slug']}/" for p in POSTS]
+urls = ["/", "/about/", "/marriage-coaching/", "/tuesday-prayer-call/", "/events/", "/testimonials/", "/blog/", "/contact/", "/privacy/"] + [f"/blog/{p['slug']}/" for p in POSTS]
 with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for u in urls:
