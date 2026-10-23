@@ -25,7 +25,6 @@ NAV = [
     ("/about/", "About Terrie"),
     ("/marriage-coaching/", "Coaching"),
     ("/tuesday-prayer-call/", "Tuesday Prayer Call"),
-    ("/prayer-call-notes/", "Call Notes"),
     ("/events/", "Events & Speaking"),
     ("/testimonials/", "Testimonials"),
     ("/blog/", "Blog"),
@@ -697,7 +696,8 @@ tuesday = f'''
 <h1>Tuesday Marriage Prayer &amp; Fasting Call</h1>
 <p class="lead">Each Tuesday, Terrie Beeman prays and fasts for marriages and hosts a free, live online Zoom call offering biblical guidance to couples, young and old. Come pray, be encouraged and stand with others who are believing God for their marriage.</p>
 <div class="when"><div><span>Day</span><strong>Every Tuesday</strong></div><div><span>Time</span><strong>{TUE_TIME}</strong></div><div><span>Where</span><strong>Zoom &middot; ID {ZOOM_ID}</strong></div><div><span>Cost</span><strong>Free</strong></div></div>
-<div class="btns"><a class="btn gold" href="{ZOOM}" target="_blank" rel="noopener">Join on Zoom</a><a class="btn ghost" href="#register">Get Weekly Reminders</a><a class="btn ghost" href="#prayer-request">Send a Prayer Request</a></div>
+<div class="btns prayer-call-actions"><a class="btn gold" href="{ZOOM}" target="_blank" rel="noopener">Join on Zoom</a><a class="btn ghost" href="#register">Get Weekly Reminders</a><a class="btn ghost" href="#prayer-request">Send a Prayer Request</a></div>
+<p class="call-notes-inline"><span>Weekly resource</span><a href="/prayer-call-notes/">View and download Tuesday call notes <span aria-hidden="true">&rarr;</span></a></p>
 </div></section>
 
 <section class="section"><div class="wrap"><div class="split">
