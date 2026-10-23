@@ -224,7 +224,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/styles.css?v=20261023-nav-cleanup">
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>
