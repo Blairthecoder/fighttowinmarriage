@@ -8,6 +8,8 @@ NAME = "Fight to Win Marriages"
 IG = "https://www.instagram.com/fighttowinmarriages/"
 YT = "https://www.youtube.com/@FIGHTTOWINMARRIAGES"
 YT_STORY = "https://www.youtube.com/watch?v=5Sk_Hm1As2k"
+VIDEO_TESTIMONY_ONE = "https://drive.google.com/file/d/14QjXP1ye4KxoWnmos3_v8D8_fVchgCz-/view"
+VIDEO_TESTIMONY_TWO = "https://drive.google.com/file/d/1FLaKGGMrJsxTYR0NFuTxW_iGpyC1CmQ5/view"
 EMAIL = "fighttowinmarriages@gmail.com"
 ZOOM = "https://us02web.zoom.us/j/84083347510"
 ZOOM_ID = "840 8334 7510"
@@ -107,13 +109,13 @@ PERSON = {
     "@id": f"{SITE}/#terrie",
     "name": "Terrie Beeman",
     "jobTitle": "Certified Christian Counselor and Marriage Coach",
-    "description": "Terrie Beeman is a Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator and Prayer Warrior. After a 365-day spiritual battle restored her own marriage, now 34 years strong, she founded Fight to Win Marriages to teach couples how to build a kingdom marriage.",
+    "description": "Terrie Beeman is a Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator and Prayer Warrior. She is the founder of TBee Ministries Inc. and Fight to Win Marriages, the creator of Power Talks with Terrie, and the owner of Blessed Income Tax Service Inc.",
     "email": EMAIL,
     "image": f"{SITE}/assets/terrie-beeman.jpg",
     "url": f"{SITE}/about/",
     "worksFor": {"@id": f"{SITE}/#org"},
     "sameAs": SAME_AS,
-    "knowsAbout": ["Christian marriage coaching", "Marriage restoration", "Prayer and fasting for marriage", "Biblical marriage", "Spiritual warfare prayer", "Christian counseling", "Premarital coaching"],
+    "knowsAbout": ["Christian marriage coaching", "Marriage restoration", "Prayer and fasting for marriage", "Biblical marriage", "Spiritual warfare prayer", "Christian counseling", "Spiritual life coaching", "Women's empowerment", "Premarital coaching"],
 }
 WEBSITE = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": SITE + "/", "name": NAME, "publisher": {"@id": f"{SITE}/#org"}}
 
@@ -240,7 +242,7 @@ b.addEventListener('click',()=>{{const o=n.classList.toggle('open');b.setAttribu
         d = os.path.join(OUT, path.strip("/"))
         os.makedirs(d, exist_ok=True)
         fp = os.path.join(d, "index.html")
-    with open(fp, "w") as f:
+    with open(fp, "w", encoding="utf-8") as f:
         f.write(doc)
     return url
 
@@ -256,6 +258,7 @@ PHOTOS = {
     "marriage-small-group-living-room": ((900, 1200), "Husbands and wives seated together during a Houston marriage small group meeting"),
     "couples-fellowship-dinner": ((900, 1200), "Couples and families sharing a meal at a Kingdom Kouples fellowship dinner"),
     "marriage-ministry-group-church": ((1024, 768), "Couples from the marriage ministry gathered together at a church event"),
+    "terrie-beeman-certified-christian-counselor": ((1200, 1797), "Terrie Beeman smiling while holding her Board Certified Christian Counselor certificate"),
 }
 
 def photo(name, cls="", sizes="(max-width: 820px) 100vw, 50vw"):
@@ -361,17 +364,65 @@ home = f'''
 </div>
 </section>
 
-<section class="section">
+<section class="section" id="testimonials">
 <div class="wrap">
+<p class="eyebrow center">Real stories of faith and restoration</p>
 <h2 class="center">What couples are saying</h2>
-<figure class="card quote featured testimonial">
-<blockquote>"Terrie was an amazing leader who challenges you to trust God through the highs, lows, and in-between. She is so kind and inviting and really made us feel comfortable opening up. We really enjoyed meeting with her for Kingdom Kouples and her Zoom Prayer Calls."</blockquote>
+<p class="center narrow testimonials-intro">Couples and individuals share how prayer, biblical teaching and a community committed to marriage have strengthened their faith and helped them keep fighting.</p>
+<div class="testimonials-grid">
+<figure class="card quote testimonial featured">
+<blockquote><p>"One of the blessings God placed on our 29-year marriage journey is Fight to Win Marriages Ministry. The weekly Tuesday Zoom meetings and our commitment to fasting until 3:00 p.m. have demonstrated the dedication and spiritual discipline it takes to fight for a marriage.</p><p>We learned that fighting for our marriage does not mean fighting against each other&mdash;it means recognizing that we are on the same team and taking our battles to God in prayer. Ephesians 6:12 reminds us, 'For our struggle is not against flesh and blood,' and Ephesians 6:16 teaches us to take up the shield of faith so that we can extinguish the fiery darts of the enemy.</p><p>Hearing Terrie and Donald share their testimony about the deliverance and restoration of their marriage especially blessed us and gave us hope to continue fighting. Their testimony reminded us that situations may look impossible to us, but nothing is impossible with God. This ministry reminds us that some things are worth fighting for."</p></blockquote>
+<figcaption><strong>The Kellys</strong> &middot; Married 29 years</figcaption>
+</figure>
+<figure class="card quote testimonial testimonial-long">
+<blockquote><p>"This ministry has blessed me tremendously. I filed for divorce two times, but through this ministry I have learned what it means to be a woman of God who fights for her marriage. My eyes have been opened to the truth of what my marriage means for the Kingdom of God, and that my pain has purpose. Despite the way I feel, I have learned there is more to this story than the pain it has caused me.</p><p>It is about God using me to break generational curses off my life, my husband's life and our children's lives. The ministry has taught me what to pray, what to seek God about, and has ignited a thirst for God as I believe for my marriage to be completely reconciled and my husband's heart turned to God.</p><p>I am not where I would love to be yet, but thanks to Fight to Win Marriages, I am further along than I was when I filed for divorce. My faith has been restored in God coming through for me and my family. I have always believed in what God can do for me in other situations, but I used to doubt Him with my marriage based on what I saw and felt. Thanks to this ministry, that is not the case anymore. God is doing it, He has been working on it, and I cannot wait to share my reconciliation testimony in the future. He who started a good work is faithful to complete it. I am forever grateful for God using Mrs. Terrie and her ministry."</p></blockquote>
+<figcaption><strong>Donna A.</strong></figcaption>
+</figure>
+<figure class="card quote testimonial">
+<blockquote>"Fight to Win Marriages Ministry and God have blessed me through the weekly marriage prayer calls by strengthening my faith and teaching me to trust God more in my marriage. It has helped me go deeper in my prayers and grow in patience and understanding as a wife. I appreciate Terrie and Donald's passion and dedication to help us fight for our marriages."</blockquote>
+<figcaption><strong>Tuesday prayer-call participant</strong></figcaption>
+</figure>
+<figure class="card quote testimonial">
+<blockquote><p>"My husband and I are so grateful for Fight to Win Marriages. It is such a blessing to be in a space with like-minded couples and believers who are intentional about strengthening their marriages and putting God at the center.</p><p>Satan has definitely been served several notices in our home, and we are believing our marriage will continue to reflect God's love to others. We are just getting started, and we are excited for all that God has in store.</p><p>We absolutely love this community and wholeheartedly support what Donald and Terrie Beeman are doing. Their assignment is needed. Strong, Christ-centered marriages do not happen by accident, and this ministry is helping couples fight for what God intended.</p><p>If you are married and want to see your marriage thrive, invite your spouse and join us. The more couples walking in God's purpose for their marriage, the stronger our families and communities will be. In Jesus' name."</p></blockquote>
+<figcaption><strong>S.W.</strong></figcaption>
+</figure>
+<figure class="card quote testimonial">
+<blockquote>"We want to thank you and Donald for the wonderful work you both continue to do in bringing God's people together in prayer. Your dedication, faithfulness and commitment to the work of the Lord do not go unnoticed, and we are truly grateful for you both. We love and appreciate you both, and we pray that God continues to strengthen, bless and use you mightily for His glory."</blockquote>
+<figcaption><strong>The Cowans</strong></figcaption>
+</figure>
+<figure class="card quote testimonial">
+<blockquote>"Terrie was an amazing leader who challenges you to trust God through the highs, lows and in-between. She is so kind and inviting and really made us feel comfortable opening up. We really enjoyed meeting with her for Kingdom Kouples and her Zoom prayer calls."</blockquote>
 <figcaption><strong>The Hendersons</strong> &middot; Married 4 years</figcaption>
 </figure>
+</div>
+<div class="testimonial-media">
+<figure class="card image-testimonial">
+<picture><source type="image/webp" srcset="/assets/testimonials/randolphs-kingdom-wives-testimonial-640.webp 640w, /assets/testimonials/randolphs-kingdom-wives-testimonial.webp 1170w" sizes="(max-width: 820px) 100vw, 50vw"><img src="/assets/testimonials/randolphs-kingdom-wives-testimonial.jpg" alt="Text message thanking Terrie for the peace Kingdom Wives brought to a participant and her family and expressing excitement for Kingdom Couples" width="1170" height="1139" loading="lazy" decoding="async"></picture>
+<figcaption><strong>The Randolphs</strong> &middot; Kingdom Wives participant</figcaption>
+</figure>
+<article class="card video-testimonies">
+<p class="eyebrow">Hear their stories</p>
+<h3>Watch more video testimonies</h3>
+<p>Hear directly from members of the Fight to Win Marriages community about the difference prayer, encouragement and standing together have made in their lives.</p>
+<div class="btns"><a class="btn" href="{VIDEO_TESTIMONY_ONE}" target="_blank" rel="noopener">Watch Video Testimony</a><a class="btn ghost" href="{VIDEO_TESTIMONY_TWO}" target="_blank" rel="noopener">Watch Another Testimony</a></div>
+</article>
+</div>
 </div>
 </section>
 
 <section class="section alt">
+<div class="wrap">
+<p class="eyebrow center">Words to fight by</p>
+<h2 class="center">Marriage grows when love stays in action</h2>
+<div class="cards three quote-cards">
+<figure class="card quote"><blockquote>"Remember&mdash;as a husband and wife, you have vowed to be each other's partner, lover, best friend, encourager, accountability and person to lean on when the other is weak. Marriage is a beautiful, lifelong partnership when we allow it to be, but we can't give up when it gets hard. We must press on. Let's not wonder how things could have been."</blockquote><figcaption>Terrie Beeman</figcaption></figure>
+<figure class="card quote"><blockquote>"When you and your spouse reach the end of your time on earth, what will matter most will be the moments you served each other and the moments you served alongside each other. When we remove selfishness from our marriages, love will be all that remains. That's the kind of love that can change your marriage and change the world through your marriage."</blockquote><figcaption>Terrie Beeman</figcaption></figure>
+<figure class="card quote"><blockquote>"Marriage should grow stronger with time. A couple should continue pursuing, encouraging and adoring each other through all the seasons of the relationship."</blockquote><figcaption>Terrie Beeman</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section class="section">
 <div class="wrap split">
 <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/5Sk_Hm1As2k" title="Terrie Beeman shares how she fought to win her marriage" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <div><p class="eyebrow">Watch Terrie's story</p><h2>Born from a fight to win her own marriage</h2><p>Several years ago, Terrie's husband told her he wanted out. What followed was a 365-day battle of spiritual warfare, a still, small voice asking, "What about Me?", and a marriage fully restored. Today they stand 34 years strong, and everything they learned became Fight to Win Marriages.</p>
@@ -390,9 +441,21 @@ page("/", "Christian Marriage Coaching & Prayer | Fight to Win Marriages",
 about = f'''
 <section class="page-hero"><div class="wrap split">
 <div><p class="eyebrow">About the founder</p><h1>Meet Terrie Beeman</h1>
-<p class="lead">Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator and Prayer Warrior. Married 34 years, and living proof that a marriage can be restored.</p>
-<div class="btns"><a class="btn gold" href="#story">Read Terrie's Story</a><a class="btn ghost" href="/marriage-coaching/">Work with Terrie</a></div></div>
+<p class="lead">Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator, Prayer Warrior and purpose-driven community leader.</p>
+<div class="btns"><a class="btn gold" href="#bio">Read Terrie's Bio</a><a class="btn ghost" href="#story">Read Her Marriage Story</a></div></div>
 <div class="portrait sm">{PORTRAIT.format(extra='')}</div>
+</div></section>
+<section class="section" id="bio"><div class="wrap split bio-profile">
+<div>{photo("terrie-beeman-certified-christian-counselor", "bio-photo")}</div>
+<div class="prose">
+<p class="eyebrow">Her calling and her work</p>
+<h2 style="margin-top:0">Faith, purpose and service in action</h2>
+<p>Terrie Beeman is a Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, motivator and prayer warrior&mdash;and the indomitable force behind TBee Ministries Inc. Hailing from the soulful streets of Motown, Detroit, she has found her vibrant home in H-Town, Houston.</p>
+<p>Terrie is the visionary creator of <strong>Power Talks with Terrie</strong>, a platform where she weaves spiritual insight and life coaching into powerful, purpose-filled conversations. As founder of <strong>TBee Ministries Inc.</strong>, she guides people toward their God-given purpose. She also wears the entrepreneurial hat as owner of <strong>Blessed Income Tax Service Inc.</strong>, bringing the same heart for service to the financial lives of families.</p>
+<p>A leader devoted to the sacred institution of marriage, Terrie spearheads <strong>Fight to Win Marriages</strong>, a movement dedicated to <em>Putting Marriages Back on the Map</em>. Her commitment to love extends beyond marriage. In 2020, she launched <strong>Put a Smile on a Child&mdash;Christmas Blessings</strong> to bring warmth and joy to children in need. In fall 2024, she expanded that work with <strong>Put a Smile on a Child&mdash;Back to School</strong>, equipping underprivileged children with essentials for a brighter academic journey.</p>
+<p>Also in 2024, Terrie unveiled another facet of her purpose through <strong>Daughters Rise Up</strong>, a project created to empower women of all ages. Her vision is to illuminate their inherent worth, guide them from the shadows to the forefront, and ignite the spark within them to fulfill their divine destinies.</p>
+<p>Terrie is an atmospheric shifter who casts light and positivity wherever she goes. Her infectious energy transforms every room and leaves an indelible mark on those fortunate enough to encounter her. A designer's original and a true game-changer, Terrie stands in her God-given uniqueness&mdash;the one and only, incomparable Terrie Beeman.</p>
+</div>
 </div></section>
 <section class="section" id="story"><div class="wrap narrow prose">
 <p class="eyebrow">Terrie's story</p>
@@ -429,6 +492,10 @@ about = f'''
 <li>Marriage Coach</li>
 <li>Motivator and speaker</li>
 <li>Prayer Warrior and intercessor</li>
+<li>Founder, TBee Ministries Inc. and Fight to Win Marriages</li>
+<li>Creator, Power Talks with Terrie</li>
+<li>Owner, Blessed Income Tax Service Inc.</li>
+<li>Founder, Put a Smile on a Child and Daughters Rise Up community projects</li>
 </ul>
 <h2>Leading marriage small groups in Houston</h2>
 <p>Terrie leads marriage small groups with Kingdom Kouples Ministries in Houston, Texas. Couples gather in homes and around the dinner table to pray, study God's Word and build friendships with other couples who are fighting for their marriages.</p>
@@ -439,7 +506,7 @@ about = f'''
 {cta_band(title="Work with Terrie", text="Coaching, prayer and speaking for couples and churches.", primary=("/marriage-coaching/", "See Coaching Options"), secondary=("/events/", "Invite Terrie to Speak"))}
 '''
 page("/about/", "About Terrie Beeman, Christian Counselor & Marriage Coach | Fight to Win Marriages",
-     "Terrie Beeman fought a 365-day spiritual battle to save her marriage, now 34 years strong. Read her story and how it gave birth to Fight to Win Marriages.",
+     "Meet Terrie Beeman: Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, founder of TBee Ministries and Fight to Win Marriages.",
      about, schema=[PERSON, {"@type": "AboutPage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
      og_type="profile", crumb=[("/", "Home"), ("/about/", "About Terrie Beeman")])
 
@@ -847,11 +914,11 @@ page("/404.html", "Page Not Found | Fight to Win Marriages", "Page not found.",
 
 # sitemap + robots
 urls = ["/", "/about/", "/marriage-coaching/", "/tuesday-prayer-call/", "/events/", "/blog/", "/contact/", "/privacy/"] + [f"/blog/{p['slug']}/" for p in POSTS]
-with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
+with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for u in urls:
         f.write(f"  <url><loc>{SITE}{u}</loc><lastmod>2026-10-19</lastmod></url>\n")
     f.write("</urlset>\n")
-with open(os.path.join(OUT, "robots.txt"), "w") as f:
+with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
     f.write(f"User-agent: *\nDisallow: /thank-you/\n\nSitemap: {SITE}/sitemap.xml\n")
 print("built", len(urls), "indexable urls")

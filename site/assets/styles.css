@@ -144,9 +144,21 @@ p,li,h1,h2,h3,blockquote{overflow-wrap:break-word}
 .declarations{padding-left:1.4em}
 .declarations li{margin-bottom:14px;padding-left:6px}
 .declarations li::marker{color:var(--gold);font-weight:700}
-.testimonial{max-width:760px;margin:28px auto 0;text-align:center;padding:40px}
-.testimonial blockquote{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem;line-height:1.4;color:var(--plum)}
+.testimonials-intro{margin:0 auto 30px}
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.testimonial{margin:0;text-align:left;padding:32px}
+.testimonial-long{grid-column:1/-1}
+.testimonial blockquote{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.35rem;line-height:1.45;color:var(--plum)}
+.testimonial blockquote p:last-child{margin-bottom:0}
 .testimonial figcaption{color:var(--muted)}
+.testimonial-media{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;margin-top:22px;align-items:center}
+.image-testimonial img{width:100%;border-radius:10px}
+.image-testimonial figcaption{margin-top:12px;color:var(--muted)}
+.video-testimonies .btns{margin-bottom:0}
+.quote-cards .quote{display:flex;flex-direction:column;align-items:stretch}
+.quote-cards blockquote{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.3rem;line-height:1.45;color:var(--plum);margin:0 0 18px}
+.quote-cards figcaption{margin-top:auto;color:var(--muted);font-weight:600}
+.bio-photo img{aspect-ratio:2/3;object-position:center top;box-shadow:0 18px 44px rgba(74,29,58,.18)}
 /* mobile */
 .mobile-cta{display:none}
 .author .portrait{flex-shrink:0}
@@ -163,7 +175,7 @@ body{font-size:16.5px}
 .eyebrow{font-size:.8rem;letter-spacing:.09em}
 .when span{font-size:.78rem}
 .verse{padding:24px 22px;font-size:1.35rem}
-.testimonial{padding:26px 20px}.testimonial blockquote{font-size:1.3rem;margin:0 0 12px}
+.testimonials-grid,.testimonial-media{grid-template-columns:1fr}.testimonial-long{grid-column:auto}.testimonial{padding:26px 20px}.testimonial blockquote{font-size:1.2rem;margin:0 0 12px}
 .card{padding:22px}
 .cards{gap:16px}
 .link{display:inline-block;padding:10px 0}
