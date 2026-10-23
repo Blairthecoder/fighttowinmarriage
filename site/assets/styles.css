@@ -185,7 +185,7 @@ p,li,h1,h2,h3,blockquote,a{overflow-wrap:anywhere}
 body{font-size:16px;line-height:1.6}
 .section{padding:48px 0}.page-hero{padding:36px 0 32px}.cta-band{padding:48px 0}.site-footer{padding:44px 0 100px}
 .wrap{width:100%;padding:0 16px}
-.page-hero h1{font-size:clamp(2rem,10vw,2.65rem)}
+h1{font-size:clamp(2rem,10vw,2.65rem)}
 .page-hero .lead{font-size:1.04rem;line-height:1.55}
 h2{font-size:clamp(1.7rem,8vw,2.15rem)}
 h3{font-size:1.3rem}
@@ -241,6 +241,6 @@ h3+.tags,.cards+h3{margin-top:24px}
 @media(min-width:1401px){#nav{gap:14px}#nav ul{gap:12px}#nav a:not(.btn){font-size:.9rem}.social-icons a{width:34px;height:34px}.social-icons svg{width:18px;height:18px}}
 .menu-icon{font-size:1.05rem;line-height:1}
 @media(max-width:420px){.menu-label{display:none}.menu-btn{width:40px;height:40px;padding:0;display:grid;place-items:center}.brand{font-size:.98rem}.social-icons{gap:0}.social-icons a{width:32px;height:32px}.social-icons svg{width:17px;height:17px}}
-@media(max-width:360px){body{font-size:15.5px}.brand{font-size:.9rem}.social-icons a{width:29px}.menu-btn{width:36px;height:36px}.bar{gap:3px}.wrap{padding-left:12px;padding-right:12px}.when{grid-template-columns:1fr}.page-hero h1{font-size:1.95rem}.hero h1{font-size:2rem}.card,.testimonial,.resource-card{padding:20px 16px}.mobile-cta{gap:6px;padding-left:8px;padding-right:8px}.mobile-cta .btn{font-size:.84rem;padding:10px 5px}}
+@media(max-width:360px){body{font-size:15.5px}.brand{font-size:.9rem}.social-icons a{width:29px}.menu-btn{width:36px;height:36px}.bar{gap:3px}.wrap{padding-left:12px;padding-right:12px}.when{grid-template-columns:1fr}h1{font-size:1.95rem}.hero h1{font-size:2rem}.card,.testimonial,.resource-card{padding:20px 16px}.mobile-cta{gap:6px;padding-left:8px;padding-right:8px}.mobile-cta .btn{font-size:.84rem;padding:10px 5px}}
 .menu-btn,.social-icons{flex-shrink:0}.bar>.brand{min-width:0}
 .mark{flex-shrink:0}
