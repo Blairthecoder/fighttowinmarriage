@@ -10,7 +10,7 @@ h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
 h3{font-size:1.45rem}
 h1 em,h2 em{color:var(--gold);font-style:italic}
 p{margin:0 0 1em}
-p,li,h1,h2,h3,blockquote{overflow-wrap:break-word}
+p,li,h1,h2,h3,blockquote,a{overflow-wrap:anywhere}
 .wrap>*{min-width:0}
 .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 .narrow{max-width:780px}
@@ -182,13 +182,18 @@ p,li,h1,h2,h3,blockquote{overflow-wrap:break-word}
 .author .portrait{flex-shrink:0}
 @media(max-width:1400px){#nav ul{width:100%}#nav ul a{display:block;padding:10px 0;font-size:1.05rem}#nav .btn{width:100%;text-align:center}}
 @media(max-width:700px){
-body{font-size:16.5px}
+body{font-size:16px;line-height:1.6}
 .section{padding:48px 0}.page-hero{padding:36px 0 32px}.cta-band{padding:48px 0}.site-footer{padding:44px 0 100px}
-.wrap{padding:0 16px}
+.wrap{width:100%;padding:0 16px}
+h1{font-size:clamp(2rem,10vw,2.65rem)}
+.page-hero .lead{font-size:1.04rem;line-height:1.55}
+h2{font-size:clamp(1.7rem,8vw,2.15rem)}
+h3{font-size:1.3rem}
+.split{gap:30px}
 .hero{padding:32px 0 42px}.hero-grid{gap:26px}
-.hero h1{font-size:clamp(2.2rem,11vw,3rem)}
+.hero h1{font-size:clamp(2.05rem,10.5vw,2.75rem)}
 .hero .lead{font-size:1.05rem}
-.btns{flex-direction:column;align-items:stretch;gap:10px}.btns .btn{text-align:center}
+.btns{width:100%;flex-direction:column;align-items:stretch;gap:10px}.btns .btn{width:100%;min-width:0;text-align:center}
 .cta-band .btns{max-width:340px;margin-left:auto;margin-right:auto}
 .eyebrow{font-size:.8rem;letter-spacing:.09em}
 .when span{font-size:.78rem}
@@ -201,6 +206,7 @@ body{font-size:16.5px}
 .form .check input{width:22px;height:22px}
 .form button{justify-self:stretch}
 .event{grid-template-columns:auto 1fr;gap:14px;padding:16px}
+.event>*{min-width:0}
 .event .date{padding:8px 12px;align-self:start}
 .event .date strong{font-size:1.2rem}
 .event .btn{grid-column:1/-1;text-align:center}
@@ -214,6 +220,7 @@ h3+.tags,.cards+h3{margin-top:24px}
 .team-bio{grid-template-columns:1fr;gap:18px}.team-monogram{width:68px;height:68px}
 .call-notes-promo{display:block}.call-notes-promo .btns{margin-top:22px}
 .call-notes-inline{align-items:flex-start;flex-direction:column;gap:8px;margin-top:18px}
+.call-notes-inline a{display:block;max-width:100%}
 .archive-heading{display:block}.archive-heading>p{margin-top:8px}
 .resource-card{grid-template-columns:1fr;gap:20px;padding:22px}.resource-date{width:96px}
 .site-footer li{margin-bottom:12px}
@@ -234,6 +241,6 @@ h3+.tags,.cards+h3{margin-top:24px}
 @media(min-width:1401px){#nav{gap:14px}#nav ul{gap:12px}#nav a:not(.btn){font-size:.9rem}.social-icons a{width:34px;height:34px}.social-icons svg{width:18px;height:18px}}
 .menu-icon{font-size:1.05rem;line-height:1}
 @media(max-width:420px){.menu-label{display:none}.menu-btn{width:40px;height:40px;padding:0;display:grid;place-items:center}.brand{font-size:.98rem}.social-icons{gap:0}.social-icons a{width:32px;height:32px}.social-icons svg{width:17px;height:17px}}
-@media(max-width:360px){.brand{font-size:.9rem}.social-icons a{width:29px}.menu-btn{width:36px;height:36px}.bar{gap:3px}.wrap{padding-left:12px;padding-right:12px}}
+@media(max-width:360px){body{font-size:15.5px}.brand{font-size:.9rem}.social-icons a{width:29px}.menu-btn{width:36px;height:36px}.bar{gap:3px}.wrap{padding-left:12px;padding-right:12px}.when{grid-template-columns:1fr}h1{font-size:1.95rem}.hero h1{font-size:2rem}.card,.testimonial,.resource-card{padding:20px 16px}.mobile-cta{gap:6px;padding-left:8px;padding-right:8px}.mobile-cta .btn{font-size:.84rem;padding:10px 5px}}
 .menu-btn,.social-icons{flex-shrink:0}.bar>.brand{min-width:0}
 .mark{flex-shrink:0}
