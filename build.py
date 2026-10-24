@@ -217,22 +217,27 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <meta name="twitter:description" content="{html.escape(desc)}">
 <meta name="twitter:image" content="{share_image}">
 <meta name="twitter:image:alt" content="{html.escape(share_alt)}">
-<meta name="theme-color" content="#4a1d3a">
+<meta name="theme-color" content="#36142b">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css?v=20261023-mobile-fit-2">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css?v=20261024-healingy-theme">
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="top-strip">
+<div class="wrap top-strip-inner">
+<div class="top-strip-info"><a href="mailto:{EMAIL}">{EMAIL}</a><span>Tuesday prayer &middot; {TUE_TIME}</span><span>Serving couples online nationwide</span></div>
+{SOCIAL_ICONS}
+</div>
+</div>
 <header class="site-header">
 <div class="wrap bar">
-<a class="brand" href="/" aria-label="{NAME} home"><span>Fight to Win <em>Marriages</em></span></a>
-{SOCIAL_ICONS}
+<a class="brand" href="/" aria-label="{NAME} home"><img src="/assets/logo.png" alt="" width="56" height="56"><span class="brand-name"><strong>Fight to Win</strong><em>Marriages</em></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label"> Menu</span></button>
 <nav id="nav" aria-label="Main"><ul>{nav}</ul><a class="btn gold small" href="{CALENDLY}" target="_blank" rel="noopener">Book a Meeting</a></nav>
 </div>
@@ -244,7 +249,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 </main>
 <footer class="site-footer">
 <div class="wrap cols">
-<div><p class="brand foot"><span class="mark" aria-hidden="true">&#10084;</span> Fight to Win Marriages</p>
+<div><a class="brand foot" href="/" aria-label="{NAME} home"><img src="/assets/logo.png" alt="" width="56" height="56"><span class="brand-name"><strong>Fight to Win</strong><em>Marriages</em></span></a>
 <p>We don't give up on marriage. We fight in prayer, love &amp; faith. A God-filled space for healing, restoration, and standing on God's promises together.</p>
 <p class="social"><a href="{IG}" rel="noopener" target="_blank">Instagram</a> · {f'<a href="{TT}" rel="noopener" target="_blank">TikTok</a> · ' if TT else ''}<a href="{YT}" rel="noopener" target="_blank">YouTube</a></p></div>
 <div><h3>Ministry</h3><ul><li><a href="/marriage-coaching/">Christian Marriage Coaching</a></li><li><a href="/tuesday-prayer-call/">Tuesday Prayer &amp; Fasting Call</a></li><li><a href="/prayer-call-notes/">Tuesday Call Notes</a></li><li><a href="/events/">Marriage Events &amp; Speaking</a></li><li><a href="/blog/">Marriage Blog</a></li></ul></div>
