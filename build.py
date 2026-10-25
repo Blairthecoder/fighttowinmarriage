@@ -58,7 +58,7 @@ RELATED = {
     "/marriage-coaching/": [
         ("/about/#story", "Read Terrie's restoration story", "See how a 365-day spiritual battle became a marriage ministry."),
         ("/tuesday-prayer-call/", "Join the free prayer call", "Find weekly encouragement while you work on your marriage."),
-        ("/contact/?type=coaching", "Request a consultation", "Tell Terrie what your marriage needs and take the next step."),
+        ("/contact/?type=coaching", "Schedule a Talk with Terrie", "Tell Terrie what your marriage needs and take the next step."),
     ],
     "/tuesday-prayer-call/": [
         ("/prayer-call-notes/", "Download weekly call notes", "Review and download edited recaps from Tuesday prayer and teaching calls."),
@@ -781,7 +781,7 @@ coaching = f'''
 <p class="eyebrow">Online &middot; Faith-based &middot; Couples and individuals</p>
 <h1>Christian Marriage Coaching</h1>
 <p class="lead">Biblical marriage coaching with Terrie Beeman for couples who want to heal, rebuild trust and grow closer to God and each other. Sessions are online, so you can join from anywhere.</p>
-<div class="btns"><a class="btn gold" href="/contact/?type=coaching">Request a Free Consultation</a><a class="btn ghost" href="#packages">View Packages</a></div>
+<div class="btns"><a class="btn gold" href="/contact/?type=coaching">Talk with Terrie</a><a class="btn ghost" href="#packages">View Packages</a></div>
 </div></section>
 
 <section class="section"><div class="wrap">
@@ -799,8 +799,8 @@ coaching = f'''
 <div class="split" style="margin-bottom:36px"><div><h2>Real couples, real growth</h2><p>Terrie has been where you are. Her own marriage was restored after a 365-day spiritual battle, and she and her husband now stand 34 years strong. She has since walked alongside couples in Houston small groups and one-on-one, and coaching brings that same prayerful, practical approach to building a kingdom marriage, wherever you live. <a href="/about/#story">Read Terrie's story</a>.</p></div>{photo("couples-small-group-discussion", "rounded")}</div>
 <h2>How coaching works</h2>
 <ol class="steps">
-<li><strong>Request a consultation.</strong> Tell Terrie a little about your marriage through the booking form.</li>
-<li><strong>Free discovery call.</strong> A short call to pray, listen and recommend a path.</li>
+<li><strong>Schedule a Talk with Terrie.</strong> Tell Terrie a little about your marriage through the booking form.</li>
+<li><strong>Talk with Terrie.</strong> A short call to pray, listen and recommend a path.</li>
 <li><strong>Coaching sessions.</strong> Scripture-based guidance, prayer and practical homework between sessions.</li>
 <li><strong>Ongoing support.</strong> Join the Tuesday prayer call for weekly encouragement as you grow.</li>
 </ol>
@@ -820,7 +820,7 @@ coaching = f'''
 <p class="center micro">&#128274; Everything you share is confidential.</p>
 </div></section>
 {faq_html(coach_faq, "Marriage Coaching FAQ")}
-{cta_band(title="Your marriage can be restored.", text="Take the first step today. A free consultation is the easiest place to start.", primary=("/contact/?type=coaching", "Request a Free Consultation"))}
+{cta_band(title="Your marriage can be restored.", text="Take the first step today. A Talk with Terrie is the easiest place to start.", primary=("/contact/?type=coaching", "Talk with Terrie"))}
 '''
 coach_service = {"@type": "Service", "name": "Christian Marriage Coaching", "serviceType": "Marriage coaching",
                  "provider": {"@id": f"{SITE}/#org"}, "areaServed": {"@type": "Country", "name": "United States"},
@@ -1179,7 +1179,7 @@ POSTS = [
 <h2>6. You're entering a new season</h2><p>Newlyweds, new babies, empty nests and blended families all bring new pressures.</p>
 <h2>7. You've stopped praying together</h2><p>Spiritual distance often comes before emotional distance.</p>
 <h2>What coaching with Terrie looks like</h2>
-<p><a href="/marriage-coaching/">Fight to Win marriage coaching</a> is online, rooted in Scripture and practical. It is not a replacement for licensed counseling, but it gives couples prayer, perspective and a plan. <a href="/contact/?type=coaching">Request a free consultation</a> to get started.</p>
+<p><a href="/marriage-coaching/">Fight to Win marriage coaching</a> is online, rooted in Scripture and practical. It is not a replacement for licensed counseling, but it gives couples prayer, perspective and a plan. <a href="/contact/?type=coaching">Schedule a Talk with Terrie</a> to get started.</p>
 """,
     },
 ]
