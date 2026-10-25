@@ -387,7 +387,7 @@ POSTS = [
 <p>Most couples describe the first year as the hardest, with trust continuing to grow over two years or more. Triggers fade with time. Setbacks don't mean failure. Read [[/blog/stop-replaying-the-affair/|How to Stop Replaying the Affair]] for help with triggers.</p>
 
 <h2>Get help walking it out</h2>
-<p>Terrie Beeman's Restoration Coaching gives couples a plan, prayer covering and accountability. Start with our [[/healing-after-infidelity/|healing after infidelity]] guide or book a free call.</p>
+<p>Terrie Beeman's Restoration Coaching gives couples a plan, prayer covering and accountability. Start with our [[/healing-after-infidelity/|healing after infidelity]] guide or schedule a Talk with Terrie.</p>
 """,
         "faqs": [
             ("What should a cheating spouse do to rebuild trust?", "End the affair completely, be fully honest, offer transparency without being asked, be patient with the betrayed spouse's healing, and accept accountability from others."),
@@ -438,7 +438,7 @@ POSTS = [
 <p>Jesus permitted divorce for adultery but never required it. Read [[/blog/bible-divorce-adultery/|Does the Bible Allow Divorce for Adultery?]] for more.</p>
 
 <h2>Talk it through with someone who's been there</h2>
-<p>A free 30-minute call with Terrie can help you sort through your questions in prayer. Return to our [[/healing-after-infidelity/|healing after infidelity]] guide for more support.</p>
+<p>A Talk with Terrie can help you sort through your questions in prayer. Return to our [[/healing-after-infidelity/|healing after infidelity]] guide for more support.</p>
 """,
         "faqs": [
             ("How do I know if I should stay with my husband after he cheated?", "Look for an ended affair, honesty, responsibility, willingness to get help and empathy for your pain, and make sure you are safe. Pray, seek godly counsel and give yourself time."),
