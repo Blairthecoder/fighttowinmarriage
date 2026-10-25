@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Static site generator for fighttowinmarriages (Netlify). Run: python3 build.py"""
-import json, os, html
+import datetime, json, os, re, shutil, html
+
+from content.hubs import HUBS
+from content.posts import NEW_POSTS
+from content.resources import GUIDE_TITLE, GUIDE_SUBTITLE, GUIDE_DAYS, QUIZ_QUESTIONS, CALL_RECAPS
 
 SITE = "https://fight-to-win-marriages.netlify.app"  # TODO: swap to custom domain when purchased
 OUT = os.path.join(os.path.dirname(__file__), "site")
@@ -17,24 +21,34 @@ ZOOM = "https://us02web.zoom.us/j/84083347510"
 ZOOM_ID = "840 8334 7510"
 TUE_TIME = "6:00 PM CT"
 TT = "https://www.tiktok.com/@fight.to.win.marr"
+GA_ID = ""  # TODO: GA4 measurement ID (G-XXXXXXX). Analytics tags render only when set.
+SITE_UPDATED = "2026-10-25"
+# Posts dated after the build date stay unpublished. Override with BUILD_DATE=YYYY-MM-DD.
+BUILD_DATE = os.environ.get("BUILD_DATE") or datetime.date.today().isoformat()
+GUIDE_URL = "/free-guide/"
+GUIDE_DELIVERY_URL = "/free-guide/first-7-days/"
+QUIZ_URL = "/marriage-quiz/"
+NOINDEX = ("/thank-you/", "/404.html", "/privacy/", GUIDE_DELIVERY_URL)
+HUB_BY_KEY = {h["key"]: h for h in HUBS}
+NEW_BY_SLUG = {p["slug"]: p for p in NEW_POSTS}
 SOCIAL_ICONS = f'<div class="social-icons"><a href="{YT}" target="_blank" rel="noopener" aria-label="Fight to Win Marriages on YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="{IG}" target="_blank" rel="noopener" aria-label="Fight to Win Marriages on Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a><a href="{TT}" target="_blank" rel="noopener" aria-label="Fight to Win Marriages on TikTok" title="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></div>'
 SAME_AS = [u for u in (IG, TT, YT) if u]
 
 NAV = [
-    ("/", "Home"),
-    ("/about/", "About Terrie"),
-    ("/marriage-coaching/", "Coaching"),
-    ("/tuesday-prayer-call/", "Tuesday Prayer Call"),
-    ("/events/", "Events & Speaking"),
-    ("/testimonials/", "Testimonials"),
-    ("/blog/", "Blog"),
+    ("/", "Home", None),
+    ("/get-help/", "Get Help", [(f"/{h['slug']}/", h["name"]) for h in HUBS] + [(QUIZ_URL, "Take the Marriage Quiz"), (GUIDE_URL, "Free Guide for Wives")]),
+    ("/marriage-coaching/", "Coaching", None),
+    ("/tuesday-prayer-call/", "Tuesday Prayer Call", None),
+    ("/blog/", "Blog", None),
+    ("/about/", "About", [("/about/", "About Terrie"), ("/testimonials/", "Testimonials"), ("/events/", "Events & Speaking"), ("/prayer-call-notes/", "Tuesday Call Notes")]),
 ]
 
 RELATED = {
     "/": [
         ("/marriage-coaching/", "Christian marriage coaching", "Get faith-based support for conflict, trust, communication and restoration."),
         ("/tuesday-prayer-call/", "Tuesday prayer call", "Join couples online each Tuesday for free prayer, Scripture and encouragement."),
-        ("/blog/", "Marriage encouragement", "Read practical, biblical guidance for fighting for your marriage."),
+        ("/healing-after-infidelity/", "Healing after infidelity", "Christian help for the wife whose husband cheated."),
+        ("/save-my-marriage-alone/", "Saving your marriage alone", "How to stand when your husband wants out or has checked out."),
     ],
     "/about/": [
         ("/marriage-coaching/", "Work with Terrie", "Explore online coaching for couples and individuals."),
@@ -44,7 +58,7 @@ RELATED = {
     "/marriage-coaching/": [
         ("/about/#story", "Read Terrie's restoration story", "See how a 365-day spiritual battle became a marriage ministry."),
         ("/tuesday-prayer-call/", "Join the free prayer call", "Find weekly encouragement while you work on your marriage."),
-        ("/contact/?type=coaching", "Request a consultation", "Tell Terrie what your marriage needs and take the next step."),
+        ("/contact/?type=coaching", "Schedule a Talk with Terrie", "Tell Terrie what your marriage needs and take the next step."),
     ],
     "/tuesday-prayer-call/": [
         ("/prayer-call-notes/", "Download weekly call notes", "Review and download edited recaps from Tuesday prayer and teaching calls."),
@@ -72,8 +86,8 @@ RELATED = {
         ("/events/", "Speaking and events", "Learn about Terrie's marriage ministry messages and gatherings."),
     ],
     "/blog/": [
-        ("/blog/how-to-fight-for-your-marriage/", "How to fight for your marriage", "Learn to face the problem as a team."),
-        ("/blog/praying-and-fasting-for-your-marriage/", "Praying and fasting for marriage", "Build a focused prayer practice for your home."),
+        ("/healing-after-infidelity/", "Healing after infidelity", "Start here if your husband cheated."),
+        ("/save-my-marriage-alone/", "Saving your marriage alone", "Start here if you are the only one fighting."),
         ("/marriage-coaching/", "Get personal support", "Pair biblical encouragement with one-on-one marriage coaching."),
     ],
 }
@@ -139,6 +153,16 @@ TOMEKA = {
     "url": f"{SITE}/about/#tomeka-jones",
     "worksFor": {"@id": f"{SITE}/#org"},
 }
+DONALD = {
+    "@type": "Person",
+    "@id": f"{SITE}/about/#donald-beeman",
+    "name": "Donald Beeman",
+    "jobTitle": "Co-Host and Supporter",
+    "description": "Donald Beeman is the husband of Terrie Beeman and co-hosts Fight to Win Marriages events and calls whenever his schedule allows. They have been married 34 years.",
+    "url": f"{SITE}/about/#donald-beeman",
+    "spouse": {"@id": f"{SITE}/#terrie"},
+    "worksFor": {"@id": f"{SITE}/#org"},
+}
 WEBSITE = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": SITE + "/", "name": NAME, "publisher": {"@id": f"{SITE}/#org"}}
 
 def crumbs(items):
@@ -161,8 +185,87 @@ def cta_band(title="Your marriage is worth fighting for.", text="Book a coaching
 <div class="btns"><a class="btn gold" href="{primary[0]}"{primary_attrs}>{primary[1]}</a><a class="btn ghost-light" href="{secondary[0]}"{secondary_attrs}>{secondary[1]}</a></div>
 </div></section>'''
 
-def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
+PRIVACY_NOTE = '<p class="micro privacy-note">&#128274; Confidential. What you share stays private.</p>'
+
+def guide_signup(heading="Free guide: The First 7 Days After Betrayal", text="A day-by-day prayer and healing guide for wives. Get it free by email, along with gentle encouragement from Terrie."):
+    """Lead magnet email capture. Netlify stores submissions; connect an email provider to send the nurture sequence."""
+    return f'''<aside class="signup card" aria-label="Free guide">
+<div><p class="eyebrow">Free for wives</p><h2>{heading}</h2><p>{text}</p></div>
+<form name="betrayal-guide" method="POST" data-netlify="true" netlify-honeypot="company" action="{GUIDE_DELIVERY_URL}" class="form signup-form">
+<input type="hidden" name="form-name" value="betrayal-guide"><p hidden><label>Company <input name="company"></label></p>
+<label>First name<input name="first_name" autocomplete="given-name" required></label>
+<label>Email<input type="email" name="email" autocomplete="email" required></label>
+<button class="btn gold" type="submit">Send Me the Free Guide</button>
+<p class="micro">Confidential. Unsubscribe anytime. We never share your email.</p>
+</form>
+</aside>'''
+
+SAFETY_BOX = '''<div class="safety-box"><p><strong>Standing for your marriage never means staying in danger.</strong> If you are afraid of your spouse, call 911 in an emergency or the National Domestic Violence Hotline at <a href="tel:18007997233">1-800-799-7233</a> (text START to 88788). If you are thinking about harming yourself, call or text <a href="tel:988">988</a>. Faith-based coaching is not a substitute for licensed clinical care. <a href="/blog/when-standing-isnt-safe/">When standing isn't safe</a>.</p></div>'''
+
+def intent_cta(intent):
+    """CTA band matched to what the reader came for."""
+    if intent in ("crisis", "decision", "healing", "how-to", "consult"):
+        return cta_band(title="Talk with someone who's been there.", text="Schedule a confidential Talk with Terrie Beeman. Her husband once told her he wanted out. Today they're 34 years strong.",
+                        primary=(CALENDLY, "Schedule a Talk with Terrie"), secondary=("/tuesday-prayer-call/", "Join Tuesday Prayer"))
+    if intent in ("faith", "hope", "proof", "tuesday"):
+        return cta_band(title="You don't have to pray alone.", text="Join wives and couples every Tuesday at 6:00 PM CT for a free marriage prayer call on Zoom.",
+                        primary=("/tuesday-prayer-call/", "Join the Tuesday Prayer Call"), secondary=(CALENDLY, "Schedule a Talk with Terrie"))
+    if intent == "safety":
+        return ""
+    return cta_band(title="Get the free guide for wives.", text="The First 7 Days After Betrayal: a day-by-day prayer and healing guide.",
+                    primary=(GUIDE_URL, "Get the Free Guide"), secondary=(CALENDLY, "Schedule a Talk with Terrie"))
+
+def fmt_date(iso):
+    d = datetime.date.fromisoformat(iso)
+    return f"{d:%B} {d.day}, {d.year}"
+
+def short_title(title):
+    """Drop the brand suffix when it would push the title past ~65 characters."""
+    return title if len(title) <= 65 else title.replace(" | Fight to Win Marriages", "")
+
+def is_live(slug):
+    post = NEW_BY_SLUG.get(slug)
+    return post is None or post["date"] <= BUILD_DATE
+
+def resolve_links(text):
+    """Turn [[/path/|anchor]] tokens into links; links to unpublished posts render as plain text."""
+    def sub(m):
+        href, anchor = m.group(1), m.group(2)
+        slug = re.match(r"/blog/([^/]+)/", href)
+        if slug and not is_live(slug.group(1)):
+            return anchor
+        return f'<a href="{href}">{anchor}</a>'
+    return re.sub(r"\[\[([^|\]]+)\|([^\]]+)\]\]", sub, text)
+
+def nav_html(path):
+    cur = ' aria-current="page"'
+    def active(u):
+        return u == path or (u != "/" and path.startswith(u))
+    items = ""
+    for u, n, children in NAV:
+        if not children:
+            items += f'<li><a href="{u}"{cur if active(u) else ""}>{n}</a></li>'
+            continue
+        on = active(u) or any(active(cu) for cu, _ in children)
+        sub = "".join(f'<li><a href="{cu}"{cur if cu == path else ""}>{html.escape(cn)}</a></li>' for cu, cn in children)
+        on_cls = ' class="on"' if on else ""
+        items += f'<li class="has-sub"><a href="{u}"{on_cls}>{n}</a><ul class="sub">{sub}</ul></li>'
+    return items
+
+def analytics():
+    """GA4 plus lead events (form submits, booking clicks). Renders nothing until GA_ID is set."""
+    if not GA_ID:
+        return ""
+    return f'''<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_ID}');
+document.addEventListener('submit',e=>{{const f=e.target;if(f.name)gtag('event','generate_lead',{{form_name:f.getAttribute('name')}})}});
+document.addEventListener('click',e=>{{const a=e.target.closest('a');if(!a)return;if(a.href.includes('calendly.com'))gtag('event','book_call_click',{{link_url:a.href}});else if(a.href.includes('zoom.us'))gtag('event','join_prayer_call_click');else if(a.pathname==='{GUIDE_URL}')gtag('event','guide_cta_click')}});
+</script>'''
+
+def page(path, title, desc, body, schema=None, og_type="website", crumb=None, head_extra=""):
     url = SITE + path
+    body = resolve_links(body)
     graph = [ORG, WEBSITE]
     share_image = f"{SITE}/assets/photos/happy-black-couple-hero-og.jpg" if path == "/" else f"{SITE}/assets/og-image.jpg"
     share_alt = "A joyful Black married couple relaxing together at home" if path == "/" else "Fight to Win Marriages"
@@ -182,8 +285,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
     if schema:
         graph.extend(schema if isinstance(schema, list) else [schema])
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, indent=1)
-    cur = ' aria-current="page"'
-    nav = "".join(f'<li><a href="{u}"{cur if (u == path or (u != "/" and path.startswith(u))) else ""}>{n}</a></li>' for u, n in NAV)
+    nav = nav_html(path)
     bc = ""
     if crumb and len(crumb) > 1:
         bc = '<nav class="crumbs wrap" aria-label="Breadcrumb">' + " / ".join(
@@ -199,7 +301,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <meta name="application-name" content="{NAME}">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="{url}">
-<meta name="robots" content="{'noindex, follow' if path in ('/thank-you/', '/404.html') else 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">
+<meta name="robots" content="{'noindex, follow' if path in NOINDEX else 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">
 <meta property="og:type" content="{og_type}">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="{NAME}">
@@ -224,8 +326,9 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css?v=20261023-mobile-fit-2">
+<link rel="stylesheet" href="/assets/styles.css?v=20261025-growth">
 <script type="application/ld+json">{ld}</script>
+{head_extra}{analytics()}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -234,7 +337,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <a class="brand" href="/" aria-label="{NAME} home"><span>Fight to Win <em>Marriages</em></span></a>
 {SOCIAL_ICONS}
 <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label"> Menu</span></button>
-<nav id="nav" aria-label="Main"><ul>{nav}</ul><a class="btn gold small" href="{CALENDLY}" target="_blank" rel="noopener">Book a Meeting</a></nav>
+<nav id="nav" aria-label="Main"><ul>{nav}</ul><a class="btn gold small" href="{CALENDLY}" target="_blank" rel="noopener">Talk with Terrie</a></nav>
 </div>
 </header>
 {bc}
@@ -247,12 +350,13 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None):
 <div><p class="brand foot"><span class="mark" aria-hidden="true">&#10084;</span> Fight to Win Marriages</p>
 <p>We don't give up on marriage. We fight in prayer, love &amp; faith. A God-filled space for healing, restoration, and standing on God's promises together.</p>
 <p class="social"><a href="{IG}" rel="noopener" target="_blank">Instagram</a> · {f'<a href="{TT}" rel="noopener" target="_blank">TikTok</a> · ' if TT else ''}<a href="{YT}" rel="noopener" target="_blank">YouTube</a></p></div>
+<div><h3>Get Help</h3><ul>{"".join(f'<li><a href="/{h["slug"]}/">{h["name"]}</a></li>' for h in HUBS)}<li><a href="{QUIZ_URL}">Marriage Reflection Quiz</a></li><li><a href="{GUIDE_URL}">Free Guide: The First 7 Days After Betrayal</a></li></ul></div>
 <div><h3>Ministry</h3><ul><li><a href="/marriage-coaching/">Christian Marriage Coaching</a></li><li><a href="/tuesday-prayer-call/">Tuesday Prayer &amp; Fasting Call</a></li><li><a href="/prayer-call-notes/">Tuesday Call Notes</a></li><li><a href="/events/">Marriage Events &amp; Speaking</a></li><li><a href="/blog/">Marriage Blog</a></li></ul></div>
 <div><h3>Connect</h3><ul><li><a href="/about/">About Terrie Beeman</a></li><li><a href="/contact/">Book or Contact</a></li><li>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></li></ul></div>
 </div>
 <div class="wrap legal"><p>&copy; 2026 Fight to Win Marriages. Coaching and Christian counseling are faith-based and are not a substitute for licensed clinical or mental health care. If you are in danger, call 911 or the National Domestic Violence Hotline at 1-800-799-7233.</p><p><a href="/privacy/">Privacy Policy</a></p></div>
 </footer>
-<nav class="mobile-cta" aria-label="Quick actions"><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Book a Meeting</a><a class="btn" href="/tuesday-prayer-call/">Join Tuesday Call</a></nav>
+<nav class="mobile-cta" aria-label="Quick actions"><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Talk with Terrie</a><a class="btn" href="/tuesday-prayer-call/">Join Tuesday Call</a></nav>
 <script>
 const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
 b.addEventListener('click',()=>{{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}});
@@ -295,8 +399,28 @@ def photo(name, cls="", sizes="(max-width: 820px) 100vw, 50vw"):
 def gallery(names):
     return '<div class="gallery">' + "".join(photo(n, sizes="(max-width: 700px) 50vw, 25vw") for n in names) + "</div>"
 
+STORY_VIDEO = {
+    "@type": "VideoObject",
+    "@id": f"{SITE}/#founder-story-video",
+    "name": "Terrie Beeman Founder's Story",
+    "description": "Terrie Beeman shares how her husband told her he wanted out, the 365-day spiritual battle that followed, and how God restored their marriage.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/5Sk_Hm1As2k/hqdefault.jpg",
+    "uploadDate": "2026-07-29",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/5Sk_Hm1As2k",
+    "contentUrl": YT_STORY,
+    "publisher": {"@id": f"{SITE}/#org"},
+}
+
+def pain_tiles():
+    tiles = "".join(f'<a class="card tile" href="/{h["slug"]}/"><h3>{html.escape(h["tile"])}</h3><p>{html.escape(h["tile_text"])}</p><span class="link">{html.escape(h["name"])} &rarr;</span></a>' for h in HUBS)
+    tiles += '<a class="card tile safety" href="/blog/when-standing-isnt-safe/"><h3>I don\'t feel safe at home</h3><p>Standing for your marriage never means staying in danger. Start here.</p><span class="link">Get safety help &rarr;</span></a>'
+    return f'<div class="tiles">{tiles}</div><p class="center micro" style="margin-top:18px">Not sure where to start? <a href="{QUIZ_URL}">Take the 2-minute marriage reflection quiz</a>.</p>'
+
 # ---------------------------------------------------------------- HOME
 home_faq = [
+    ("Can my marriage be saved after an affair?", "Yes, many marriages recover after infidelity. Restoration usually requires the affair to end, real repentance, honesty, accountability and time, along with God's healing in both spouses. Coaching and prayer support help you walk it out step by step."),
+    ("Can I save my marriage if my husband doesn't want to?", "You can't control his choices, but you can change the atmosphere of your marriage through prayer, personal growth and wise boundaries. Terrie Beeman's husband once told her he wanted out. After a 365-day stand, their marriage was restored, and they are now 34 years strong."),
+    ("Is it biblical to stay after infidelity?", "Yes. Jesus permitted divorce for sexual immorality in Matthew 19:9, but He never required it. Forgiving and rebuilding is a biblical choice when the unfaithful spouse is repentant and you are safe."),
     ("What is Fight to Win Marriages?", "Fight to Win Marriages is a faith-based marriage ministry led by Terrie Beeman. It encourages couples not to give up on their marriage and focuses on healing, restoration, and standing on God's promises through prayer, love and faith."),
     ("Who is marriage coaching for?", "Coaching is for married couples, engaged couples, and individual spouses standing for their marriage, whether you are newlyweds or have been married for decades."),
     ("When is the Tuesday prayer call?", "Terrie hosts a free online marriage prayer and fasting call on Zoom every Tuesday at 6:00 PM CT. Couples young and old are welcome to join for prayer, encouragement and biblical guidance."),
@@ -306,6 +430,7 @@ home_faq = [
 TESTIMONIALS = [
     {
         "author": "The Kellys",
+        "tags": ["restoration", "prayers"],
         "meta": "Married 29 years",
         "excerpt": "We learned that fighting for our marriage does not mean fighting against each other. It means recognizing that we are on the same team and taking our battles to God in prayer.",
         "paragraphs": [
@@ -316,6 +441,7 @@ TESTIMONIALS = [
     },
     {
         "author": "Donna A.",
+        "tags": ["alone", "restoration", "wives"],
         "meta": "Standing for restoration",
         "excerpt": "Thanks to Fight to Win Marriages, I am further along than I was when I filed for divorce. My faith has been restored in God coming through for me and my family.",
         "paragraphs": [
@@ -326,6 +452,7 @@ TESTIMONIALS = [
     },
     {
         "author": "Prayer-call participant",
+        "tags": ["prayers", "wives"],
         "meta": "Tuesday marriage prayer call",
         "excerpt": "The weekly marriage prayer calls have strengthened my faith, taught me to trust God more in my marriage, and helped me go deeper in prayer.",
         "paragraphs": [
@@ -334,6 +461,7 @@ TESTIMONIALS = [
     },
     {
         "author": "S.W.",
+        "tags": ["restoration"],
         "meta": "Fight to Win Marriages community member",
         "excerpt": "Strong, Christ-centered marriages do not happen by accident, and this ministry is helping couples fight for what God intended.",
         "paragraphs": [
@@ -345,6 +473,7 @@ TESTIMONIALS = [
     },
     {
         "author": "The Cowans",
+        "tags": ["prayers"],
         "meta": "Fight to Win Marriages community members",
         "excerpt": "Your dedication, faithfulness and commitment to bringing God's people together in prayer do not go unnoticed.",
         "paragraphs": [
@@ -353,6 +482,7 @@ TESTIMONIALS = [
     },
     {
         "author": "The Hendersons",
+        "tags": ["restoration"],
         "meta": "Married 4 years",
         "excerpt": "Terrie challenges you to trust God through the highs, lows and in-between. She is kind and inviting and made us feel comfortable opening up.",
         "paragraphs": [
@@ -361,6 +491,7 @@ TESTIMONIALS = [
     },
     {
         "author": "The Randolphs",
+        "tags": ["wives"],
         "meta": "Kingdom Wives participant",
         "excerpt": "Kingdom Wives really provided a lot of peace for me and my family. I am looking forward to Kingdom Couples.",
         "paragraphs": [
@@ -380,8 +511,10 @@ def testimonial_card(item, compact=False):
             text += "&rdquo;"
         rendered.append(f"<p>{text}</p>")
     meta = f'<span class="testimonial-meta">{html.escape(item["meta"])}</span>' if item.get("meta") else ""
+    hubs = "" if compact else "".join(f'<a class="tag" href="/{HUB_BY_KEY[k]["slug"]}/">{html.escape(HUB_BY_KEY[k]["name"])}</a>' for k in item.get("tags", []))
+    hubs = f'<div class="tags-row">{hubs}</div>' if hubs else ""
     return (f'<figure class="card testimonial"><blockquote>{"".join(rendered)}</blockquote>'
-            f'<figcaption><strong>{html.escape(item["author"])}</strong>{meta}</figcaption></figure>')
+            f'<figcaption><strong>{html.escape(item["author"])}</strong>{meta}{hubs}</figcaption></figure>')
 
 def testimonial_grid(items, compact=False, modifier="full"):
     cards = "".join(testimonial_card(item, compact=compact) for item in items)
@@ -391,13 +524,28 @@ home = f'''
 <section class="hero">
 <div class="wrap hero-grid">
 <div class="hero-copy">
-<p class="eyebrow">Christian marriage coaching &middot; Prayer &middot; Restoration</p>
-<h1>We don't give up on marriage. We fight in <em>prayer, love &amp; faith.</em></h1>
-<p class="lead">A God-filled space for healing, restoration, and standing on God's promises together. Terrie Beeman offers Christian marriage coaching, a weekly Tuesday prayer and fasting call, and marriage events for couples young and old.</p>
-<div class="btns"><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Book a 30-Minute Meeting</a><a class="btn ghost" href="/tuesday-prayer-call/">Join Tuesday Prayer Call</a></div>
-<p class="micro">Serving couples online nationwide. Newlyweds, empty nesters and every season between.</p>
+<p class="eyebrow">Christian marriage help for wives &amp; couples</p>
+<h1>Is your marriage hurting? <em>You don't have to fight alone.</em></h1>
+<p class="lead">Whether he cheated, checked out, or says he wants out, God is still in the business of restoration. Terrie Beeman stood 365 days for her own marriage. Today she helps wives and couples heal, pray and fight for their marriage.</p>
+<div class="btns"><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Schedule a Talk with Terrie</a><a class="btn ghost" href="/tuesday-prayer-call/">Join Tuesday Prayer Call</a></div>
+<p class="micro">&#128274; Confidential. Online nationwide. For wives standing alone and couples fighting together.</p>
 </div>
-<picture class="hero-media"><source srcset="/assets/photos/happy-black-couple-hero.webp" type="image/webp"><img src="/assets/photos/happy-black-couple-hero.jpg" alt="A joyful Black married couple relaxing together at home" width="1983" height="793" fetchpriority="high" decoding="async"></picture>
+<picture class="hero-media"><source srcset="/assets/photos/happy-black-couple-hero-960.webp 960w, /assets/photos/happy-black-couple-hero.webp 1983w" sizes="(max-width: 820px) 100vw, 55vw" type="image/webp"><img src="/assets/photos/happy-black-couple-hero.jpg" alt="A joyful Black married couple relaxing together at home" width="1983" height="793" fetchpriority="high" decoding="async"></picture>
+</div>
+</section>
+<section class="section story-first">
+<div class="wrap split">
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/5Sk_Hm1As2k" title="Terrie Beeman shares how she fought to win her marriage" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div><p class="eyebrow">Watch Terrie's story</p><h2>Born from a fight to win her own marriage</h2><p>Several years ago, Terrie's husband told her he wanted out. What followed was a 365-day battle of spiritual warfare, a still, small voice asking, "What about Me?", and a marriage fully restored. Today they stand 34 years strong, and everything they learned became Fight to Win Marriages.</p>
+<p>Follow along on <a href="{IG}" target="_blank" rel="noopener">Instagram</a>, <a href="{TT}" target="_blank" rel="noopener">TikTok</a> and <a href="{YT}" target="_blank" rel="noopener">YouTube</a> for prayers, tips, tools and weapons to help you fight to win your marriage.</p>
+<div class="btns"><a class="btn" href="/about/#story">Read Terrie's Story</a><a class="btn ghost" href="/save-my-marriage-alone/">Standing alone? Start here</a></div></div>
+</div>
+</section>
+<section class="section alt" id="get-help">
+<div class="wrap">
+<p class="eyebrow center">Where are you right now?</p>
+<h2 class="center">Find help for what you're facing</h2>
+{pain_tiles()}
 </div>
 </section>
 
@@ -412,17 +560,6 @@ home = f'''
 </div>
 </section>
 
-<section class="section founder-intro">
-<div class="wrap split">
-<div>
-<p class="eyebrow">Meet the founder</p>
-<h2>Terrie Beeman knows restoration is possible</h2>
-<p>After a 365-day spiritual battle helped restore her own marriage, Terrie built Fight to Win Marriages to help couples pray, heal and fight for one another. She brings the compassion of someone who has lived the hard season and the practical guidance of a Certified Christian Counselor and Marriage Coach.</p>
-<div class="btns"><a class="btn" href="/about/">Meet Terrie</a><a class="btn ghost" href="{CALENDLY}" target="_blank" rel="noopener">Schedule with Terrie</a></div>
-</div>
-<div class="portrait sm">{PORTRAIT.format(extra='loading="lazy" decoding="async"')}<p class="caption">Terrie Beeman, Founder</p></div>
-</div>
-</section>
 
 <section class="section alt">
 <div class="wrap split">
@@ -495,27 +632,21 @@ home = f'''
 </div>
 </section>
 
-<section class="section">
-<div class="wrap split">
-<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/5Sk_Hm1As2k" title="Terrie Beeman shares how she fought to win her marriage" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-<div><p class="eyebrow">Watch Terrie's story</p><h2>Born from a fight to win her own marriage</h2><p>Several years ago, Terrie's husband told her he wanted out. What followed was a 365-day battle of spiritual warfare, a still, small voice asking, "What about Me?", and a marriage fully restored. Today they stand 34 years strong, and everything they learned became Fight to Win Marriages.</p>
-<p>Follow along on <a href="{IG}" target="_blank" rel="noopener">Instagram</a>, <a href="{TT}" target="_blank" rel="noopener">TikTok</a> and <a href="{YT}" target="_blank" rel="noopener">YouTube</a> for prayers, tips, tools and weapons to help you fight to win your marriage.</p>
-<div class="btns"><a class="btn" href="/about/#story">Read Terrie's Story</a><a class="btn ghost" href="{YT_STORY}" target="_blank" rel="noopener">Watch on YouTube</a></div></div>
-</div>
-</section>
+
 {faq_html(home_faq)}
 {cta_band()}
 '''
-page("/", "Christian Marriage Coaching & Prayer | Fight to Win Marriages",
-     "Faith-based Christian marriage coaching, prayer and restoration support with Terrie Beeman. Book coaching or join the free Tuesday prayer call online.",
-     home, schema=[PERSON, faq_schema(home_faq)])
+page("/", "Christian Marriage Help for Wives: Healing, Prayer & Restoration",
+     "Hurting after betrayal or distance? Terrie Beeman stood 365 days for her own marriage. Christian coaching, free Tuesday prayer, and hope that it can be restored.",
+     home, schema=[PERSON, faq_schema(home_faq), STORY_VIDEO],
+     head_extra='<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/photos/happy-black-couple-hero-960.webp 960w, /assets/photos/happy-black-couple-hero.webp 1983w" imagesizes="(max-width: 820px) 100vw, 55vw" fetchpriority="high">')
 
 # ---------------------------------------------------------------- ABOUT
 about = f'''
 <section class="page-hero"><div class="wrap split">
 <div><p class="eyebrow">About the founder</p><h1>Meet Terrie Beeman</h1>
 <p class="lead">Certified Christian Counselor, Spiritual Life Coach, Marriage Coach, Motivator, Prayer Warrior and purpose-driven community leader.</p>
-<div class="btns"><a class="btn gold" href="#bio">Read Terrie's Bio</a><a class="btn ghost" href="{CALENDLY}" target="_blank" rel="noopener">Book a 30-Minute Meeting</a></div></div>
+<div class="btns"><a class="btn gold" href="#bio">Read Terrie's Bio</a><a class="btn ghost" href="{CALENDLY}" target="_blank" rel="noopener">Schedule a Talk with Terrie</a></div></div>
 <div class="portrait sm">{PORTRAIT.format(extra='')}</div>
 </div></section>
 <section class="section" id="bio"><div class="wrap split bio-profile">
@@ -530,7 +661,19 @@ about = f'''
 <p>Terrie is an atmospheric shifter who casts light and positivity wherever she goes. Her infectious energy transforms every room and leaves an indelible mark on those fortunate enough to encounter her. A designer's original and a true game-changer, Terrie stands in her God-given uniqueness&mdash;the one and only, incomparable Terrie Beeman.</p>
 </div>
 </div></section>
-<section class="section alt" id="tomeka-jones"><div class="wrap narrow">
+<section class="section alt" id="donald-beeman"><div class="wrap narrow">
+<article class="card team-bio">
+<div class="team-monogram" aria-hidden="true">DB</div>
+<div class="prose">
+<p class="eyebrow">Meet the team</p>
+<h2 style="margin-top:0">Donald Beeman</h2>
+<p class="team-role">Co-Host &amp; Supporter</p>
+<p>Donald is the steadfast partner behind Fight to Win Marriages. As the husband of Terrie, he fully supports the vision God placed on her heart to help couples build strong, lasting marriages. He stands beside her as a cohost whenever his schedule allows.</p>
+<p>While Terrie leads the conversations, Donald brings thoughtful insight, encouragement, and a husband's perspective when it matters most. Together for 34 years, he and Terrie are a living example of what it looks like to fight for your marriage, not against each other.</p>
+</div>
+</article>
+</div></section>
+<section class="section" id="tomeka-jones"><div class="wrap narrow">
 <article class="card team-bio">
 <div class="team-monogram" aria-hidden="true">TJ</div>
 <div class="prose">
@@ -591,9 +734,9 @@ about = f'''
 </div></section>
 {cta_band(title="Work with Terrie", text="Coaching, prayer and speaking for couples and churches.", primary=("/marriage-coaching/", "See Coaching Options"), secondary=("/events/", "Invite Terrie to Speak"))}
 '''
-page("/about/", "About Terrie Beeman & the Ministry Team | Fight to Win Marriages",
-     "Meet Terrie Beeman, founder of Fight to Win Marriages, and Tomeka Jones, her personal assistant, prayer warrior and intercessor.",
-     about, schema=[PERSON, TOMEKA, {"@type": "AboutPage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
+page("/about/", "Terrie Beeman: Her Husband Wanted Out. 365 Days Later, Restored.",
+     "How a year of prayer and spiritual warfare restored Terrie's marriage, now 34 years strong, and why she founded Fight to Win Marriages.",
+     about, schema=[PERSON, DONALD, TOMEKA, STORY_VIDEO, {"@type": "ProfilePage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
      og_type="profile", crumb=[("/", "Home"), ("/about/", "About Terrie Beeman")])
 
 # ---------------------------------------------------------------- TESTIMONIALS
@@ -626,10 +769,11 @@ page("/testimonials/", "Marriage & Ministry Testimonials | Fight to Win Marriage
 
 # ---------------------------------------------------------------- COACHING
 coach_faq = [
+    ("Can coaching help after an affair?", "Yes. Terrie walks with wives and couples through infidelity: steadying your heart, setting boundaries, understanding forgiveness versus trust, and deciding your next step with prayer. Coaching is not licensed therapy, and Terrie will encourage clinical care when needed."),
     ("Is this Christian marriage counseling?", "Terrie is a Certified Christian Counselor and Marriage Coach. Sessions are faith-based coaching and Christian counseling, not licensed clinical therapy. Coaching uses biblical principles, prayer and practical tools to help you move forward. If you need clinical or crisis care, Terrie will encourage you to seek a licensed professional alongside coaching."),
     ("Can I do coaching if my spouse won't join?", "Yes. Many people begin coaching alone while standing for their marriage. Individual sessions focus on your heart, your prayer life and the changes you can make."),
     ("Are sessions online?", "Yes. Sessions are held online by video so couples anywhere can participate."),
-    ("How much does marriage coaching cost?", "Pricing depends on the package. Terrie shares pricing on your free consultation call so you can choose the right fit."),
+    ("How much does marriage coaching cost?", "Counseling sessions start at $75 for a 55-minute session. Package pricing and scheduling are shared when you schedule a Talk with Terrie, so you can choose the right fit."),
     ("Is what I share confidential?", "Yes. What you share in coaching stays private, except where safety or the law requires otherwise."),
 ]
 coaching = f'''
@@ -637,49 +781,54 @@ coaching = f'''
 <p class="eyebrow">Online &middot; Faith-based &middot; Couples and individuals</p>
 <h1>Christian Marriage Coaching</h1>
 <p class="lead">Biblical marriage coaching with Terrie Beeman for couples who want to heal, rebuild trust and grow closer to God and each other. Sessions are online, so you can join from anywhere.</p>
-<div class="btns"><a class="btn gold" href="/contact/?type=coaching">Request a Free Consultation</a><a class="btn ghost" href="#packages">View Packages</a></div>
+<div class="btns"><a class="btn gold" href="/contact/?type=coaching">Talk with Terrie</a><a class="btn ghost" href="#packages">View Packages</a></div>
 </div></section>
 
 <section class="section"><div class="wrap">
 <h2>Coaching that meets you where you are</h2>
 <div class="cards three">
-<div class="card"><h3>Marriage in crisis</h3><p>Infidelity, separation, talk of divorce, or a spouse who has checked out. Get a steady, prayer-covered plan for the next step.</p></div>
-<div class="card"><h3>Stuck in conflict</h3><p>Same argument, different day. Learn to fight fair, listen well and attack the problem instead of each other.</p></div>
-<div class="card"><h3>Standing alone</h3><p>When only one spouse is ready, individual coaching helps you stand in faith, guard your heart and keep your home covered in prayer.</p></div>
-<div class="card"><h3>Newlyweds &amp; engaged</h3><p>Build on a biblical foundation from the start, with honest conversations about roles, money, intimacy and expectations.</p></div>
-<div class="card"><h3>Long-married couples</h3><p>Empty nest, retirement or just drifting. Rekindle friendship and purpose for the years ahead.</p></div>
-<div class="card"><h3>Blended families</h3><p>Navigate new roles, old wounds and co-parenting with grace and wisdom.</p></div>
+<div class="card"><h3>Marriage in crisis</h3><p>Infidelity, separation, talk of divorce, or a spouse who has checked out. Get a steady, prayer-covered plan for the next step.</p><a class="link" href="/healing-after-infidelity/">Healing after infidelity &rarr;</a></div>
+<div class="card"><h3>Stuck in conflict</h3><p>Same argument, different day. Learn to fight fair, listen well and attack the problem instead of each other.</p><a class="link" href="/christian-marriage-restoration/">Marriage restoration &rarr;</a></div>
+<div class="card"><h3>Standing alone</h3><p>When only one spouse is ready, individual coaching helps you stand in faith, guard your heart and keep your home covered in prayer.</p><a class="link" href="/save-my-marriage-alone/">Saving your marriage alone &rarr;</a></div>
+<div class="card"><h3>Newlyweds &amp; engaged</h3><p>Build on a biblical foundation from the start, with honest conversations about roles, money, intimacy and expectations.</p><a class="link" href="/blog/how-to-fight-for-your-marriage/">Fight for your marriage &rarr;</a></div>
+<div class="card"><h3>Long-married couples</h3><p>Empty nest, retirement or just drifting. Rekindle friendship and purpose for the years ahead.</p><a class="link" href="/christian-marriage-advice-for-wives/">Advice for wives &rarr;</a></div>
+<div class="card"><h3>Blended families</h3><p>Navigate new roles, old wounds and co-parenting with grace and wisdom.</p><a class="link" href="/prayers-for-marriage/">Prayers for your marriage &rarr;</a></div>
 </div></div></section>
 
 <section class="section alt"><div class="wrap">
 <div class="split" style="margin-bottom:36px"><div><h2>Real couples, real growth</h2><p>Terrie has been where you are. Her own marriage was restored after a 365-day spiritual battle, and she and her husband now stand 34 years strong. She has since walked alongside couples in Houston small groups and one-on-one, and coaching brings that same prayerful, practical approach to building a kingdom marriage, wherever you live. <a href="/about/#story">Read Terrie's story</a>.</p></div>{photo("couples-small-group-discussion", "rounded")}</div>
 <h2>How coaching works</h2>
 <ol class="steps">
-<li><strong>Request a consultation.</strong> Tell Terrie a little about your marriage through the booking form.</li>
-<li><strong>Free discovery call.</strong> A short call to pray, listen and recommend a path.</li>
+<li><strong>Schedule a Talk with Terrie.</strong> Tell Terrie a little about your marriage through the booking form.</li>
+<li><strong>Talk with Terrie.</strong> A short call to pray, listen and recommend a path.</li>
 <li><strong>Coaching sessions.</strong> Scripture-based guidance, prayer and practical homework between sessions.</li>
 <li><strong>Ongoing support.</strong> Join the Tuesday prayer call for weekly encouragement as you grow.</li>
 </ol>
 </div></section>
+
+<section class="section"><div class="wrap narrow">{SAFETY_BOX}</div></section>
 
 <section class="section" id="packages"><div class="wrap">
 <h2 class="center">Coaching packages</h2>
 <div class="cards three pricing">
 <div class="card"><h3>Single Session</h3><p>One online session for an individual or couple. Good for a specific issue or a first step.</p><a class="btn" href="/contact/?type=coaching">Book a Session</a></div>
 <div class="card featured"><h3>Restoration Package</h3><p>A series of sessions for couples committed to rebuilding, with prayer support between sessions.</p><a class="btn gold" href="/contact/?type=coaching">Start Restoration</a></div>
-<div class="card"><h3>Standing Spouse Package</h3><p>Individual sessions for the spouse standing for their marriage.</p><a class="btn" href="/contact/?type=coaching">Get Support</a></div>
+<div class="card"><h3>Standing Alone Coaching for Wives</h3><p>Individual sessions for the wife standing for her marriage when her husband is not ready. Prayer, boundaries and a plan.</p><a class="btn" href="/contact/?type=coaching">Get Support</a></div>
 </div>
-<p class="center micro" style="margin-top:20px">Pricing and scheduling are shared on your free consultation call, so you can choose the package that fits your marriage.</p>
+<p class="center" style="margin-top:20px"><strong>Counseling sessions start at $75 for a 55-minute session.</strong></p>
+<p class="center micro">Package pricing and scheduling are shared when you <a href="{CALENDLY}" target="_blank" rel="noopener">schedule a Talk with Terrie</a>, so you can choose the fit for your marriage.</p>
+<p class="center micro">&#128274; Everything you share is confidential.</p>
 </div></section>
 {faq_html(coach_faq, "Marriage Coaching FAQ")}
-{cta_band(title="Your marriage can be restored.", text="Take the first step today. A free consultation is the easiest place to start.", primary=("/contact/?type=coaching", "Request a Free Consultation"))}
+{cta_band(title="Your marriage can be restored.", text="Take the first step today. A Talk with Terrie is the easiest place to start.", primary=("/contact/?type=coaching", "Talk with Terrie"))}
 '''
 coach_service = {"@type": "Service", "name": "Christian Marriage Coaching", "serviceType": "Marriage coaching",
                  "provider": {"@id": f"{SITE}/#org"}, "areaServed": {"@type": "Country", "name": "United States"},
                  "availableChannel": {"@type": "ServiceChannel", "serviceUrl": SITE + "/marriage-coaching/"},
-                 "description": "Online biblical marriage coaching for couples and individuals with Terrie Beeman."}
-page("/marriage-coaching/", "Christian Marriage Coaching Online | Fight to Win Marriages",
-     "Online Christian marriage coaching with Terrie Beeman. Faith-based help for conflict, broken trust, separation and couples who want to grow. Book a free consult.",
+                 "description": "Online biblical marriage coaching for couples and individuals with Terrie Beeman.",
+                 "offers": {"@type": "Offer", "priceCurrency": "USD", "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": 75, "description": "Counseling sessions start at $75 for a 55-minute session."}}}
+page("/marriage-coaching/", "Christian Marriage Coaching Online, Even If Your Spouse Won't Join",
+     "Faith-based coaching for infidelity, separation and broken trust. Start alone or together. Counseling from $75 per 55-minute session.",
      coaching, schema=[coach_service, faq_schema(coach_faq)], crumb=[("/", "Home"), ("/marriage-coaching/", "Marriage Coaching")])
 
 # ---------------------------------------------------------------- TUESDAY CALL
@@ -763,8 +912,8 @@ tue_event = {"@type": "Event", "name": "Fight to Win Marriages Tuesday Prayer & 
              "isAccessibleForFree": True,
              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": SITE + "/tuesday-prayer-call/", "validFrom": "2026-10-01"},
              "organizer": {"@id": f"{SITE}/#org"}, "performer": {"@id": f"{SITE}/#terrie"}}
-page("/tuesday-prayer-call/", "Free Online Marriage Prayer Call Every Tuesday | Fight to Win Marriages",
-     "Join Terrie Beeman's free marriage prayer and fasting call on Zoom every Tuesday at 6 PM CT. Prayer, Scripture and biblical guidance for couples young and old.",
+page("/tuesday-prayer-call/", "Free Marriage Prayer Call for Wives Standing for Their Marriage",
+     "Join Terrie Beeman's free marriage prayer and fasting call on Zoom every Tuesday at 6 PM CT. Prayer, Scripture and support for wives and couples, whether or not your spouse joins.",
      tuesday, schema=[tue_service, tue_event, faq_schema(tue_faq)], crumb=[("/", "Home"), ("/tuesday-prayer-call/", "Tuesday Prayer Call")])
 
 # ---------------------------------------------------------------- CALL NOTES ARCHIVE
@@ -786,12 +935,12 @@ notes = f'''
 <h3>Spiritual Heart Check</h3>
 <p>This recap invites husbands and wives to keep God at the center, begin with their own hearts, identify inner obstacles, receive correction as an opportunity to grow, and practice forgiveness with healthy boundaries. It also includes a marriage examination, personal reflection questions, a prayer focus and next steps.</p>
 <p class="micro">Edited recap prepared from the weekly call summary and transcript; not a verbatim transcript.</p>
-<div class="btns"><a class="btn" href="{NOTES_PDF}" target="_blank" rel="noopener">View PDF</a><a class="btn ghost" href="{NOTES_PDF}" download>Download PDF</a></div>
+<div class="btns"><a class="btn" href="/prayer-call-notes/2026-10-20-spiritual-heart-check/">Read the recap</a><a class="btn ghost" href="{NOTES_PDF}" target="_blank" rel="noopener">View PDF</a><a class="btn ghost" href="{NOTES_PDF}" download>Download PDF</a></div>
 </div>
 </article>
 </div>
 </div></section>
-{cta_band(title="Join us for the next Tuesday call.", text="Come for prayer, Scripture and encouragement, then return here for downloadable notes.", primary=("/tuesday-prayer-call/", "Join Tuesday Prayer"), secondary=(CALENDLY, "Book a Meeting"))}
+{cta_band(title="Join us for the next Tuesday call.", text="Come for prayer, Scripture and encouragement, then return here for downloadable notes.", primary=("/tuesday-prayer-call/", "Join Tuesday Prayer"), secondary=(CALENDLY, "Talk with Terrie"))}
 '''
 notes_document = {
     "@type": "DigitalDocument",
@@ -810,6 +959,7 @@ page("/prayer-call-notes/", "Weekly Tuesday Prayer Call Notes | Fight to Win Mar
 ev_faq = [
     ("What topics does Terrie speak on?", "Topics include fighting for your marriage, restoration after betrayal, praying for your spouse, covenant marriage, and strengthening marriages in the church."),
     ("Does Terrie travel for events?", "Yes. Terrie speaks in person and virtually. Share your location and date in the booking form for availability and travel details."),
+    ("How much does it cost to book Terrie to speak?", "Speaking engagements start at $1,000. The investment is tailored to your event's date, audience size and format, and Terrie's team will share a clear quote after you submit the booking form."),
     ("What size events does Terrie speak at?", "From small church couples' nights to conferences and retreats. Each message is tailored to the audience."),
 ]
 events = f'''
@@ -844,6 +994,7 @@ events = f'''
 </div>
 <h3>Great fit for</h3>
 <ul class="tags"><li>Church marriage ministries</li><li>Couples retreats</li><li>Women's conferences</li><li>Valentine's &amp; anniversary events</li><li>Marriage enrichment weekends</li><li>Virtual events &amp; podcasts</li></ul>
+<p><strong>Speaking engagements start at $1,000</strong>, tailored to your event's date, audience and format.</p>
 <a class="btn gold" href="/contact/?type=speaking">Request Terrie for Your Event</a>
 </div></section>
 {faq_html(ev_faq, "Speaking FAQ")}
@@ -872,7 +1023,7 @@ contact = f'''
 </form>
 <aside class="card">
 <h2>Other ways to connect</h2>
-<p><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Book a 30-Minute Meeting with Terrie</a></p>
+<p><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Schedule a Talk with Terrie</a></p>
 <p><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 <p><strong>Instagram:</strong> <a href="{IG}" target="_blank" rel="noopener">@fighttowinmarriages</a></p>
 <p><strong>YouTube:</strong> <a href="{YT}" target="_blank" rel="noopener">@FIGHTTOWINMARRIAGES</a></p>
@@ -890,6 +1041,8 @@ page("/contact/", "Book Marriage Coaching or Speaking | Fight to Win Marriages",
 POSTS = [
     {
         "slug": "break-generational-curses-marriage-prayer",
+        "hub": "prayers",
+        "intent": "faith",
         "title": "Break the Curse: 20 Declarations to Break Generational Curses Off Your Marriage",
         "seo_title": "Prayer to Break Generational Curses in Marriage | Fight to Win Marriages",
         "desc": "Pray along with Terrie Beeman: 20 declarations to break generational curses of divorce, infidelity, anger, addiction and more off your marriage, in Jesus' name.",
@@ -900,6 +1053,8 @@ POSTS = [
     },
     {
         "slug": "good-bad-ugly-seasons-of-marriage",
+        "hub": "wives",
+        "intent": "faith",
         "title": "The Good, the Bad and the Ugly Seasons of Marriage: God Is Still Writing Your Story",
         "seo_title": "The Good, the Bad & the Ugly in Marriage (Romans 8:28) | Fight to Win Marriages",
         "desc": "Every marriage has good, bad and ugly seasons. Terrie Beeman shares how Romans 8:28 means none of them is wasted, and why God is still writing your story.",
@@ -946,6 +1101,8 @@ POSTS = [
     },
     {
         "slug": "how-to-fight-for-your-marriage",
+        "hub": "restoration",
+        "intent": "how-to",
         "title": "How to Fight for Your Marriage (Without Fighting Your Spouse)",
         "seo_title": "How to Fight for Your Marriage: 5 Biblical Steps | Fight to Win Marriages",
         "desc": "Fighting for your marriage means fighting the problem, not your spouse. Five biblical steps to stand together, pray and rebuild when your marriage is hurting.",
@@ -970,6 +1127,8 @@ POSTS = [
     },
     {
         "slug": "praying-and-fasting-for-your-marriage",
+        "hub": "prayers",
+        "intent": "faith",
         "title": "Praying and Fasting for Your Marriage: A Simple Guide",
         "seo_title": "Praying and Fasting for Your Marriage: A Simple Guide | Fight to Win Marriages",
         "desc": "A practical guide to praying and fasting for your marriage: how to start, what to pray, Scriptures to stand on, and how to fast safely and with purpose.",
@@ -1003,6 +1162,8 @@ POSTS = [
     },
     {
         "slug": "signs-your-marriage-needs-a-coach",
+        "hub": "restoration",
+        "intent": "consult",
         "title": "7 Signs Your Marriage Could Use a Christian Marriage Coach",
         "seo_title": "7 Signs You Need a Christian Marriage Coach | Fight to Win Marriages",
         "desc": "Same fight on repeat? Feeling like roommates? Seven signs your marriage could benefit from Christian marriage coaching, and what coaching looks like.",
@@ -1018,7 +1179,7 @@ POSTS = [
 <h2>6. You're entering a new season</h2><p>Newlyweds, new babies, empty nests and blended families all bring new pressures.</p>
 <h2>7. You've stopped praying together</h2><p>Spiritual distance often comes before emotional distance.</p>
 <h2>What coaching with Terrie looks like</h2>
-<p><a href="/marriage-coaching/">Fight to Win marriage coaching</a> is online, rooted in Scripture and practical. It is not a replacement for licensed counseling, but it gives couples prayer, perspective and a plan. <a href="/contact/?type=coaching">Request a free consultation</a> to get started.</p>
+<p><a href="/marriage-coaching/">Fight to Win marriage coaching</a> is online, rooted in Scripture and practical. It is not a replacement for licensed counseling, but it gives couples prayer, perspective and a plan. <a href="/contact/?type=coaching">Schedule a Talk with Terrie</a> to get started.</p>
 """,
     },
 ]
@@ -1026,38 +1187,209 @@ POSTS = [
 def author_box():
     return f'''<aside class="author card"><div class="portrait xs">{PORTRAIT.format(extra='loading="lazy"')}</div><div><p class="eyebrow">Written by</p><h2><a href="/about/">Terrie Beeman</a></h2><p>Certified Christian Counselor, marriage coach, prayer warrior and founder of Fight to Win Marriages. Married 34 years, Terrie hosts a weekly Tuesday prayer and fasting call for couples.</p></div></aside>'''
 
-cards = ""
-for p in POSTS:
+ALL_POSTS = [p for p in POSTS + NEW_POSTS if p["date"] <= BUILD_DATE]
+for q in ALL_POSTS:
+    q.setdefault("hub", "wives")
+    q.setdefault("intent", "guide")
+    q.setdefault("faqs", [])
+posts_sorted = sorted(ALL_POSTS, key=lambda q: q["date"], reverse=True)
+
+# Remove output left over from an earlier build that published posts which are not due yet.
+for q in NEW_POSTS:
+    if q["date"] > BUILD_DATE:
+        shutil.rmtree(os.path.join(OUT, "blog", q["slug"]), ignore_errors=True)
+
+def post_card(q):
+    u = f"/blog/{q['slug']}/"
+    return f'<article class="card post"><p class="micro"><time datetime="{q["date"]}">{fmt_date(q["date"])}</time></p><h2><a href="{u}">{html.escape(q["title"])}</a></h2><p>{html.escape(q["excerpt"])}</p><a class="link" href="{u}">Read more &rarr;</a></article>'
+
+for p in ALL_POSTS:
     u = f"/blog/{p['slug']}/"
-    cards += f'<article class="card post"><p class="micro"><time datetime="{p["date"]}">October 19, 2026</time></p><h2><a href="{u}">{html.escape(p["title"])}</a></h2><p>{html.escape(p["excerpt"])}</p><a class="link" href="{u}">Read more &rarr;</a></article>'
-    others = "".join(f'<li><a href="/blog/{o["slug"]}/">{html.escape(o["title"])}</a></li>' for o in POSTS if o is not p)
+    hub = HUB_BY_KEY[p["hub"]]
+    siblings = [o for o in ALL_POSTS if o["hub"] == p["hub"] and o is not p]
+    others = "".join(f'<li><a href="/blog/{o["slug"]}/">{html.escape(o["title"])}</a></li>' for o in siblings[:4])
+    hub_line = f'<p class="hub-link">Part of our guide: <a href="/{hub["slug"]}/">{html.escape(hub["name"])}</a></p>'
+    faq_block = faq_html(p["faqs"], "Frequently asked questions") if p["faqs"] else ""
     body = f'''
 <article class="section"><div class="wrap narrow prose">
 <p class="eyebrow">Marriage Blog</p>
 <h1>{html.escape(p["title"])}</h1>
-<p class="meta">By <a href="/about/">Terrie Beeman</a> &middot; <time datetime="{p["date"]}">October 19, 2026</time></p>
+<p class="meta">By <a href="/about/">Terrie Beeman</a> &middot; <time datetime="{p["date"]}">{fmt_date(p["date"])}</time></p>
+{hub_line}
 {p["body"]}
 {author_box()}
-<h2>Keep reading</h2><ul>{others}</ul>
+<h2>Keep reading</h2><ul><li><a href="/{hub["slug"]}/"><strong>{html.escape(hub["name"])}</strong>: the complete guide</a></li>{others}</ul>
 </div></article>
-{cta_band()}
+{faq_block}
+{guide_signup() if p["intent"] != "safety" else ""}
+{intent_cta(p["intent"])}
 '''
-    page(u, p["seo_title"], p["desc"], body, og_type="article",
-         schema=[{"@type": "BlogPosting", "headline": p["title"], "description": p["desc"], "datePublished": p["date"], "dateModified": p["date"],
-                  "author": {"@id": f"{SITE}/#terrie"}, "publisher": {"@id": f"{SITE}/#org"}, "image": f"{SITE}/assets/og-image.jpg",
-                  "mainEntityOfPage": SITE + u}, PERSON],
+    schema = [{"@type": "BlogPosting", "headline": p["title"], "description": p["desc"], "datePublished": p["date"], "dateModified": p.get("modified", p["date"]),
+               "author": {"@id": f"{SITE}/#terrie"}, "publisher": {"@id": f"{SITE}/#org"}, "image": f"{SITE}/assets/og-image.jpg",
+               "mainEntityOfPage": SITE + u}, PERSON]
+    if p["faqs"]:
+        schema.append(faq_schema(p["faqs"]))
+    if p.get("video"):
+        schema.append({"@type": "VideoObject", "name": p["title"], "description": p["desc"], "thumbnailUrl": f"https://i.ytimg.com/vi/{p['video']}/hqdefault.jpg",
+                       "uploadDate": p["date"], "embedUrl": f"https://www.youtube-nocookie.com/embed/{p['video']}", "publisher": {"@id": f"{SITE}/#org"}})
+    page(u, p["seo_title"], p["desc"], body, og_type="article", schema=schema,
          crumb=[("/", "Home"), ("/blog/", "Blog"), (u, p["title"])])
 
+# ---------------------------------------------------------------- HUB PAGES
+HUB_CTAS = {
+    "consult": cta_band(title="You don't have to walk this alone.", text="Schedule a confidential Talk with Terrie Beeman. She has stood where you're standing.",
+                        primary=(CALENDLY, "Schedule a Talk with Terrie"), secondary=("/tuesday-prayer-call/", "Join Tuesday Prayer")),
+    "tuesday": cta_band(title="Pray with us every Tuesday.", text="A free marriage prayer call on Zoom, Tuesdays at 6:00 PM CT.",
+                        primary=("/tuesday-prayer-call/", "Join the Tuesday Prayer Call"), secondary=(CALENDLY, "Schedule a Talk with Terrie")),
+    "guide": cta_band(title="Get the free guide for wives.", text="The First 7 Days After Betrayal: a day-by-day prayer and healing guide.",
+                      primary=(GUIDE_URL, "Get the Free Guide"), secondary=(CALENDLY, "Schedule a Talk with Terrie")),
+}
+for h in HUBS:
+    u = f"/{h['slug']}/"
+    spokes = [q for q in posts_sorted if q["hub"] == h["key"]]
+    spoke_cards = "".join(post_card(q) for q in spokes)
+    others = "".join(f'<li><a href="/{o["slug"]}/">{html.escape(o["name"])}</a></li>' for o in HUBS if o is not h)
+    body = f'''
+<section class="page-hero"><div class="wrap narrow">
+<p class="eyebrow">{h["eyebrow"]}</p>
+<h1>{h["h1"]}</h1>
+<p class="lead">{h["lead"]}</p>
+<div class="btns"><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Schedule a Talk with Terrie</a><a class="btn ghost" href="/tuesday-prayer-call/">Join Tuesday Prayer</a></div>
+<p class="micro">&#128274; Confidential. Online nationwide.</p>
+</div></section>
+<section class="section"><div class="wrap narrow prose">
+{h["body"]}
+</div></section>
+<section class="section alt"><div class="wrap narrow">{SAFETY_BOX}</div></section>
+<section class="section"><div class="wrap"><h2 class="center">More on {html.escape(h["name"].lower())}</h2><div class="cards three">{spoke_cards}</div></div></section>
+<section class="section alt"><div class="wrap narrow">{guide_signup()}</div></section>
+{faq_html(h["faqs"])}
+<section class="section"><div class="wrap narrow"><h2>Other ways we can help</h2><ul>{others}<li><a href="{QUIZ_URL}">Marriage reflection quiz</a></li></ul></div></section>
+{HUB_CTAS[h["cta"]]}
+'''
+    page(u, h["seo_title"], h["desc"], body,
+         schema=[PERSON, faq_schema(h["faqs"]),
+                 {"@type": "CollectionPage", "@id": f"{SITE}{u}#collection", "name": h["name"], "url": SITE + u,
+                  "hasPart": [{"@type": "BlogPosting", "headline": q["title"], "url": f"{SITE}/blog/{q['slug']}/"} for q in spokes]}],
+         crumb=[("/", "Home"), (u, h["name"])])
+
+# ---------------------------------------------------------------- GET HELP
+get_help = f'''
+<section class="page-hero"><div class="wrap narrow">
+<p class="eyebrow">Get help</p>
+<h1>Where are you right now?</h1>
+<p class="lead">Pick the one that sounds most like your situation. Each guide has next steps, Scripture and a way to talk with Terrie.</p>
+</div></section>
+<section class="section"><div class="wrap">{pain_tiles()}</div></section>
+<section class="section alt"><div class="wrap narrow">{guide_signup()}</div></section>
+{cta_band(title="Not sure where to start?", text="Schedule a confidential Talk with Terrie Beeman.", primary=(CALENDLY, "Schedule a Talk with Terrie"), secondary=(QUIZ_URL, "Take the Quiz"))}
+'''
+page("/get-help/", "Get Help for Your Marriage: Affairs, Separation & Restoration | Fight to Win Marriages",
+     "Find Christian help for your situation: healing after infidelity, saving your marriage alone, restoration, prayer and advice for wives.",
+     get_help, crumb=[("/", "Home"), ("/get-help/", "Get Help")])
+
+# ---------------------------------------------------------------- FREE GUIDE (lead magnet)
+guide_days_html = "".join(
+    f'<section class="guide-day card"><h2>{html.escape(t)}</h2><p class="micro"><strong>Scripture:</strong> {html.escape(ref)}</p><p>{html.escape(intro)}</p><ul class="checks">{"".join(f"<li>{html.escape(a)}</li>" for a in acts)}</ul><blockquote class="verse small">{html.escape(prayer)}</blockquote></section>'
+    for t, ref, intro, acts, prayer in GUIDE_DAYS)
+guide_page = f'''
+<section class="page-hero"><div class="wrap split">
+<div><p class="eyebrow">Free guide for wives</p><h1>{GUIDE_TITLE}</h1>
+<p class="lead">{GUIDE_SUBTITLE}. Seven short days of Scripture, prayer and one small step each, written for the woman who just found out.</p>
+<ul class="checks"><li>A prayer for every day</li><li>One doable action each day</li><li>Gentle encouragement from Terrie by email</li></ul></div>
+<div>{guide_signup(heading="Send me the guide", text="Enter your name and email and we'll send it right away.")}</div>
+</div></section>
+<section class="section"><div class="wrap narrow prose">
+<h2 style="margin-top:0">Why this guide exists</h2>
+<p>Terrie Beeman heard her husband say he wanted out, and she knows how disorienting the first days are. This guide is the steady voice she wished she'd had.</p>
+{SAFETY_BOX}
+</div></section>
+{cta_band(title="Want to talk it through?", text="Schedule a confidential Talk with Terrie.", primary=(CALENDLY, "Schedule a Talk with Terrie"), secondary=("/tuesday-prayer-call/", "Join Tuesday Prayer"))}
+'''
+page(GUIDE_URL, "Free Guide: The First 7 Days After Betrayal | Fight to Win Marriages",
+     "A free 7-day prayer and healing guide for wives after infidelity or betrayal, from Christian marriage coach Terrie Beeman.",
+     guide_page, crumb=[("/", "Home"), (GUIDE_URL, "Free Guide")])
+
+guide_delivery = f'''
+<section class="page-hero"><div class="wrap narrow">
+<p class="eyebrow">Thank you</p><h1>{GUIDE_TITLE}</h1><p class="lead">{GUIDE_SUBTITLE}. Read one day at a time, or all seven tonight.</p>
+<div class="btns"><button class="btn gold" onclick="window.print()">Print or Save as PDF</button><a class="btn ghost" href="/tuesday-prayer-call/">Join Tuesday Prayer</a></div>
+</div></section>
+<section class="section"><div class="wrap narrow">{SAFETY_BOX}{guide_days_html}</div></section>
+{cta_band(title="You don't have to walk this alone.", text="Schedule a confidential Talk with Terrie.", primary=(CALENDLY, "Schedule a Talk with Terrie"), secondary=("/healing-after-infidelity/", "Healing After Infidelity"))}
+'''
+page(GUIDE_DELIVERY_URL, "The First 7 Days After Betrayal | Fight to Win Marriages", "Your free 7-day prayer and healing guide for wives.", guide_delivery)
+
+# ---------------------------------------------------------------- MARRIAGE QUIZ
+quiz_json = json.dumps([{"q": q, "a": [{"t": t, "k": k} for t, k in answers]} for q, answers in QUIZ_QUESTIONS])
+hub_json = json.dumps({h["key"]: {"name": h["name"], "url": f"/{h['slug']}/", "text": h["tile_text"]} for h in HUBS})
+quiz_page = f'''
+<section class="page-hero"><div class="wrap narrow">
+<p class="eyebrow">2-minute quiz</p><h1>Marriage reflection quiz: where do I start?</h1>
+<p class="lead">Eight questions, no judgment. We'll point you to the guide that fits your situation. Your answers are not stored.</p>
+</div></section>
+<section class="section"><div class="wrap narrow">
+<div id="quiz" class="card quiz" aria-live="polite"><noscript><p>This quiz needs JavaScript. You can <a href="/get-help/">browse all guides</a> instead.</p></noscript></div>
+<div id="quiz-result" class="card quiz" hidden>
+<p class="eyebrow">Your starting point</p><h2 id="quiz-title"></h2><p id="quiz-text"></p>
+<div id="quiz-safety" hidden>{SAFETY_BOX}</div>
+<div class="btns"><a id="quiz-link" class="btn gold" href="/">Read the guide</a><a class="btn ghost" href="{CALENDLY}" target="_blank" rel="noopener">Talk with Terrie</a></div>
+</div>
+<div style="margin-top:28px">{guide_signup()}</div>
+</div></section>
+<script>
+const Q={quiz_json},H={hub_json};let i=0;const tally={{}};let unsafe=false;
+const box=document.getElementById('quiz');
+function show(){{if(i>=Q.length)return done();const q=Q[i];box.innerHTML='<p class="micro">Question '+(i+1)+' of '+Q.length+'</p><h2></h2><div class="answers"></div>';box.querySelector('h2').textContent=q.q;const a=box.querySelector('.answers');q.a.forEach(x=>{{const b=document.createElement('button');b.type='button';b.className='btn ghost answer';b.textContent=x.t;b.onclick=()=>{{if(x.k==='safety')unsafe=true;else if(x.k)tally[x.k]=(tally[x.k]||0)+1;i++;show()}};a.appendChild(b)}})}}
+function done(){{let best='wives',n=-1;for(const k in H){{if((tally[k]||0)>n){{n=tally[k]||0;best=k}}}}if((tally.infidelity||0)>=3)best='infidelity';const h=H[best];box.hidden=true;const r=document.getElementById('quiz-result');r.hidden=false;document.getElementById('quiz-title').textContent=h.name;document.getElementById('quiz-text').textContent=h.text;document.getElementById('quiz-link').href=h.url;document.getElementById('quiz-safety').hidden=!unsafe;if(typeof gtag==='function')gtag('event','quiz_complete',{{result:best}})}}
+show();
+</script>
+'''
+page(QUIZ_URL, "Marriage Reflection Quiz: Is My Marriage Worth Saving? | Fight to Win Marriages",
+     "Take the free 2-minute Christian marriage reflection quiz and get pointed to the right guide for your situation: infidelity, standing alone, restoration or prayer.",
+     quiz_page, crumb=[("/", "Home"), (QUIZ_URL, "Marriage Quiz")])
+
+# ---------------------------------------------------------------- CALL RECAP PAGES (HTML versions of the weekly PDFs)
+for r in CALL_RECAPS:
+    u = f"/prayer-call-notes/{r['slug']}/"
+    teachings = "".join(f"<li><strong>{html.escape(a)}</strong> {html.escape(b)}</li>" for a, b in r["teachings"])
+    exam = "".join(f"<li><strong>{html.escape(a)}</strong> {html.escape(b)}</li>" for a, b in r["exam"])
+    qs = "".join(f"<li>{html.escape(x)}</li>" for x in r["questions"])
+    nxt = "".join(f"<li>{html.escape(x)}</li>" for x in r["next_steps"])
+    body = f'''
+<article class="section"><div class="wrap narrow prose">
+<p class="eyebrow">Tuesday prayer call recap</p><h1>{html.escape(r["title"])}</h1>
+<p class="meta"><time datetime="{r["date"]}">{fmt_date(r["date"])}</time> &middot; Edited recap, not a verbatim transcript</p>
+<blockquote class="verse">"{html.escape(r["scripture"][0])}"<cite>{html.escape(r["scripture"][1])}</cite></blockquote>
+<h2>Session overview</h2><p>{html.escape(r["overview"])}</p>
+<h2>Five key teachings</h2><ul class="checks">{teachings}</ul>
+<h2>The spiritual heart check: a marriage examination</h2><ul class="checks">{exam}</ul>
+<h2>Personal reflection questions</h2><ul>{qs}</ul>
+<h2>Prayer focus and next steps</h2><ul class="checks">{nxt}</ul>
+<p><a class="btn" href="{NOTES_PDF}" download>Download the PDF</a> <a class="btn ghost" href="/prayer-call-notes/">All call notes</a></p>
+</div></article>
+{intent_cta("tuesday")}
+'''
+    page(u, f"{r['title']}: Tuesday Marriage Prayer Call Recap | Fight to Win Marriages",
+         f"Recap of the {fmt_date(r['date'])} Tuesday marriage prayer call: {r['title'].lower()}. Scripture, key teachings, reflection questions and a prayer focus.",
+         body, og_type="article",
+         schema=[{"@type": "Article", "headline": r["title"], "datePublished": r["date"], "dateModified": r["date"], "author": {"@id": f"{SITE}/#terrie"},
+                  "publisher": {"@id": f"{SITE}/#org"}, "image": f"{SITE}/assets/og-image.jpg", "mainEntityOfPage": SITE + u}],
+         crumb=[("/", "Home"), ("/prayer-call-notes/", "Call Notes"), (u, r["title"])])
+
+cards = "".join(post_card(q) for q in posts_sorted)
 blog = f'''
 <section class="page-hero"><div class="wrap">
 <h1>Marriage Blog: Faith, Prayer &amp; Restoration</h1>
-<p class="lead">Biblical encouragement and practical help for couples who are fighting for their marriage, from Terrie Beeman.</p>
+<p class="lead">Biblical encouragement and practical help for wives and couples who are fighting for their marriage, from Terrie Beeman.</p>
 </div></section>
-<section class="section"><div class="wrap"><div class="cards three">{cards}</div></div></section>
+<section class="section alt"><div class="wrap"><h2 class="center">Browse by what you're facing</h2>{pain_tiles()}</div></section>
+<section class="section"><div class="wrap"><h2 class="center">Latest articles</h2><div class="cards three">{cards}</div></div></section>
+<section class="section alt"><div class="wrap narrow">{guide_signup()}</div></section>
 {cta_band()}
 '''
 page("/blog/", "Christian Marriage Blog | Fight to Win Marriages",
-     "Biblical marriage advice from Terrie Beeman: how to fight for your marriage, praying and fasting for your spouse, rebuilding trust and restoration.",
+     "Biblical marriage advice from Terrie Beeman: healing after infidelity, standing for your marriage alone, prayer and restoration.",
      blog, schema=[{"@type": "Blog", "name": "Fight to Win Marriages Blog", "url": SITE + "/blog/", "publisher": {"@id": f"{SITE}/#org"}}],
      crumb=[("/", "Home"), ("/blog/", "Blog")])
 
@@ -1073,12 +1405,15 @@ page("/404.html", "Page Not Found | Fight to Win Marriages", "Page not found.",
      '<section class="page-hero"><div class="wrap narrow"><h1>Page not found</h1><p class="lead">Don\'t give up. Try the <a href="/">home page</a>, <a href="/marriage-coaching/">coaching</a> or the <a href="/blog/">blog</a>.</p></div></section>')
 
 # sitemap + robots
-urls = ["/", "/about/", "/marriage-coaching/", "/tuesday-prayer-call/", "/prayer-call-notes/", "/events/", "/testimonials/", "/blog/", "/contact/", "/privacy/"] + [f"/blog/{p['slug']}/" for p in POSTS]
+static_urls = ["/", "/get-help/"] + [f"/{h['slug']}/" for h in HUBS] + ["/marriage-coaching/", "/tuesday-prayer-call/", "/prayer-call-notes/"] + [f"/prayer-call-notes/{r['slug']}/" for r in CALL_RECAPS] + [GUIDE_URL, QUIZ_URL, "/about/", "/events/", "/testimonials/", "/blog/", "/contact/"]
+urls = static_urls + [f"/blog/{q['slug']}/" for q in posts_sorted]
+lastmod = {f"/blog/{q['slug']}/": q.get("modified", q["date"]) for q in ALL_POSTS}
+lastmod.update({f"/prayer-call-notes/{r['slug']}/": r["date"] for r in CALL_RECAPS})
 with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for u in urls:
-        f.write(f"  <url><loc>{SITE}{u}</loc><lastmod>2026-10-23</lastmod></url>\n")
+        f.write(f"  <url><loc>{SITE}{u}</loc><lastmod>{lastmod.get(u, SITE_UPDATED)}</lastmod></url>\n")
     f.write("</urlset>\n")
 with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
-    f.write(f"User-agent: *\nDisallow: /thank-you/\n\nSitemap: {SITE}/sitemap.xml\n")
+    f.write(f"User-agent: *\nDisallow: /thank-you/\nDisallow: /free-guide/first-7-days/\n\nSitemap: {SITE}/sitemap.xml\n")
 print("built", len(urls), "indexable urls")
