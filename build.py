@@ -163,6 +163,24 @@ DONALD = {
     "spouse": {"@id": f"{SITE}/#terrie"},
     "worksFor": {"@id": f"{SITE}/#org"},
 }
+VIVIAN = {
+    "@type": "Person",
+    "@id": f"{SITE}/about/#vivian-cadette",
+    "name": "Vivian Cadette",
+    "jobTitle": "Ministry Operations Manager and Certified Christian Counselor",
+    "description": "Vivian Cadette serves Fight to Win Marriages as Ministry Operations Manager, providing leadership support and helping bring the ministry's vision to life. She is a Certified Christian Counselor.",
+    "url": f"{SITE}/about/#vivian-cadette",
+    "worksFor": {"@id": f"{SITE}/#org"},
+}
+RHONDA = {
+    "@type": "Person",
+    "@id": f"{SITE}/about/#rhonda-taylor",
+    "name": "Rhonda Taylor",
+    "jobTitle": "Content Coach and Certified Christian Counselor",
+    "description": "Rhonda Taylor serves Fight to Win Marriages as Content Coach, helping develop and refine Christ-centered content that supports the ministry's mission of restoring marriages and strengthening families. She is a Certified Christian Counselor.",
+    "url": f"{SITE}/about/#rhonda-taylor",
+    "worksFor": {"@id": f"{SITE}/#org"},
+}
 WEBSITE = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": SITE + "/", "name": NAME, "publisher": {"@id": f"{SITE}/#org"}}
 
 def crumbs(items):
@@ -686,6 +704,30 @@ about = f'''
 </div>
 </article>
 </div></section>
+<section class="section alt" id="vivian-cadette"><div class="wrap narrow">
+<article class="card team-bio">
+<div class="team-monogram" aria-hidden="true">VC</div>
+<div class="prose">
+<p class="eyebrow">Meet the team</p>
+<h2 style="margin-top:0">Vivian Cadette</h2>
+<p class="team-role">Ministry Operations Manager &amp; Certified Christian Counselor</p>
+<p>With a heart devoted to serving God and advancing the mission of marriage restoration, Vivian serves as the Ministry Operations Manager, providing vital leadership support and helping bring the ministry's God-given vision to life. Vivian is passionate about strengthening marriages, supporting ministry leaders, and helping create opportunities for couples and families to experience healing, restoration, and wholeness through Jesus Christ.</p>
+</div>
+</article>
+</div></section>
+<section class="section" id="rhonda-taylor"><div class="wrap narrow">
+<article class="card team-bio">
+<div class="team-monogram" aria-hidden="true">RT</div>
+<div class="prose">
+<p class="eyebrow">Meet the team</p>
+<h2 style="margin-top:0">Rhonda Taylor</h2>
+<p class="team-role">Content Coach &middot; Certified Christian Counselor</p>
+<p><strong>Creating Christ-Centered Content</strong></p>
+<p>Rhonda is committed to using her gifts, knowledge, and passion to advance the ministry's mission of restoring marriages and strengthening families for the glory of God.</p>
+<p>With a heart for ministry, Rhonda serves as Content Coach, helping develop and refine meaningful, Christ-centered content that aligns with the ministry's God-given vision. Through biblical teaching, creative insight, and purposeful messaging, she helps equip and encourage husbands and wives to strengthen their marriage covenant and walk in God's purpose for their relationship.</p>
+</div>
+</article>
+</div></section>
 <section class="section" id="story"><div class="wrap narrow prose">
 <p class="eyebrow">Terrie's story</p>
 <h2 style="margin-top:0">How a 365-day fight gave birth to a ministry</h2>
@@ -736,7 +778,7 @@ about = f'''
 '''
 page("/about/", "Terrie Beeman: Her Husband Wanted Out. 365 Days Later, Restored.",
      "How a year of prayer and spiritual warfare restored Terrie's marriage, now 34 years strong, and why she founded Fight to Win Marriages.",
-     about, schema=[PERSON, DONALD, TOMEKA, STORY_VIDEO, {"@type": "ProfilePage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
+     about, schema=[PERSON, DONALD, TOMEKA, VIVIAN, RHONDA, STORY_VIDEO, {"@type": "ProfilePage", "url": SITE + "/about/", "mainEntity": {"@id": f"{SITE}/#terrie"}}],
      og_type="profile", crumb=[("/", "Home"), ("/about/", "About Terrie Beeman")])
 
 # ---------------------------------------------------------------- TESTIMONIALS
