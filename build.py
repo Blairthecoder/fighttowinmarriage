@@ -6,7 +6,7 @@ from content.hubs import HUBS
 from content.posts import NEW_POSTS
 from content.resources import GUIDE_TITLE, GUIDE_SUBTITLE, GUIDE_DAYS, QUIZ_QUESTIONS, CALL_RECAPS
 
-SITE = "https://fight-to-win-marriages.netlify.app"  # TODO: swap to custom domain when purchased
+SITE = "https://fighttowinmarriages.com"  # canonical production domain; Search Console sitemap URLs must use this host
 OUT = os.path.join(os.path.dirname(__file__), "site")
 NAME = "Fight to Win Marriages"
 IG = "https://www.instagram.com/fighttowinmarriages/"
@@ -22,7 +22,7 @@ ZOOM_ID = "840 8334 7510"
 TUE_TIME = "6:00 PM CT"
 TT = "https://www.tiktok.com/@fight.to.win.marr"
 GA_ID = ""  # TODO: GA4 measurement ID (G-XXXXXXX). Analytics tags render only when set.
-SITE_UPDATED = "2026-10-25"
+SITE_UPDATED = "2026-10-26"
 # Posts dated after the build date stay unpublished. Override with BUILD_DATE=YYYY-MM-DD.
 BUILD_DATE = os.environ.get("BUILD_DATE") or datetime.date.today().isoformat()
 GUIDE_URL = "/free-guide/"
