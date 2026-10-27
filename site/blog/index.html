@@ -123,7 +123,12 @@
   }
  ]
 }</script>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C9D29Q1NMB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-C9D29Q1NMB');
+document.addEventListener('submit',e=>{const f=e.target;if(f.name)gtag('event','generate_lead',{form_name:f.getAttribute('name')})});
+document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;if(a.href.includes('calendly.com'))gtag('event','book_call_click',{link_url:a.href});else if(a.href.includes('zoom.us'))gtag('event','join_prayer_call_click');else if(a.pathname==='/free-guide/')gtag('event','guide_cta_click')});
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
