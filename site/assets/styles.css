@@ -280,3 +280,10 @@ h3+.tags,.cards+h3{margin-top:24px}
 .guide-day{margin-bottom:20px}.guide-day h2{font-size:1.6rem}
 .testimonial-quote{margin:18px 0;padding:18px 22px;border-left:4px solid var(--gold);background:#fff;border-radius:0 var(--r) var(--r) 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.3rem;color:var(--plum)}
 @media print{.site-header,.site-footer,.mobile-cta,.cta-band,.btns{display:none}}
+/* Stand Fight Win logo */
+.stand-band{background:#1d0b17;color:#f1e3ec;padding:56px 0}
+.stand-band .wrap{max-width:940px;display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:48px;align-items:center}
+.stand-band h2{color:#fff}.stand-band p{color:#f1e3ec}.stand-band .eyebrow{color:var(--gold-2)}
+.stand-logo{width:100%;max-width:300px;height:auto;margin:0 auto}
+.foot-logo{width:110px;height:auto;margin:0 0 14px}
+@media(max-width:700px){.stand-band{padding:44px 0;text-align:center}.stand-band .wrap{grid-template-columns:1fr;gap:24px}.stand-logo{max-width:220px}.stand-band .btns{justify-content:center}}

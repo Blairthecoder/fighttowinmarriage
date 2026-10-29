@@ -350,7 +350,8 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None, he
 </main>
 <footer class="site-footer">
 <div class="wrap cols">
-<div><p class="brand foot"><span class="mark" aria-hidden="true">&#10084;</span> Fight to Win Marriages</p>
+<div><picture><source srcset="/assets/stand-fight-win-logo.webp" type="image/webp"><img src="/assets/stand-fight-win-logo.png" alt="Stand Fight Win logo: a heart of fire with Ephesians 6:12" width="110" height="109" loading="lazy" decoding="async" class="foot-logo"></picture>
+<p class="brand foot"><span class="mark" aria-hidden="true">&#10084;</span> Fight to Win Marriages</p>
 <p>We don't give up on marriage. We fight in prayer, love &amp; faith. A God-filled space for healing, restoration, and standing on God's promises together.</p>
 <p class="social"><a href="{IG}" rel="noopener" target="_blank">Instagram</a> · {f'<a href="{TT}" rel="noopener" target="_blank">TikTok</a> · ' if TT else ''}<a href="{YT}" rel="noopener" target="_blank">YouTube</a></p></div>
 <div><h3>Get Help</h3><ul>{"".join(f'<li><a href="/{h["slug"]}/">{h["name"]}</a></li>' for h in HUBS)}<li><a href="{QUIZ_URL}">Marriage Reflection Quiz</a></li></ul></div>
@@ -637,6 +638,12 @@ home = f'''
 
 
 {faq_html(home_faq)}
+<section class="stand-band"><div class="wrap">
+<picture><source srcset="/assets/stand-fight-win-logo.webp" type="image/webp"><img src="/assets/stand-fight-win-logo.png" alt="Stand Fight Win logo: a heart of fire with Ephesians 6:12" width="410" height="406" loading="lazy" decoding="async" class="stand-logo"></picture>
+<div><p class="eyebrow">Our message</p><h2>Stand. Fight. <em>Win.</em></h2>
+<p>Our battle is not against our spouse. It is against the spiritual forces that try to destroy what God has joined together. We stand in prayer, we fight in faith, and we win with God&#39;s weapons (Ephesians 6:12).</p>
+<div class="btns"><a class="btn gold" href="/about/">About the Ministry</a><a class="btn ghost-light" href="/get-help/">Find Help for Your Marriage</a></div></div>
+</div></section>
 {cta_band()}
 '''
 page("/", "Christian Marriage Help for Husbands & Wives: Healing, Prayer & Restoration",
