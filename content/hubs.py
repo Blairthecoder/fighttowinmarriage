@@ -182,7 +182,7 @@ HUBS = [
         "eyebrow": "For wives",
         "h1": "Christian marriage advice for wives <em>who are tired of feeling alone</em>",
         "lead": "You can share a bed, a bank account and a last name with someone and still feel completely alone. If that's where you are, this page is for you.",
-        "cta": "guide",
+        "cta": "consult",
         "body": """
 <h2>You are seen</h2>
 <p>Many Christian wives carry their marriage pain in silence. They serve at church, raise children, show up to work, and cry in the car. You don't have to hide here. Fight to Win Marriages was born out of a wife's fight. Terrie Beeman learned through her own 365-day battle how to be a kingdom wife "according to His blueprint," and she now teaches wives to do the same.</p>
@@ -205,7 +205,7 @@ HUBS = [
         "faqs": [
             ("What does the Bible say to a wife who feels alone in her marriage?", "God sees you (Genesis 16:13) and is close to the brokenhearted (Psalm 34:18). Loneliness in marriage is a signal to seek God first, then to take wise, loving steps toward honest conversation and support."),
             ("Does biblical submission mean I have to accept mistreatment?", "No. Ephesians 5 calls husbands to love their wives as Christ loved the church. Submission never requires a wife to accept abuse, unsafe behavior or sin."),
-            ("Where can Christian wives find support?", "Fight to Win Marriages offers a free weekly prayer call, individual coaching for wives, and a free guide for women healing after betrayal."),
+            ("Where can Christian wives find support?", "Fight to Win Marriages offers a free weekly prayer call and individual coaching for wives."),
         ],
     },
     {
@@ -220,7 +220,6 @@ HUBS = [
         "h1": "Christian marriage advice for husbands <em>who want to fight for their marriage</em>",
         "lead": "You can provide, show up and keep the peace, and still feel like you are failing at home. If that is where you are, this page is for you.",
         "cta": "consult",
-        "signup": False,
         "body": """
 <h2>You are not alone</h2>
 <p>Many Christian husbands carry their marriage struggles in silence. They work hard, serve at church, and never say out loud that things are hurting at home. You don't have to hide here. Fight to Win Marriages is for husbands and wives, and our battle is never against our spouse. It is against the spiritual forces trying to destroy the covenant.</p>
