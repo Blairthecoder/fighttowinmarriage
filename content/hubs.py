@@ -139,7 +139,7 @@ HUBS = [
         "key": "prayers",
         "name": "Prayers for Your Marriage",
         "tile": "I just need to pray",
-        "tile_text": "Prayers, declarations and fasting guides to cover your husband and your home.",
+        "tile_text": "Prayers, declarations and fasting guides to cover your spouse and your home.",
         "seo_title": "Prayers for My Marriage: Prayers for Your Husband & Restoration | Fight to Win Marriages",
         "desc": "Powerful prayers for your marriage and your husband: prayers for restoration, spiritual warfare declarations and a guide to fasting, plus a free weekly prayer call.",
         "eyebrow": "Prayer for marriage",
@@ -153,6 +153,7 @@ HUBS = [
 <h2>Prayers and declarations</h2>
 <ul>
 <li>[[/blog/prayer-for-husband-who-left/|A Prayer for My Husband When He Has Walked Away]]</li>
+<li>[[/blog/prayer-for-wife-who-left/|A Prayer for My Wife When She Has Walked Away]]</li>
 <li>[[/blog/spiritual-warfare-prayer-for-marriage/|Spiritual Warfare Prayer for Your Marriage]]</li>
 <li>[[/blog/break-generational-curses-marriage-prayer/|20 Declarations to Break Generational Curses Off Your Marriage]]</li>
 <li>[[/blog/scriptures-for-marriage-restoration/|30 Scriptures for Marriage Restoration]]</li>
@@ -181,7 +182,7 @@ HUBS = [
         "eyebrow": "For wives",
         "h1": "Christian marriage advice for wives <em>who are tired of feeling alone</em>",
         "lead": "You can share a bed, a bank account and a last name with someone and still feel completely alone. If that's where you are, this page is for you.",
-        "cta": "guide",
+        "cta": "consult",
         "body": """
 <h2>You are seen</h2>
 <p>Many Christian wives carry their marriage pain in silence. They serve at church, raise children, show up to work, and cry in the car. You don't have to hide here. Fight to Win Marriages was born out of a wife's fight. Terrie Beeman learned through her own 365-day battle how to be a kingdom wife "according to His blueprint," and she now teaches wives to do the same.</p>
@@ -204,7 +205,44 @@ HUBS = [
         "faqs": [
             ("What does the Bible say to a wife who feels alone in her marriage?", "God sees you (Genesis 16:13) and is close to the brokenhearted (Psalm 34:18). Loneliness in marriage is a signal to seek God first, then to take wise, loving steps toward honest conversation and support."),
             ("Does biblical submission mean I have to accept mistreatment?", "No. Ephesians 5 calls husbands to love their wives as Christ loved the church. Submission never requires a wife to accept abuse, unsafe behavior or sin."),
-            ("Where can Christian wives find support?", "Fight to Win Marriages offers a free weekly prayer call, individual coaching for wives, and a free guide for women healing after betrayal."),
+            ("Where can Christian wives find support?", "Fight to Win Marriages offers a free weekly prayer call and individual coaching for wives."),
+        ],
+    },
+    {
+        "slug": "christian-marriage-advice-for-husbands",
+        "key": "husbands",
+        "name": "Christian Marriage Advice for Husbands",
+        "tile": "I'm a husband and I feel stuck in my marriage",
+        "tile_text": "Biblical encouragement for the husband who is tired, shut down or unsure how to lead.",
+        "seo_title": "Christian Marriage Advice for Husbands: Biblical Help & Hope | Fight to Win Marriages",
+        "desc": "Feeling distant, stuck or unsure how to lead in your marriage? Biblical, practical advice for Christian husbands on communication, faith and hard seasons from Terrie Beeman.",
+        "eyebrow": "For husbands",
+        "h1": "Christian marriage advice for husbands <em>who want to fight for their marriage</em>",
+        "lead": "You can provide, show up and keep the peace, and still feel like you are failing at home. If that is where you are, this page is for you.",
+        "cta": "consult",
+        "body": """
+<h2>You are not alone</h2>
+<p>Many Christian husbands carry their marriage struggles in silence. They work hard, serve at church, and never say out loud that things are hurting at home. You don't have to hide here. Fight to Win Marriages is for husbands and wives, and our battle is never against our spouse. It is against the spiritual forces trying to destroy the covenant.</p>
+
+<h2>Common struggles we hear from husbands</h2>
+<ul class="checks">
+<li><strong>"We feel like roommates."</strong> Read [[/blog/feeling-alone-in-marriage/|Feeling Alone in Your Marriage: 6 Biblical Next Steps]].</li>
+<li><strong>"My wife wants out and I don't."</strong> Read about [[/save-my-marriage-alone/|saving your marriage alone]] and [[/blog/separated-but-not-divorced/|Separated but Not Divorced]].</li>
+<li><strong>"Why did God let this happen?"</strong> Read [[/blog/why-did-god-let-this-happen-to-my-marriage/|Why Did God Let This Happen to My Marriage?]].</li>
+<li><strong>"I broke her trust."</strong> Read [[/blog/rebuilding-trust-after-infidelity/|Rebuilding Trust After Infidelity]] and [[/blog/forgiveness-vs-trust-after-an-affair/|Forgiveness vs. Trust After an Affair]].</li>
+<li><strong>"I want to fight for us."</strong> Read [[/blog/how-to-fight-for-your-marriage/|How to Fight for Your Marriage]].</li>
+</ul>
+
+<h2>What a godly husband is, and isn't</h2>
+<p>Being a godly husband does not mean being silent, harsh or perfect. Ephesians 5:25 calls husbands to love their wives as Christ loved the church, which means humility, listening, repentance when we are wrong, and prayer over our homes. It starts with your own walk with God.</p>
+
+<h2>Community for husbands</h2>
+<p>Husbands are welcome on the [[/tuesday-prayer-call/|Tuesday prayer call]], and you can [[/contact/?type=coaching|ask about coaching]] for yourself or as a couple. You don't have to do this alone.</p>
+""",
+        "faqs": [
+            ("What does the Bible say to a husband who feels distant from his wife?", "Ephesians 5:25 and 1 Peter 3:7 call husbands to love sacrificially and live with their wives with understanding. Distance is a signal to seek God first, then to take humble, loving steps toward honest conversation and support."),
+            ("Can a husband stand for his marriage when his wife wants out?", "Yes. Many spouses stand in prayer and faith while their husband or wife is not ready. Standing means guarding your heart, praying, and living with integrity. It never means staying in danger."),
+            ("Where can Christian husbands find support?", "Fight to Win Marriages offers a free weekly prayer call, individual coaching for husbands and couples, and Scripture-based teaching for marriages in every season."),
         ],
     },
 ]

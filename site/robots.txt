@@ -1,5 +1,4 @@
 User-agent: *
 Disallow: /thank-you/
-Disallow: /free-guide/first-7-days/
 
 Sitemap: https://fighttowinmarriages.com/sitemap.xml

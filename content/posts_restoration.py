@@ -143,6 +143,41 @@ POSTS = [
         ],
     },
     {
+        "slug": "prayer-for-wife-who-left",
+        "title": "A Prayer for My Wife When She Has Walked Away",
+        "seo_title": "Prayer for a Wife Who Left: Prayers to Bring Her Home | Fight to Win Marriages",
+        "desc": "A heartfelt prayer for your wife when she has walked away from you, your marriage or God, plus Scriptures and guidance for praying while you wait.",
+        "date": "2026-10-29",
+        "hub": "prayers",
+        "intent": "faith",
+        "excerpt": "When she's gone and you don't know what to say to God, pray this.",
+        "body": """
+<p>She packed a bag, or she moved out, or she simply stopped being present in your marriage. You don't know what to say to her anymore. But you can still talk to God about her. Here is a prayer for your wife when she has walked away.</p>
+
+<h2>A prayer for my wife</h2>
+<blockquote class="verse">"Father, You know where my wife is right now. You know her thoughts and the hurts she carries that I can't see. I lift her up to You. Draw her close to You first, before she comes back to me. Open her eyes to truth. Break every lie she is believing about herself, about me and about our marriage. Forgive me where I have wounded her, and show me where I need to change. Surround her with godly voices and remove the influences that pull her away from You. Protect her mind, her body and her heart. Soften what has grown hard. And Lord, guard my heart too. Keep me from bitterness and pride. Make me whole in You, whatever she chooses. I trust You with my wife and my marriage. In Jesus' name, amen."</blockquote>
+
+<h2>Scriptures to pray over her</h2>
+<ul class="checks">
+<li><strong>Ezekiel 36:26</strong>: a new heart and a new spirit.</li>
+<li><strong>Psalm 34:18</strong>: the Lord is close to the brokenhearted.</li>
+<li><strong>2 Timothy 2:25-26</strong>: that God may grant repentance and freedom from the snare.</li>
+<li><strong>Proverbs 21:1</strong>: the king's heart is in the hand of the Lord.</li>
+</ul>
+
+<h2>Pray for yourself, too</h2>
+<p>Ask God for peace that guards your heart (Philippians 4:7), humility to own your part, wisdom for practical decisions, and strength for the days ahead. Your healing matters regardless of her choices.</p>
+
+<h2>Keep praying with others</h2>
+<p>Every Tuesday at 6:00 PM CT, husbands, wives and couples pray together on Zoom. [[/tuesday-prayer-call/|Join the free Tuesday prayer call]] or submit a prayer request. For more prayers, see our [[/prayers-for-marriage/|prayers for your marriage]] page and [[/christian-marriage-advice-for-husbands/|Christian marriage advice for husbands]].</p>
+""",
+        "faqs": [
+            ("How do I pray for a wife who left?", "Pray for her relationship with God first, for truth to replace lies, for godly influences, for protection, and for a softened heart. Pray for your own healing and humility as well."),
+            ("Can prayer bring my wife back?", "Prayer invites God to work in ways you cannot. It doesn't control your wife's free will, but many spouses have seen hearts change through persistent prayer."),
+            ("What Scripture should I pray for my wife?", "Ezekiel 36:26, Psalm 34:18, 2 Timothy 2:25-26 and Proverbs 21:1 are good places to start."),
+        ],
+    },
+    {
         "slug": "spiritual-warfare-prayer-for-marriage",
         "title": "Spiritual Warfare Prayer for Your Marriage",
         "seo_title": "Spiritual Warfare Prayer for Marriage | Fight to Win Marriages",

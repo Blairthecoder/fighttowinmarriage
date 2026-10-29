@@ -16,8 +16,7 @@ Website for Terrie Beeman's biblical marriage ministry. Hosted on Netlify (proje
 
 ## Growth content
 
-- Pain-point hubs live in `content/hubs.py`; blog posts in `content/posts_*.py`; the free guide, quiz and call recaps in `content/resources.py`.
+- Pain-point hubs live in `content/hubs.py`; blog posts in `content/posts_*.py`; the quiz, call recaps and the (currently unpublished) guide text in `content/resources.py`.
 - Posts dated after today stay unpublished until a build on or after their date. `.github/workflows/publish-scheduled-posts.yml` rebuilds daily and commits `site/` when a post comes due. Override locally with `BUILD_DATE=2026-12-31 python3 build.py`.
 - In body copy, `[[/path/|anchor]]` makes an internal link and falls back to plain text while the target post is unpublished.
-- Set `GA_ID` in `build.py` to turn on GA4 plus lead events (form submits, Calendly, Zoom, guide CTA, quiz).
-- The `betrayal-guide` Netlify form collects emails; connect Netlify form notifications or an email provider to send the nurture sequence.
+- Set `GA_ID` in `build.py` to turn on GA4 plus lead events (form submits, Calendly, Zoom, quiz).
