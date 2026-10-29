@@ -226,7 +226,7 @@ def intent_cta(intent):
         return cta_band(title="Talk with someone who's been there.", text="Schedule a confidential Talk with Terrie Beeman. Her husband once told her he wanted out. Today they're 34 years strong.",
                         primary=(CALENDLY, "Schedule a Talk with Terrie"), secondary=("/tuesday-prayer-call/", "Join Tuesday Prayer"))
     if intent in ("faith", "hope", "proof", "tuesday"):
-        return cta_band(title="You don't have to pray alone.", text="Join wives and couples every Tuesday at 6:00 PM CT for a free marriage prayer call on Zoom.",
+        return cta_band(title="You don't have to pray alone.", text="Join husbands, wives and couples every Tuesday at 6:00 PM CT for a free marriage prayer call on Zoom.",
                         primary=("/tuesday-prayer-call/", "Join the Tuesday Prayer Call"), secondary=(CALENDLY, "Schedule a Talk with Terrie"))
     if intent == "safety":
         return ""
@@ -542,11 +542,11 @@ home = f'''
 <section class="hero">
 <div class="wrap hero-grid">
 <div class="hero-copy">
-<p class="eyebrow">Christian marriage help for wives &amp; couples</p>
+<p class="eyebrow">Christian marriage help for husbands &amp; wives</p>
 <h1>Is your marriage hurting? <em>You don't have to fight alone.</em></h1>
-<p class="lead">Whether he cheated, checked out, or says he wants out, God is still in the business of restoration. Terrie Beeman stood 365 days for her own marriage. Today she helps wives and couples heal, pray and fight for their marriage.</p>
+<p class="lead">Whether trust was broken, your spouse checked out, or divorce has been mentioned, God is still in the business of restoration. Terrie Beeman stood 365 days for her own marriage. Today she helps husbands, wives and couples heal, pray and fight for their marriage.</p>
 <div class="btns"><a class="btn gold" href="{CALENDLY}" target="_blank" rel="noopener">Schedule a Talk with Terrie</a><a class="btn ghost" href="/tuesday-prayer-call/">Join Tuesday Prayer Call</a></div>
-<p class="micro">&#128274; Confidential. Online nationwide. For wives standing alone and couples fighting together.</p>
+<p class="micro">&#128274; Confidential. Online nationwide. For husbands and wives standing alone and couples fighting together.</p>
 </div>
 <picture class="hero-media"><source srcset="/assets/photos/happy-black-couple-hero-960.webp 960w, /assets/photos/happy-black-couple-hero.webp 1983w" sizes="(max-width: 820px) 100vw, 55vw" type="image/webp"><img src="/assets/photos/happy-black-couple-hero.jpg" alt="A joyful Black married couple relaxing together at home" width="1983" height="793" fetchpriority="high" decoding="async"></picture>
 </div>
@@ -654,7 +654,7 @@ home = f'''
 {faq_html(home_faq)}
 {cta_band()}
 '''
-page("/", "Christian Marriage Help for Wives: Healing, Prayer & Restoration",
+page("/", "Christian Marriage Help for Husbands & Wives: Healing, Prayer & Restoration",
      "Hurting after betrayal or distance? Terrie Beeman stood 365 days for her own marriage. Christian coaching, free Tuesday prayer, and hope that it can be restored.",
      home, schema=[PERSON, faq_schema(home_faq), STORY_VIDEO],
      head_extra='<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/photos/happy-black-couple-hero-960.webp 960w, /assets/photos/happy-black-couple-hero.webp 1983w" imagesizes="(max-width: 820px) 100vw, 55vw" fetchpriority="high">')
@@ -833,7 +833,7 @@ coaching = f'''
 <div class="card"><h3>Stuck in conflict</h3><p>Same argument, different day. Learn to fight fair, listen well and attack the problem instead of each other.</p><a class="link" href="/christian-marriage-restoration/">Marriage restoration &rarr;</a></div>
 <div class="card"><h3>Standing alone</h3><p>When only one spouse is ready, individual coaching helps you stand in faith, guard your heart and keep your home covered in prayer.</p><a class="link" href="/save-my-marriage-alone/">Saving your marriage alone &rarr;</a></div>
 <div class="card"><h3>Newlyweds &amp; engaged</h3><p>Build on a biblical foundation from the start, with honest conversations about roles, money, intimacy and expectations.</p><a class="link" href="/blog/how-to-fight-for-your-marriage/">Fight for your marriage &rarr;</a></div>
-<div class="card"><h3>Long-married couples</h3><p>Empty nest, retirement or just drifting. Rekindle friendship and purpose for the years ahead.</p><a class="link" href="/christian-marriage-advice-for-wives/">Advice for wives &rarr;</a></div>
+<div class="card"><h3>Long-married couples</h3><p>Empty nest, retirement or just drifting. Rekindle friendship and purpose for the years ahead.</p><a class="link" href="/christian-marriage-advice-for-husbands/">Advice for husbands &rarr;</a> <a class="link" href="/christian-marriage-advice-for-wives/">Advice for wives &rarr;</a></div>
 <div class="card"><h3>Blended families</h3><p>Navigate new roles, old wounds and co-parenting with grace and wisdom.</p><a class="link" href="/prayers-for-marriage/">Prayers for your marriage &rarr;</a></div>
 </div></div></section>
 
@@ -855,7 +855,7 @@ coaching = f'''
 <div class="cards three pricing">
 <div class="card"><h3>Single Session</h3><p>One online session for an individual or couple. Good for a specific issue or a first step.</p><a class="btn" href="/contact/?type=coaching">Book a Session</a></div>
 <div class="card featured"><h3>Restoration Package</h3><p>A series of sessions for couples committed to rebuilding, with prayer support between sessions.</p><a class="btn gold" href="/contact/?type=coaching">Start Restoration</a></div>
-<div class="card"><h3>Standing Alone Coaching for Wives</h3><p>Individual sessions for the wife standing for her marriage when her husband is not ready. Prayer, boundaries and a plan.</p><a class="btn" href="/contact/?type=coaching">Get Support</a></div>
+<div class="card"><h3>Standing Alone Coaching</h3><p>Individual sessions for the husband or wife standing for the marriage when their spouse is not ready. Prayer, boundaries and a plan.</p><a class="btn" href="/contact/?type=coaching">Get Support</a></div>
 </div>
 <p class="center" style="margin-top:20px"><strong>Counseling sessions start at $75 for a 55-minute session.</strong></p>
 <p class="center micro">Package pricing and scheduling are shared when you <a href="{CALENDLY}" target="_blank" rel="noopener">schedule a Talk with Terrie</a>, so you can choose the fit for your marriage.</p>
@@ -954,8 +954,8 @@ tue_event = {"@type": "Event", "name": "Fight to Win Marriages Tuesday Prayer & 
              "isAccessibleForFree": True,
              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": SITE + "/tuesday-prayer-call/", "validFrom": "2026-10-01"},
              "organizer": {"@id": f"{SITE}/#org"}, "performer": {"@id": f"{SITE}/#terrie"}}
-page("/tuesday-prayer-call/", "Free Marriage Prayer Call for Wives Standing for Their Marriage",
-     "Join Terrie Beeman's free marriage prayer and fasting call on Zoom every Tuesday at 6 PM CT. Prayer, Scripture and support for wives and couples, whether or not your spouse joins.",
+page("/tuesday-prayer-call/", "Free Marriage Prayer Call for Husbands & Wives Standing for Their Marriage",
+     "Join Terrie Beeman's free marriage prayer and fasting call on Zoom every Tuesday at 6 PM CT. Prayer, Scripture and support for husbands, wives and couples, whether or not your spouse joins.",
      tuesday, schema=[tue_service, tue_event, faq_schema(tue_faq)], crumb=[("/", "Home"), ("/tuesday-prayer-call/", "Tuesday Prayer Call")])
 
 # ---------------------------------------------------------------- CALL NOTES ARCHIVE
@@ -1304,7 +1304,7 @@ for h in HUBS:
 </div></section>
 <section class="section alt"><div class="wrap narrow">{SAFETY_BOX}</div></section>
 <section class="section"><div class="wrap"><h2 class="center">More on {html.escape(h["name"].lower())}</h2><div class="cards three">{spoke_cards}</div></div></section>
-<section class="section alt"><div class="wrap narrow">{guide_signup()}</div></section>
+<section class="section alt"><div class="wrap narrow">{guide_signup() if h.get("signup", True) else ""}</div></section>
 {faq_html(h["faqs"])}
 <section class="section"><div class="wrap narrow"><h2>Other ways we can help</h2><ul>{others}<li><a href="{QUIZ_URL}">Marriage reflection quiz</a></li></ul></div></section>
 {HUB_CTAS[h["cta"]]}
@@ -1423,7 +1423,7 @@ cards = "".join(post_card(q) for q in posts_sorted)
 blog = f'''
 <section class="page-hero"><div class="wrap">
 <h1>Marriage Blog: Faith, Prayer &amp; Restoration</h1>
-<p class="lead">Biblical encouragement and practical help for wives and couples who are fighting for their marriage, from Terrie Beeman.</p>
+<p class="lead">Biblical encouragement and practical help for husbands, wives and couples who are fighting for their marriage, from Terrie Beeman.</p>
 </div></section>
 <section class="section alt"><div class="wrap"><h2 class="center">Browse by what you're facing</h2>{pain_tiles()}</div></section>
 <section class="section"><div class="wrap"><h2 class="center">Latest articles</h2><div class="cards three">{cards}</div></div></section>
