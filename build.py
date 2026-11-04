@@ -15,7 +15,7 @@ YT_STORY = "https://www.youtube.com/watch?v=5Sk_Hm1As2k"
 VIDEO_TESTIMONY_ONE = "https://drive.google.com/file/d/14QjXP1ye4KxoWnmos3_v8D8_fVchgCz-/view"
 VIDEO_TESTIMONY_TWO = "https://drive.google.com/file/d/1FLaKGGMrJsxTYR0NFuTxW_iGpyC1CmQ5/view"
 CALENDLY = "https://calendly.com/fighttowinmarriages/30min"
-NOTES_PDF = "/assets/notes/fight-to-win-marriages-2026-10-20-spiritual-heart-check.pdf"
+NOTES_PDF = CALL_RECAPS[0]["pdf"]  # newest recap (CALL_RECAPS is newest-first)
 EMAIL = "fighttowinmarriages@gmail.com"
 ZOOM = "https://us02web.zoom.us/j/84083347510"
 ZOOM_ID = "840 8334 7510"
@@ -893,7 +893,7 @@ tuesday = f'''
 </div>
 <article class="card call-notes-promo">
 <div><p class="eyebrow">Keep the teaching close</p><h2>Weekly call notes</h2><p>Review the key Scriptures, teachings, reflection questions and next steps from Tuesday gatherings. Each recap is available to view or download.</p></div>
-<div class="btns"><a class="btn" href="/prayer-call-notes/">Browse the Notes Archive</a><a class="btn ghost" href="{NOTES_PDF}" download>Download the Latest Recap</a></div>
+<div class="btns"><a class="btn" href="/prayer-call-notes/">Browse the Notes Archive</a><a class="btn ghost" href="{NOTES_PDF}" download>Download the Latest Recap (PDF)</a></div>
 </article>
 </div></section>
 
@@ -944,6 +944,27 @@ page("/tuesday-prayer-call/", "Free Marriage Prayer Call for Husbands & Wives St
      tuesday, schema=[tue_service, tue_event, faq_schema(tue_faq)], crumb=[("/", "Home"), ("/tuesday-prayer-call/", "Tuesday Prayer Call")])
 
 # ---------------------------------------------------------------- CALL NOTES ARCHIVE
+def gatherings_html(heading_tag="h2"):
+    return f'''<div class="cards three upcoming-gatherings">
+<div class="card"><h3>Weekly Tuesday Prayer Call</h3><p><strong>Every Tuesday at 6:00 PM Central</strong><br>Zoom Meeting ID: {ZOOM_ID}</p><p><a class="btn gold" href="{ZOOM}" target="_blank" rel="noopener">Join Our Tuesday Prayer Call</a></p><p class="micro"><a href="/tuesday-prayer-call/">Details about the call</a></p></div>
+<div class="card"><h3>Houston-Area Fellowship Gathering</h3><p><strong>Saturday, November 14, 2026</strong><br>1:00 PM&ndash;3:00 PM<br>Golden Corral, Pearland, Texas</p><p>Food, fellowship, encouragement, and connecting with other members of the marriage ministry.</p><p class="micro">See <a href="/events/">Events &amp; Speaking</a> for more. Contact the ministry through the <a href="/contact/">contact page</a> with questions.</p></div>
+<div class="card"><h3>Coming in 2027: More Locations Coming Soon</h3><p>Fight to Win Marriages plans to host additional fellowship pop-ups in other cities beginning in 2027. Dates and locations have not been announced yet.</p></div>
+</div>'''
+
+def _recap_card(r):
+    d = datetime.date.fromisoformat(r["date"])
+    u = f"/prayer-call-notes/{r['slug']}/"
+    return f'''<article class="card resource-card">
+<div class="resource-date"><span>{d:%b}</span><strong>{d.day}</strong><small>{d.year}</small></div>
+<div class="resource-copy">
+<p class="resource-meta"><time datetime="{r["date"]}">{fmt_date(r["date"])}</time> &middot; {r["pages"]} pages &middot; PDF</p>
+<h3>{html.escape(r["title"])}</h3>
+<p>{html.escape(r["summary"])}</p>
+<p class="micro">Edited recap prepared from the weekly call summary and transcript; not a verbatim transcript.</p>
+<div class="btns"><a class="btn" href="{u}">Read the recap</a><a class="btn ghost" href="{r["pdf"]}" target="_blank" rel="noopener">View PDF</a><a class="btn ghost" href="{r["pdf"]}" download>Download {d:%B} {d.day} Notes (PDF)</a></div>
+</div>
+</article>'''
+recap_cards = "".join(_recap_card(r) for r in CALL_RECAPS)
 notes = f'''
 <section class="page-hero"><div class="wrap narrow">
 <p class="eyebrow">Tuesday prayer call resource library</p>
@@ -955,32 +976,28 @@ notes = f'''
 <section class="section"><div class="wrap">
 <div class="archive-heading"><div><p class="eyebrow">Notes archive</p><h2>Tuesday call recaps</h2></div><p>New notes will be added here as they become available.</p></div>
 <div class="resource-list">
-<article class="card resource-card">
-<div class="resource-date"><span>Oct</span><strong>20</strong><small>2026</small></div>
-<div class="resource-copy">
-<p class="resource-meta"><time datetime="2026-10-20">October 20, 2026</time> &middot; 2 pages &middot; PDF</p>
-<h3>Spiritual Heart Check</h3>
-<p>This recap invites husbands and wives to keep God at the center, begin with their own hearts, identify inner obstacles, receive correction as an opportunity to grow, and practice forgiveness with healthy boundaries. It also includes a marriage examination, personal reflection questions, a prayer focus and next steps.</p>
-<p class="micro">Edited recap prepared from the weekly call summary and transcript; not a verbatim transcript.</p>
-<div class="btns"><a class="btn" href="/prayer-call-notes/2026-10-20-spiritual-heart-check/">Read the recap</a><a class="btn ghost" href="{NOTES_PDF}" target="_blank" rel="noopener">View PDF</a><a class="btn ghost" href="{NOTES_PDF}" download>Download PDF</a></div>
+{recap_cards}
 </div>
-</article>
-</div>
+</div></section>
+
+<section class="section alt"><div class="wrap">
+<p class="eyebrow">Stay connected</p><h2>Upcoming gatherings</h2>
+{gatherings_html()}
 </div></section>
 {cta_band(title="Join us for the next Tuesday call.", text="Come for prayer, Scripture and encouragement, then return here for downloadable notes.", primary=("/tuesday-prayer-call/", "Join Tuesday Prayer"), secondary=(CALENDLY, "Talk with Terrie"))}
 '''
-notes_document = {
+notes_documents = [{
     "@type": "DigitalDocument",
-    "name": "Tuesday Prayer Call Recap: Spiritual Heart Check",
-    "description": "Edited recap of the October 20, 2026 Fight to Win Marriages Tuesday prayer call.",
-    "datePublished": "2026-10-20",
+    "name": f"Tuesday Prayer Call Recap: {r['title']}",
+    "description": f"Edited recap of the {fmt_date(r['date'])} Fight to Win Marriages Tuesday prayer call.",
+    "datePublished": r["date"],
     "encodingFormat": "application/pdf",
-    "contentUrl": SITE + NOTES_PDF,
+    "contentUrl": SITE + r["pdf"],
     "publisher": {"@id": f"{SITE}/#org"},
-}
+} for r in CALL_RECAPS]
 page("/prayer-call-notes/", "Weekly Tuesday Prayer Call Notes | Fight to Win Marriages",
      "View and download edited recaps, Scriptures, reflection questions and prayer notes from Fight to Win Marriages' weekly Tuesday calls.",
-     notes, schema=[notes_document], crumb=[("/", "Home"), ("/prayer-call-notes/", "Weekly Call Notes")])
+     notes, schema=notes_documents, crumb=[("/", "Home"), ("/prayer-call-notes/", "Weekly Call Notes")])
 
 # ---------------------------------------------------------------- EVENTS
 ev_faq = [
@@ -1339,28 +1356,56 @@ page(QUIZ_URL, "Marriage Reflection Quiz: Is My Marriage Worth Saving? | Fight t
      quiz_page, crumb=[("/", "Home"), (QUIZ_URL, "Marriage Quiz")])
 
 # ---------------------------------------------------------------- CALL RECAP PAGES (HTML versions of the weekly PDFs)
-for r in CALL_RECAPS:
+for i, r in enumerate(CALL_RECAPS):
     u = f"/prayer-call-notes/{r['slug']}/"
     teachings = "".join(f"<li><strong>{html.escape(a)}</strong> {html.escape(b)}</li>" for a, b in r["teachings"])
-    exam = "".join(f"<li><strong>{html.escape(a)}</strong> {html.escape(b)}</li>" for a, b in r["exam"])
     qs = "".join(f"<li>{html.escape(x)}</li>" for x in r["questions"])
     nxt = "".join(f"<li>{html.escape(x)}</li>" for x in r["next_steps"])
+    exam_html = ""
+    if r["exam"]:
+        exam = "".join(f"<li><strong>{html.escape(a)}</strong> {html.escape(b)}</li>" for a, b in r["exam"])
+        exam_html = f'<h2>The spiritual heart check: a marriage examination</h2><ul class="checks">{exam}</ul>'
+    supporting_html = ""
+    if r.get("supporting"):
+        sup = "".join(f"<li><strong>{html.escape(a)}:</strong> {html.escape(b)}</li>" for a, b in r["supporting"])
+        supporting_html = f'<h3>Supporting Scriptures</h3><ul class="checks">{sup}</ul>'
+    prayer_html = f'<blockquote class="verse">{html.escape(r["prayer"])}</blockquote>' if r.get("prayer") else ""
+    safety_html = f'<p class="micro"><strong>A note on safety:</strong> {html.escape(r["safety"])}</p>' if r.get("safety") else ""
+    gath_html = f'<h2>Upcoming gatherings</h2>{gatherings_html()}' if r.get("gatherings") else ""
+    newer = CALL_RECAPS[i - 1] if i > 0 else None
+    older = CALL_RECAPS[i + 1] if i + 1 < len(CALL_RECAPS) else None
+    nav = ""
+    if older:
+        nav += f'<a href="/prayer-call-notes/{older["slug"]}/">&larr; Previous prayer call: {html.escape(older["topic"])}</a>'
+    if newer:
+        nav += f'{" &middot; " if nav else ""}<a href="/prayer-call-notes/{newer["slug"]}/">Next prayer call: {html.escape(newer["topic"])} &rarr;</a>'
+    recap_nav = f'<p class="micro recap-nav">{nav}</p>' if nav else ""
+    d = datetime.date.fromisoformat(r["date"])
+    related = ('<p class="micro">Related: <a href="/tuesday-prayer-call/">Tuesday prayer call</a> &middot; <a href="/marriage-coaching/">Christian marriage coaching</a> &middot; '
+               '<a href="/get-help/">Marriage help and resources</a> &middot; <a href="/events/">Events</a> &middot; <a href="/contact/">Contact</a></p>')
     body = f'''
 <article class="section"><div class="wrap narrow prose">
 <p class="eyebrow">Tuesday prayer call recap</p><h1>{html.escape(r["title"])}</h1>
-<p class="meta"><time datetime="{r["date"]}">{fmt_date(r["date"])}</time> &middot; Edited recap, not a verbatim transcript</p>
+<p class="meta"><time datetime="{r["date"]}">{fmt_date(r["date"])}</time> &middot; Speaker: Terrie Beeman, Fight to Win Marriages &middot; Edited recap, not a verbatim transcript</p>
 <blockquote class="verse">"{html.escape(r["scripture"][0])}"<cite>{html.escape(r["scripture"][1])}</cite></blockquote>
+{supporting_html}
+<p><a class="btn" href="{r["pdf"]}" download>Download {d:%B} {d.day} Prayer Call Notes (PDF)</a></p>
 <h2>Session overview</h2><p>{html.escape(r["overview"])}</p>
-<h2>Five key teachings</h2><ul class="checks">{teachings}</ul>
-<h2>The spiritual heart check: a marriage examination</h2><ul class="checks">{exam}</ul>
-<h2>Personal reflection questions</h2><ul>{qs}</ul>
-<h2>Prayer focus and next steps</h2><ul class="checks">{nxt}</ul>
-<p><a class="btn" href="{NOTES_PDF}" download>Download the PDF</a> <a class="btn ghost" href="/prayer-call-notes/">All call notes</a></p>
+<h2>Five key teachings</h2><ol class="checks">{teachings}</ol>
+{exam_html}
+<h2>Personal Reflection Questions</h2><ol>{qs}</ol>
+<h2>Prayer Focus and Next Steps</h2><ul class="checks">{nxt}</ul>
+{prayer_html}
+{safety_html}
+{gath_html}
+<p><a class="btn" href="{r["pdf"]}" download>Download {d:%B} {d.day} Prayer Call Notes (PDF)</a> <a class="btn ghost" href="/prayer-call-notes/">All call notes</a></p>
+{recap_nav}
+{related}
 </div></article>
 {intent_cta("tuesday")}
 '''
-    page(u, f"{r['title']}: Tuesday Marriage Prayer Call Recap | Fight to Win Marriages",
-         f"Recap of the {fmt_date(r['date'])} Tuesday marriage prayer call: {r['title'].lower()}. Scripture, key teachings, reflection questions and a prayer focus.",
+    page(u, r.get("seo_title") or f"{r['title']}: Tuesday Marriage Prayer Call Recap | Fight to Win Marriages",
+         r.get("seo_desc") or f"Recap of the {fmt_date(r['date'])} Tuesday marriage prayer call: {r['title'].lower()}. Scripture, key teachings, reflection questions and a prayer focus.",
          body, og_type="article",
          schema=[{"@type": "Article", "headline": r["title"], "datePublished": r["date"], "dateModified": r["date"], "author": {"@id": f"{SITE}/#terrie"},
                   "publisher": {"@id": f"{SITE}/#org"}, "image": f"{SITE}/assets/og-image.jpg", "mainEntityOfPage": SITE + u}],
