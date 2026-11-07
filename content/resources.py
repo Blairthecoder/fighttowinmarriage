@@ -34,10 +34,13 @@ GUIDE_DAYS = [
      "Lord, I choose to hope in You. Do a new thing in me and in my marriage. Amen."),
 ]
 
+# The quiz first asks whether a wife or a husband is taking it. Answer text can be a
+# (wife wording, husband wording) pair. For husbands, answers keyed "wives" count toward
+# the husbands guide instead.
 QUIZ_QUESTIONS = [
     ("What best describes what's happening right now?", [
-        ("My husband cheated, or I discovered an affair or porn", "infidelity"),
-        ("He says he wants out, or he's emotionally checked out", "alone"),
+        (("My husband cheated, or I discovered an affair or porn", "My wife cheated, or I discovered an affair or porn"), "infidelity"),
+        (("He says he wants out, or he's emotionally checked out", "She says she wants out, or she's emotionally checked out"), "alone"),
         ("We're both here, but we keep fighting or drifting", "restoration"),
         ("I feel lonely, unseen or tired in my marriage", "wives"),
     ]),
@@ -45,7 +48,7 @@ QUIZ_QUESTIONS = [
         ("Yes, both of us", "restoration"),
         ("Only me right now", "alone"),
         ("I'm not sure I am anymore", "infidelity"),
-        ("I don't know where he stands", "wives"),
+        (("I don't know where he stands", "I don't know where she stands"), "wives"),
     ]),
     ("How would you describe your prayer life right now?", [
         ("Strong, I'm praying daily", "prayers"),
@@ -54,7 +57,7 @@ QUIZ_QUESTIONS = [
         ("We used to pray together, but not anymore", "restoration"),
     ]),
     ("What's the hardest part of your days?", [
-        ("Replaying what he did", "infidelity"),
+        (("Replaying what he did", "Replaying what she did"), "infidelity"),
         ("The silence and distance", "alone"),
         ("The same arguments over and over", "restoration"),
         ("Feeling like I'm carrying everything alone", "wives"),
@@ -77,7 +80,7 @@ QUIZ_QUESTIONS = [
     ]),
     ("If God restored your marriage, what would be different?", [
         ("We'd be honest with each other again", "infidelity"),
-        ("He'd be home, in every sense", "alone"),
+        (("He'd be home, in every sense", "She'd be home, in every sense"), "alone"),
         ("We'd pray and laugh together", "restoration"),
         ("I'd feel seen and loved", "wives"),
     ]),
@@ -130,11 +133,13 @@ CALL_RECAPS = [
         "prayer": "Lord, strengthen our marriages and families. Help us remain faithful during difficult seasons. Reveal the areas of our hearts that need healing, and teach us to respond with humility, patience, wisdom, and love. Guide our steps and help our experiences become testimonies of Your goodness. In Jesus' name, Amen.",
         "safety": "Perseverance and forgiveness do not require you to remain in an abusive or unsafe situation. If you or your children are in danger, get safe first and call 911 or the National Domestic Violence Hotline at 1-800-799-7233.",
         "gatherings": True,
+        "deeper": "[[/blog/tired-of-fighting-for-my-marriage/|Tired of Fighting for Your Marriage? How Not to Grow Weary]]",
         "prev": "2026-10-20-spiritual-heart-check",
     },
     {
         "slug": "2026-10-20-spiritual-heart-check",
         "date": "2026-10-20",
+        "deeper": "[[/blog/is-my-marriage-worth-saving/|Is My Marriage Worth Saving? A Spiritual Heart Check Before You Decide]]",
         "title": "Spiritual Heart Check",
         "topic": "Spiritual Heart Check",
         "pdf": "/assets/notes/fight-to-win-marriages-2026-10-20-spiritual-heart-check.pdf",

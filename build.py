@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """Static site generator for fighttowinmarriages (Netlify). Run: python3 build.py"""
-import datetime, json, os, re, shutil, html
+import datetime, json, os, re, shutil, html, sys
+
+if "--help" in sys.argv[1:] or "-h" in sys.argv[1:]:
+    print("""Usage: python3 build.py [--help]
+
+Builds the Fight to Win Marriages static site. Reads page content from build.py and
+content/*.py and writes the HTML, sitemap.xml and robots.txt into site/, which Netlify publishes.
+
+Blog posts dated after the build date are left out until a build on or after that date.
+Set BUILD_DATE=YYYY-MM-DD to build as of a different date.""")
+    sys.exit(0)
 
 from content.hubs import HUBS
 from content.posts import NEW_POSTS
@@ -1013,6 +1023,44 @@ ev_faq = [
     ("How much does it cost to book Terrie to speak?", "Speaking engagements start at $1,000. The investment is tailored to your event's date, audience size and format, and Terrie's team will share a clear quote after you submit the booking form."),
     ("What size events does Terrie speak at?", "From small church couples' nights to conferences and retreats. Each message is tailored to the audience."),
 ]
+# Dated in-person gatherings. Each one shows on the Events page, with Event schema, through its
+# date. The daily scheduled build drops it the day after, so past events never linger.
+GATHERINGS = [
+    {
+        "date": "2026-11-14",
+        "name": "Houston-Area Fellowship Gathering",
+        "start": "2026-11-14T13:00:00-06:00",
+        "end": "2026-11-14T15:00:00-06:00",
+        "time": "1:00&ndash;3:00 PM CT",
+        "venue": "Golden Corral",
+        "street": "9115 Broadway St",
+        "city": "Pearland",
+        "region": "TX",
+        "zip": "77584",
+        "maps": "https://www.google.com/maps/search/?api=1&amp;query=Golden+Corral+9115+Broadway+St+Pearland+TX+77584",
+        "desc": "Food, fellowship, encouragement and time to connect with other husbands, wives and couples from the Fight to Win Marriages community.",
+    },
+]
+upcoming_gatherings = [g for g in GATHERINGS if g["date"] >= BUILD_DATE]
+
+def gathering_card(g):
+    d = datetime.date.fromisoformat(g["date"])
+    return (f'<article class="event"><div class="date"><span>{d:%b}</span><strong>{d.day}</strong></div><div>'
+            f'<h3>{g["name"]}</h3><p>{d:%A}, {fmt_date(g["date"])} &middot; {g["time"]}</p>'
+            f'<p>{g["venue"]}, {g["street"]}, {g["city"]}, {g["region"]} {g["zip"]}</p><p>{g["desc"]}</p></div>'
+            f'<a class="btn small" href="{g["maps"]}" target="_blank" rel="noopener">Directions</a></article>')
+
+def gathering_schema(g):
+    return {"@type": "Event", "name": f"Fight to Win Marriages {g['name']}", "description": g["desc"],
+            "startDate": g["start"], "endDate": g["end"],
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {"@type": "Place", "name": f"{g['venue']} {g['city']}",
+                         "address": {"@type": "PostalAddress", "streetAddress": g["street"], "addressLocality": g["city"],
+                                     "addressRegion": g["region"], "postalCode": g["zip"], "addressCountry": "US"}},
+            "image": f"{SITE}/assets/og-image.jpg", "url": f"{SITE}/events/#upcoming",
+            "organizer": {"@id": f"{SITE}/#org"}}
+
 events = f'''
 <section class="page-hero"><div class="wrap">
 <p class="eyebrow">Upcoming events &middot; Church &amp; conference speaking</p>
@@ -1024,6 +1072,7 @@ events = f'''
 <section class="section" id="upcoming"><div class="wrap">
 <h2>Upcoming events</h2>
 <div class="events">
+{"".join(gathering_card(g) for g in upcoming_gatherings)}
 <article class="event"><div class="date"><span>Every</span><strong>Tue</strong></div><div><h3>Tuesday Marriage Prayer &amp; Fasting Call</h3><p>Online via Zoom &middot; {TUE_TIME}</p><p>Free weekly prayer, Scripture and biblical guidance for couples.</p></div><a class="btn small" href="/tuesday-prayer-call/">Details</a></article>
 </div>
 <p>New events are announced on <a href="{IG}" target="_blank" rel="noopener">Instagram</a> and <a href="{YT}" target="_blank" rel="noopener">YouTube</a>. Want Terrie at your church or retreat? <a href="/contact/?type=speaking">Send a speaking request</a>.</p>
@@ -1053,7 +1102,7 @@ events = f'''
 '''
 page("/events/", "Christian Marriage Events & Speaker Booking | Fight to Win Marriages",
      "Fight to Win Marriages events, Houston marriage small groups and speaker booking. Invite Terrie Beeman to your church, couples retreat or marriage ministry event.",
-     events, schema=[faq_schema(ev_faq)], crumb=[("/", "Home"), ("/events/", "Events & Speaking")])
+     events, schema=[faq_schema(ev_faq)] + [gathering_schema(g) for g in upcoming_gatherings], crumb=[("/", "Home"), ("/events/", "Events & Speaking")])
 
 # ---------------------------------------------------------------- CONTACT
 contact = f'''
@@ -1171,7 +1220,7 @@ POSTS = [
 <p>It is hard to stay bitter toward someone you are praying blessing over. Pray for your spouse's heart, health, purpose and walk with God. Then pray for your own heart to soften.</p>
 <h2>5. Don't fight alone</h2>
 <p>Couples who make it through hard seasons rarely do it in isolation. Invite prayer partners, a coach or a trusted pastor into the battle. That is exactly why Terrie hosts the <a href="/tuesday-prayer-call/">Tuesday marriage prayer and fasting call</a>.</p>
-<p>Going through a hard season right now? Read <a href="/blog/good-bad-ugly-seasons-of-marriage/">The Good, the Bad and the Ugly Seasons of Marriage</a> and remember that God is still writing your story.</p>
+<p>Going through a hard season right now? Read <a href="/blog/good-bad-ugly-seasons-of-marriage/">The Good, the Bad and the Ugly Seasons of Marriage</a> and remember that God is still writing your story. Worn out from trying? Read [[/blog/tired-of-fighting-for-my-marriage/|Tired of Fighting for Your Marriage? How Not to Grow Weary]].</p>
 <h2>Ready for help?</h2>
 <p>If your marriage needs more than a few tips, <a href="/marriage-coaching/">Christian marriage coaching</a> gives you a plan and a coach in your corner.</p>
 """,
@@ -1335,12 +1384,16 @@ page("/get-help/", "Get Help for Your Marriage: Affairs, Separation & Restoratio
      get_help, crumb=[("/", "Home"), ("/get-help/", "Get Help")])
 
 # ---------------------------------------------------------------- MARRIAGE QUIZ
-quiz_json = json.dumps([{"q": q, "a": [{"t": t, "k": k} for t, k in answers]} for q, answers in QUIZ_QUESTIONS])
+def _quiz_answer(t, k):
+    """Answer text is a string, or a (wife wording, husband wording) pair."""
+    return {"t": t[0], "th": t[1], "k": k} if isinstance(t, tuple) else {"t": t, "k": k}
+quiz_json = json.dumps([{"q": q, "a": [_quiz_answer(t, k) for t, k in answers]} for q, answers in QUIZ_QUESTIONS])
+HUSBANDS_HUB = HUB_BY_KEY["husbands"]
 hub_json = json.dumps({h["key"]: {"name": h["name"], "url": f"/{h['slug']}/", "text": h["tile_text"]} for h in HUBS})
 quiz_page = f'''
 <section class="page-hero"><div class="wrap narrow">
-<p class="eyebrow">2-minute quiz</p><h1>Marriage reflection quiz: where do I start?</h1>
-<p class="lead">Eight questions, no judgment. We'll point you to the guide that fits your situation. Your answers are not stored.</p>
+<p class="eyebrow">Free 2-minute quiz</p><h1>Is my marriage worth saving? A free Christian marriage quiz</h1>
+<p class="lead">Wondering if your marriage can be saved? Answer eight questions, with no judgment. The quiz won't decide for you, but it will point you to the guide that fits your situation. Your answers are not stored.</p>
 </div></section>
 <section class="section"><div class="wrap narrow">
 <div id="quiz" class="card quiz" aria-live="polite"><noscript><p>This quiz needs JavaScript. You can <a href="/get-help/">browse all guides</a> instead.</p></noscript></div>
@@ -1348,18 +1401,20 @@ quiz_page = f'''
 <p class="eyebrow">Your starting point</p><h2 id="quiz-title"></h2><p id="quiz-text"></p>
 <div id="quiz-safety" hidden>{SAFETY_BOX}</div>
 <div class="btns"><a id="quiz-link" class="btn gold" href="/">Read the guide</a><a class="btn ghost" href="{CALENDLY}" target="_blank" rel="noopener">Talk with Terrie</a></div>
+<p id="quiz-more" hidden>Also for you: <a href="/{HUSBANDS_HUB["slug"]}/">{html.escape(HUSBANDS_HUB["name"])}</a></p>
 </div>
 </div></section>
 <script>
-const Q={quiz_json},H={hub_json};let i=0;const tally={{}};let unsafe=false;
+const Q={quiz_json},H={hub_json};let i=0,role=null;const tally={{}};let unsafe=false;
 const box=document.getElementById('quiz');
-function show(){{if(i>=Q.length)return done();const q=Q[i];box.innerHTML='<p class="micro">Question '+(i+1)+' of '+Q.length+'</p><h2></h2><div class="answers"></div>';box.querySelector('h2').textContent=q.q;const a=box.querySelector('.answers');q.a.forEach(x=>{{const b=document.createElement('button');b.type='button';b.className='btn ghost answer';b.textContent=x.t;b.onclick=()=>{{if(x.k==='safety')unsafe=true;else if(x.k)tally[x.k]=(tally[x.k]||0)+1;i++;show()}};a.appendChild(b)}})}}
-function done(){{let best='wives',n=-1;for(const k in H){{if((tally[k]||0)>n){{n=tally[k]||0;best=k}}}}if((tally.infidelity||0)>=3)best='infidelity';const h=H[best];box.hidden=true;const r=document.getElementById('quiz-result');r.hidden=false;document.getElementById('quiz-title').textContent=h.name;document.getElementById('quiz-text').textContent=h.text;document.getElementById('quiz-link').href=h.url;document.getElementById('quiz-safety').hidden=!unsafe;if(typeof gtag==='function')gtag('event','quiz_complete',{{result:best}})}}
+function buttons(list,pick){{const a=box.querySelector('.answers');list.forEach(x=>{{const b=document.createElement('button');b.type='button';b.className='btn ghost answer';b.textContent=x.t;b.onclick=()=>pick(x);a.appendChild(b)}})}}
+function show(){{if(!role){{box.innerHTML='<p class="micro">Before we start</p><h2>Who is taking this quiz?</h2><div class="answers"></div>';buttons([{{t:"I'm a wife",r:'wife'}},{{t:"I'm a husband",r:'husband'}}],x=>{{role=x.r;show()}});return}}if(i>=Q.length)return done();const q=Q[i],hb=role==='husband';box.innerHTML='<p class="micro">Question '+(i+1)+' of '+Q.length+'</p><h2></h2><div class="answers"></div>';box.querySelector('h2').textContent=q.q;buttons(q.a.map(x=>({{t:hb&&x.th?x.th:x.t,k:hb&&x.k==='wives'?'husbands':x.k}})),x=>{{if(x.k==='safety')unsafe=true;else if(x.k)tally[x.k]=(tally[x.k]||0)+1;i++;show()}})}}
+function done(){{let best=role==='husband'?'husbands':'wives',n=-1;for(const k in H){{if((tally[k]||0)>n){{n=tally[k]||0;best=k}}}}if((tally.infidelity||0)>=3)best='infidelity';const h=H[best];box.hidden=true;const r=document.getElementById('quiz-result');r.hidden=false;document.getElementById('quiz-title').textContent=h.name;document.getElementById('quiz-text').textContent=h.text;document.getElementById('quiz-link').href=h.url;document.getElementById('quiz-safety').hidden=!unsafe;document.getElementById('quiz-more').hidden=!(role==='husband'&&best!=='husbands');if(typeof gtag==='function')gtag('event','quiz_complete',{{result:best,role:role}})}}
 show();
 </script>
 '''
-page(QUIZ_URL, "Marriage Reflection Quiz: Is My Marriage Worth Saving? | Fight to Win Marriages",
-     "Take the free 2-minute Christian marriage reflection quiz and get pointed to the right guide for your situation: infidelity, standing alone, restoration or prayer.",
+page(QUIZ_URL, "Is My Marriage Worth Saving? Free Christian Marriage Quiz | Fight to Win Marriages",
+     "Is my marriage worth saving? Take a free 2-minute Christian marriage quiz and find your next step: infidelity, standing alone, restoration or prayer.",
      quiz_page, crumb=[("/", "Home"), (QUIZ_URL, "Marriage Quiz")])
 
 # ---------------------------------------------------------------- CALL RECAP PAGES (HTML versions of the weekly PDFs)
@@ -1379,6 +1434,7 @@ for i, r in enumerate(CALL_RECAPS):
     prayer_html = f'<blockquote class="verse">{html.escape(r["prayer"])}</blockquote>' if r.get("prayer") else ""
     safety_html = f'<p class="micro"><strong>A note on safety:</strong> {html.escape(r["safety"])}</p>' if r.get("safety") else ""
     gath_html = f'<h2>Upcoming gatherings</h2>{gatherings_html()}' if r.get("gatherings") else ""
+    deeper_html = f'<p class="hub-link">Go deeper: {r["deeper"]}</p>' if r.get("deeper") else ""
     newer = CALL_RECAPS[i - 1] if i > 0 else None
     older = CALL_RECAPS[i + 1] if i + 1 < len(CALL_RECAPS) else None
     nav = ""
@@ -1398,6 +1454,7 @@ for i, r in enumerate(CALL_RECAPS):
 {supporting_html}
 <p><a class="btn" href="{r["pdf"]}" download>Download {d:%B} {d.day} Prayer Call Notes (PDF)</a></p>
 <h2>Session overview</h2><p>{html.escape(r["overview"])}</p>
+{deeper_html}
 <h2>Five key teachings</h2><ol class="checks">{teachings}</ol>
 {exam_html}
 <h2>Personal Reflection Questions</h2><ol>{qs}</ol>
