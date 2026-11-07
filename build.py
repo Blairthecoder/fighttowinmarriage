@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """Static site generator for fighttowinmarriages (Netlify). Run: python3 build.py"""
-import datetime, json, os, re, shutil, html
+import datetime, json, os, re, shutil, html, sys
+
+if "--help" in sys.argv[1:] or "-h" in sys.argv[1:]:
+    print("""Usage: python3 build.py [--help]
+
+Builds the Fight to Win Marriages static site. Reads page content from build.py and
+content/*.py and writes the HTML, sitemap.xml and robots.txt into site/, which Netlify publishes.
+
+Blog posts dated after the build date are left out until a build on or after that date.
+Set BUILD_DATE=YYYY-MM-DD to build as of a different date.""")
+    sys.exit(0)
 
 from content.hubs import HUBS
 from content.posts import NEW_POSTS
@@ -1013,6 +1023,44 @@ ev_faq = [
     ("How much does it cost to book Terrie to speak?", "Speaking engagements start at $1,000. The investment is tailored to your event's date, audience size and format, and Terrie's team will share a clear quote after you submit the booking form."),
     ("What size events does Terrie speak at?", "From small church couples' nights to conferences and retreats. Each message is tailored to the audience."),
 ]
+# Dated in-person gatherings. Each one shows on the Events page, with Event schema, through its
+# date. The daily scheduled build drops it the day after, so past events never linger.
+GATHERINGS = [
+    {
+        "date": "2026-11-14",
+        "name": "Houston-Area Fellowship Gathering",
+        "start": "2026-11-14T13:00:00-06:00",
+        "end": "2026-11-14T15:00:00-06:00",
+        "time": "1:00&ndash;3:00 PM CT",
+        "venue": "Golden Corral",
+        "street": "9115 Broadway St",
+        "city": "Pearland",
+        "region": "TX",
+        "zip": "77584",
+        "maps": "https://www.google.com/maps/search/?api=1&amp;query=Golden+Corral+9115+Broadway+St+Pearland+TX+77584",
+        "desc": "Food, fellowship, encouragement and time to connect with other husbands, wives and couples from the Fight to Win Marriages community.",
+    },
+]
+upcoming_gatherings = [g for g in GATHERINGS if g["date"] >= BUILD_DATE]
+
+def gathering_card(g):
+    d = datetime.date.fromisoformat(g["date"])
+    return (f'<article class="event"><div class="date"><span>{d:%b}</span><strong>{d.day}</strong></div><div>'
+            f'<h3>{g["name"]}</h3><p>{d:%A}, {fmt_date(g["date"])} &middot; {g["time"]}</p>'
+            f'<p>{g["venue"]}, {g["street"]}, {g["city"]}, {g["region"]} {g["zip"]}</p><p>{g["desc"]}</p></div>'
+            f'<a class="btn small" href="{g["maps"]}" target="_blank" rel="noopener">Directions</a></article>')
+
+def gathering_schema(g):
+    return {"@type": "Event", "name": f"Fight to Win Marriages {g['name']}", "description": g["desc"],
+            "startDate": g["start"], "endDate": g["end"],
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {"@type": "Place", "name": f"{g['venue']} {g['city']}",
+                         "address": {"@type": "PostalAddress", "streetAddress": g["street"], "addressLocality": g["city"],
+                                     "addressRegion": g["region"], "postalCode": g["zip"], "addressCountry": "US"}},
+            "image": f"{SITE}/assets/og-image.jpg", "url": f"{SITE}/events/#upcoming",
+            "organizer": {"@id": f"{SITE}/#org"}}
+
 events = f'''
 <section class="page-hero"><div class="wrap">
 <p class="eyebrow">Upcoming events &middot; Church &amp; conference speaking</p>
@@ -1024,6 +1072,7 @@ events = f'''
 <section class="section" id="upcoming"><div class="wrap">
 <h2>Upcoming events</h2>
 <div class="events">
+{"".join(gathering_card(g) for g in upcoming_gatherings)}
 <article class="event"><div class="date"><span>Every</span><strong>Tue</strong></div><div><h3>Tuesday Marriage Prayer &amp; Fasting Call</h3><p>Online via Zoom &middot; {TUE_TIME}</p><p>Free weekly prayer, Scripture and biblical guidance for couples.</p></div><a class="btn small" href="/tuesday-prayer-call/">Details</a></article>
 </div>
 <p>New events are announced on <a href="{IG}" target="_blank" rel="noopener">Instagram</a> and <a href="{YT}" target="_blank" rel="noopener">YouTube</a>. Want Terrie at your church or retreat? <a href="/contact/?type=speaking">Send a speaking request</a>.</p>
@@ -1053,7 +1102,7 @@ events = f'''
 '''
 page("/events/", "Christian Marriage Events & Speaker Booking | Fight to Win Marriages",
      "Fight to Win Marriages events, Houston marriage small groups and speaker booking. Invite Terrie Beeman to your church, couples retreat or marriage ministry event.",
-     events, schema=[faq_schema(ev_faq)], crumb=[("/", "Home"), ("/events/", "Events & Speaking")])
+     events, schema=[faq_schema(ev_faq)] + [gathering_schema(g) for g in upcoming_gatherings], crumb=[("/", "Home"), ("/events/", "Events & Speaking")])
 
 # ---------------------------------------------------------------- CONTACT
 contact = f'''
