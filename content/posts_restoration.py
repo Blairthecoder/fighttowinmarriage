@@ -166,7 +166,7 @@ POSTS = [
 </ul>
 
 <h2>Pray for yourself, too</h2>
-<p>Ask God for peace that guards your heart (Philippians 4:7), humility to own your part, wisdom for practical decisions, and strength for the days ahead. Your healing matters regardless of her choices.</p>
+<p>Ask God for peace that guards your heart (Philippians 4:7), humility to own your part, wisdom for practical decisions, and strength for the days ahead. Your healing matters regardless of her choices. If she has told you she wants a divorce, read [[/blog/wife-wants-divorce-i-dont/|My Wife Wants a Divorce and I Don't]] for what to stop, what to start and how to stand.</p>
 
 <h2>Keep praying with others</h2>
 <p>Every Tuesday at 6:00 PM CT, husbands, wives and couples pray together on Zoom. [[/tuesday-prayer-call/|Join the free Tuesday prayer call]] or submit a prayer request. For more prayers, see our [[/prayers-for-marriage/|prayers for your marriage]] page and [[/christian-marriage-advice-for-husbands/|Christian marriage advice for husbands]].</p>
