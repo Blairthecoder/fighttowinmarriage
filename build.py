@@ -1345,7 +1345,11 @@ page("/get-help/", "Get Help for Your Marriage: Affairs, Separation & Restoratio
      get_help, crumb=[("/", "Home"), ("/get-help/", "Get Help")])
 
 # ---------------------------------------------------------------- MARRIAGE QUIZ
-quiz_json = json.dumps([{"q": q, "a": [{"t": t, "k": k} for t, k in answers]} for q, answers in QUIZ_QUESTIONS])
+def _quiz_answer(t, k):
+    """Answer text is a string, or a (wife wording, husband wording) pair."""
+    return {"t": t[0], "th": t[1], "k": k} if isinstance(t, tuple) else {"t": t, "k": k}
+quiz_json = json.dumps([{"q": q, "a": [_quiz_answer(t, k) for t, k in answers]} for q, answers in QUIZ_QUESTIONS])
+HUSBANDS_HUB = HUB_BY_KEY["husbands"]
 hub_json = json.dumps({h["key"]: {"name": h["name"], "url": f"/{h['slug']}/", "text": h["tile_text"]} for h in HUBS})
 quiz_page = f'''
 <section class="page-hero"><div class="wrap narrow">
@@ -1358,13 +1362,15 @@ quiz_page = f'''
 <p class="eyebrow">Your starting point</p><h2 id="quiz-title"></h2><p id="quiz-text"></p>
 <div id="quiz-safety" hidden>{SAFETY_BOX}</div>
 <div class="btns"><a id="quiz-link" class="btn gold" href="/">Read the guide</a><a class="btn ghost" href="{CALENDLY}" target="_blank" rel="noopener">Talk with Terrie</a></div>
+<p id="quiz-more" hidden>Also for you: <a href="/{HUSBANDS_HUB["slug"]}/">{html.escape(HUSBANDS_HUB["name"])}</a></p>
 </div>
 </div></section>
 <script>
-const Q={quiz_json},H={hub_json};let i=0;const tally={{}};let unsafe=false;
+const Q={quiz_json},H={hub_json};let i=0,role=null;const tally={{}};let unsafe=false;
 const box=document.getElementById('quiz');
-function show(){{if(i>=Q.length)return done();const q=Q[i];box.innerHTML='<p class="micro">Question '+(i+1)+' of '+Q.length+'</p><h2></h2><div class="answers"></div>';box.querySelector('h2').textContent=q.q;const a=box.querySelector('.answers');q.a.forEach(x=>{{const b=document.createElement('button');b.type='button';b.className='btn ghost answer';b.textContent=x.t;b.onclick=()=>{{if(x.k==='safety')unsafe=true;else if(x.k)tally[x.k]=(tally[x.k]||0)+1;i++;show()}};a.appendChild(b)}})}}
-function done(){{let best='wives',n=-1;for(const k in H){{if((tally[k]||0)>n){{n=tally[k]||0;best=k}}}}if((tally.infidelity||0)>=3)best='infidelity';const h=H[best];box.hidden=true;const r=document.getElementById('quiz-result');r.hidden=false;document.getElementById('quiz-title').textContent=h.name;document.getElementById('quiz-text').textContent=h.text;document.getElementById('quiz-link').href=h.url;document.getElementById('quiz-safety').hidden=!unsafe;if(typeof gtag==='function')gtag('event','quiz_complete',{{result:best}})}}
+function buttons(list,pick){{const a=box.querySelector('.answers');list.forEach(x=>{{const b=document.createElement('button');b.type='button';b.className='btn ghost answer';b.textContent=x.t;b.onclick=()=>pick(x);a.appendChild(b)}})}}
+function show(){{if(!role){{box.innerHTML='<p class="micro">Before we start</p><h2>Who is taking this quiz?</h2><div class="answers"></div>';buttons([{{t:"I'm a wife",r:'wife'}},{{t:"I'm a husband",r:'husband'}}],x=>{{role=x.r;show()}});return}}if(i>=Q.length)return done();const q=Q[i],hb=role==='husband';box.innerHTML='<p class="micro">Question '+(i+1)+' of '+Q.length+'</p><h2></h2><div class="answers"></div>';box.querySelector('h2').textContent=q.q;buttons(q.a.map(x=>({{t:hb&&x.th?x.th:x.t,k:hb&&x.k==='wives'?'husbands':x.k}})),x=>{{if(x.k==='safety')unsafe=true;else if(x.k)tally[x.k]=(tally[x.k]||0)+1;i++;show()}})}}
+function done(){{let best=role==='husband'?'husbands':'wives',n=-1;for(const k in H){{if((tally[k]||0)>n){{n=tally[k]||0;best=k}}}}if((tally.infidelity||0)>=3)best='infidelity';const h=H[best];box.hidden=true;const r=document.getElementById('quiz-result');r.hidden=false;document.getElementById('quiz-title').textContent=h.name;document.getElementById('quiz-text').textContent=h.text;document.getElementById('quiz-link').href=h.url;document.getElementById('quiz-safety').hidden=!unsafe;document.getElementById('quiz-more').hidden=!(role==='husband'&&best!=='husbands');if(typeof gtag==='function')gtag('event','quiz_complete',{{result:best,role:role}})}}
 show();
 </script>
 '''

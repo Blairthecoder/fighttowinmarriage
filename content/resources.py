@@ -34,10 +34,13 @@ GUIDE_DAYS = [
      "Lord, I choose to hope in You. Do a new thing in me and in my marriage. Amen."),
 ]
 
+# The quiz first asks whether a wife or a husband is taking it. Answer text can be a
+# (wife wording, husband wording) pair. For husbands, answers keyed "wives" count toward
+# the husbands guide instead.
 QUIZ_QUESTIONS = [
     ("What best describes what's happening right now?", [
-        ("My husband cheated, or I discovered an affair or porn", "infidelity"),
-        ("He says he wants out, or he's emotionally checked out", "alone"),
+        (("My husband cheated, or I discovered an affair or porn", "My wife cheated, or I discovered an affair or porn"), "infidelity"),
+        (("He says he wants out, or he's emotionally checked out", "She says she wants out, or she's emotionally checked out"), "alone"),
         ("We're both here, but we keep fighting or drifting", "restoration"),
         ("I feel lonely, unseen or tired in my marriage", "wives"),
     ]),
@@ -45,7 +48,7 @@ QUIZ_QUESTIONS = [
         ("Yes, both of us", "restoration"),
         ("Only me right now", "alone"),
         ("I'm not sure I am anymore", "infidelity"),
-        ("I don't know where he stands", "wives"),
+        (("I don't know where he stands", "I don't know where she stands"), "wives"),
     ]),
     ("How would you describe your prayer life right now?", [
         ("Strong, I'm praying daily", "prayers"),
@@ -54,7 +57,7 @@ QUIZ_QUESTIONS = [
         ("We used to pray together, but not anymore", "restoration"),
     ]),
     ("What's the hardest part of your days?", [
-        ("Replaying what he did", "infidelity"),
+        (("Replaying what he did", "Replaying what she did"), "infidelity"),
         ("The silence and distance", "alone"),
         ("The same arguments over and over", "restoration"),
         ("Feeling like I'm carrying everything alone", "wives"),
@@ -77,7 +80,7 @@ QUIZ_QUESTIONS = [
     ]),
     ("If God restored your marriage, what would be different?", [
         ("We'd be honest with each other again", "infidelity"),
-        ("He'd be home, in every sense", "alone"),
+        (("He'd be home, in every sense", "She'd be home, in every sense"), "alone"),
         ("We'd pray and laugh together", "restoration"),
         ("I'd feel seen and loved", "wives"),
     ]),
