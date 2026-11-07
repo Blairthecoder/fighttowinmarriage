@@ -130,4 +130,82 @@ POSTS = [
             ("Should I date during a separation?", "No. You are still married, and a new relationship closes the door to restoration and adds new wounds."),
         ],
     },
+    {
+        "slug": "tired-of-fighting-for-my-marriage",
+        "title": "Tired of Fighting for Your Marriage? How Not to Grow Weary",
+        "seo_title": "Tired of Fighting for Your Marriage? Don't Grow Weary | Fight to Win Marriages",
+        "desc": "Exhausted from fighting for your marriage? What Galatians 6:9 means for a weary spouse, five ways to keep going without burning out, and a prayer for strength.",
+        "date": "2026-11-07",
+        "hub": "alone",
+        "intent": "how-to",
+        "excerpt": "Being tired doesn't mean you've failed. What Galatians 6:9 means for a weary spouse, and how to keep going.",
+        "body": """
+<p>You've prayed. You've waited. You've held your tongue, tried again and believed for change. And right now, you're just tired. Maybe your spouse has checked out. Maybe you're both still here but stuck in the same cycle. Either way, you're wondering how much longer you can keep fighting for your marriage.</p>
+<p>Being tired doesn't mean you've failed, and it doesn't mean God has left. It means you're human, and you've been carrying something heavy for a long time.</p>
+<blockquote class="verse">"And let us not grow weary while doing good, for in due season we shall reap if we do not lose heart."<cite>Galatians 6:9 (NKJV)</cite></blockquote>
+
+<h2>What Galatians 6:9 means for a weary marriage</h2>
+<p>Galatians 6:9 was the anchor Scripture on the November 3 Tuesday prayer call, where Terrie Beeman taught on not growing weary in marriage. Notice three things in this verse:</p>
+<ul class="checks">
+<li><strong>Weariness is expected.</strong> Paul wouldn't warn against growing weary if it never happened to faithful people.</li>
+<li><strong>The harvest has a season.</strong> "In due season" means God's timing, not yours. Delay is not the same as denial.</li>
+<li><strong>The promise is tied to not losing heart.</strong> You don't have to feel strong. You just can't let go of hope.</li>
+</ul>
+<p>Isaiah 40:31 adds the other half: "they that wait upon the LORD shall renew their strength." Your strength is meant to be renewed, not just spent.</p>
+
+<h2>Why fighting for your marriage wears you out</h2>
+<p>Some exhaustion comes with any hard season. But a lot of it comes from fighting the wrong way:</p>
+<ul>
+<li><strong>Fighting in your own strength.</strong> On the call, Terrie shared that when she and her husband Donald tried to fix everything themselves, nothing lasted. Things began to change when they put God back at the center.</li>
+<li><strong>Trying to control your spouse.</strong> You can pray for them, but you can't change them. Trying to is exhausting.</li>
+<li><strong>Carrying old hurts.</strong> Bitterness and unforgiveness are heavy, even when the hurt was real.</li>
+<li><strong>Fighting alone.</strong> Isolation makes every battle feel bigger.</li>
+</ul>
+
+<h2>5 ways to keep fighting for your marriage without burning out</h2>
+<h3>1. Put God back at the center</h3>
+<p>"A threefold cord is not quickly broken" (Ecclesiastes 4:12). Terrie describes the three strands as husband, wife and God. When your strand is fraying, the third strand holds. If you've stopped praying or opening your Bible because you're too tired, start small: one Psalm and one honest prayer a day.</p>
+<h3>2. Surrender what you can't control</h3>
+<p>Release your spouse's choices to God. Instead of asking, "How do I make them change?" ask, "Lord, what is my next step?" Surrender isn't giving up on your marriage. It's giving up a job only God can do.</p>
+<h3>3. Look inward as well as outward</h3>
+<p>Ask God to show you what you may need to begin, stop, forgive, heal or change. This is often where weariness turns into growth. Try the five-part [[/blog/is-my-marriage-worth-saving/|spiritual heart check for your marriage]].</p>
+<h3>4. Stay connected when you want to pull away</h3>
+<p>Weary people tend to withdraw from God, church and friends right when they need them most. Keep reading Scripture and praying, even briefly. Consider [[/blog/praying-and-fasting-for-your-marriage/|praying and fasting for your marriage]] as your health allows. And stay close to a few trusted people of faith who will pray with you.</p>
+<h3>5. Take one realistic step this week</h3>
+<p>You don't need a ten-step plan tonight. Pick one thing: a kind word, an apology you owe, a boundary you need, a conversation you've avoided, or a call to get help. Small, steady obedience is how a harvest grows.</p>
+
+<h2>Weary is not the same as unsafe</h2>
+<p>Not growing weary in doing good never means staying in danger. If you're afraid of your spouse, you don't need more endurance. You need safety. Read [[/blog/when-standing-isnt-safe/|When Standing Isn't Safe]] or call the National Domestic Violence Hotline at <a href="tel:18007997233">1-800-799-7233</a>.</p>
+
+<h2>Your story may become someone else's hope</h2>
+<p>Terrie knows this kind of tired. Her husband once told her he wanted out, and she stood for 365 days before their marriage was restored. Today they're 34 years strong, and that season became a ministry that helps couples fight for their marriages every week. [[/about/#story|Read Terrie's story]].</p>
+<p>What you're walking through right now may one day help someone else keep going.</p>
+
+<h2>Questions to bring to God this week</h2>
+<ol>
+<li>Where am I feeling discouraged or tempted to give up?</li>
+<li>What might God be showing me about my own attitudes or actions?</li>
+<li>Am I holding on to resentment or an old wound that needs attention?</li>
+<li>What is one realistic step I can take to strengthen my marriage this week?</li>
+<li>How might my experience encourage someone else one day?</li>
+</ol>
+
+<h2>A prayer for when you're tired of fighting for your marriage</h2>
+<blockquote class="verse">"Lord, I'm tired. I've been fighting for my marriage for so long, and I don't have much left. Renew my strength and help me not lose heart. Take back the things I've been trying to control and show me my next step. Search my heart and heal what needs healing in me. Be the third strand in our marriage when I feel like I'm unraveling. Give me patience for Your timing and faith for the harvest I can't see yet. In Jesus' name, amen."</blockquote>
+
+<h2>You don't have to keep going alone</h2>
+<ul>
+<li>Join husbands, wives and couples on the free [[/tuesday-prayer-call/|Tuesday marriage prayer call]] every Tuesday at 6:00 PM CT on Zoom.</li>
+<li>Read the full [[/prayer-call-notes/2026-11-03-dont-grow-weary/|Don't Grow Weary call notes]] from November 3 and download the PDF.</li>
+<li>If you're the only one trying, start with [[/save-my-marriage-alone/|how to save your marriage alone]], then read [[/blog/how-to-fight-for-your-marriage/|how to fight for your marriage without fighting your spouse]].</li>
+<li>When you're ready for one-on-one support, [[/marriage-coaching/|Christian marriage coaching]] puts a coach in your corner.</li>
+</ul>
+""",
+        "faqs": [
+            ("Is it normal to feel tired of fighting for my marriage?", "Yes. Galatians 6:9 warns believers not to grow weary in doing good because weariness is a real part of hard seasons. Feeling tired doesn't mean you have failed or that your marriage is over. It is a signal to lean on God, get support and change how you are fighting."),
+            ("What does Galatians 6:9 mean for marriage?", "Galatians 6:9 tells believers not to grow weary in doing good, because in due season they will reap if they do not lose heart. In marriage, it means faithful love, prayer and right choices are not wasted, even when change is slow. The harvest comes in God's timing."),
+            ("How do I keep fighting for my marriage when my spouse isn't trying?", "Focus on what you can control: your relationship with God, your own heart, your responses and your safety. Pray for your spouse, set healthy boundaries, stay connected to people who will support you, and get help from a coach, pastor or counselor. Restoration often begins with one spouse."),
+            ("When should I stop fighting for my marriage?", "That is a decision to make with God and wise counsel, not in a moment of exhaustion. Scripture never asks you to stay in danger, so if there is abuse, get safe first. Otherwise, avoid permanent decisions while you are depleted, and get support before you decide."),
+        ],
+    },
 ]
