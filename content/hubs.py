@@ -227,7 +227,7 @@ HUBS = [
 <h2>Common struggles we hear from husbands</h2>
 <ul class="checks">
 <li><strong>"We feel like roommates."</strong> Read [[/blog/feeling-alone-in-marriage/|Feeling Alone in Your Marriage: 6 Biblical Next Steps]].</li>
-<li><strong>"My wife wants out and I don't."</strong> Read about [[/save-my-marriage-alone/|saving your marriage alone]] and [[/blog/separated-but-not-divorced/|Separated but Not Divorced]].</li>
+<li><strong>"My wife wants out and I don't."</strong> Read [[/blog/wife-wants-divorce-i-dont/|My Wife Wants a Divorce and I Don't]], then learn about [[/save-my-marriage-alone/|saving your marriage alone]] and [[/blog/separated-but-not-divorced/|Separated but Not Divorced]].</li>
 <li><strong>"Why did God let this happen?"</strong> Read [[/blog/why-did-god-let-this-happen-to-my-marriage/|Why Did God Let This Happen to My Marriage?]].</li>
 <li><strong>"I broke her trust."</strong> Read [[/blog/rebuilding-trust-after-infidelity/|Rebuilding Trust After Infidelity]] and [[/blog/forgiveness-vs-trust-after-an-affair/|Forgiveness vs. Trust After an Affair]].</li>
 <li><strong>"I want to fight for us."</strong> Read [[/blog/how-to-fight-for-your-marriage/|How to Fight for Your Marriage]].</li>
