@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """Static site generator for fighttowinmarriages (Netlify). Run: python3 build.py"""
-import datetime, json, os, re, shutil, html
+import datetime, json, os, re, shutil, html, sys
+
+if "--help" in sys.argv[1:] or "-h" in sys.argv[1:]:
+    print("""Usage: python3 build.py [--help]
+
+Builds the Fight to Win Marriages static site. Reads page content from build.py and
+content/*.py and writes the HTML, sitemap.xml and robots.txt into site/, which Netlify publishes.
+
+Blog posts dated after the build date are left out until a build on or after that date.
+Set BUILD_DATE=YYYY-MM-DD to build as of a different date.""")
+    sys.exit(0)
 
 from content.hubs import HUBS
 from content.posts import NEW_POSTS
@@ -1339,8 +1349,8 @@ quiz_json = json.dumps([{"q": q, "a": [{"t": t, "k": k} for t, k in answers]} fo
 hub_json = json.dumps({h["key"]: {"name": h["name"], "url": f"/{h['slug']}/", "text": h["tile_text"]} for h in HUBS})
 quiz_page = f'''
 <section class="page-hero"><div class="wrap narrow">
-<p class="eyebrow">2-minute quiz</p><h1>Marriage reflection quiz: where do I start?</h1>
-<p class="lead">Eight questions, no judgment. We'll point you to the guide that fits your situation. Your answers are not stored.</p>
+<p class="eyebrow">Free 2-minute quiz</p><h1>Is my marriage worth saving? A free Christian marriage quiz</h1>
+<p class="lead">Wondering if your marriage can be saved? Answer eight questions, with no judgment. The quiz won't decide for you, but it will point you to the guide that fits your situation. Your answers are not stored.</p>
 </div></section>
 <section class="section"><div class="wrap narrow">
 <div id="quiz" class="card quiz" aria-live="polite"><noscript><p>This quiz needs JavaScript. You can <a href="/get-help/">browse all guides</a> instead.</p></noscript></div>
@@ -1358,8 +1368,8 @@ function done(){{let best='wives',n=-1;for(const k in H){{if((tally[k]||0)>n){{n
 show();
 </script>
 '''
-page(QUIZ_URL, "Marriage Reflection Quiz: Is My Marriage Worth Saving? | Fight to Win Marriages",
-     "Take the free 2-minute Christian marriage reflection quiz and get pointed to the right guide for your situation: infidelity, standing alone, restoration or prayer.",
+page(QUIZ_URL, "Is My Marriage Worth Saving? Free Christian Marriage Quiz | Fight to Win Marriages",
+     "Is my marriage worth saving? Take a free 2-minute Christian marriage quiz and find your next step: infidelity, standing alone, restoration or prayer.",
      quiz_page, crumb=[("/", "Home"), (QUIZ_URL, "Marriage Quiz")])
 
 # ---------------------------------------------------------------- CALL RECAP PAGES (HTML versions of the weekly PDFs)
