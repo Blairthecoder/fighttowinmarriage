@@ -130,11 +130,13 @@ CALL_RECAPS = [
         "prayer": "Lord, strengthen our marriages and families. Help us remain faithful during difficult seasons. Reveal the areas of our hearts that need healing, and teach us to respond with humility, patience, wisdom, and love. Guide our steps and help our experiences become testimonies of Your goodness. In Jesus' name, Amen.",
         "safety": "Perseverance and forgiveness do not require you to remain in an abusive or unsafe situation. If you or your children are in danger, get safe first and call 911 or the National Domestic Violence Hotline at 1-800-799-7233.",
         "gatherings": True,
+        "deeper": "[[/blog/tired-of-fighting-for-my-marriage/|Tired of Fighting for Your Marriage? How Not to Grow Weary]]",
         "prev": "2026-10-20-spiritual-heart-check",
     },
     {
         "slug": "2026-10-20-spiritual-heart-check",
         "date": "2026-10-20",
+        "deeper": "[[/blog/is-my-marriage-worth-saving/|Is My Marriage Worth Saving? A Spiritual Heart Check Before You Decide]]",
         "title": "Spiritual Heart Check",
         "topic": "Spiritual Heart Check",
         "pdf": "/assets/notes/fight-to-win-marriages-2026-10-20-spiritual-heart-check.pdf",

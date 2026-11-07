@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """Static site generator for fighttowinmarriages (Netlify). Run: python3 build.py"""
-import datetime, json, os, re, shutil, html
+import datetime, json, os, re, shutil, html, sys
+
+if "--help" in sys.argv[1:] or "-h" in sys.argv[1:]:
+    print("""Usage: python3 build.py [--help]
+
+Builds the Fight to Win Marriages static site. Reads page content from build.py and
+content/*.py and writes the HTML, sitemap.xml and robots.txt into site/, which Netlify publishes.
+
+Blog posts dated after the build date are left out until a build on or after that date.
+Set BUILD_DATE=YYYY-MM-DD to build as of a different date.""")
+    sys.exit(0)
 
 from content.hubs import HUBS
 from content.posts import NEW_POSTS
@@ -1171,7 +1181,7 @@ POSTS = [
 <p>It is hard to stay bitter toward someone you are praying blessing over. Pray for your spouse's heart, health, purpose and walk with God. Then pray for your own heart to soften.</p>
 <h2>5. Don't fight alone</h2>
 <p>Couples who make it through hard seasons rarely do it in isolation. Invite prayer partners, a coach or a trusted pastor into the battle. That is exactly why Terrie hosts the <a href="/tuesday-prayer-call/">Tuesday marriage prayer and fasting call</a>.</p>
-<p>Going through a hard season right now? Read <a href="/blog/good-bad-ugly-seasons-of-marriage/">The Good, the Bad and the Ugly Seasons of Marriage</a> and remember that God is still writing your story.</p>
+<p>Going through a hard season right now? Read <a href="/blog/good-bad-ugly-seasons-of-marriage/">The Good, the Bad and the Ugly Seasons of Marriage</a> and remember that God is still writing your story. Worn out from trying? Read [[/blog/tired-of-fighting-for-my-marriage/|Tired of Fighting for Your Marriage? How Not to Grow Weary]].</p>
 <h2>Ready for help?</h2>
 <p>If your marriage needs more than a few tips, <a href="/marriage-coaching/">Christian marriage coaching</a> gives you a plan and a coach in your corner.</p>
 """,
@@ -1379,6 +1389,7 @@ for i, r in enumerate(CALL_RECAPS):
     prayer_html = f'<blockquote class="verse">{html.escape(r["prayer"])}</blockquote>' if r.get("prayer") else ""
     safety_html = f'<p class="micro"><strong>A note on safety:</strong> {html.escape(r["safety"])}</p>' if r.get("safety") else ""
     gath_html = f'<h2>Upcoming gatherings</h2>{gatherings_html()}' if r.get("gatherings") else ""
+    deeper_html = f'<p class="hub-link">Go deeper: {r["deeper"]}</p>' if r.get("deeper") else ""
     newer = CALL_RECAPS[i - 1] if i > 0 else None
     older = CALL_RECAPS[i + 1] if i + 1 < len(CALL_RECAPS) else None
     nav = ""
@@ -1398,6 +1409,7 @@ for i, r in enumerate(CALL_RECAPS):
 {supporting_html}
 <p><a class="btn" href="{r["pdf"]}" download>Download {d:%B} {d.day} Prayer Call Notes (PDF)</a></p>
 <h2>Session overview</h2><p>{html.escape(r["overview"])}</p>
+{deeper_html}
 <h2>Five key teachings</h2><ol class="checks">{teachings}</ol>
 {exam_html}
 <h2>Personal Reflection Questions</h2><ol>{qs}</ol>

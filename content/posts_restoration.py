@@ -211,4 +211,71 @@ POSTS = [
             ("Is my husband the enemy?", "No. Ephesians 6:12 teaches that our struggle is not against flesh and blood. Your husband is not the enemy, even when his choices hurt you."),
         ],
     },
+    {
+        "slug": "is-my-marriage-worth-saving",
+        "title": "Is My Marriage Worth Saving? A Spiritual Heart Check Before You Decide",
+        "seo_title": "Is My Marriage Worth Saving? A Biblical Heart Check | Fight to Win Marriages",
+        "desc": "Wondering if your marriage is worth saving? Walk through a 5-part spiritual heart check, signs there's still hope, and when safety has to come first.",
+        "date": "2026-11-07",
+        "hub": "restoration",
+        "intent": "decision",
+        "excerpt": "Before you decide whether your marriage is worth saving, look beneath the surface. Here's a five-part spiritual heart check.",
+        "body": """
+<p>Most people don't ask "Is my marriage worth saving?" on a good day. They ask it after the same fight for the hundredth time, after a betrayal, or after months of silence in the same house. If that's where you are, take a breath. You don't have to answer that question tonight, and you don't have to answer it alone.</p>
+<p><strong>The short answer:</strong> a marriage is usually worth fighting for when at least one spouse is willing to put God back at the center, look honestly at their own heart and get help, and when home is safe. Exhaustion, distance and repeated fights are signs your marriage needs care, not proof that it's over. Abuse is different. If you are unsafe, safety comes first.</p>
+
+<h2>Start with a heart check, not a verdict</h2>
+<p>On the October 20 Tuesday prayer call, Terrie Beeman taught on a prayer that changes how you ask the question:</p>
+<blockquote class="verse">"Search me, O God, and know my heart: try me, and know my thoughts: and see if there be any wicked way in me, and lead me in the way everlasting."<cite>Psalm 139:23-24 (KJV)</cite></blockquote>
+<p>Before you decide what your marriage is worth, ask God to show you what is happening beneath the surface. Terrie compared it to a medical checkup. A doctor doesn't judge your health by how you look in the waiting room. They check your history, your heartbeat, your blood pressure and your bloodwork.</p>
+
+<h2>A 5-part spiritual heart check for your marriage</h2>
+<p>Work through these on your own first. If your spouse is open to it, go through them together later.</p>
+<ol class="checks">
+<li><strong>Relationship history.</strong> What unhealthy habits or unresolved experiences did each of you bring into this marriage? Many marriage problems started long before the wedding.</li>
+<li><strong>Heartbeat and rhythm.</strong> Are you listening to each other and showing respect? Do your actions at home line up with the faith you profess on Sunday?</li>
+<li><strong>Blood pressure.</strong> Is your home marked by tension, silence, avoidance or dismissive words? High pressure doesn't mean the marriage is dead. It means something needs attention now.</li>
+<li><strong>Bloodwork.</strong> Is bitterness or unforgiveness quietly building up inside you? It rarely shows on the outside until it has spread.</li>
+<li><strong>Blockages.</strong> What is keeping love, grace, trust, honesty, prayer, peace and joy from flowing freely between you?</li>
+</ol>
+<p>Want a guided version? Take our free 2-minute [[/marriage-quiz/|"Is my marriage worth saving?" quiz]]. It points you to the right next step for your situation.</p>
+
+<h2>Signs your marriage is still worth fighting for</h2>
+<p>Every marriage is different, but these are hopeful signs:</p>
+<ul class="checks">
+<li><strong>One of you still wants to try.</strong> Restoration often starts with one person. Terrie stood alone for 365 days before her marriage was restored.</li>
+<li><strong>You can name the problems.</strong> Specific problems like poor communication, broken trust or old wounds can be worked on.</li>
+<li><strong>You still pray for your spouse,</strong> even when you're angry with them.</li>
+<li><strong>You miss the friendship,</strong> not just the idea of being married.</li>
+<li><strong>You're willing to look at your own part.</strong> This is the most important sign, and it's the one you control.</li>
+<li><strong>Home is safe.</strong> Hard and unhappy is not the same as dangerous.</li>
+</ul>
+
+<h2>Look inward before you look outward</h2>
+<p>It's natural to keep a list of everything your spouse has done wrong. The heart check asks a harder question: what is God showing <em>me</em>? On the call, Terrie named the inner obstacles that quietly damage a marriage: pride, resentment, jealousy, selfishness, anger, bitterness and unforgiveness.</p>
+<p>This isn't about taking the blame for your spouse's choices. It's about the part you can actually change. When God puts His finger on something, that's conviction, and it leads to repentance and restoration. Condemnation is different. It only leads to shame. If what you're hearing makes you want to hide, it isn't coming from God.</p>
+<p>If your spouse isn't ready to pray with you, you can still pray. One praying spouse can keep a marriage covered while God works on both hearts. Read [[/save-my-marriage-alone/|how to save your marriage when you're the only one fighting]].</p>
+
+<h2>When the real question is safety</h2>
+<p>If your spouse hits, threatens, controls or frightens you, the question isn't whether your marriage is worth saving. The question is how to get safe. Forgiveness does not mean accepting abuse, unsafe behavior or responsibility for another person's choices. Read [[/blog/when-standing-isnt-safe/|When Standing Isn't Safe]], and if you're in danger, call 911 or the National Domestic Violence Hotline at <a href="tel:18007997233">1-800-799-7233</a>.</p>
+
+<h2>If infidelity is part of your story</h2>
+<p>An affair raises its own questions about what God allows and whether trust can come back. Start with [[/blog/can-a-marriage-survive-infidelity/|Can a Marriage Survive Infidelity?]] and [[/blog/bible-divorce-adultery/|what the Bible says about divorce for adultery]].</p>
+
+<h2>Don't decide in the dark</h2>
+<p>Big decisions made in pain and isolation are rarely the right ones. Before you decide anything:</p>
+<ul>
+<li><strong>Talk with someone who has been there.</strong> [[/marriage-coaching/|Faith-based marriage coaching]] with Terrie is online, and you can start alone or together.</li>
+<li><strong>Pray with others.</strong> Join the free [[/tuesday-prayer-call/|Tuesday marriage prayer call]] on Zoom every Tuesday at 6:00 PM CT.</li>
+<li><strong>Make the heart check a habit,</strong> not just something you do in a crisis. Read the full [[/prayer-call-notes/2026-10-20-spiritual-heart-check/|Spiritual Heart Check call notes]] and download the PDF.</li>
+</ul>
+<p>Worn out from carrying it all? Read [[/blog/tired-of-fighting-for-my-marriage/|Tired of Fighting for Your Marriage? How Not to Grow Weary]].</p>
+""",
+        "faqs": [
+            ("How do I know if my marriage is worth saving?", "Look beneath the surface before you decide. Ask God to search your heart (Psalm 139:23-24), name the specific problems, and notice whether at least one of you is willing to keep God at the center and get help. Repeated fights and distance are signs a marriage needs care, not proof that it is over. If there is abuse, safety comes first."),
+            ("Is there a quiz to tell if my marriage is worth saving?", "Fight to Win Marriages offers a free 2-minute Christian marriage reflection quiz. It won't decide for you, but it points you to the right guide for your situation, whether that is infidelity, standing alone, restoration or prayer."),
+            ("Can a marriage be saved if only one spouse is trying?", "Often, yes. Restoration frequently begins with one spouse who keeps praying, works on their own heart and gets support. Terrie Beeman stood alone for 365 days before God restored her marriage. You can't force your spouse to change, so focus on your part and your safety."),
+            ("What does the Bible say about giving up on your marriage?", "Scripture treats marriage as a covenant (Mark 10:9) and encourages believers not to grow weary in doing good (Galatians 6:9). It never asks anyone to stay in danger. If you are wrestling with whether to stay, pray, seek wise counsel and avoid making permanent decisions in a moment of pain."),
+        ],
+    },
 ]
