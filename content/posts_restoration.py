@@ -278,4 +278,70 @@ POSTS = [
             ("What does the Bible say about giving up on your marriage?", "Scripture treats marriage as a covenant (Mark 10:9) and encourages believers not to grow weary in doing good (Galatians 6:9). It never asks anyone to stay in danger. If you are wrestling with whether to stay, pray, seek wise counsel and avoid making permanent decisions in a moment of pain."),
         ],
     },
+    {
+        "slug": "trusting-god-when-marriage-restoration-feels-delayed",
+        "title": "Trusting God When Marriage Restoration Feels Delayed",
+        "seo_title": "Trusting God When Marriage Restoration Feels Delayed | Fight to Win Marriages",
+        "desc": "When restoration is taking longer than you hoped, the story of Lazarus offers hope. Learn why delay isn't abandonment and what couples can do while they wait.",
+        "date": "2026-11-11",
+        "hub": "restoration",
+        "intent": "faith",
+        "excerpt": "When answers are slow and your marriage feels beyond repair, the story of Lazarus shows why a delay is not the same as God's absence.",
+        "body": """
+<p>You have prayed for months, maybe years. You have waited, fasted and held on. And your marriage still feels cold, stuck or beyond repair. In that silence it is easy to hear a "no," or to decide that God has stepped away. If that is where you are, you are not alone, and you are not the first believer to wonder why God has not moved yet.</p>
+<p>On the November 10 Tuesday prayer call, Terrie Beeman taught from John 11, the raising of Lazarus, on trusting God when answers and restoration seem delayed. This article draws on those themes and adds some practical steps for the waiting. You can also <a href="/prayer-call-notes/2026-11-10-trust-me-i-know-what-im-doing/">read the Prayer Call Notes for November 10</a> or <a href="/assets/notes/fight-to-win-marriages-prayer-call-notes-2026-11-10.pdf" download>download the PDF handout</a>.</p>
+<p><strong>The short answer:</strong> a delay does not prove that God has abandoned your marriage. In John 11, Jesus waited on purpose, and the wait served a larger purpose. While you wait, tell the truth about what is broken, take it to God first, and keep taking wise, faithful steps.</p>
+
+<h2>What the story of Lazarus teaches about delay</h2>
+<p>Mary and Martha sent word to Jesus that their brother Lazarus, whom He loved, was sick (John 11:3). If you had been in their place, you would have expected Him to come right away. Instead, Scripture says He stayed where He was for two more days (John 11:6). By the time He arrived, Lazarus had been in the tomb four days (John 11:17).</p>
+<p>Jesus had already told His disciples how to read the situation:</p>
+<blockquote class="verse">This sickness is not unto death, but for the glory of God, that the Son of God may be glorified through it.<cite>John 11:4 (NKJV)</cite></blockquote>
+<p>The sisters could only see the delay and the grief. Jesus saw what He was about to do. A marriage can feel like that tomb: sealed, silent and long past hope. The story invites you to ask a different question than "Why isn't God doing anything?" Ask instead, "What might God be doing that I can't see yet?"</p>
+
+<h2>Why delay does not necessarily mean abandonment</h2>
+<p>Look at how John tells it. He writes that Jesus loved Martha, her sister and Lazarus, and then that He stayed two more days (John 11:5-6). Love and delay sit side by side in the same passage. God's slowness is not the same as God's absence.</p>
+<p>The story also leaves room for honest disappointment. Both Martha and Mary said, "If You had been here, my brother would not have died" (John 11:21, 32). Jesus did not scold them for saying it. He met them in their grief, and John records that He wept (John 11:35). You can bring your frustration and sorrow to God without losing your faith.</p>
+<p>A delayed answer can become the setting for deeper faith, for healing in you, and for a testimony that encourages other couples. That does not make the pain good. It means pain is not the end of the story.</p>
+
+<h2>Acknowledging marriage problems without surrendering hope</h2>
+<p>When Jesus spoke plainly, He did not pretend: "Lazarus is dead" (John 11:14). Faith does not mean denying reality. It means telling the truth and still believing God can act.</p>
+<p>In your marriage, that may mean naming things like lost trust, cold communication, old wounds or years of distance. Saying them out loud to God is not unbelief. Pretending everything is fine is more likely to leave the root problems untouched.</p>
+<p>Naming a problem is also different from blaming your spouse. Ephesians 6:12 reminds us that the struggle is not against flesh and blood. Your husband or wife is not the enemy. The battle is fought through prayer, fasting and Scripture, not through retaliation, contempt or advice that pushes you to harden your heart. If you are weighing whether to keep going, our <a href="/blog/is-my-marriage-worth-saving/">heart check for deciding whether your marriage is worth saving</a> can help you slow down.</p>
+
+<h2>Bring the crisis to God first</h2>
+<p>Notice what Mary and Martha did first: they sent word to Jesus. The first move was toward Him. A simple way to say it is this: run to the throne before you run to the phone.</p>
+<p>That does not mean you should never talk to a pastor, a counselor or a trusted friend. It means order matters. When you pray first, you are less likely to act on panic, to say something you cannot take back, or to collect advice from people who only want you to feel justified. If you are not sure how to start, read <a href="/blog/praying-and-fasting-for-your-marriage/">how to pray and fast for your marriage</a>, or join the <a href="/tuesday-prayer-call/">free Tuesday prayer call</a> and pray with others who are standing for their marriages.</p>
+
+<h2>Productive actions couples can take while waiting</h2>
+<p>Waiting does not have to mean doing nothing. These four habits keep you steady:</p>
+<ul class="checks">
+<li><strong>Pause.</strong> Do not let urgency push you into harsh words or hasty decisions. A calm "I need to pray about this" is better than something you will regret.</li>
+<li><strong>Pray.</strong> Invite God into what you cannot control. Ask Him to fight for your marriage and to show you your part in it.</li>
+<li><strong>Examine your own heart.</strong> Ask what God may be healing or changing in you: bitterness, fear, old childhood wounds or unhealthy patterns. This is not about taking all the blame. It is about the one area you can truly influence.</li>
+<li><strong>Persevere.</strong> Keep reading Scripture, keep praying and fasting if you are able, and keep taking small, constructive steps. Galatians 6:9 says not to grow weary in doing good, because in due season we will reap.</li>
+</ul>
+<p>Wise outside help is part of faithful waiting too. If wounds or patterns run deep, a pastor, a licensed counselor or a <a href="/marriage-coaching/">Christian marriage coach</a> can walk with you. If you want to meet other couples in person, see our <a href="/events/">upcoming events</a>, or <a href="/contact/">contact the ministry</a> with questions. For more encouragement, explore our guide to <a href="/christian-marriage-restoration/">Christian marriage restoration</a>.</p>
+<p class="micro"><strong>A note on safety:</strong> waiting on God does not mean staying where you are in danger. If you or your children are experiencing abuse, get safe first. Call 911 or the National Domestic Violence Hotline at 1-800-799-7233. Healthy boundaries and trust in God go together.</p>
+
+<h2>Reflection questions</h2>
+<ol>
+<li>What part of my marriage feels delayed, lifeless or beyond my control right now?</li>
+<li>Am I reading God's delay as abandonment? What might He be developing in me, and in us?</li>
+<li>What painful reality do I need to name honestly before God?</li>
+<li>What would it look like to see this season from God's point of view?</li>
+<li>What is one faithful, constructive step I can take this week?</li>
+</ol>
+
+<h2>A short prayer while you wait</h2>
+<blockquote class="verse">Lord, You see what I cannot. I bring You the parts of my marriage that feel dead and the parts I am afraid to name. Give me courage to be honest, patience to wait, and a soft heart toward my spouse. Show me what You are doing in me. I choose to trust You, even when I do not understand Your timing. In Jesus' name, amen.</blockquote>
+
+<h2>Take the notes with you</h2>
+<p>If this spoke to you, the full call recap includes the five key teachings, reflection questions, prayer focus and next steps. <a href="/prayer-call-notes/2026-11-10-trust-me-i-know-what-im-doing/">Read the November 10 Prayer Call Notes</a> online, or <a href="/assets/notes/fight-to-win-marriages-prayer-call-notes-2026-11-10.pdf" download>download the Prayer Call Notes (PDF)</a> to print, share with your spouse or keep beside your Bible.</p>
+""",
+        "faqs": [
+            ("Does a delayed answer mean God is saying no to my marriage?", "Not necessarily. In John 11, Jesus loved Lazarus and his sisters and still waited before coming. A delay can be part of God's timing and purpose. Keep praying, stay honest and keep taking wise steps."),
+            ("How do I keep faith while my marriage is still struggling?", "Tell God the truth about what hurts, keep praying and reading Scripture, ask Him to examine your own heart, and stay connected to a supportive faith community. Small, steady habits carry you through long seasons."),
+            ("Should I keep waiting if my marriage is unsafe?", "No. Waiting on God does not mean staying in danger. If you or your children are being abused, get to safety first and contact 911 or the National Domestic Violence Hotline at 1-800-799-7233."),
+        ],
+    },
 ]
