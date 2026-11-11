@@ -965,7 +965,7 @@ def gatherings_html(heading_tag="h2"):
     return f'''<div class="cards three upcoming-gatherings">
 <div class="card"><h3>Weekly Tuesday Prayer Call</h3><p><strong>Every Tuesday at 6:00 PM Central</strong><br>Zoom Meeting ID: {ZOOM_ID}</p><p><a class="btn gold" href="{ZOOM}" target="_blank" rel="noopener">Join Our Tuesday Prayer Call</a></p><p class="micro"><a href="/tuesday-prayer-call/">Details about the call</a></p></div>
 <div class="card"><h3>Houston-Area Fellowship Gathering</h3><p><strong>Saturday, November 14, 2026</strong><br>1:00 PM&ndash;3:00 PM<br>Golden Corral, Pearland, Texas</p><p>Food, fellowship, encouragement, and connecting with other members of the marriage ministry.</p><p class="micro">See <a href="/events/">Events &amp; Speaking</a> for more. Contact the ministry through the <a href="/contact/">contact page</a> with questions.</p></div>
-<div class="card"><h3>Coming in 2027: More Locations Coming Soon</h3><p>Fight to Win Marriages plans to host additional fellowship pop-ups in other cities beginning in 2027. Dates and locations have not been announced yet.</p></div>
+<div class="card"><h3>Coming in 2027: More Locations Coming Soon</h3><p>Fight to Win Marriages plans to host additional fellowship pop-ups in other cities beginning in 2027. Dates and locations have not been announced yet. Want us to come to your city? <a href="/contact/">Suggest a city</a>.</p></div>
 </div>'''
 
 def _recap_card(r):
@@ -1443,6 +1443,19 @@ for i, r in enumerate(CALL_RECAPS):
     if newer:
         nav += f'{" &middot; " if nav else ""}<a href="/prayer-call-notes/{newer["slug"]}/">Next prayer call: {html.escape(newer["topic"])} &rarr;</a>'
     recap_nav = f'<p class="micro recap-nav">{nav}</p>' if nav else ""
+    extra_html = ""
+    if r.get("extra"):
+        ex = "".join(f"<li><strong>{html.escape(a)}</strong> {html.escape(b)}</li>" for a, b in r["extra"][1])
+        extra_html = f'<h2>{html.escape(r["extra"][0])}</h2><ul class="checks">{ex}</ul>'
+    tags_html = ""
+    if r.get("tags"):
+        tag_items = "".join(f"<li>{html.escape(t)}</li>" for t in r["tags"])
+        tags_html = f'<p class="micro"><strong>Theme:</strong> {html.escape(r.get("theme", ""))}</p><ul class="tags">{tag_items}</ul>'
+    rp = NEW_BY_SLUG.get(r.get("related_post"))
+    article_html = ""
+    if rp and rp["date"] <= BUILD_DATE:
+        article_html = (f'<h2>Related article</h2><p>Keep going with <a href="/blog/{rp["slug"]}/">{html.escape(rp["title"])}</a>, '
+                        f'a practical companion to this call.</p>')
     d = datetime.date.fromisoformat(r["date"])
     related = ('<p class="micro">Related: <a href="/tuesday-prayer-call/">Tuesday prayer call</a> &middot; <a href="/marriage-coaching/">Christian marriage coaching</a> &middot; '
                '<a href="/get-help/">Marriage help and resources</a> &middot; <a href="/events/">Events</a> &middot; <a href="/contact/">Contact</a></p>')
@@ -1452,15 +1465,18 @@ for i, r in enumerate(CALL_RECAPS):
 <p class="meta"><time datetime="{r["date"]}">{fmt_date(r["date"])}</time> &middot; Speaker: Terrie Beeman, Fight to Win Marriages &middot; Edited recap, not a verbatim transcript</p>
 <blockquote class="verse">"{html.escape(r["scripture"][0])}"<cite>{html.escape(r["scripture"][1])}</cite></blockquote>
 {supporting_html}
+{tags_html}
 <p><a class="btn" href="{r["pdf"]}" download>Download {d:%B} {d.day} Prayer Call Notes (PDF)</a></p>
 <h2>Session overview</h2><p>{html.escape(r["overview"])}</p>
 {deeper_html}
 <h2>Five key teachings</h2><ol class="checks">{teachings}</ol>
+{extra_html}
 {exam_html}
 <h2>Personal Reflection Questions</h2><ol>{qs}</ol>
 <h2>Prayer Focus and Next Steps</h2><ul class="checks">{nxt}</ul>
 {prayer_html}
 {safety_html}
+{article_html}
 {gath_html}
 <p><a class="btn" href="{r["pdf"]}" download>Download {d:%B} {d.day} Prayer Call Notes (PDF)</a> <a class="btn ghost" href="/prayer-call-notes/">All call notes</a></p>
 {recap_nav}
