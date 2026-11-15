@@ -339,7 +339,7 @@ def page(path, title, desc, body, schema=None, og_type="website", crumb=None, he
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css?v=20261025-growth">
+<link rel="stylesheet" href="/assets/styles.css?v=20261115-quickwins">
 <script type="application/ld+json">{ld}</script>
 {head_extra}{analytics()}
 </head>
@@ -1204,61 +1204,185 @@ POSTS = [
         "hub": "restoration",
         "intent": "how-to",
         "title": "How to Fight for Your Marriage (Without Fighting Your Spouse)",
-        "seo_title": "How to Fight for Your Marriage: 5 Biblical Steps | Fight to Win Marriages",
-        "desc": "Fighting for your marriage means fighting the problem, not your spouse. Five biblical steps to stand together, pray and rebuild when your marriage is hurting.",
+        "seo_title": "How to Fight for Your Marriage: A Biblical Guide, Even Alone | Fight to Win Marriages",
+        "desc": "How to fight for your marriage God's way: 9 biblical steps, what to stop doing, how to fight when your spouse won't, and a 30-day plan to start today.",
         "date": "2026-10-19",
-        "excerpt": "Your spouse is not the enemy. Here's how to team up against the real battle and fight for your marriage God's way.",
+        "modified": "2026-11-15",
+        "excerpt": "Your spouse is not the enemy. Here's how to team up against the real battle and fight for your marriage God's way, even if you're fighting alone.",
         "body": """
 <p>When a marriage is hurting, it is easy to start keeping score. Who said what. Who started it. Who is more wrong. But winning an argument and winning your marriage are two very different things. Fighting for your marriage means you stop fighting each other and start fighting <em>for</em> each other.</p>
-<h2>1. Remember who the real enemy is</h2>
-<p>"For our struggle is not against flesh and blood" (Ephesians 6:12). Stress, exhaustion, old wounds and spiritual opposition all show up in the kitchen as an argument about the dishes. Name the real battle, and you can face it together.</p>
-<h2>2. Attack the problem, not the person</h2>
-<p>Street fighting has no rules: name-calling, bringing up the past, threatening divorce. Set ground rules together. Use "I feel" statements, keep conflict away from the children, and agree that either spouse can call a cool-off break when tempers rise.</p>
-<h2>3. Look for the win-win</h2>
-<p>If one of you wins and the other loses, the marriage loses. Ask, "What would a good outcome look like for both of us?" Real resolution takes listening, yielding and humility from both sides.</p>
-<h2>4. Pray for your spouse, not just about them</h2>
-<p>It is hard to stay bitter toward someone you are praying blessing over. Pray for your spouse's heart, health, purpose and walk with God. Then pray for your own heart to soften.</p>
-<h2>5. Don't fight alone</h2>
-<p>Couples who make it through hard seasons rarely do it in isolation. Invite prayer partners, a coach or a trusted pastor into the battle. That is exactly why Terrie hosts the <a href="/tuesday-prayer-call/">Tuesday marriage prayer and fasting call</a>.</p>
-<p>Going through a hard season right now? Read <a href="/blog/good-bad-ugly-seasons-of-marriage/">The Good, the Bad and the Ugly Seasons of Marriage</a> and remember that God is still writing your story. Worn out from trying? Read [[/blog/tired-of-fighting-for-my-marriage/|Tired of Fighting for Your Marriage? How Not to Grow Weary]].</p>
-<h2>Ready for help?</h2>
-<p>If your marriage needs more than a few tips, <a href="/marriage-coaching/">Christian marriage coaching</a> gives you a plan and a coach in your corner.</p>
+<p><strong>The short answer:</strong> to fight for your marriage, name the real enemy (it isn't your spouse), change your own part first, pray for your spouse daily, set rules for how you handle conflict, and refuse to fight alone. If your spouse isn't fighting with you right now, you can still stand, and many marriages are restored because one spouse refused to give up.</p>
+
+<h2>Why we call it a fight</h2>
+<p>Fight to Win Marriages started in a crisis. When Terrie Beeman's husband told her he wanted out, she did what most of us would do. She argued, she pleaded and she tried to fix him. Then the Holy Spirit showed her that what she was facing was a spiritual battle, and that her husband was not the enemy. That changed how she fought. She stood for her marriage for 365 days, and God restored it. Today she and her husband have been married 34 years. <a href="/about/">Read Terrie's story</a>.</p>
+<p>The ministry is built on two verses:</p>
+<blockquote class="verse">"For we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places."<cite>Ephesians 6:12 (KJV)</cite></blockquote>
+<blockquote class="verse">"For the weapons of our warfare are not carnal, but mighty through God to the pulling down of strong holds."<cite>2 Corinthians 10:4 (KJV)</cite></blockquote>
+<p>Fighting <em>for</em> your marriage means fighting the right enemy with the right weapons. Here's what that looks like in everyday life.</p>
+
+<h2>How to fight for your marriage: 9 biblical steps</h2>
+
+<h3>1. Remember who the real enemy is</h3>
+<p>Stress, exhaustion, old wounds, temptation and spiritual opposition all show up in the kitchen as an argument about the dishes. When you name the real battle, you can face it together instead of facing each other. Next time tension rises, ask yourself: "What are we actually fighting about, and who benefits if we turn on each other?"</p>
+
+<h3>2. Start with your own heart</h3>
+<p>You can't change your spouse. You can let God change you. Pray Psalm 139:23-24: "Search me, O God, and know my heart." Ask Him to show you any pride, resentment, bitterness or unforgiveness you're carrying. This isn't taking the blame for your spouse's choices. It's taking responsibility for the part you control. For a guided version, take the [[/blog/is-my-marriage-worth-saving/|spiritual heart check]].</p>
+
+<h3>3. Attack the problem, not the person</h3>
+<p>Street fighting has no rules: name-calling, bringing up the past, threatening divorce. Fighting fair does. Agree on a few ground rules, even if you have to keep them alone for a while:</p>
+<ul class="checks">
+<li>Use "I feel" statements instead of "You always" accusations.</li>
+<li>Stay on one issue at a time.</li>
+<li>Never threaten divorce in an argument.</li>
+<li>Keep conflict away from the children.</li>
+<li>Either of you can call a 20-minute cool-off break, as long as you come back to the conversation.</li>
+</ul>
+
+<h3>4. Look for the win-win</h3>
+<p>If one of you wins and the other loses, the marriage loses. Ask, "What would a good outcome look like for both of us?" Real resolution takes listening, yielding and humility from both sides. "Let nothing be done through strife or vainglory; but in lowliness of mind let each esteem other better than themselves" (Philippians 2:3).</p>
+
+<h3>5. Pray for your spouse, not just about them</h3>
+<p>It is hard to stay bitter toward someone you are praying blessing over. Pray for your spouse's heart, health, purpose and walk with God every day. Then pray for your own heart to soften. If you don't know what to say, start with our [[/prayers-for-marriage/|prayers for your marriage]] or the [[/blog/spiritual-warfare-prayer-for-marriage/|spiritual warfare prayer for marriage]].</p>
+
+<h3>6. Add fasting to your prayers</h3>
+<p>Some breakthroughs come through prayer and fasting. Fasting doesn't earn God's favor or force your spouse to change. It quiets everything else so you can hear God, and it says, "Lord, this matters more to me than food." Start simple with one meal or one day. Read [[/blog/praying-and-fasting-for-your-marriage/|Praying and Fasting for Your Marriage]] for a step-by-step guide.</p>
+
+<h3>7. Guard your words</h3>
+<p>"Death and life are in the power of the tongue" (Proverbs 18:21). Stop rehearsing your spouse's failures to friends, family and social media. Speak life over your spouse, even when they aren't in the room. What you say about your marriage shapes how you see it.</p>
+
+<h3>8. Guard the gates of your home</h3>
+<p>Be careful about what you watch, who you take advice from, and what you let into your home and your heart. Friends who say "just leave him" or "you deserve better" may love you, but they aren't fighting for your marriage. Surround yourself with people who will pray with you.</p>
+
+<h3>9. Don't fight alone</h3>
+<p>Couples who make it through hard seasons rarely do it in isolation. Invite prayer partners, a coach or a trusted pastor into the battle. That's exactly why Terrie hosts the free [[/tuesday-prayer-call/|Tuesday marriage prayer and fasting call]] on Zoom every Tuesday at 6:00 PM CT.</p>
+
+<h2>What to stop doing right now</h2>
+<p>Fighting for your marriage is as much about what you stop as what you start:</p>
+<ul>
+<li><strong>Stop chasing and pleading.</strong> Begging usually pushes a withdrawn spouse further away.</li>
+<li><strong>Stop investigating every move.</strong> Get the truth you need, then hand the rest to God.</li>
+<li><strong>Stop keeping score.</strong> A ledger of wrongs leaves no room for grace (1 Corinthians 13:5).</li>
+<li><strong>Stop making permanent decisions on your worst day.</strong> Pain is a poor counselor.</li>
+<li><strong>Stop neglecting yourself.</strong> Eat, sleep, see friends and stay close to God. A worn-out soldier can't stand.</li>
+</ul>
+
+<h2>How to fight for your marriage when your spouse won't</h2>
+<p>Sometimes only one of you is fighting. Your spouse may have checked out, moved out, or said they want a divorce. You can't force someone to stay, but you can still stand:</p>
+<ul class="checks">
+<li><strong>Change the atmosphere, not your spouse.</strong> Be kind, calm and consistent. Let your spouse see the change instead of hearing about it.</li>
+<li><strong>Give space without giving up.</strong> Stop pushing for big talks. Keep praying in private.</li>
+<li><strong>Get support for yourself.</strong> [[/marriage-coaching/|Christian marriage coaching]] works even if your spouse won't join.</li>
+<li><strong>Keep your hope in God, not in a timeline.</strong> Terrie stood for a full year before she saw her husband come home.</li>
+</ul>
+<p>For a full guide, read [[/save-my-marriage-alone/|How to Save Your Marriage Alone]]. If your spouse has asked for a divorce, read [[/blog/husband-wants-divorce-i-dont/|My Husband Wants a Divorce and I Don't]] or [[/blog/wife-wants-divorce-i-dont/|My Wife Wants a Divorce and I Don't]].</p>
+
+<h2>Fighting for your marriage after an affair</h2>
+<p>Infidelity changes the fight. You need the truth, time to heal and real repentance from your spouse before trust can grow back. Forgiveness is a choice you make. Trust is something your spouse has to rebuild over time. Start with our [[/healing-after-infidelity/|healing after infidelity]] guide and [[/blog/can-a-marriage-survive-infidelity/|Can a Marriage Survive Infidelity?]].</p>
+
+<h2>Your first 30 days</h2>
+<ol>
+<li><strong>Week 1, get quiet.</strong> Pray daily for your spouse and yourself. Take the [[/marriage-quiz/|"is my marriage worth saving" quiz]] to see where you are.</li>
+<li><strong>Week 2, look inward.</strong> Work through the heart check. Write down one thing God is asking you to change, and start.</li>
+<li><strong>Week 3, fast and stand with others.</strong> Choose a simple fast and join the Tuesday prayer call.</li>
+<li><strong>Week 4, get a plan.</strong> Schedule a confidential talk with a Christian marriage coach and decide your next steps with wise counsel.</li>
+</ol>
+
+<h2>When fighting for your marriage isn't safe</h2>
+<p>Standing for your marriage never means staying in danger. If your spouse hits, threatens, controls or frightens you, your first fight is for your safety and your children's. Read [[/blog/when-standing-isnt-safe/|When Standing Isn't Safe]], and call 911 or the National Domestic Violence Hotline at <a href="tel:18007997233">1-800-799-7233</a> if you're in danger.</p>
+
+<h2>Keep going</h2>
+<p>Going through a hard season right now? Read <a href="/blog/good-bad-ugly-seasons-of-marriage/">The Good, the Bad and the Ugly Seasons of Marriage</a> and remember that God is still writing your story. Worn out from trying? Read [[/blog/tired-of-fighting-for-my-marriage/|Tired of Fighting for Your Marriage? How Not to Grow Weary]]. If your marriage needs more than a few tips, <a href="/marriage-coaching/">Christian marriage coaching</a> gives you a plan and a coach in your corner.</p>
 """,
+        "faqs": [
+            ("How do you fight for your marriage biblically?", "Remember that your spouse is not the enemy (Ephesians 6:12), let God search your own heart first, pray and fast for your spouse, set fair rules for conflict, guard your words, and invite godly support instead of fighting alone."),
+            ("Can I fight for my marriage if my spouse has given up?", "Yes. Many marriages are restored because one spouse kept standing. Focus on what you can control: your heart, your words, your prayers and your support. Give your spouse space without giving up, and get coaching for yourself."),
+            ("How long should I fight for my marriage?", "There is no set timeline. Terrie Beeman stood for her marriage for 365 days before it was restored. Seek God and wise counsel about your situation, and never stay in a place where you or your children are unsafe."),
+            ("What should I stop doing when fighting for my marriage?", "Stop pleading and chasing, stop investigating every move, stop keeping score, stop venting about your spouse to everyone, and stop making permanent decisions on your worst days."),
+            ("Is fighting for your marriage the same as staying in an abusive one?", "No. Fighting for your marriage never means accepting abuse. If you are afraid of your spouse, safety comes first. Call 911 or the National Domestic Violence Hotline at 1-800-799-7233."),
+        ],
     },
     {
         "slug": "praying-and-fasting-for-your-marriage",
         "hub": "prayers",
         "intent": "faith",
         "title": "Praying and Fasting for Your Marriage: A Simple Guide",
-        "seo_title": "Praying and Fasting for Your Marriage: A Simple Guide | Fight to Win Marriages",
-        "desc": "A practical guide to praying and fasting for your marriage: how to start, what to pray, Scriptures to stand on, and how to fast safely and with purpose.",
+        "seo_title": "Praying and Fasting for Your Marriage: 7-Day Guide | Fight to Win Marriages",
+        "desc": "How to fast and pray for your marriage: types of fasts, how long to fast, what to pray each day for 7 days, Scriptures to stand on, and how to fast safely.",
         "date": "2026-10-19",
-        "excerpt": "Some breakthroughs only come through prayer and fasting. Here's how to start, what to pray, and Scriptures to stand on.",
+        "modified": "2026-11-15",
+        "excerpt": "Some breakthroughs only come through prayer and fasting. Here's how to start, what to pray each day, and Scriptures to stand on.",
         "body": """
 <p>Prayer invites God into your marriage. Fasting quiets everything else so you can hear Him. Together they are one of the most powerful things a spouse can do when a marriage needs a breakthrough.</p>
+<p><strong>The short answer:</strong> to fast for your marriage, choose a fast you can keep (one meal, one day, or a daily fast for a set number of days), write down what you're believing God for, and spend the time you would have spent eating in prayer and Scripture. Start small, stay consistent, and talk to your doctor first if you have a health condition.</p>
+
 <h2>Why fast for your marriage?</h2>
-<p>Fasting is not a way to earn God's favor or force your spouse to change. It humbles your heart, sharpens your focus and says, "Lord, this matters more to me than food." Jesus said some things come out "only by prayer and fasting."</p>
+<p>Fasting is not a way to earn God's favor or force your spouse to change. It humbles your heart, sharpens your focus and says, "Lord, this matters more to me than food." When the disciples couldn't break through, Jesus told them, "This kind goeth not out but by prayer and fasting" (Matthew 17:21, KJV).</p>
+<p>All through Scripture, God's people fasted when they faced something too big for them. Esther fasted before she risked her life for her people (Esther 4:16). Nehemiah fasted when he heard Jerusalem's walls were broken down (Nehemiah 1:4). Daniel fasted to seek understanding (Daniel 10:2-3). A marriage in crisis is that kind of moment.</p>
+<p>Fasting for your marriage also changes <em>you</em>. Many spouses find that God uses a fast to soften their own heart, show them their part, and give them peace while they wait.</p>
+
+<h2>Types of fasts you can choose</h2>
+<ul class="checks">
+<li><strong>A meal fast.</strong> Skip one meal a day (often lunch) and pray during that time. This is the best place to start.</li>
+<li><strong>A sunup-to-sundown fast.</strong> No food from morning until evening, with water. Many people do this once a week.</li>
+<li><strong>A Daniel fast.</strong> Vegetables, fruit, whole grains and water only, for a set number of days (Daniel 1:12, Daniel 10:3).</li>
+<li><strong>A 24-hour fast.</strong> From dinner one day to dinner the next. Only for people in good health.</li>
+<li><strong>A non-food fast.</strong> Give up social media, TV, shopping or another daily habit and use that time to pray. A good choice if you can't fast from food.</li>
+</ul>
+
+<h2>How long should you fast for your marriage?</h2>
+<p>There's no required length. Choose something you can keep with a willing heart rather than something extreme you'll quit on day two. Common choices are one day a week, three days (like Esther), seven days, or 21 days (like Daniel). Terrie Beeman fasts and prays for marriages every Tuesday, and many people who join the Tuesday call fast with her that day.</p>
+
 <h2>How to start</h2>
 <ul>
-<li><strong>Choose a simple fast.</strong> Skip one meal, fast from sunup to sundown, or give up something like social media or TV for the day.</li>
+<li><strong>Choose your fast and your length</strong> before you begin.</li>
 <li><strong>Set a clear focus.</strong> Write down what you are believing God for in your marriage.</li>
 <li><strong>Replace the meal with prayer.</strong> Use the time you would spend eating to pray and read Scripture.</li>
-<li><strong>Be wise.</strong> If you are pregnant, nursing, diabetic or on medication, talk to your doctor first and choose a non-food fast.</li>
+<li><strong>Keep it private.</strong> Jesus said to fast without drawing attention to it (Matthew 6:16-18). You don't need to announce it to your spouse.</li>
+<li><strong>Be wise.</strong> If you are pregnant, nursing, diabetic, have a history of eating disorders or take medication, talk to your doctor first and choose a non-food fast.</li>
 </ul>
-<h2>What to pray</h2>
-<ul>
-<li>For unity and a soft heart in both of you.</li>
-<li>For healing of past wounds and broken trust.</li>
-<li>For protection over your home, children and covenant.</li>
-<li>For wisdom to know your part, and grace to do it.</li>
-</ul>
+
+<h2>What to pray: a 7-day guide</h2>
+<p>Use one focus a day for a 7-day fast, or one a week if you fast weekly.</p>
+<ol>
+<li><strong>Day 1, surrender.</strong> Give your marriage, your spouse and your timeline to God. Pray Proverbs 3:5-6.</li>
+<li><strong>Day 2, your own heart.</strong> Ask God to search you and show you any pride, bitterness or unforgiveness. Pray Psalm 139:23-24.</li>
+<li><strong>Day 3, your spouse's heart.</strong> Pray for your spouse to draw close to God and for a soft, open heart. Pray Ezekiel 36:26.</li>
+<li><strong>Day 4, truth and freedom.</strong> Pray that every lie, deception and secret will be exposed and that your spouse will be free. Pray John 8:32 and 2 Timothy 2:25-26.</li>
+<li><strong>Day 5, healing.</strong> Pray for healing of past wounds and broken trust in both of you. Pray Psalm 147:3.</li>
+<li><strong>Day 6, protection.</strong> Pray over your home, your children and your covenant. Pray Ephesians 6:10-18.</li>
+<li><strong>Day 7, unity and hope.</strong> Thank God for what He's doing, even what you can't see yet. Pray Ecclesiastes 4:12 and Isaiah 43:19.</li>
+</ol>
+
+<h2>A prayer to pray while you fast</h2>
+<blockquote class="verse">"Father, I set this time apart for You and for my marriage. As I deny my body, quiet my heart so I can hear You. Search me and show me my part. Soften my spouse's heart and draw them close to You. Break every chain of deception, bitterness and division over our home. Heal what has been wounded and restore what has been stolen. Give me patience while I wait and peace that guards my heart. I trust You with my marriage. In Jesus' name, amen."</blockquote>
+<p>For more prayers, see our [[/prayers-for-marriage/|prayers for your marriage]], the [[/blog/prayer-for-husband-who-left/|prayer for a husband who left]] and the [[/blog/prayer-for-wife-who-left/|prayer for a wife who left]].</p>
+
 <h2>Scriptures to stand on</h2>
-<p>Mark 10:9. Ecclesiastes 4:12. Ephesians 4:31-32. 1 Corinthians 13:4-7. Matthew 18:19.</p>
+<ul class="checks">
+<li><strong>Mark 10:9</strong>: what God has joined together, let no one separate.</li>
+<li><strong>Ecclesiastes 4:12</strong>: a cord of three strands is not quickly broken.</li>
+<li><strong>Isaiah 58:6</strong>: the fast God chooses loosens the bands of wickedness.</li>
+<li><strong>Ephesians 4:31-32</strong>: put away bitterness and be kind, forgiving one another.</li>
+<li><strong>1 Corinthians 13:4-7</strong>: love bears all things, hopes all things, endures all things.</li>
+<li><strong>Matthew 18:19</strong>: when two agree in prayer, it will be done.</li>
+<li><strong>Galatians 6:9</strong>: don't grow weary in doing good.</li>
+</ul>
+
+<h2>What to expect while you fast</h2>
+<p>Hunger, irritability and tiredness are normal, especially in the first days. Drink plenty of water. Expect God to work on your heart first, and don't measure the fast by whether your spouse changes that week. Many answers come after the fast is over. If you feel dizzy or unwell, stop and eat.</p>
+
 <h2>Pray with authority</h2>
 <p>Fasting is a powerful time to break old patterns in prayer. Use these <a href="/blog/break-generational-curses-marriage-prayer/">declarations to break generational curses off your marriage</a> as part of your fast.</p>
 <h2>You don't have to fast alone</h2>
 <p>Every Tuesday, Terrie Beeman prays and fasts for marriages and leads a live <a href="/tuesday-prayer-call/">marriage prayer call on Zoom</a>. Join her and stand with other couples who are believing God.</p>
 """,
+        "faqs": [
+            ("How do I fast and pray for my marriage?", "Choose a fast you can keep, such as skipping one meal or fasting sunup to sundown. Write down what you are believing God for, and use the time you would spend eating to pray and read Scripture over your marriage."),
+            ("How long should I fast for my marriage?", "There is no required length. Many people fast one day a week, three days like Esther, seven days, or 21 days like Daniel. Choose something you can keep with a willing heart."),
+            ("Does fasting for your marriage work?", "Fasting doesn't force your spouse to change or earn God's favor. It humbles your heart, sharpens your focus on God and invites Him to work. Many spouses find God changes them first during a fast."),
+            ("What should I pray while fasting for my marriage?", "Pray for surrender, for God to search your own heart, for your spouse's heart to soften, for truth and freedom, for healing, for protection over your home, and for unity and hope."),
+            ("Can I fast for my marriage if I have a health condition?", "Talk to your doctor first. If you are pregnant, nursing, diabetic or on medication, choose a non-food fast such as giving up social media or TV and spending that time in prayer."),
+        ],
     },
     {
         "slug": "signs-your-marriage-needs-a-coach",
@@ -1390,10 +1514,18 @@ def _quiz_answer(t, k):
 quiz_json = json.dumps([{"q": q, "a": [_quiz_answer(t, k) for t, k in answers]} for q, answers in QUIZ_QUESTIONS])
 HUSBANDS_HUB = HUB_BY_KEY["husbands"]
 hub_json = json.dumps({h["key"]: {"name": h["name"], "url": f"/{h['slug']}/", "text": h["tile_text"]} for h in HUBS})
+quiz_faq = [
+    ("Is there a quiz to tell if my marriage is worth saving?", "Yes. This free Christian marriage quiz has eight questions and takes about two minutes. It won't decide for you, but it gives you an instant result that points you to the right next step, whether that is healing after infidelity, standing alone, restoration or prayer."),
+    ("Can a quiz tell me if my marriage can be saved?", "No quiz can predict what God will do or what your spouse will choose. What a good quiz can do is help you see your situation clearly and find the right kind of help. Use your result as a starting point, then pray and talk with someone you trust."),
+    ("Is this marriage quiz for husbands too?", "Yes. The first question asks whether a wife or a husband is taking it, and the wording and results adjust for husbands."),
+    ("Are my quiz answers saved or shared?", "No. Your answers stay in your browser and are not stored. You don't need to give an email address to see your result."),
+    ("What if I don't feel safe at home?", "If you are afraid of your spouse, safety comes before saving the marriage. Call 911 in an emergency or the National Domestic Violence Hotline at 1-800-799-7233. The quiz shows safety resources if you say home isn't safe."),
+    ("What should I do after I take the quiz?", "Read the guide your result points to, join the free Tuesday marriage prayer call on Zoom, or schedule a confidential talk with Terrie Beeman, a Christian marriage coach whose own marriage was restored."),
+]
 quiz_page = f'''
 <section class="page-hero"><div class="wrap narrow">
-<p class="eyebrow">Free 2-minute quiz</p><h1>Is my marriage worth saving? A free Christian marriage quiz</h1>
-<p class="lead">Wondering if your marriage can be saved? Answer eight questions, with no judgment. The quiz won't decide for you, but it will point you to the guide that fits your situation. Your answers are not stored.</p>
+<p class="eyebrow">Free 2-minute quiz &middot; Instant result</p><h1>Is my marriage worth saving? A free Christian marriage quiz</h1>
+<p class="lead">Wondering if your marriage can be saved? Answer eight questions, with no judgment. You'll get an instant result that points you to the guide that fits your situation. For wives and husbands. No email needed, and your answers are not stored.</p>
 </div></section>
 <section class="section"><div class="wrap narrow">
 <div id="quiz" class="card quiz" aria-live="polite"><noscript><p>This quiz needs JavaScript. You can <a href="/get-help/">browse all guides</a> instead.</p></noscript></div>
@@ -1404,6 +1536,25 @@ quiz_page = f'''
 <p id="quiz-more" hidden>Also for you: <a href="/{HUSBANDS_HUB["slug"]}/">{html.escape(HUSBANDS_HUB["name"])}</a></p>
 </div>
 </div></section>
+<section class="section alt"><div class="wrap narrow prose">
+<h2>What this marriage quiz looks at</h2>
+<p>Most "can my marriage be saved" quizzes score how happy you feel. This one asks what is actually happening and where you are spiritually, because those answers decide what will help. The eight questions cover:</p>
+<ul class="checks">
+<li><strong>What's happening right now:</strong> an affair, a spouse who wants out, constant fighting, or quiet loneliness.</li>
+<li><strong>Willingness:</strong> whether both of you, one of you, or neither of you wants to keep trying.</li>
+<li><strong>Your prayer life:</strong> whether you're praying daily, can't find the words, or are angry at God.</li>
+<li><strong>Safety:</strong> whether home is safe. If it isn't, your result says so first.</li>
+<li><strong>Support:</strong> whether anyone else knows what you're carrying.</li>
+<li><strong>Hope:</strong> what you'd want God to change if He restored your marriage.</li>
+</ul>
+<h2>Your possible results</h2>
+<p>Each result is a starting point, not a verdict on your marriage:</p>
+<ul>{"".join(f'<li><a href="/{h["slug"]}/"><strong>{html.escape(h["name"])}</strong></a>: {html.escape(h["tile_text"])}</li>' for h in HUBS)}</ul>
+<h2>Can my marriage be saved?</h2>
+<p>Often, yes, more often than it feels like right now. A marriage usually has real hope when at least one spouse is willing to put God back at the center, look honestly at their own part and get help, and when home is safe. Repeated fights, distance and even betrayal are signs a marriage needs care. They are not proof that it's over. Terrie Beeman's husband told her he wanted out, and she stood alone for 365 days before God restored their marriage.</p>
+<p>For a deeper look, read <a href="/blog/is-my-marriage-worth-saving/">Is My Marriage Worth Saving? A Spiritual Heart Check Before You Decide</a>. If you're the only one still trying, start with <a href="/save-my-marriage-alone/">how to save your marriage alone</a>.</p>
+</div></section>
+{faq_html(quiz_faq, "Marriage quiz FAQ")}
 <script>
 const Q={quiz_json},H={hub_json};let i=0,role=null;const tally={{}};let unsafe=false;
 const box=document.getElementById('quiz');
@@ -1413,9 +1564,9 @@ function done(){{let best=role==='husband'?'husbands':'wives',n=-1;for(const k i
 show();
 </script>
 '''
-page(QUIZ_URL, "Is My Marriage Worth Saving? Free Christian Marriage Quiz | Fight to Win Marriages",
-     "Is my marriage worth saving? Take a free 2-minute Christian marriage quiz and find your next step: infidelity, standing alone, restoration or prayer.",
-     quiz_page, crumb=[("/", "Home"), (QUIZ_URL, "Marriage Quiz")])
+page(QUIZ_URL, "Is My Marriage Worth Saving Quiz (Free, 2 Minutes) | Fight to Win Marriages",
+     "Take the free \"is my marriage worth saving\" quiz: 8 questions, 2 minutes, instant result. A Christian quiz for wives and husbands asking if their marriage can be saved.",
+     quiz_page, schema=[faq_schema(quiz_faq)], crumb=[("/", "Home"), (QUIZ_URL, "Marriage Quiz")])
 
 # ---------------------------------------------------------------- CALL RECAP PAGES (HTML versions of the weekly PDFs)
 for i, r in enumerate(CALL_RECAPS):
