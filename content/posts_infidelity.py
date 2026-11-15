@@ -162,13 +162,15 @@ POSTS = [
         "slug": "bible-divorce-adultery",
         "title": "Does the Bible Allow Divorce for Adultery? (Matthew 19:9 Explained)",
         "seo_title": "Does the Bible Allow Divorce for Adultery? Matthew 19:9 | Fight to Win Marriages",
-        "desc": "What Jesus said about divorce and adultery in Matthew 19:9, what it does and doesn't mean, and how Christian wives can pray through the choice with wisdom.",
+        "desc": "Can you divorce for adultery in the Bible? What Jesus said in Matthew 19:9, 12 Bible verses about adultery and divorce, remarriage, and how to pray through the choice.",
         "date": "2026-10-25",
+        "modified": "2026-11-15",
         "hub": "infidelity",
         "intent": "informational",
         "excerpt": "Jesus named sexual immorality as grounds for divorce, and He never commanded it. Here's what that means for your decision.",
         "body": """
-<p>When a husband cheats, many Christian wives ask the same thing: <em>Am I allowed to divorce him? And if I stay, am I foolish?</em> Scripture speaks to both questions, and it gives more freedom and more hope than many women expect.</p>
+<p>When a husband cheats, many Christian wives ask the same thing: <em>Am I allowed to divorce him? And if I stay, am I foolish?</em> Husbands whose wives have been unfaithful ask it too. Scripture speaks to both questions, and it gives more freedom and more hope than many people expect.</p>
+<p><strong>The short answer:</strong> yes. In Matthew 19:9 and Matthew 5:32, Jesus named sexual immorality as the one exception that allows a betrayed spouse to divorce without sin. But permission is not a command. Scripture also shows that forgiveness and restoration are possible when there is real repentance, and many couples rebuild after an affair. The choice is one to make prayerfully, with godly counsel, not in the first days of shock.</p>
 
 <h2>What Jesus said</h2>
 <blockquote class="verse">"And I say unto you, Whosoever shall put away his wife, except it be for fornication, and shall marry another, committeth adultery."<cite>Matthew 19:9 (KJV)</cite></blockquote>
@@ -177,6 +179,35 @@ POSTS = [
 <h2>Permitted is not commanded</h2>
 <p>In the same conversation, Jesus explained that Moses allowed divorce "because of the hardness of your hearts" (Matthew 19:8). Divorce after adultery is permitted. It is never required. Many believers choose to forgive and rebuild when there is true repentance, and that is just as biblical.</p>
 
+<h2>Bible verses about adultery and divorce</h2>
+<p>These are the main passages Christians look to when adultery and divorce come up. Read each one in context, and talk with your pastor about how your church understands them.</p>
+<div class="table-scroll"><table>
+<thead><tr><th scope="col">Verse</th><th scope="col">What it says</th></tr></thead>
+<tbody>
+<tr><td><strong>Exodus 20:14</strong></td><td>"Thou shalt not commit adultery." Faithfulness is one of the Ten Commandments.</td></tr>
+<tr><td><strong>Deuteronomy 24:1-4</strong></td><td>Moses allowed a written certificate of divorce. Jesus later explained why (Matthew 19:8).</td></tr>
+<tr><td><strong>Malachi 2:14-16</strong></td><td>God is witness to the marriage covenant and hates the treachery of breaking it.</td></tr>
+<tr><td><strong>Jeremiah 3:8</strong></td><td>God describes giving unfaithful Israel a bill of divorce, showing that adultery breaks covenant.</td></tr>
+<tr><td><strong>Hosea 3:1</strong></td><td>God tells Hosea to love his unfaithful wife again, a picture of God's redeeming love.</td></tr>
+<tr><td><strong>Matthew 5:31-32</strong></td><td>Jesus says divorce causes adultery "saving for the cause of fornication."</td></tr>
+<tr><td><strong>Matthew 19:3-9</strong></td><td>Jesus points back to "one flesh," then names sexual immorality as the exception.</td></tr>
+<tr><td><strong>Mark 10:2-12</strong></td><td>"What therefore God hath joined together, let not man put asunder." Mark records no exception.</td></tr>
+<tr><td><strong>Luke 16:18</strong></td><td>Divorcing and marrying another is called adultery.</td></tr>
+<tr><td><strong>John 8:3-11</strong></td><td>Jesus forgives a woman caught in adultery and tells her, "go, and sin no more."</td></tr>
+<tr><td><strong>1 Corinthians 7:10-15</strong></td><td>Paul urges spouses not to separate, or to be reconciled, and frees a believer whose unbelieving spouse leaves.</td></tr>
+<tr><td><strong>Hebrews 13:4</strong></td><td>"Marriage is honourable in all, and the bed undefiled." God takes faithfulness seriously.</td></tr>
+</tbody>
+</table></div>
+
+<h2>What about Mark and Luke, which give no exception?</h2>
+<p>Mark 10 and Luke 16 record Jesus' teaching on divorce without the "except for sexual immorality" clause. Most Bible teachers read the Gospels together: Mark and Luke give the general rule, and Matthew, writing for a Jewish audience familiar with the debate over Deuteronomy 24, records the exception. Some traditions read the exception more narrowly. That's one reason it matters to talk with your own pastor.</p>
+
+<h2>What 1 Corinthians 7 adds</h2>
+<p>Paul writes that a wife should not depart from her husband, "but and if she depart, let her remain unmarried, or be reconciled to her husband" (1 Corinthians 7:10-11). He also says that if an unbelieving spouse leaves, "a brother or a sister is not under bondage in such cases" (7:15). Paul's first hope is reconciliation, but he recognizes that you can't control a spouse who chooses to go.</p>
+
+<h2>Is remarriage after divorce adultery?</h2>
+<p>This is one of the most debated questions in the church. Many Christians understand Matthew 19:9 to mean that a spouse who divorces because of a partner's adultery is free to remarry. Others believe remarriage should wait or be avoided while reconciliation is still possible. Scripture is clear that God forgives, and that no one is beyond His grace. If you're facing this question, sit down with a pastor who knows your story.</p>
+
 <h2>Other passages to know</h2>
 <ul class="checks">
 <li><strong>Malachi 2:16.</strong> God's heart grieves over broken covenants.</li>
@@ -184,6 +215,9 @@ POSTS = [
 <li><strong>Hosea.</strong> A prophet pursues an unfaithful wife as a picture of God's covenant love.</li>
 </ul>
 <p>Christians and churches differ on how they apply these passages. Talk with your pastor about how your church understands them.</p>
+
+<h2>If you choose to fight for your marriage</h2>
+<p>Choosing to stay after adultery doesn't mean pretending it didn't happen. Restoration needs the affair to end completely, honest answers, real repentance and time. Forgiveness is a choice you make. Trust has to be rebuilt by the spouse who broke it. Read [[/blog/can-a-marriage-survive-infidelity/|Can a Marriage Survive Infidelity?]], [[/blog/forgiveness-vs-trust-after-an-affair/|Forgiving After an Affair: Why Forgiveness Isn't Trust]] and [[/blog/rebuilding-trust-after-infidelity/|How to Rebuild Trust After Infidelity]].</p>
 
 <h2>Questions to pray through</h2>
 <ol>
@@ -205,6 +239,9 @@ POSTS = [
             ("Is divorce a sin if my husband cheated?", "According to Matthew 19:9, Jesus named sexual immorality as an exception, so divorce in that case is not sin for the betrayed spouse. Forgiving and rebuilding is also a faithful choice."),
             ("Does God want me to stay with a cheating husband?", "God values covenant and restoration, but Scripture does not require a betrayed spouse to stay. Pray, seek godly counsel, and look for genuine repentance and safety."),
             ("What does porneia mean in Matthew 19:9?", "Porneia is a broad Greek word for sexual immorality. Many scholars understand it to include adultery and other sexual sin outside marriage."),
+            ("Can you divorce for adultery in the Bible?", "Yes. In Matthew 5:32 and Matthew 19:9, Jesus named sexual immorality as the exception that allows a betrayed spouse to divorce. It is permitted, not commanded, and forgiveness with real repentance is also a biblical path."),
+            ("What Bible verses talk about adultery and divorce?", "Key passages include Exodus 20:14, Deuteronomy 24:1-4, Malachi 2:14-16, Jeremiah 3:8, Hosea 3:1, Matthew 5:31-32, Matthew 19:3-9, Mark 10:2-12, Luke 16:18, John 8:3-11, 1 Corinthians 7:10-15 and Hebrews 13:4."),
+            ("Is remarriage after divorce for adultery allowed?", "Many Christians read Matthew 19:9 as freeing a spouse who divorced because of a partner's adultery to remarry. Some traditions are more cautious. Talk with a pastor who knows your situation."),
         ],
     },
     {

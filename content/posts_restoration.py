@@ -111,8 +111,9 @@ POSTS = [
         "slug": "prayer-for-husband-who-left",
         "title": "A Prayer for My Husband When He Has Walked Away",
         "seo_title": "Prayer for a Husband Who Left: Prayers to Bring Him Home | Fight to Win Marriages",
-        "desc": "A heartfelt prayer for your husband when he has walked away from you, your marriage or God, plus Scriptures and guidance for praying while you wait.",
+        "desc": "Prayers for a husband who left: to bring him home, soften his heart, break off another relationship, and keep you strong, plus Scriptures to pray while you wait.",
         "date": "2026-10-27",
+        "modified": "2026-11-15",
         "hub": "prayers",
         "intent": "faith",
         "excerpt": "When he's gone and you don't know what to say to God, pray this.",
@@ -122,16 +123,46 @@ POSTS = [
 <h2>A prayer for my husband</h2>
 <blockquote class="verse">"Father, You know where my husband is right now. You know his thoughts and the battles he's facing that I can't see. I lift him up to You. Draw him close to You first, before he comes back to me. Open his eyes to truth. Break every lie he is believing about himself, about me and about our marriage. Surround him with godly voices and remove the influences that pull him away from You. Protect his mind, his body and his heart. Soften what has grown hard. And Lord, guard my heart too. Keep me from bitterness. Make me whole in You, whatever he chooses. I trust You with my husband and my marriage. In Jesus' name, amen."</blockquote>
 
+<h2>A prayer for my husband to come back home</h2>
+<blockquote class="verse">"Lord, You are the God who brings the prodigal home. I ask You to turn my husband's heart back toward You and back toward his family. Let him come to himself, like the son in Luke 15, and remember what he has walked away from. Make a way where there seems to be no way. Remove every barrier between us, and prepare my heart to receive him with grace and wisdom when he returns. Until then, I will stand. In Jesus' name, amen."</blockquote>
+
+<h2>A prayer for my husband's heart to soften</h2>
+<blockquote class="verse">"Father, You promised to take out the heart of stone and give a heart of flesh (Ezekiel 36:26). Where my husband's heart has grown cold, hard or numb, warm it again. Heal the wounds he hasn't told anyone about. Break through his pride, his anger and his fear. Let him feel Your love so deeply that he can receive love again. And Lord, don't let my own heart grow hard while I wait for his to soften. Amen."</blockquote>
+
+<h2>A prayer when he is with someone else</h2>
+<p>If another relationship is part of why he left, this is one of the hardest things to pray through. Bring your anger and grief honestly to God.</p>
+<blockquote class="verse">"Lord, You see everything that is hidden. Expose every lie and every deception surrounding my husband. Break every ungodly soul tie and every relationship that is pulling him away from You and from his covenant. Let what is built on sin crumble, and let him see it clearly. Give me the grace not to hate, and protect my heart from bitterness. Vengeance belongs to You, not to me. I release this to You. In Jesus' name, amen."</blockquote>
+<p>For help with the pain of betrayal, read [[/blog/husband-cheated-what-now/|My Husband Cheated, Now What?]] and our [[/healing-after-infidelity/|healing after infidelity]] guide.</p>
+
+<h2>A short morning and night prayer</h2>
+<p>Some days you won't have many words. Pray these when you wake up and before you sleep:</p>
+<blockquote class="verse"><strong>Morning:</strong> "Lord, wherever my husband is today, go before him. Guard his steps, guide his choices and speak to his heart. Keep me steady in You. Amen."</blockquote>
+<blockquote class="verse"><strong>Night:</strong> "Father, I give You my husband and my marriage tonight. I won't carry what only You can carry. Watch over him while he sleeps, and give me rest. Amen."</blockquote>
+
 <h2>Scriptures to pray over him</h2>
 <ul class="checks">
 <li><strong>Ezekiel 36:26</strong>: a new heart and a new spirit.</li>
 <li><strong>Luke 15:17-20</strong>: like the prodigal, may he "come to himself."</li>
 <li><strong>2 Timothy 2:25-26</strong>: that God may grant repentance and freedom from the snare.</li>
 <li><strong>Proverbs 21:1</strong>: the king's heart is in the hand of the Lord.</li>
+<li><strong>Jeremiah 24:7</strong>: "I will give them a heart to know me."</li>
+<li><strong>Hosea 2:14</strong>: God will allure and speak tenderly to the one who has wandered.</li>
+<li><strong>Psalm 32:8</strong>: the Lord will instruct him and teach him the way he should go.</li>
 </ul>
 
 <h2>Pray for yourself, too</h2>
 <p>Ask God for peace that guards your heart (Philippians 4:7), wisdom for practical decisions, and strength for single parenting days. Your healing matters regardless of his choices.</p>
+<blockquote class="verse">"Lord, while I wait, make me whole in You. Heal my rejection. Silence the voice that says I wasn't enough. Give me wisdom with money, the children and every conversation. Let my peace come from You, not from my husband's choices. Amen."</blockquote>
+
+<h2>How to pray while you wait</h2>
+<ul>
+<li><strong>Pray more than you talk.</strong> Spend more words on God than on pleading with your husband.</li>
+<li><strong>Write your prayers down.</strong> A prayer journal helps on the days you feel nothing is changing.</li>
+<li><strong>Add fasting.</strong> See [[/blog/praying-and-fasting-for-your-marriage/|Praying and Fasting for Your Marriage]].</li>
+<li><strong>Don't pray alone.</strong> Ask one or two trusted women to stand with you in prayer.</li>
+<li><strong>Stay safe.</strong> Praying for your husband never means accepting abuse or threats. Read [[/blog/when-standing-isnt-safe/|When Standing Isn't Safe]].</li>
+</ul>
+<p>Terrie Beeman prayed for her own husband for 365 days after he said he wanted out, and God restored their marriage. If your husband has checked out without leaving, read [[/blog/husband-checked-out-of-marriage/|Standing for Your Marriage When Your Husband Has Checked Out]].</p>
 
 <h2>Keep praying with others</h2>
 <p>Every Tuesday at 6:00 PM CT, women and couples pray together on Zoom. [[/tuesday-prayer-call/|Join the free Tuesday prayer call]] or submit a prayer request. For more prayers, see our [[/prayers-for-marriage/|prayers for your marriage]] page and [[/blog/husband-wants-divorce-i-dont/|My Husband Wants a Divorce and I Don't]].</p>
@@ -139,15 +170,18 @@ POSTS = [
         "faqs": [
             ("How do I pray for a husband who left?", "Pray for his relationship with God first, for truth to replace lies, for godly influences, for protection, and for a softened heart. Pray for your own healing as well."),
             ("Can prayer bring my husband back?", "Prayer invites God to work in ways you cannot. It doesn't control your husband's free will, but many wives have seen hearts change through persistent prayer."),
-            ("What Scripture should I pray for my prodigal husband?", "Luke 15:17-20, Ezekiel 36:26, 2 Timothy 2:25-26 and Proverbs 21:1 are good places to start."),
+            ("What Scripture should I pray for my prodigal husband?", "Luke 15:17-20, Ezekiel 36:26, 2 Timothy 2:25-26, Proverbs 21:1, Jeremiah 24:7 and Hosea 2:14 are good places to start."),
+            ("How do I pray when my husband left for another woman?", "Bring your hurt honestly to God. Pray for every lie and deception to be exposed, for ungodly ties to be broken, and for your husband to see clearly. Ask God to guard your heart from bitterness, and get support for yourself."),
+            ("How long should I pray for my husband to come home?", "There is no set timeline. Terrie Beeman prayed for 365 days before her marriage was restored. Keep praying for your husband and for your own healing, and seek wise counsel about practical decisions along the way."),
         ],
     },
     {
         "slug": "prayer-for-wife-who-left",
         "title": "A Prayer for My Wife When She Has Walked Away",
         "seo_title": "Prayer for a Wife Who Left: Prayers to Bring Her Home | Fight to Win Marriages",
-        "desc": "A heartfelt prayer for your wife when she has walked away from you, your marriage or God, plus Scriptures and guidance for praying while you wait.",
+        "desc": "How to pray for your wife to come back: prayers to bring her home, heal her hurt, soften her heart and change yours, plus Scriptures to pray while you wait.",
         "date": "2026-10-29",
+        "modified": "2026-11-15",
         "hub": "prayers",
         "intent": "faith",
         "excerpt": "When she's gone and you don't know what to say to God, pray this.",
@@ -157,24 +191,55 @@ POSTS = [
 <h2>A prayer for my wife</h2>
 <blockquote class="verse">"Father, You know where my wife is right now. You know her thoughts and the hurts she carries that I can't see. I lift her up to You. Draw her close to You first, before she comes back to me. Open her eyes to truth. Break every lie she is believing about herself, about me and about our marriage. Forgive me where I have wounded her, and show me where I need to change. Surround her with godly voices and remove the influences that pull her away from You. Protect her mind, her body and her heart. Soften what has grown hard. And Lord, guard my heart too. Keep me from bitterness and pride. Make me whole in You, whatever she chooses. I trust You with my wife and my marriage. In Jesus' name, amen."</blockquote>
 
+<h2>How do I pray for my wife to come back?</h2>
+<p>Many husbands search for a prayer that will bring their wife home quickly. Prayer isn't a formula, and it doesn't override her free will. But it does invite God to work where you can't, and it changes the man who prays. Pray in this order: for her relationship with God, for her healing, for your own heart and changes, and then for your marriage. When a wife leaves, it is often after years of feeling unheard or alone. Your prayers, and your changed life, speak louder than your arguments.</p>
+
+<h2>A prayer for my wife to come back home</h2>
+<blockquote class="verse">"Lord, You see my wife right now, and You know every reason she left, even the ones I don't understand yet. I ask You to turn her heart back toward You and back toward our family. Heal what drove her away. Where I failed to love her as Christ loves the church, forgive me and change me. Make our home a place she would want to return to. Remove every barrier between us, and prepare my heart to receive her with humility and patience. In Jesus' name, amen."</blockquote>
+
+<h2>A prayer for her healing</h2>
+<blockquote class="verse">"Father, You are close to the brokenhearted (Psalm 34:18). My wife is hurting in ways I may not see. Heal her wounds, whether I caused them or someone else did. Lift loneliness, exhaustion and disappointment off her. Restore her joy and her sense of worth in You. Surround her with friends who point her to You. Let her know she is deeply loved by You, whatever happens between us. Amen."</blockquote>
+
+<h2>A prayer to change me</h2>
+<p>This may be the most important prayer a husband can pray when his wife has left.</p>
+<blockquote class="verse">"Lord, search me and show me where I have been harsh, absent, proud or careless with my wife's heart (Psalm 139:23-24). Teach me to love her as Christ loved the church and gave Himself for her (Ephesians 5:25). Help me listen without defending myself. Show me what to change, and give me the strength to change it even if she isn't watching. Make me the husband and the man You created me to be. Amen."</blockquote>
+
+<h2>A short morning and night prayer</h2>
+<blockquote class="verse"><strong>Morning:</strong> "Lord, go before my wife today. Protect her, guide her and speak to her heart. Help me lead with love and patience today. Amen."</blockquote>
+<blockquote class="verse"><strong>Night:</strong> "Father, I give You my wife and my marriage tonight. Watch over her while she sleeps. Give me rest and keep me from bitterness. Amen."</blockquote>
+
 <h2>Scriptures to pray over her</h2>
 <ul class="checks">
 <li><strong>Ezekiel 36:26</strong>: a new heart and a new spirit.</li>
 <li><strong>Psalm 34:18</strong>: the Lord is close to the brokenhearted.</li>
+<li><strong>Psalm 147:3</strong>: He heals the brokenhearted and binds up their wounds.</li>
 <li><strong>2 Timothy 2:25-26</strong>: that God may grant repentance and freedom from the snare.</li>
 <li><strong>Proverbs 21:1</strong>: the king's heart is in the hand of the Lord.</li>
+<li><strong>Isaiah 61:3</strong>: beauty for ashes and the oil of joy for mourning.</li>
 </ul>
+<p>And one for you: <strong>Ephesians 5:25</strong>, "Husbands, love your wives, even as Christ also loved the church, and gave himself for it."</p>
 
 <h2>Pray for yourself, too</h2>
 <p>Ask God for peace that guards your heart (Philippians 4:7), humility to own your part, wisdom for practical decisions, and strength for the days ahead. Your healing matters regardless of her choices. If she has told you she wants a divorce, read [[/blog/wife-wants-divorce-i-dont/|My Wife Wants a Divorce and I Don't]] for what to stop, what to start and how to stand.</p>
+
+<h2>What to do while you pray</h2>
+<ul>
+<li><strong>Stop pressuring her.</strong> Long texts, pleading and showing up uninvited usually push a wife further away.</li>
+<li><strong>Let your change be seen, not announced.</strong> Consistent kindness speaks louder than promises.</li>
+<li><strong>Get help for yourself.</strong> A coach, pastor or Christian counselor can help you see what you can't see alone.</li>
+<li><strong>Add fasting.</strong> See [[/blog/praying-and-fasting-for-your-marriage/|Praying and Fasting for Your Marriage]].</li>
+<li><strong>Respect her safety and boundaries.</strong> If she left because she was afraid, honor the space she asked for and get help.</li>
+</ul>
 
 <h2>Keep praying with others</h2>
 <p>Every Tuesday at 6:00 PM CT, husbands, wives and couples pray together on Zoom. [[/tuesday-prayer-call/|Join the free Tuesday prayer call]] or submit a prayer request. For more prayers, see our [[/prayers-for-marriage/|prayers for your marriage]] page and [[/christian-marriage-advice-for-husbands/|Christian marriage advice for husbands]].</p>
 """,
         "faqs": [
             ("How do I pray for a wife who left?", "Pray for her relationship with God first, for truth to replace lies, for godly influences, for protection, and for a softened heart. Pray for your own healing and humility as well."),
+            ("How do I pray for my wife to come back?", "Pray for her relationship with God, for her healing, for your own heart and the changes God is asking you to make, and then for your marriage. Prayer doesn't override her free will, but it invites God to work and changes the husband who prays."),
             ("Can prayer bring my wife back?", "Prayer invites God to work in ways you cannot. It doesn't control your wife's free will, but many spouses have seen hearts change through persistent prayer."),
-            ("What Scripture should I pray for my wife?", "Ezekiel 36:26, Psalm 34:18, 2 Timothy 2:25-26 and Proverbs 21:1 are good places to start."),
+            ("What Scripture should I pray for my wife?", "Ezekiel 36:26, Psalm 34:18, Psalm 147:3, 2 Timothy 2:25-26, Proverbs 21:1 and Isaiah 61:3 are good places to start. Pray Ephesians 5:25 over yourself."),
+            ("What should a husband do while praying for his wife to return?", "Stop pressuring her, let your changes be seen rather than announced, get help for yourself, respect her boundaries, and pray consistently with others who will stand with you."),
         ],
     },
     {
@@ -223,6 +288,7 @@ POSTS = [
         "body": """
 <p>Most people don't ask "Is my marriage worth saving?" on a good day. They ask it after the same fight for the hundredth time, after a betrayal, or after months of silence in the same house. If that's where you are, take a breath. You don't have to answer that question tonight, and you don't have to answer it alone.</p>
 <p><strong>The short answer:</strong> a marriage is usually worth fighting for when at least one spouse is willing to put God back at the center, look honestly at their own heart and get help, and when home is safe. Exhaustion, distance and repeated fights are signs your marriage needs care, not proof that it's over. Abuse is different. If you are unsafe, safety comes first.</p>
+<p><strong>Looking for the quiz?</strong> Take the free [[/marriage-quiz/|"Is my marriage worth saving?" quiz]]: eight questions, two minutes, and an instant result that points you to your next step. Then come back here for the heart check behind it.</p>
 
 <h2>Start with a heart check, not a verdict</h2>
 <p>On the October 20 Tuesday prayer call, Terrie Beeman taught on a prayer that changes how you ask the question:</p>
