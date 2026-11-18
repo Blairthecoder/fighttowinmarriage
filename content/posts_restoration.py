@@ -410,4 +410,80 @@ POSTS = [
             ("Should I keep waiting if my marriage is unsafe?", "No. Waiting on God does not mean staying in danger. If you or your children are being abused, get to safety first and contact 911 or the National Domestic Violence Hotline at 1-800-799-7233."),
         ],
     },
+    {
+        "slug": "how-to-pray-for-someone-elses-marriage",
+        "title": "How to Pray for Someone Else's Marriage: A 7-Day Intercession Plan",
+        "seo_title": "How to Pray for Someone Else's Marriage (7-Day Plan)",
+        "desc": "Learn how to pray for another couple's marriage with compassion and confidentiality. A simple 7-day intercession plan, prayer points and Scriptures to use.",
+        "date": "2026-11-18",
+        "hub": "prayers",
+        "intent": "faith",
+        "excerpt": "You don't need a perfect marriage to stand in the gap for another couple. Here is a simple, confidential 7-day plan for praying for someone else's marriage.",
+        "body": """
+<p>Most of us pray for our own marriage first, and that is where we should start. But what if one of the ways God strengthens your marriage is by sending you to pray for someone else's? You do not need every answer, a spotless home or a title in ministry to do it. You need a willing heart and a little discipline.</p>
+<p>On the November 17 Tuesday prayer call, Terrie Beeman encouraged participants to carry another couple's burden through focused prayer, using Galatians 6:2. This article turns those themes into a practical plan you can start today. You can also <a href="/prayer-call-notes/2026-11-17-fight-for-someone-elses-marriage/">read the November 17 Prayer Call Notes</a> or <a href="/assets/notes/fight-to-win-marriages-prayer-call-notes-2026-11-17.pdf" download>download the PDF handout</a>.</p>
+<p><strong>The short answer:</strong> to pray for someone else's marriage, choose one couple, pray for them daily for a week, keep what you know confidential, and ask God to heal, protect and draw each spouse closer to Him. Prayer is a gift to a couple, not a substitute for safety, counseling or wise help.</p>
+
+<h2>Why pray for another couple's marriage?</h2>
+<blockquote class="verse">Bear one another's burdens, and so fulfill the law of Christ.<cite>Galatians 6:2 (NKJV)</cite></blockquote>
+<p>Intercession is one of the most practical ways to love your neighbor. Many couples quietly struggle with distance, broken trust, old wounds or exhaustion, and they would never say so out loud. A friend who prays faithfully can make a heavy season feel less lonely.</p>
+<p>Healthy marriages need prayer too. Strong couples face pressure, and prayer, Scripture and community help keep a marriage strong before a crisis arrives. Praying for others also tends to soften our own hearts. When you ask God to bless another couple, you often start to see your own marriage with fresh gratitude and fresh humility.</p>
+
+<h2>A 7-day plan for praying for another couple</h2>
+<p>Pick one couple. Ask the Holy Spirit to place one marriage on your heart, and let that be your starting point. Then follow these steps through the week:</p>
+<ol class="checks">
+<li><strong>Choose.</strong> Ask God which couple to pray for. Write their names down where you will see them each morning.</li>
+<li><strong>Connect.</strong> If it is appropriate, privately let them know you are praying. Ask whether they have specific requests, and respect a "no thanks."</li>
+<li><strong>Cover.</strong> Pray daily for each spouse, their relationship with God, their covenant, their home, their children and their future.</li>
+<li><strong>Confront.</strong> Pray against what is hurting the marriage: hurtful patterns, secrecy, unresolved trauma, old family wounds, harmful habits and anything that keeps them from honesty and peace.</li>
+<li><strong>Declare.</strong> Speak Scripture over them. Declare healing, wisdom, unity, forgiveness and restoration, trusting God to do what only He can do.</li>
+<li><strong>Report.</strong> Share how God led you with a trusted prayer partner or your small group, without naming them or exposing private details.</li>
+</ol>
+
+<h2>What to pray for them</h2>
+<p>If you are not sure what to say, start with these prayer points and put their names in:</p>
+<ul class="checks">
+<li><strong>Healing and trust.</strong> Ask God to heal what is wounded and to rebuild trust where it has been broken.</li>
+<li><strong>Honest communication.</strong> Pray for kind, truthful words and for listening ears.</li>
+<li><strong>Forgiveness and humility.</strong> Ask God to soften hearts and to help each spouse own their part.</li>
+<li><strong>Closeness to God.</strong> Pray that each spouse grows in faith and lives out their calling as a kingdom husband and a kingdom wife.</li>
+<li><strong>Freedom from destructive cycles.</strong> Pray that old patterns, including childhood and family wounds, lose their hold.</li>
+<li><strong>Wisdom and support.</strong> Ask God to put the right pastor, counselor or friends in their path.</li>
+</ul>
+<p>For more words and Scriptures to pray, see our guides to <a href="/blog/spiritual-warfare-prayer-for-marriage/">spiritual warfare prayer for your marriage</a>, <a href="/blog/praying-and-fasting-for-your-marriage/">praying and fasting for your marriage</a> and <a href="/blog/break-generational-curses-marriage-prayer/">breaking generational curses</a>. You can also browse our full collection of <a href="/prayers-for-marriage/">prayers for marriage</a>.</p>
+
+<h2>Protect their dignity: confidentiality and humility</h2>
+<p>How you pray matters as much as that you pray. These guardrails keep intercession healthy:</p>
+<ul class="checks">
+<li><strong>Keep it confidential.</strong> What a couple shares with you is not a prayer-chain headline. Do not post it, discuss it casually or pass it along.</li>
+<li><strong>Do not gossip.</strong> "Prayer requests" can slip into gossip very easily. If you would not say it in front of the couple, do not say it behind their backs.</li>
+<li><strong>Do not judge, fix or take sides.</strong> Your job is to carry them to God, not to referee. Pray for both spouses with equal care.</li>
+<li><strong>Ask permission when appropriate.</strong> Praying quietly is always welcome. Reaching out directly should be gentle and respectful.</li>
+</ul>
+<p class="micro"><strong>A note on safety:</strong> prayer never replaces emergency help. If someone is experiencing abuse or is in danger, help them get safe first. Call 911 or the National Domestic Violence Hotline at 1-800-799-7233, and encourage them to seek professional care. Faithfulness never requires tolerating abuse.</p>
+
+<h2>Trust God with your own marriage too</h2>
+<p>You may be thinking, "My own marriage is not where it should be." That is not a disqualification. In fact, Terrie encouraged participants to surrender their own concerns to God while they stand in the gap for someone else, believing He can work in both marriages at once. You can pray for another couple on the same day you ask God to heal your own home.</p>
+<p>If you want support for your own marriage, our <a href="/tuesday-prayer-call/">free Tuesday prayer call</a> is open to couples in every season, healthy or struggling. You can also explore <a href="/marriage-coaching/">Christian marriage coaching</a>, see our <a href="/events/">upcoming events</a>, or <a href="/contact/">contact the ministry</a> with questions.</p>
+
+<h2>Reflection questions</h2>
+<ol>
+<li>When was the last time I prayed earnestly for someone else's marriage?</li>
+<li>Which couple may need quiet, faithful support this week?</li>
+<li>Can I intercede without judging, fixing, gossiping or taking sides?</li>
+<li>What Scripture can I consistently declare over this couple?</li>
+</ol>
+
+<h2>A short prayer for another couple</h2>
+<blockquote class="verse">Lord, place a marriage on my heart and teach me to stand in the gap with love, wisdom and discretion. Heal every wounded place, break harmful patterns, draw each spouse closer to You and strengthen their covenant. As I pray for them, help me trust You with my own marriage. In Jesus' name, amen.</blockquote>
+
+<h2>Take the notes with you</h2>
+<p>If this encouraged you, the full call recap includes the five key teachings, the one-week challenge, reflection questions and next steps. <a href="/prayer-call-notes/2026-11-17-fight-for-someone-elses-marriage/">Read the November 17 Prayer Call Notes</a> online, or <a href="/assets/notes/fight-to-win-marriages-prayer-call-notes-2026-11-17.pdf" download>download the Prayer Call Notes (PDF)</a> to share with your spouse or prayer partner.</p>
+""",
+        "faqs": [
+            ("How do I pray for someone else's marriage?", "Choose one couple, pray for them daily for a week, and ask God to heal, protect and strengthen each spouse and their covenant. Keep what you know confidential, and pray for both spouses with equal care."),
+            ("Should I tell a couple that I am praying for them?", "Often it is a kind gesture to privately let them know and ask whether they have specific requests. Respect their answer, and never share what they tell you with others."),
+            ("Can I pray for another couple if my own marriage is struggling?", "Yes. You do not need a perfect marriage to intercede for others. Surrender your own concerns to God while you pray, trusting Him to work in both marriages at once."),
+        ],
+    },
 ]

@@ -962,10 +962,17 @@ page("/tuesday-prayer-call/", "Free Marriage Prayer Call for Husbands & Wives St
 
 # ---------------------------------------------------------------- CALL NOTES ARCHIVE
 def gatherings_html(heading_tag="h2"):
+    call_card = f'''<div class="card"><h3>Weekly Tuesday Prayer Call</h3><p><strong>Every Tuesday at 6:00 PM Central</strong><br>Zoom Meeting ID: {ZOOM_ID}</p><p><a class="btn gold" href="{ZOOM}" target="_blank" rel="noopener">Join Our Tuesday Prayer Call</a></p><p class="micro"><a href="/tuesday-prayer-call/">Details about the call</a></p></div>'''
+    if BUILD_DATE <= "2026-11-14":
+        houston_card = '<div class="card"><h3>Houston-Area Fellowship Gathering</h3><p><strong>Saturday, November 14, 2026</strong><br>1:00 PM&ndash;3:00 PM<br>Golden Corral, Pearland, Texas</p><p>Food, fellowship, encouragement, and connecting with other members of the marriage ministry.</p><p class="micro">See <a href="/events/">Events &amp; Speaking</a> for more. Contact the ministry through the <a href="/contact/">contact page</a> with questions.</p></div>'
+        future_card = '<div class="card"><h3>Coming in 2027: More Locations Coming Soon</h3><p>Fight to Win Marriages plans to host additional fellowship pop-ups in other cities beginning in 2027. Dates and locations have not been announced yet. Want us to come to your city? <a href="/contact/">Suggest a city</a>.</p></div>'
+    else:
+        houston_card = '<div class="card"><h3>Houston Pop-Up: A Joyful First Gathering</h3><p>The first Houston pop-up was celebrated with food, games, fellowship and prizes. Thank you to everyone who came, including guests from several states.</p><p class="micro">See <a href="/events/">Events &amp; Speaking</a> for what is coming next.</p></div>'
+        future_card = '<div class="card"><h3>Future Pop-Ups: More Cities After the Holidays</h3><p>More cities are planned after the holidays, and Alabama has been named as the likely next stop. Dates and locations have not been announced yet. Want us to come to your city? <a href="/contact/">Suggest a city</a>.</p></div>'
     return f'''<div class="cards three upcoming-gatherings">
-<div class="card"><h3>Weekly Tuesday Prayer Call</h3><p><strong>Every Tuesday at 6:00 PM Central</strong><br>Zoom Meeting ID: {ZOOM_ID}</p><p><a class="btn gold" href="{ZOOM}" target="_blank" rel="noopener">Join Our Tuesday Prayer Call</a></p><p class="micro"><a href="/tuesday-prayer-call/">Details about the call</a></p></div>
-<div class="card"><h3>Houston-Area Fellowship Gathering</h3><p><strong>Saturday, November 14, 2026</strong><br>1:00 PM&ndash;3:00 PM<br>Golden Corral, Pearland, Texas</p><p>Food, fellowship, encouragement, and connecting with other members of the marriage ministry.</p><p class="micro">See <a href="/events/">Events &amp; Speaking</a> for more. Contact the ministry through the <a href="/contact/">contact page</a> with questions.</p></div>
-<div class="card"><h3>Coming in 2027: More Locations Coming Soon</h3><p>Fight to Win Marriages plans to host additional fellowship pop-ups in other cities beginning in 2027. Dates and locations have not been announced yet. Want us to come to your city? <a href="/contact/">Suggest a city</a>.</p></div>
+{call_card}
+{houston_card}
+{future_card}
 </div>'''
 
 def _recap_card(r):
@@ -1597,7 +1604,8 @@ for i, r in enumerate(CALL_RECAPS):
     extra_html = ""
     if r.get("extra"):
         ex = "".join(f"<li><strong>{html.escape(a)}</strong> {html.escape(b)}</li>" for a, b in r["extra"][1])
-        extra_html = f'<h2>{html.escape(r["extra"][0])}</h2><ul class="checks">{ex}</ul>'
+        ex_note = f'<p>{html.escape(r["extra"][2])}</p>' if len(r["extra"]) > 2 else ""
+        extra_html = f'<h2>{html.escape(r["extra"][0])}</h2>{ex_note}<ul class="checks">{ex}</ul>'
     tags_html = ""
     if r.get("tags"):
         tag_items = "".join(f"<li>{html.escape(t)}</li>" for t in r["tags"])
@@ -1607,6 +1615,14 @@ for i, r in enumerate(CALL_RECAPS):
     if rp and rp["date"] <= BUILD_DATE:
         article_html = (f'<h2>Related article</h2><p>Keep going with <a href="/blog/{rp["slug"]}/">{html.escape(rp["title"])}</a>, '
                         f'a practical companion to this call.</p>')
+    community_html = f'<h2>Community and ministry updates</h2><p>{html.escape(r["community"])}</p>' if r.get("community") else ""
+    rl = []
+    for url, label in r.get("related_links", []):
+        m = re.match(r"/blog/([^/]+)/", url)
+        if m and not is_live(m.group(1)):
+            continue
+        rl.append(f'<li><a href="{url}">{html.escape(label)}</a></li>')
+    related_reading_html = f'<h2>Related reading</h2><ul>{"".join(rl)}</ul>' if rl else ""
     d = datetime.date.fromisoformat(r["date"])
     related = ('<p class="micro">Related: <a href="/tuesday-prayer-call/">Tuesday prayer call</a> &middot; <a href="/marriage-coaching/">Christian marriage coaching</a> &middot; '
                '<a href="/get-help/">Marriage help and resources</a> &middot; <a href="/events/">Events</a> &middot; <a href="/contact/">Contact</a></p>')
@@ -1628,6 +1644,8 @@ for i, r in enumerate(CALL_RECAPS):
 {prayer_html}
 {safety_html}
 {article_html}
+{related_reading_html}
+{community_html}
 {gath_html}
 <p><a class="btn" href="{r["pdf"]}" download>Download {d:%B} {d.day} Prayer Call Notes (PDF)</a> <a class="btn ghost" href="/prayer-call-notes/">All call notes</a></p>
 {recap_nav}
