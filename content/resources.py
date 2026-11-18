@@ -139,6 +139,7 @@ CALL_RECAPS = [
             ("/blog/break-generational-curses-marriage-prayer/", "Break generational curses off a marriage"),
             ("/prayers-for-marriage/", "Prayers for marriage"),
         ],
+        "related_post": "how-to-pray-for-someone-elses-marriage",
         "gatherings": True,
     },
     {
