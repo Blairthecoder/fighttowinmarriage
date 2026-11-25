@@ -26,3 +26,11 @@
   from = "/book"
   to = "/contact/"
   status = 301
+[[redirects]]
+  from = "/free-guide/*"
+  to = "/get-help/"
+  status = 301
+[[redirects]]
+  from = "/free-guide"
+  to = "/get-help/"
+  status = 301
