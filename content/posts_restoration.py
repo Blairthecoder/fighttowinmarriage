@@ -39,6 +39,65 @@ _scripture_list = "".join(
 
 POSTS = [
     {
+        "slug": "just-thank-him-while-waiting-marriage-restoration",
+        "title": "Just Thank Him: How to Praise God While You Wait for Marriage Restoration",
+        "seo_title": "Praise God While Waiting for Marriage Restoration | Fight to Win Marriages",
+        "desc": "Learn how gratitude, Scripture and faith can steady your heart while you wait for healing or restoration in your marriage, based on Psalm 34:1.",
+        "date": "2026-11-25",
+        "hub": "restoration",
+        "intent": "faith",
+        "excerpt": "When the answer feels delayed, praise does not have to wait. Learn how to thank God by faith, answer doubt with Scripture and trust His timing.",
+        "body": """
+<p>Waiting can be one of the hardest parts of fighting for a marriage. You may be praying for healing, renewed trust, honest communication, reconciliation or a spouse's return to God, yet the situation still looks the same. In the November 24 Fight to Win Marriages prayer call, Terrie Beeman offered a simple assignment for that in-between season: <strong>just thank Him</strong>.</p>
+<blockquote class="verse">&ldquo;I will bless the Lord at all times; His praise shall continually be in my mouth.&rdquo;<cite>Psalm 34:1 (NKJV)</cite></blockquote>
+<p>Praise is not pretending that pain is not real. It is choosing to anchor your heart in who God is before you can see how the story will unfold.</p>
+<div class="card" style="margin:28px 0"><h2>Download the prayer call handout</h2><p>Keep the Scriptures, reflection questions, prayer focus and weekly gratitude practice from this message.</p><div class="btns"><a class="btn gold" href="/assets/notes/fight-to-win-marriages-2026-11-24-just-thank-him.pdf" download>Download the 2-Page Handout</a><a class="btn ghost" href="/prayer-call-notes/">Browse All Prayer Call Notes</a></div></div>
+<h2>Praise continually, not conditionally</h2>
+<p>It is easy to praise when communication improves, counseling goes well or your spouse takes a hopeful step. Psalm 34:1 points to something deeper: blessing the Lord <em>at all times</em>. Our praise is based on God's goodness, character and presence, not only on the condition of our marriage today.</p>
+<p>This kind of gratitude does not deny disappointment. It gives disappointment a boundary. Pain may describe the moment, but it does not get to define God or write the ending.</p>
+<h2>Thank God before the answer appears</h2>
+<p>Faith-filled gratitude can begin while the prayer is still unanswered. Thank God for the peace you need, the wisdom for your next conversation, the healing that has started beneath the surface and the strength to respond with love and truth. You are not ordering God to produce a specific outcome. You are expressing confidence that He remains present, wise and able.</p>
+<p>Terrie reminded the group to look at God's track record. Remember the prayers He has answered, the doors He has opened, the wisdom He has supplied and the seasons He has already carried you through. What He has done before becomes evidence that you can trust Him again.</p>
+<h2>Answer repeated doubt with truth</h2>
+<p>Fear often repeats the same questions: &ldquo;Did God really say?&rdquo; &ldquo;Can this marriage be healed?&rdquo; &ldquo;Is anything changing?&rdquo; Instead of rehearsing those questions all day, answer them with Scripture and truth.</p>
+<ul class="checks">
+<li><strong>Psalm 34:1:</strong> I can praise God in every season.</li>
+<li><strong>Romans 8:28:</strong> God can work even the difficult parts of this story together for good.</li>
+<li><strong>Psalm 37:23:</strong> God can order and establish my next steps.</li>
+<li><strong>Matthew 19:26:</strong> What is impossible with people is possible with God.</li>
+<li><strong>Ephesians 3:20:</strong> God is able to do beyond what I can ask or imagine.</li>
+</ul>
+<h2>Use the tools God has already given you</h2>
+<p>Encouragement from a weekly call matters, but transformation grows when truth is applied. Prayer, fasting, Scripture, wise community, honest reflection and consistent action help build what Terrie described as a marriage's spiritual immune system.</p>
+<p>Choose one next step you can practice this week. Write a short gratitude prayer each morning. Replace one recurring fear with a verse. Ask for wise pastoral or professional support. Continue interceding for another marriage without gossiping, judging or taking sides.</p>
+<h2>When you catch yourself asking, “When, Lord?”</h2>
+<ol>
+<li><strong>Pause.</strong> Name the fear, impatience or grief beneath the question.</li>
+<li><strong>Remember.</strong> Recall what God has already done and what His Word says.</li>
+<li><strong>Thank.</strong> Express gratitude for God's character, presence and care before circumstances change.</li>
+<li><strong>Declare.</strong> Speak truth over your heart, spouse, home and covenant.</li>
+<li><strong>Obey.</strong> Take the next wise, loving and safe step while leaving timing and outcome with God.</li>
+</ol>
+<h2>Trust God's process without ignoring wisdom or safety</h2>
+<p>God may be preparing the answer, and He may also be preparing you to carry it with humility, wisdom and maturity. Trusting His process does not mean passivity, and it never requires tolerating abuse. Prayer can work alongside healthy boundaries, pastoral care, licensed counseling, legal guidance and emergency help when needed.</p>
+<p>If you or your children are in danger, get to safety and call 911 or the National Domestic Violence Hotline at 1-800-799-7233. Faithfulness and safety belong together.</p>
+<h2>A prayer of gratitude while you wait</h2>
+<blockquote class="verse">Lord, I praise You because You are good, faithful and worthy at all times. Thank You for what You have already done and for the work I cannot yet see. Restore peace, love, honesty, trust, wisdom and healing in our lives and marriages. When fear asks whether You can do it, help us remember Your Word and Your record. Prepare us for Your answer, guide our next steps and teach us to trust Your timing and Your way. In Jesus' name, amen.</blockquote>
+<h2>Keep standing with us</h2>
+<ul>
+<li><a href="/assets/notes/fight-to-win-marriages-2026-11-24-just-thank-him.pdf" download>Download the November 24 &ldquo;Just Thank Him&rdquo; prayer call handout</a>.</li>
+<li><a href="/prayer-call-notes/2026-11-24-just-thank-him/">Read the full November 24 prayer call recap</a>.</li>
+<li><a href="/prayer-call-notes/">Visit the Tuesday prayer call notes archive</a> for more downloadable recaps.</li>
+<li><a href="/tuesday-prayer-call/">Join the free Tuesday marriage prayer and fasting call</a> at 6:00 PM CT.</li>
+</ul>
+""",
+        "faqs": [
+            ("How can I praise God while waiting for marriage restoration?", "Begin with who God is, remember His past faithfulness, thank Him for His presence before circumstances change, and answer repeated fear with Scripture."),
+            ("Does trusting God mean doing nothing?", "No. Trust can include prayer, wise conversations, healthy boundaries, pastoral care, licensed counseling and practical action."),
+            ("Where can I download the Just Thank Him prayer notes?", "The November 24 two-page handout is available from this article and the Tuesday prayer call notes archive."),
+        ],
+    },
+    {
         "slug": "scriptures-for-marriage-restoration",
         "title": "30 Scriptures for Marriage Restoration",
         "seo_title": "30 Scriptures for Marriage Restoration (With Prayers) | Fight to Win Marriages",
