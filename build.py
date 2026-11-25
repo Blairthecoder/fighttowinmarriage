@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Static site generator for fighttowinmarriages (Netlify). Run: python3 build.py"""
 import json, os, html
+from datetime import datetime
 
 SITE = "https://fight-to-win-marriages.netlify.app"  # TODO: swap to custom domain when purchased
 OUT = os.path.join(os.path.dirname(__file__), "site")
@@ -11,7 +12,8 @@ YT_STORY = "https://www.youtube.com/watch?v=5Sk_Hm1As2k"
 VIDEO_TESTIMONY_ONE = "https://drive.google.com/file/d/14QjXP1ye4KxoWnmos3_v8D8_fVchgCz-/view"
 VIDEO_TESTIMONY_TWO = "https://drive.google.com/file/d/1FLaKGGMrJsxTYR0NFuTxW_iGpyC1CmQ5/view"
 CALENDLY = "https://calendly.com/fighttowinmarriages/30min"
-NOTES_PDF = "/assets/notes/fight-to-win-marriages-2026-10-20-spiritual-heart-check.pdf"
+NOTES_PDF = "/assets/notes/fight-to-win-marriages-2026-11-24-just-thank-him.pdf"
+NOTES_OCT20_PDF = "/assets/notes/fight-to-win-marriages-2026-10-20-spiritual-heart-check.pdf"
 EMAIL = "fighttowinmarriages@gmail.com"
 ZOOM = "https://us02web.zoom.us/j/84083347510"
 ZOOM_ID = "840 8334 7510"
@@ -780,31 +782,50 @@ notes = f'''
 <div class="archive-heading"><div><p class="eyebrow">Notes archive</p><h2>Tuesday call recaps</h2></div><p>New notes will be added here as they become available.</p></div>
 <div class="resource-list">
 <article class="card resource-card">
+<div class="resource-date"><span>Nov</span><strong>24</strong><small>2026</small></div>
+<div class="resource-copy">
+<p class="resource-meta"><time datetime="2026-11-24">November 24, 2026</time> &middot; 2 pages &middot; PDF</p>
+<h3>Just Thank Him</h3>
+<p>This recap helps couples practice praise while an answer is still delayed. It covers thanking God by faith, answering doubt with Scripture, remembering God's track record, using the spiritual tools He has given us, and trusting His process and timing.</p>
+<p><a href="/blog/just-thank-him-while-waiting-marriage-restoration/">Read the companion article: Just Thank Him While You Wait</a>.</p>
+<p class="micro">Edited from the formal teaching and closing prayer. Informal conversations after the meeting ended were omitted.</p>
+<div class="btns"><a class="btn" href="{NOTES_PDF}" target="_blank" rel="noopener">View PDF</a><a class="btn ghost" href="{NOTES_PDF}" download>Download PDF</a></div>
+</div>
+</article>
+<article class="card resource-card">
 <div class="resource-date"><span>Oct</span><strong>20</strong><small>2026</small></div>
 <div class="resource-copy">
 <p class="resource-meta"><time datetime="2026-10-20">October 20, 2026</time> &middot; 2 pages &middot; PDF</p>
 <h3>Spiritual Heart Check</h3>
 <p>This recap invites husbands and wives to keep God at the center, begin with their own hearts, identify inner obstacles, receive correction as an opportunity to grow, and practice forgiveness with healthy boundaries. It also includes a marriage examination, personal reflection questions, a prayer focus and next steps.</p>
 <p class="micro">Edited recap prepared from the weekly call summary and transcript; not a verbatim transcript.</p>
-<div class="btns"><a class="btn" href="{NOTES_PDF}" target="_blank" rel="noopener">View PDF</a><a class="btn ghost" href="{NOTES_PDF}" download>Download PDF</a></div>
+<div class="btns"><a class="btn" href="{NOTES_OCT20_PDF}" target="_blank" rel="noopener">View PDF</a><a class="btn ghost" href="{NOTES_OCT20_PDF}" download>Download PDF</a></div>
 </div>
 </article>
 </div>
 </div></section>
 {cta_band(title="Join us for the next Tuesday call.", text="Come for prayer, Scripture and encouragement, then return here for downloadable notes.", primary=("/tuesday-prayer-call/", "Join Tuesday Prayer"), secondary=(CALENDLY, "Book a Meeting"))}
 '''
-notes_document = {
+notes_documents = [{
+    "@type": "DigitalDocument",
+    "name": "Tuesday Prayer Call Recap: Just Thank Him",
+    "description": "Edited recap of the November 24, 2026 Fight to Win Marriages Tuesday prayer call.",
+    "datePublished": "2026-11-24",
+    "encodingFormat": "application/pdf",
+    "contentUrl": SITE + NOTES_PDF,
+    "publisher": {"@id": f"{SITE}/#org"},
+}, {
     "@type": "DigitalDocument",
     "name": "Tuesday Prayer Call Recap: Spiritual Heart Check",
     "description": "Edited recap of the October 20, 2026 Fight to Win Marriages Tuesday prayer call.",
     "datePublished": "2026-10-20",
     "encodingFormat": "application/pdf",
-    "contentUrl": SITE + NOTES_PDF,
+    "contentUrl": SITE + NOTES_OCT20_PDF,
     "publisher": {"@id": f"{SITE}/#org"},
-}
+}]
 page("/prayer-call-notes/", "Weekly Tuesday Prayer Call Notes | Fight to Win Marriages",
      "View and download edited recaps, Scriptures, reflection questions and prayer notes from Fight to Win Marriages' weekly Tuesday calls.",
-     notes, schema=[notes_document], crumb=[("/", "Home"), ("/prayer-call-notes/", "Weekly Call Notes")])
+     notes, schema=notes_documents, crumb=[("/", "Home"), ("/prayer-call-notes/", "Weekly Call Notes")])
 
 # ---------------------------------------------------------------- EVENTS
 ev_faq = [
@@ -888,6 +909,58 @@ page("/contact/", "Book Marriage Coaching or Speaking | Fight to Win Marriages",
 
 # ---------------------------------------------------------------- BLOG
 POSTS = [
+    {
+        "slug": "just-thank-him-while-waiting-marriage-restoration",
+        "title": "Just Thank Him: How to Praise God While You Wait for Marriage Restoration",
+        "seo_title": "Praise God While Waiting for Marriage Restoration | Fight to Win Marriages",
+        "desc": "Learn how gratitude, Scripture and faith can steady your heart while you wait for healing or restoration in your marriage, based on Psalm 34:1.",
+        "date": "2026-11-25",
+        "excerpt": "When the answer feels delayed, praise does not have to wait. Learn how to thank God by faith, answer doubt with Scripture and trust His timing.",
+        "body": f"""
+<p>Waiting can be one of the hardest parts of fighting for a marriage. You may be praying for healing, renewed trust, honest communication, reconciliation or a spouse's return to God, yet the situation still looks the same. In the November 24 Fight to Win Marriages prayer call, Terrie Beeman offered a simple assignment for that in-between season: <strong>just thank Him</strong>.</p>
+<blockquote class="verse">&ldquo;I will bless the Lord at all times; His praise shall continually be in my mouth.&rdquo;<cite>Psalm 34:1 (NKJV)</cite></blockquote>
+<p>Praise is not pretending that pain is not real. It is choosing to anchor your heart in who God is before you can see how the story will unfold.</p>
+<div class="card" style="margin:28px 0"><h2>Download the prayer call handout</h2><p>Keep the Scriptures, reflection questions, prayer focus and weekly gratitude practice from this message.</p><div class="btns"><a class="btn gold" href="{NOTES_PDF}" download>Download the 2-Page Handout</a><a class="btn ghost" href="/prayer-call-notes/">Browse All Prayer Call Notes</a></div></div>
+<h2>Praise continually, not conditionally</h2>
+<p>It is easy to praise when communication improves, counseling goes well or your spouse takes a hopeful step. Psalm 34:1 points to something deeper: blessing the Lord <em>at all times</em>. Our praise is based on God's goodness, character and presence, not only on the condition of our marriage today.</p>
+<p>This kind of gratitude does not deny disappointment. It gives disappointment a boundary. Pain may describe the moment, but it does not get to define God or write the ending.</p>
+<h2>Thank God before the answer appears</h2>
+<p>Faith-filled gratitude can begin while the prayer is still unanswered. Thank God for the peace you need, the wisdom for your next conversation, the healing that has started beneath the surface and the strength to respond with love and truth. You are not ordering God to produce a specific outcome. You are expressing confidence that He remains present, wise and able.</p>
+<p>Terrie reminded the group to look at God's track record. Remember the prayers He has answered, the doors He has opened, the wisdom He has supplied and the seasons He has already carried you through. What He has done before becomes evidence that you can trust Him again.</p>
+<h2>Answer repeated doubt with truth</h2>
+<p>Fear often repeats the same questions: &ldquo;Did God really say?&rdquo; &ldquo;Can this marriage be healed?&rdquo; &ldquo;Is anything changing?&rdquo; Instead of rehearsing those questions all day, answer them with Scripture and truth.</p>
+<ul class="checks">
+<li><strong>Psalm 34:1:</strong> I can praise God in every season.</li>
+<li><strong>Romans 8:28:</strong> God can work even the difficult parts of this story together for good.</li>
+<li><strong>Psalm 37:23:</strong> God can order and establish my next steps.</li>
+<li><strong>Matthew 19:26:</strong> What is impossible with people is possible with God.</li>
+<li><strong>Ephesians 3:20:</strong> God is able to do beyond what I can ask or imagine.</li>
+</ul>
+<h2>Use the tools God has already given you</h2>
+<p>Encouragement from a weekly call matters, but transformation grows when truth is applied. Prayer, fasting, Scripture, wise community, honest reflection and consistent action help build what Terrie described as a marriage's spiritual immune system.</p>
+<p>Choose one next step you can practice this week. Write a short gratitude prayer each morning. Replace one recurring fear with a verse. Ask for wise pastoral or professional support. Continue interceding for another marriage without gossiping, judging or taking sides.</p>
+<h2>When you catch yourself asking, “When, Lord?”</h2>
+<ol>
+<li><strong>Pause.</strong> Name the fear, impatience or grief beneath the question.</li>
+<li><strong>Remember.</strong> Recall what God has already done and what His Word says.</li>
+<li><strong>Thank.</strong> Express gratitude for God's character, presence and care before circumstances change.</li>
+<li><strong>Declare.</strong> Speak truth over your heart, spouse, home and covenant.</li>
+<li><strong>Obey.</strong> Take the next wise, loving and safe step while leaving timing and outcome with God.</li>
+</ol>
+<h2>Trust God's process without ignoring wisdom or safety</h2>
+<p>God may be preparing the answer, and He may also be preparing you to carry it with humility, wisdom and maturity. Trusting His process does not mean passivity, and it never requires tolerating abuse. Prayer can work alongside healthy boundaries, pastoral care, licensed counseling, legal guidance and emergency help when needed.</p>
+<p>If you or your children are in danger, get to safety and call 911 or the National Domestic Violence Hotline at 1-800-799-7233. Faithfulness and safety belong together.</p>
+<h2>A prayer of gratitude while you wait</h2>
+<blockquote class="verse">Lord, I praise You because You are good, faithful and worthy at all times. Thank You for what You have already done and for the work I cannot yet see. Restore peace, love, honesty, trust, wisdom and healing in our lives and marriages. When fear asks whether You can do it, help us remember Your Word and Your record. Prepare us for Your answer, guide our next steps and teach us to trust Your timing and Your way. In Jesus' name, amen.</blockquote>
+<h2>Keep standing with us</h2>
+<ul>
+<li><a href="{NOTES_PDF}" download>Download the November 24 &ldquo;Just Thank Him&rdquo; prayer call handout</a>.</li>
+<li><a href="/prayer-call-notes/">Visit the Tuesday prayer call notes archive</a> for more downloadable recaps.</li>
+<li><a href="/tuesday-prayer-call/">Join the free Tuesday marriage prayer and fasting call</a> at 6:00 PM CT.</li>
+<li><a href="/marriage-coaching/">Explore Christian marriage coaching</a> for personal support.</li>
+</ul>
+""",
+    },
     {
         "slug": "break-generational-curses-marriage-prayer",
         "title": "Break the Curse: 20 Declarations to Break Generational Curses Off Your Marriage",
@@ -1026,16 +1099,19 @@ POSTS = [
 def author_box():
     return f'''<aside class="author card"><div class="portrait xs">{PORTRAIT.format(extra='loading="lazy"')}</div><div><p class="eyebrow">Written by</p><h2><a href="/about/">Terrie Beeman</a></h2><p>Certified Christian Counselor, marriage coach, prayer warrior and founder of Fight to Win Marriages. Married 34 years, Terrie hosts a weekly Tuesday prayer and fasting call for couples.</p></div></aside>'''
 
+def display_date(value):
+    return datetime.strptime(value, "%Y-%m-%d").strftime("%B %-d, %Y") if os.name != "nt" else datetime.strptime(value, "%Y-%m-%d").strftime("%B %#d, %Y")
+
 cards = ""
 for p in POSTS:
     u = f"/blog/{p['slug']}/"
-    cards += f'<article class="card post"><p class="micro"><time datetime="{p["date"]}">October 19, 2026</time></p><h2><a href="{u}">{html.escape(p["title"])}</a></h2><p>{html.escape(p["excerpt"])}</p><a class="link" href="{u}">Read more &rarr;</a></article>'
+    cards += f'<article class="card post"><p class="micro"><time datetime="{p["date"]}">{display_date(p["date"])}</time></p><h2><a href="{u}">{html.escape(p["title"])}</a></h2><p>{html.escape(p["excerpt"])}</p><a class="link" href="{u}">Read more &rarr;</a></article>'
     others = "".join(f'<li><a href="/blog/{o["slug"]}/">{html.escape(o["title"])}</a></li>' for o in POSTS if o is not p)
     body = f'''
 <article class="section"><div class="wrap narrow prose">
 <p class="eyebrow">Marriage Blog</p>
 <h1>{html.escape(p["title"])}</h1>
-<p class="meta">By <a href="/about/">Terrie Beeman</a> &middot; <time datetime="{p["date"]}">October 19, 2026</time></p>
+<p class="meta">By <a href="/about/">Terrie Beeman</a> &middot; <time datetime="{p["date"]}">{display_date(p["date"])}</time></p>
 {p["body"]}
 {author_box()}
 <h2>Keep reading</h2><ul>{others}</ul>
@@ -1077,7 +1153,7 @@ urls = ["/", "/about/", "/marriage-coaching/", "/tuesday-prayer-call/", "/prayer
 with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for u in urls:
-        f.write(f"  <url><loc>{SITE}{u}</loc><lastmod>2026-10-23</lastmod></url>\n")
+        f.write(f"  <url><loc>{SITE}{u}</loc><lastmod>2026-11-25</lastmod></url>\n")
     f.write("</urlset>\n")
 with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
     f.write(f"User-agent: *\nDisallow: /thank-you/\n\nSitemap: {SITE}/sitemap.xml\n")
